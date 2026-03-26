@@ -1,5 +1,12 @@
 // Мобильное меню (без анимаций пролистывания)
 document.addEventListener("DOMContentLoaded", () => {
+  // Ring particles around the visibility paragraph (CodePen-inspired)
+  if ("paintWorklet" in CSS) {
+    CSS.paintWorklet
+      .addModule("https://unpkg.com/css-houdini-ringparticles/dist/ringparticles.js")
+      .catch(() => {});
+  }
+
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".main-nav");
 
@@ -10,6 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.toggle("nav-open", !expanded);
       nav.classList.toggle("nav-open", !expanded);
     });
+  }
+
+  const visibilitySection = document.querySelector(".visibility-section");
+  if (visibilitySection) {
+    if ("paintWorklet" in CSS) {
+      visibilitySection.style.backgroundImage = "paint(ring-particles)";
+    }
+
+    // Static centered ring
+    visibilitySection.style.setProperty("--ring-x", "50");
+    visibilitySection.style.setProperty("--ring-y", "50");
   }
 
   // Brands slider
@@ -86,6 +104,41 @@ document.addEventListener("DOMContentLoaded", () => {
     revealTargets.forEach(el => el.classList.add("is-visible"));
   }
 
+  // CodePen-inspired typewriter reveal for key headings
+  const typewriterTargets = document.querySelectorAll(
+    ".section-header h2, .platform-slide h3, .brand-content h3"
+  );
+
+  typewriterTargets.forEach((el, index) => {
+    el.classList.add("js-typewriter");
+    el.style.setProperty("--tw-duration", `${1100 + Math.min(index * 40, 500)}ms`);
+  });
+
+  const runTypewriter = el => {
+    el.classList.remove("is-typed");
+    // restart animation reliably
+    void el.offsetWidth;
+    el.classList.add("is-typed");
+  };
+
+  if ("IntersectionObserver" in window) {
+    const typewriterObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            runTypewriter(entry.target);
+            typewriterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    typewriterTargets.forEach(el => typewriterObserver.observe(el));
+  } else {
+    typewriterTargets.forEach(runTypewriter);
+  }
+
   // Re-animate active brand slide on switch
   if (brandButtons.length && brandSlides.length) {
     brandButtons.forEach(button => {
@@ -94,6 +147,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active) {
           active.classList.remove("is-visible");
           requestAnimationFrame(() => active.classList.add("is-visible"));
+
+          const brandTitle = active.querySelector("h3");
+          if (brandTitle && brandTitle.classList.contains("js-typewriter")) {
+            runTypewriter(brandTitle);
+          }
+        }
+      });
+    });
+  }
+
+  if (platformButtons.length && platformSlides.length) {
+    platformButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const activePlatform = document.querySelector(".platform-slide.is-active h3");
+        if (activePlatform && activePlatform.classList.contains("js-typewriter")) {
+          runTypewriter(activePlatform);
         }
       });
     });
