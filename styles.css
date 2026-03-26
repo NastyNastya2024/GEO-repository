@@ -9,7 +9,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+  font-family: "Jura", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Segoe UI", sans-serif;
   color: #0f172a;
   background-color: #020617;
@@ -17,6 +17,23 @@ body {
 
 body {
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Jura", system-ui, sans-serif;
+}
+
+.main-nav,
+.header-cta,
+.footer-links a,
+.brands-nav-item,
+.platforms-nav-item {
+  font-family: "Montserrat", system-ui, sans-serif;
 }
 
 a {
@@ -69,7 +86,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 1.5rem;
+  gap: 1rem;
+  padding: 0.55rem 1rem;
+  max-width: 1360px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -102,8 +122,15 @@ main {
   display: flex;
   align-items: center;
   gap: 0;
-  font-size: 1.8rem; /* увеличили размер пунктов меню в 2 раза */
+  font-family: "Jura", system-ui, sans-serif; /* тем же шрифтом */
+  font-size: 0.7rem; /* компактное меню */
   color: #cbd5f5;
+  background: rgba(10, 14, 24, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  margin: 0 auto; /* отдельным полем по центру */
+  backdrop-filter: blur(8px);
 }
 
 /* Квадратные скобки вокруг меню */
@@ -111,8 +138,8 @@ main {
 .main-nav::after {
   content: "[";
   color: #ffffff;
-  font-size: 2rem; /* скобки крупнее */
-  margin: 0 1.2rem;
+  font-size: 1rem;
+  margin: 0 0.35rem;
 }
 
 .main-nav::after {
@@ -124,14 +151,15 @@ main {
   padding-bottom: 0.15rem;
   text-transform: uppercase;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .main-nav a::after {
   content: "/";
   position: static;
-  margin: 0 1.2rem;
-  color: #00f58c;
+  margin: 0 0.45rem;
+  color: #116feb;
 }
 
 .main-nav a:last-child::after {
@@ -140,7 +168,7 @@ main {
 }
 
 .header-cta {
-  margin-left: 1.5rem;
+  margin-left: auto;
 }
 
 .burger {
@@ -204,14 +232,15 @@ main {
 
 /* Ярко‑зелёная кнопка CONTACT в шапке поверх базовых стилей кнопок */
 .btn.header-cta {
-  background: #00f58c;
-  border-color: #00f58c;
+  background: #116feb;
+  border-color: #116feb;
   color: #000000;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  border-radius: 0;
-  padding-inline: 1.8rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  padding: 0.5rem 1rem;
 }
 
 .btn.header-cta:hover {
@@ -389,34 +418,24 @@ main {
 .platforms-layout {
   flex: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
-  gap: 2.8rem;
+  grid-template-columns: minmax(0, 1fr); /* оставляем одну колонку: без дублирующейся трапеции */
+  gap: 1.8rem;
   align-items: center; /* выравниваем контент по вертикали относительно трапеции */
 }
 
 .platforms-media {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh; /* трапеция растягивается на всю высоту экрана */
-  margin-left: calc(-50vw + 50%); /* прижимаем к левому краю экрана */
-  max-width: 45vw; /* делаем трапецию уже */
+  display: none; /* убираем локальную (малую) трапецию */
 }
 
 .platforms-media-shape {
-  position: absolute;
-  inset: 0; /* без отступов сверху/снизу — на всю высоту блока */
-  background:
-    radial-gradient(circle at 10% 0, #22c55e, transparent 55%),
-    radial-gradient(circle at 80% 100%, #6366f1, transparent 55%),
-    linear-gradient(135deg, #111827, #020617);
-  clip-path: polygon(0 0, 70% 0, 100% 100%, 0 100%);
+  display: none;
 }
 
 .platforms-content {
   position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 9rem; /* увеличили расстояние между цифрами и текстом примерно в 5 раз */
+  gap: 4.8rem; /* расстояние от цифр до текста увеличено в 2 раза */
   align-items: flex-start;
 }
 
@@ -434,7 +453,7 @@ main {
   padding: 0;
   margin: 0;
   font: inherit;
-  font-size: 0.85rem;
+  font-size: 1.7rem; /* цифры увеличены в 2 раза */
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(148, 163, 184, 0.7);
@@ -460,7 +479,7 @@ main {
 }
 
 .platforms-nav-item.is-active::after {
-  background: linear-gradient(90deg, #22c55e, #38bdf8);
+  background: linear-gradient(90deg, #116feb, #38bdf8);
   opacity: 1;
 }
 
@@ -494,13 +513,13 @@ main {
 }
 
 .platform-slide h3 {
-  margin: 0 0 3.75rem; /* увеличили расстояние между заголовком и текстом в ~5 раз */
-  font-size: 3.3rem; /* заголовок в 2 раза больше */
+  margin: 0 0 1.2rem; /* поднимаем абзац ближе к заголовку */
+  font-size: 4.8rem; /* заголовок в 2 раза больше */
 }
 
 .platform-text {
   margin: 0;
-  font-size: 0.96rem; /* уменьшен кегль текста на 50% от предыдущего значения */
+  font-size: 1.92rem; /* основной текст в 2 раза больше */
   color: rgba(226, 232, 240, 0.9);
   max-width: 34rem;
 }
@@ -550,34 +569,26 @@ main {
 }
 
 .visibility-lines {
-  position: absolute;
-  inset: 12%;
-  border-radius: 18px;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(229, 231, 235, 0.7) 0px,
-    rgba(229, 231, 235, 0.7) 1px,
-    transparent 1px,
-    transparent 5px
-  );
-  opacity: 0.16;
-  transform: translateX(-14%);
-  animation: visibilityLinesMove 16s linear infinite alternate;
+  display: none; /* убираем рисунок/подложку под текстом */
 }
 
 .visibility-text {
   position: relative;
-  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-size: clamp(2.7rem, 4vw, 3.7rem); /* уменьшили примерно в 3 раза */
   line-height: 1.35;
   letter-spacing: -0.03em;
   color: #f9fafb;
   max-width: 54rem;
   margin: 0 auto;
   text-align: left;
+  opacity: 0;
+  transform: translateY(36px) scale(0.98);
+  animation: visibilityPopUp 1200ms cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
+  will-change: transform, opacity;
 }
 
 .accent-green {
-  color: #22c55e;
+  color: #116feb;
 }
 
 @keyframes visibilityLinesMove {
@@ -586,6 +597,17 @@ main {
   }
   100% {
     transform: translateX(10%);
+  }
+}
+
+@keyframes visibilityPopUp {
+  0% {
+    opacity: 0;
+    transform: translateY(42px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -661,7 +683,7 @@ main {
   margin: 0;
   font: inherit;
   color: rgba(226, 232, 240, 0.65);
-  font-size: 0.9rem;
+  font-size: 1.8rem; /* переключатели в 2 раза больше */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-align: left;
@@ -687,13 +709,13 @@ main {
 }
 
 .brands-nav-item.is-active::after {
-  background: linear-gradient(90deg, #22c55e, #38bdf8);
+  background: linear-gradient(90deg, #116feb, #38bdf8);
   opacity: 1;
 }
 
 .brands-slider {
   position: relative;
-  min-height: 340px;
+  min-height: calc((1.8rem * 10) + (0.9rem * 9) + 1.5rem);
   margin-top: 2rem; /* немного опускаем плашку вниз */
 }
 
@@ -702,7 +724,7 @@ main {
   inset: 0;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 2.5rem;
+  gap: 1rem;
   align-items: center;
   padding: 2.4rem 2.8rem;
   background: radial-gradient(circle at 10% 0, #064e3b, #020617 70%);
@@ -723,8 +745,10 @@ main {
 .brand-media {
   position: relative;
   border-radius: 20px;
+  width: 72%;
+  justify-self: end;
   min-height: 220px;
-  background: radial-gradient(circle at 10% 0, #22c55e, transparent 60%),
+  background: radial-gradient(circle at 10% 0, #116feb, transparent 60%),
     radial-gradient(circle at 90% 100%, #38bdf8, transparent 60%),
     linear-gradient(160deg, #0f172a, #020617);
   display: flex;
@@ -761,7 +785,7 @@ main {
 
 .brand-content h3 {
   margin: 0 0 0.85rem;
-  font-size: 1.4rem;
+  font-size: 2.8rem; /* заголовок карточки в 2 раза больше */
 }
 
 .brand-tag {
@@ -774,7 +798,7 @@ main {
 
 .brand-text {
   margin: 0;
-  font-size: 0.96rem;
+  font-size: 1.92rem; /* текст карточки в 2 раза больше */
   color: rgba(226, 232, 240, 0.92);
   max-width: 30rem;
 }
@@ -811,18 +835,7 @@ main {
 
 /* Градиент, создающий эффект наложения между блоками */
 #how-we-help.section::before {
-  content: "";
-  position: absolute;
-  top: -3.5rem;
-  left: 0;
-  right: 0;
-  height: 3.5rem;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
-  pointer-events: none;
-}
-
-#how-we-help.section.section-overlay-visible {
-  /* используется как дополнительный флаг, если нужно расширить логику */
+  display: none;
 }
 
 .section-header h2 {
@@ -1022,6 +1035,23 @@ main {
   margin: 0.55rem 0 0;
   font-size: 0.9rem;
   color: #9ca3af;
+}
+
+/* Увеличение шрифта в FAQ в 2 раза */
+#faq .kicker {
+  font-size: 1.4rem;
+}
+
+#faq .section-header h2 {
+  font-size: clamp(3.2rem, 4.2vw, 4rem);
+}
+
+#faq .faq-list summary {
+  font-size: 1.88rem;
+}
+
+#faq .faq-list p {
+  font-size: 1.8rem;
 }
 
 /* Contact */
@@ -1290,13 +1320,30 @@ body {
 }
 
 main {
-  padding-top: 80px;
+  padding-top: 0;
 }
 
 .site-header {
+  position: fixed;
+  overflow: hidden;
   backdrop-filter: blur(18px);
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.45);
   border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.header-under-image {
+  display: none;
+}
+
+.header-under-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .logo-mark {
@@ -1304,7 +1351,7 @@ main {
 }
 
 .logo-text {
-  color: #4ade80; /* ярко-зелёный */
+  color: #116feb; /* акцентный цвет */
   font-size: 2.5rem; /* примерно в 2 раза больше */
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1329,11 +1376,12 @@ main {
 }
 
 .hero {
-  padding: 4.8rem 0 4rem;
+  padding: calc(4.8rem + 80px) 0 4rem;
   min-height: 100vh; /* hero тоже на всю высоту экрана */
+  position: relative;
   display: flex;
   align-items: center;
-  background: transparent;
+  background: url("Img/header-under.png") center center / cover no-repeat;
   color: #f9fafb;
 }
 
@@ -1345,6 +1393,19 @@ main {
   display: block;
   align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.92;
 }
 
 /* Расширяем контейнер в hero на всю ширину экрана */
@@ -1361,10 +1422,15 @@ main {
 }
 
 .hero h1 {
+  margin-top: 420px; /* опускаем заголовок еще ниже */
   font-size: clamp(3.5rem, 8vw, 5.8rem);
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: #ffffff;
+}
+
+.hero h1 span:nth-child(2) {
+  padding-left: 240px; /* еще больше смещаем вторую строку вправо */
 }
 
 .hero-subtitle {
@@ -1534,6 +1600,326 @@ main {
 
 .footer-meta a:hover {
   color: #f9fafb;
+}
+
+/* ===== Apple UI style overrides ===== */
+:root {
+  --apple-bg: #0b0b0f;
+  --apple-surface: rgba(28, 28, 34, 0.58);
+  --apple-surface-strong: rgba(34, 34, 42, 0.72);
+  --apple-border: rgba(255, 255, 255, 0.14);
+  --apple-text: #f5f5f7;
+  --apple-subtext: #b9bcc6;
+  --apple-blue: #0a84ff;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Arial, sans-serif;
+  background: var(--apple-bg);
+  color: var(--apple-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  position: relative;
+}
+
+/* Глобальный синий треугольник под всеми блоками до конца лендинга */
+body::before {
+  display: none;
+}
+
+/* Контент выше фоновой трапеции */
+header,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue",
+    Arial, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.site-header {
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  border-bottom: 1px solid var(--apple-border);
+}
+
+.header-inner {
+  border-radius: 14px;
+}
+
+.main-nav {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.06)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  padding: 0.45rem 0.85rem;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.main-nav a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.btn {
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.btn.header-cta {
+  background: var(--apple-blue);
+  border-color: var(--apple-blue);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(10, 132, 255, 0.3);
+}
+
+.section,
+.section-alt,
+.section-accent {
+  background: transparent; /* чтобы треугольник был виден под блоками */
+  min-height: auto !important; /* убираем большие пустые экраны между абзацами/блоками */
+  padding-top: 6rem !important; /* увеличиваем расстояние между блоками в 3 раза */
+  padding-bottom: 6rem !important;
+}
+
+.card,
+.pill-card,
+.step,
+.faq-list details,
+.brand-slide,
+.contact-form {
+  background: var(--apple-surface);
+  border: 1px solid var(--apple-border);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.section-subtitle,
+.step p,
+.card p,
+.brand-text,
+.platform-text,
+.faq-list p,
+.form-note {
+  color: var(--apple-subtext);
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.45;
+}
+
+.logo-text,
+.accent,
+.platforms-nav-item.is-active,
+.brands-nav-item.is-active {
+  color: var(--apple-blue) !important;
+}
+
+/* Убираем зеленую подложку в блоке брендов */
+.brands-section {
+  background: transparent !important;
+}
+
+.brands-overlay-bg {
+  display: none !important;
+}
+
+/* ===== Advanced motion system ===== */
+body::after {
+  content: "";
+  position: fixed;
+  right: -12vw;
+  top: 10vh;
+  width: min(34vw, 520px);
+  height: min(34vw, 520px);
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(10, 132, 255, 0.25) 0%,
+    rgba(10, 132, 255, 0.08) 42%,
+    transparent 72%
+  );
+  filter: blur(8px);
+  animation: orbFloat 16s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-4vw, 4vh, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.06) 35%,
+    transparent 55%
+  );
+  transform: translateX(-120%);
+  animation: heroSweep 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes heroSweep {
+  0%,
+  20% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  30%,
+  70% {
+    transform: translateX(120%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+.js-reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(0.985);
+  transition:
+    opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== Cinematic / non-standard motion layer ===== */
+@keyframes prismShift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translate3d(1.2vw, -1.2vh, 0) scale(1.06) rotate(1.2deg);
+    filter: hue-rotate(12deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes textGhostIn {
+  0% {
+    opacity: 0;
+    transform: translateY(36px) scale(0.97);
+    filter: blur(14px);
+    letter-spacing: 0.08em;
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    letter-spacing: normal;
+  }
+}
+
+@keyframes cardBreath {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0) scale(1.01);
+    box-shadow: 0 18px 46px rgba(17, 111, 235, 0.22);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  }
+}
+
+.hero-content h1 span {
+  display: block;
+  opacity: 0;
+  animation: textGhostIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-content h1 span:nth-child(1) {
+  animation-delay: 120ms;
+}
+
+.hero-content h1 span:nth-child(2) {
+  animation-delay: 320ms;
+}
+
+.hero {
+  overflow: hidden;
+}
+
+.hero::before {
+  display: block !important;
+  inset: -24%;
+  opacity: 0.38;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(17, 111, 235, 0.45), transparent 45%),
+    radial-gradient(circle at 80% 0, rgba(99, 102, 241, 0.35), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(56, 189, 248, 0.2), transparent 55%);
+  filter: blur(22px);
+  animation: prismShift 14s ease-in-out infinite;
+}
+
+.brand-slide.is-active,
+.platform-slide.is-active {
+  animation: cardBreath 8s ease-in-out infinite;
+}
+
+/* JS-driven parallax hooks */
+.fx-depth-1,
+.fx-depth-2,
+.fx-depth-3 {
+  will-change: transform;
+  transform: translate3d(var(--fx-x, 0), var(--fx-y, 0), 0);
 }
 
 
