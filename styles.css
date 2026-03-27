@@ -613,6 +613,39 @@ main {
   display: none; /* убираем рисунок/подложку под текстом */
 }
 
+.visibility-wave-ribbon {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 54%;
+  height: 88px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.visibility-wave-ribbon::before,
+.visibility-wave-ribbon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle, rgba(64, 141, 255, 0.95) 1.6px, transparent 2.2px)
+      0 50% / 16px 16px repeat-x;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 32%, transparent 86%);
+  mask-image: radial-gradient(ellipse at center, #000 32%, transparent 86%);
+}
+
+.visibility-wave-ribbon::before {
+  animation: ribbonWaveA 7.5s ease-in-out infinite;
+}
+
+.visibility-wave-ribbon::after {
+  opacity: 0.62;
+  filter: blur(0.4px);
+  animation: ribbonWaveB 5.5s ease-in-out infinite;
+}
+
 .visibility-text {
   position: relative;
   z-index: 1;
@@ -656,6 +689,36 @@ main {
   100% {
     filter: blur(12px);
     transform: scale(0.98);
+  }
+}
+
+@keyframes ribbonWaveA {
+  0% {
+    transform: translate3d(-1.5%, -8px, 0);
+    background-position: 0 50%;
+  }
+  50% {
+    transform: translate3d(1.5%, 8px, 0);
+    background-position: 24px 50%;
+  }
+  100% {
+    transform: translate3d(-1.5%, -8px, 0);
+    background-position: 48px 50%;
+  }
+}
+
+@keyframes ribbonWaveB {
+  0% {
+    transform: translate3d(1%, 10px, 0) scale(1.02);
+    background-position: 0 50%;
+  }
+  50% {
+    transform: translate3d(-1%, -10px, 0) scale(0.98);
+    background-position: -22px 50%;
+  }
+  100% {
+    transform: translate3d(1%, 10px, 0) scale(1.02);
+    background-position: -44px 50%;
   }
 }
 
