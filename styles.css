@@ -100,6 +100,12 @@ main {
   color: #e5e7eb;
 }
 
+.logo-image {
+  width: clamp(88px, 9.5vw, 160px);
+  height: auto;
+  display: block;
+}
+
 .logo-mark {
   display: inline-flex;
   align-items: center;
@@ -169,6 +175,7 @@ main {
 
 .header-cta {
   margin-left: auto;
+  transform: translateY(-4px);
 }
 
 .burger {
@@ -2012,8 +2019,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue",
-    Arial, sans-serif;
+  font-family: "Audiowide", -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Helvetica Neue", Arial, sans-serif;
   letter-spacing: -0.02em;
 }
 
@@ -2420,8 +2427,8 @@ body::after {
 
 .stack-card:nth-child(3) .stack-card__content {
   background:
-    linear-gradient(145deg, rgba(103, 232, 249, 0.28), rgba(56, 189, 248, 0.24) 40%, rgba(125, 211, 252, 0.18)),
-    linear-gradient(120deg, #0c4a6e 0%, #0369a1 34%, #0ea5e9 66%, #67e8f9 100%);
+    linear-gradient(145deg, rgba(139, 92, 246, 0.28), rgba(96, 165, 250, 0.24) 42%, rgba(56, 189, 248, 0.2)),
+    linear-gradient(120deg, #4c1d95 0%, #6d28d9 32%, #2563eb 64%, #67e8f9 100%);
 }
 
 .stack-card:nth-child(1) .stack-card__content::before,
@@ -2462,6 +2469,55 @@ body::after {
     border-radius: 18px;
     box-shadow: 0 44px 74px -10px var(--stack-shadow);
   }
+}
+
+/* Popup modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.74);
+  display: grid;
+  place-items: center;
+  z-index: 120;
+  padding: 1rem;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-dialog {
+  width: min(680px, 96vw);
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  padding: 1.1rem 1.2rem 1.2rem;
+  position: relative;
+}
+
+.modal-dialog h3 {
+  margin: 0 2rem 0.65rem 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.8rem);
+  color: #f8fafc;
+}
+
+.modal-dialog p {
+  margin: 0 0 0.7rem;
+  color: #d1d5db;
+  line-height: 1.45;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.7rem;
+  border: 0;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 

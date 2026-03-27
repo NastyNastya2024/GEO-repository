@@ -19,6 +19,86 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Footer/header popups
+  const modal = document.querySelector("#site-modal");
+  const modalTitle = document.querySelector("#modal-title");
+  const modalBody = document.querySelector("#modal-body");
+  const modalClose = document.querySelector(".modal-close");
+  const popupTriggers = document.querySelectorAll("[data-popup]");
+
+  const popupContent = {
+    contacts: {
+      title: "Контакты",
+      body: `
+        <p>ИП Комарова</p>
+        <p>Телефон: <a href="tel:89060959296">8 906 095-92-96</a></p>
+      `
+    },
+    privacy: {
+      title: "Политика конфиденциальности",
+      body: `
+        <p>Мы обрабатываем персональные данные только для связи по заявкам и оказания услуг.</p>
+        <p>Данные не передаются третьим лицам без законных оснований и хранятся в защищенном виде.</p>
+      `
+    },
+    consent: {
+      title: "Согласие на обработку данных",
+      body: `
+        <p>Оставляя данные на сайте, вы даете согласие на обработку персональных данных в целях обратной связи и оказания услуг.</p>
+        <p>Вы можете отозвать согласие, направив запрос по контактному номеру, указанному в разделе «Контакты».</p>
+      `
+    },
+    terms: {
+      title: "Условия использования",
+      body: `
+        <p>Используя сайт, вы соглашаетесь с условиями обработки информации и правилами взаимодействия.</p>
+        <p>Материалы сайта носят информационный характер и не являются публичной офертой.</p>
+      `
+    }
+  };
+
+  const openModal = key => {
+    if (!modal || !modalTitle || !modalBody || !popupContent[key]) return;
+    modalTitle.textContent = popupContent[key].title;
+    modalBody.innerHTML = popupContent[key].body;
+    modal.hidden = false;
+  };
+
+  const closeModal = () => {
+    if (!modal) return;
+    modal.hidden = true;
+  };
+
+  popupTriggers.forEach(trigger => {
+    trigger.addEventListener("click", e => {
+      e.preventDefault();
+      openModal(trigger.getAttribute("data-popup"));
+    });
+  });
+
+  // Ensure header "Контакты" opens the same footer contacts popup
+  const headerContactsBtn = document.querySelector(".header-cta");
+  if (headerContactsBtn) {
+    headerContactsBtn.addEventListener("click", e => {
+      e.preventDefault();
+      openModal("contacts");
+    });
+  }
+
+  if (modalClose) {
+    modalClose.addEventListener("click", closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener("click", e => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+  });
+
   const visibilitySection = document.querySelector(".visibility-section");
   if (visibilitySection) {
     if ("paintWorklet" in CSS) {

@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -58,9 +58,9 @@
     <header class="site-header">
       <div class="container header-inner">
         <a href="#hero" class="logo">
-          <span class="logo-text">(/)</span>
+          <img src="Img/logo-geo.png" alt="GEO logo" class="logo-image" />
         </a>
-        <a href="#contact" class="btn btn-outline header-cta">
+        <a href="#" class="btn btn-outline header-cta" data-popup="contacts">
           Контакты
         </a>
         <button
@@ -443,25 +443,28 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-main">
-          <div class="footer-brand">
-            <span class="logo-text">(/)</span>
-          </div>
           <div class="footer-links">
-            <a href="#how-we-help">Как мы помогаем</a>
-            <a href="#who-we-help">Кому подойдёт</a>
             <a href="#faq">FAQ</a>
-            <a href="#contact">Контакты</a>
+            <a href="#" data-popup="contacts">Контакты</a>
           </div>
         </div>
         <div class="footer-bottom">
           <p>(/) © 2025</p>
           <div class="footer-meta">
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Условия использования</a>
+            <a href="#" data-popup="privacy">Политика конфиденциальности</a>
+            <a href="#" data-popup="consent">Согласие на обработку данных</a>
           </div>
         </div>
       </div>
     </footer>
+
+    <div class="modal-overlay" id="site-modal" hidden>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+        <h3 id="modal-title"></h3>
+        <div id="modal-body"></div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
