@@ -803,6 +803,12 @@ main {
   pointer-events: none;
 }
 
+/* Меньше зазор между карточками и блоком "Отрасли" */
+.stacking-cases + .dot-wave-divider {
+  height: clamp(50px, 7vw, 86px);
+  margin: -3.4rem 0 -1.6rem;
+}
+
 .dot-wave-layer {
   position: absolute;
   inset: 0;
