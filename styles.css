@@ -798,7 +798,7 @@ main {
 .dot-wave-divider {
   position: relative;
   height: clamp(90px, 14vw, 170px);
-  margin: -1.2rem 0 0.4rem;
+  margin: -2.8rem 0 -0.8rem;
   overflow: hidden;
   pointer-events: none;
 }
@@ -806,9 +806,9 @@ main {
 .dot-wave-layer {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(17, 111, 235, 0.85) 1.4px, transparent 2px);
+  background-image: radial-gradient(circle, rgba(56, 189, 248, 1) 1.5px, transparent 2px);
   background-size: 18px 18px;
-  opacity: 0.36;
+  opacity: 1;
   -webkit-mask-image: radial-gradient(ellipse at center, #000 22%, transparent 72%);
   mask-image: radial-gradient(ellipse at center, #000 22%, transparent 72%);
 }
@@ -818,7 +818,7 @@ main {
 }
 
 .dot-wave-layer-2 {
-  opacity: 0.52;
+  opacity: 1;
   filter: blur(0.3px);
   transform: scale(1.08);
   animation: dotWavePulse 5.5s ease-in-out infinite;
@@ -856,6 +856,7 @@ main {
   position: relative;
   background: radial-gradient(circle at top, #022c22, #020617 55%, #020617);
   padding-block: 4rem;
+  margin-bottom: 4rem; /* больше воздуха перед FAQ */
 }
 
 .brands-overlay-bg {
@@ -2046,8 +2047,8 @@ h6 {
 .section-accent {
   background: transparent; /* чтобы треугольник был виден под блоками */
   min-height: auto !important; /* убираем большие пустые экраны между абзацами/блоками */
-  padding-top: 4.5rem !important;
-  padding-bottom: 4.5rem !important;
+  padding-top: 2.25rem !important;
+  padding-bottom: 2.25rem !important;
 }
 
 .card,
@@ -2379,33 +2380,23 @@ body::after {
   animation-range: exit-crossing 0% exit-crossing 100%;
 }
 
-.stack-card:nth-child(1) .stack-card__content {
-  background:
-    linear-gradient(145deg, rgba(122, 0, 255, 0.28), rgba(0, 194, 255, 0.18)),
-    linear-gradient(160deg, #0b1020, #131a32 58%, #1a1f3a);
-  color: #f5f7ff;
-  --stack-shadow: rgba(47, 123, 255, 0.45);
-}
-.stack-card:nth-child(2) .stack-card__content {
-  background:
-    linear-gradient(145deg, rgba(0, 229, 255, 0.22), rgba(47, 123, 255, 0.22)),
-    linear-gradient(160deg, #0a1020, #111a36 55%, #172345);
-  color: #f5f7ff;
-  --stack-shadow: rgba(0, 194, 255, 0.42);
-}
-.stack-card:nth-child(3) .stack-card__content {
-  background:
-    linear-gradient(145deg, rgba(157, 77, 255, 0.2), rgba(0, 229, 255, 0.14)),
-    linear-gradient(160deg, #0b1021, #121b35 56%, #192644);
-  color: #f5f7ff;
-  --stack-shadow: rgba(122, 0, 255, 0.36);
-}
+.stack-card:nth-child(1) .stack-card__content,
+.stack-card:nth-child(2) .stack-card__content,
+.stack-card:nth-child(3) .stack-card__content,
 .stack-card:nth-child(4) .stack-card__content {
   background:
-    linear-gradient(145deg, rgba(0, 194, 255, 0.2), rgba(157, 77, 255, 0.14)),
-    linear-gradient(160deg, #0b1122, #121a33 54%, #182441);
+    linear-gradient(145deg, rgba(130, 220, 255, 0.22), rgba(56, 189, 248, 0.18)),
+    linear-gradient(120deg, #0b48d1 0%, #1f5bdb 26%, #2563eb 56%, #38bdf8 100%);
   color: #f5f7ff;
-  --stack-shadow: rgba(0, 194, 255, 0.35);
+  border-color: rgba(96, 165, 250, 0.45);
+  --stack-shadow: rgba(56, 189, 248, 0.45);
+}
+
+.stack-card:nth-child(1) .stack-card__content::before,
+.stack-card:nth-child(2) .stack-card__content::before,
+.stack-card:nth-child(3) .stack-card__content::before,
+.stack-card:nth-child(4) .stack-card__content::before {
+  display: none;
 }
 
 .stack-card__content h3 {
