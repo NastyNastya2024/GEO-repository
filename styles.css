@@ -2405,11 +2405,23 @@ body::after {
 .stack-card:nth-child(3) .stack-card__content,
 .stack-card:nth-child(4) .stack-card__content {
   background:
-    linear-gradient(145deg, rgba(139, 92, 246, 0.18), rgba(130, 220, 255, 0.2) 38%, rgba(56, 189, 248, 0.18)),
+    linear-gradient(145deg, rgba(130, 220, 255, 0.2), rgba(56, 189, 248, 0.18)),
     linear-gradient(120deg, #0b48d1 0%, #1f5bdb 26%, #2563eb 56%, #38bdf8 100%);
   color: #f5f7ff;
   border-color: rgba(96, 165, 250, 0.45);
   --stack-shadow: rgba(56, 189, 248, 0.45);
+}
+
+.stack-card:nth-child(1) .stack-card__content {
+  background:
+    linear-gradient(145deg, rgba(139, 92, 246, 0.34), rgba(130, 220, 255, 0.22) 42%, rgba(56, 189, 248, 0.16)),
+    linear-gradient(120deg, #4c1d95 0%, #6d28d9 30%, #2563eb 62%, #38bdf8 100%);
+}
+
+.stack-card:nth-child(3) .stack-card__content {
+  background:
+    linear-gradient(145deg, rgba(103, 232, 249, 0.28), rgba(56, 189, 248, 0.24) 40%, rgba(125, 211, 252, 0.18)),
+    linear-gradient(120deg, #0c4a6e 0%, #0369a1 34%, #0ea5e9 66%, #67e8f9 100%);
 }
 
 .stack-card:nth-child(1) .stack-card__content::before,
