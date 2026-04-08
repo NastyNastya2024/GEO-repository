@@ -183,11 +183,37 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!article) return;
     if (article.querySelector(".short-answer")) return;
 
-    const firstP = article.querySelector("p");
-    const text = firstP ? firstP.textContent.trim().replace(/\s+/g, " ") : "";
+    const collapse = s => String(s || "").trim().replace(/\s+/g, " ");
+    const pickAnswerText = () => {
+      // Prefer the first H2's first meaningful paragraph/list as "main answer"
+      const firstH2 = article.querySelector("h2");
+      let el = firstH2 ? firstH2.nextElementSibling : null;
+      while (el && el.tagName && !/^H2$/i.test(el.tagName)) {
+        if (/^(P|UL|OL)$/i.test(el.tagName)) {
+          const t = collapse(el.textContent);
+          if (t) return t;
+        }
+        el = el.nextElementSibling;
+      }
+      // Fallback: first paragraph in article
+      const firstP = article.querySelector("p");
+      return firstP ? collapse(firstP.textContent) : "";
+    };
+
+    const toTldr = (text, maxSentences = 3) => {
+      const t = collapse(text);
+      if (!t) return "";
+      const parts = t.split(/(?<=[.!?…])\s+/).filter(Boolean);
+      const sliced = parts.slice(0, Math.max(1, maxSentences)).join(" ");
+      // If result is too short (e.g., no punctuation), keep original but cap hard length.
+      const out = sliced.length >= 40 ? sliced : t;
+      return out.length > 420 ? `${out.slice(0, 417)}…` : out;
+    };
+
+    const text = toTldr(pickAnswerText(), 3);
     const short = document.createElement("div");
     short.className = "short-answer";
-    short.innerHTML = `<strong>Коротко:</strong> ${text || "Ниже — ответы на ключевые вопросы и структура, которую нейросети удобно цитируют."}`;
+    short.innerHTML = `<strong>Коротко (TL;DR):</strong> ${text || "Ниже — прямые ответы на ключевые вопросы и структура, которую нейросети удобно цитируют."}`;
     article.insertAdjacentElement("afterbegin", short);
   };
 
