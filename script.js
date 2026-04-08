@@ -10,7 +10,357 @@ document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".main-nav");
 
-  if (burger && nav) {
+  // Footer sitemap (same on all pages)
+  const scriptEl = document.querySelector('script[src$="script.js"]');
+  const prefix = scriptEl
+    ? (scriptEl.getAttribute("src") || "").replace(/script\.js(\?.*)?$/, "")
+    : "";
+
+  const sitemapHtml = `
+    <div class="footer-sitemap" aria-label="Структура сайта">
+      <div class="footer-col">
+        <div class="footer-col__title">Методы</div>
+        <a href="${prefix}methods/geo.html">GEO оптимизация</a>
+        <a href="${prefix}methods/aeo.html">AEO оптимизация</a>
+        <a href="${prefix}methods/seo.html">SEO оптимизация</a>
+        <a href="${prefix}methods/ai-smm.html">AI &amp; SMM</a>
+        <a href="${prefix}methods/faq-methods.html">FAQ по методам</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Сравнения</div>
+        <a href="${prefix}comparisons/geo-vs-seo.html">GEO vs SEO</a>
+        <a href="${prefix}comparisons/geo-vs-aeo.html">GEO vs AEO</a>
+        <a href="${prefix}comparisons/aeo-vs-seo.html">AEO vs SEO</a>
+        <a href="${prefix}comparisons/full-comparison.html">Полное сравнение</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Нейроплатформы</div>
+        <a href="${prefix}neural-platforms/chatgpt.html">ChatGPT</a>
+        <a href="${prefix}neural-platforms/perplexity.html">Perplexity</a>
+        <a href="${prefix}neural-platforms/deepseek.html">DeepSeek</a>
+        <a href="${prefix}neural-platforms/claude.html">Claude</a>
+        <a href="${prefix}neural-platforms/google-gemini.html">Google Gemini</a>
+        <a href="${prefix}neural-platforms/yandex-alice.html">Яндекс Алиса</a>
+        <a href="${prefix}neural-platforms/platform-comparison.html">Сравнение платформ</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Инструменты</div>
+        <a href="${prefix}tools/ai-tools.html">AI‑инструменты</a>
+        <a href="${prefix}tools/analytics.html">Аналитика</a>
+        <a href="${prefix}tools/checklists.html">Чеклисты</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Стратегия</div>
+        <a href="${prefix}strategy/overview.html">Общий обзор</a>
+        <a href="${prefix}strategy/unified-system.html">Единая система</a>
+        <a href="${prefix}strategy/ai-contextual.html">AI и контекст</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Кейсы</div>
+        <a href="${prefix}case-studies/corporations.html">Корпорации</a>
+        <a href="${prefix}case-studies/ecommerce.html">E‑commerce</a>
+        <a href="${prefix}case-studies/saas.html">SaaS &amp; digital</a>
+        <a href="${prefix}case-studies/local-business.html">Локальный бизнес</a>
+        <a href="${prefix}case-studies/ai-discovery.html">AI‑discovery лидеры</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Ещё</div>
+        <a href="${prefix}blog/main.html">Блог</a>
+        <a href="${prefix}faq.html">FAQ</a>
+      </div>
+    </div>
+  `;
+
+  const footer = document.querySelector("footer.site-footer");
+  if (footer) {
+    footer.innerHTML = `
+      <div class="container footer-inner">
+        <div class="footer-main footer-main--sitemap">
+          ${sitemapHtml}
+        </div>
+
+        <div class="footer-bottom">
+          <p>(/) © 2026</p>
+          <div class="footer-meta">
+            <a href="#" data-popup="privacy">Политика конфиденциальности</a>
+            <a href="#" data-popup="consent">Согласие на обработку данных</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Top mega menu (overlay)
+  const header = document.querySelector("header.site-header");
+  const topMenu = document.createElement("div");
+  topMenu.className = "top-menu";
+  topMenu.hidden = true;
+  topMenu.innerHTML = `
+    <div class="top-menu__backdrop" data-topmenu-close></div>
+    <div class="top-menu__panel" role="dialog" aria-modal="true" aria-label="Меню сайта">
+      <div class="top-menu__header">
+        <div class="top-menu__title">Меню</div>
+        <button class="top-menu__close" type="button" data-topmenu-close aria-label="Закрыть меню">×</button>
+      </div>
+      <div class="top-menu__content">
+        ${sitemapHtml}
+      </div>
+    </div>
+  `;
+
+  if (header && !document.querySelector(".top-menu")) {
+    header.insertAdjacentElement("afterend", topMenu);
+  }
+
+  // Content upgrades for AI citation (TOC, ids, update date, short answer, JSON-LD FAQ)
+  const sectionHeader = document.querySelector(".section-header");
+  const pageH1 = sectionHeader ? sectionHeader.querySelector("h1") : null;
+  const article = document.querySelector("article.content-article");
+
+  const formatUpdateDate = () => {
+    const d = new Date();
+    const months = [
+      "январь",
+      "февраль",
+      "март",
+      "апрель",
+      "май",
+      "июнь",
+      "июль",
+      "август",
+      "сентябрь",
+      "октябрь",
+      "ноябрь",
+      "декабрь"
+    ];
+    return `${months[d.getMonth()]} ${d.getFullYear()}`;
+  };
+
+  const slugify = str =>
+    String(str || "")
+      .toLowerCase()
+      .replace(/ё/g, "е")
+      .replace(/[^a-z0-9а-я\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .slice(0, 80) || "section";
+
+  const ensureUpdateDate = () => {
+    if (!sectionHeader || !pageH1) return;
+    const existing = sectionHeader.querySelector(".update-date");
+    if (existing) return;
+    const p = document.createElement("p");
+    p.className = "update-date";
+    p.textContent = `Обновлено: ${formatUpdateDate()}`;
+    pageH1.insertAdjacentElement("afterend", p);
+  };
+
+  const ensureLeadAndShortAnswer = () => {
+    if (!sectionHeader || !pageH1) return;
+    const existingLead = sectionHeader.querySelector(".lead-ai");
+    if (!existingLead) {
+      const lead = document.createElement("p");
+      lead.className = "lead-ai";
+      lead.innerHTML =
+        `<strong>AI‑контент 2026:</strong> GEO (Generative Engine Optimization) и AEO (Answer Engine Optimization) — ` +
+        `как попасть в ответы DeepSeek, ChatGPT, Perplexity и других нейроплатформ.`;
+      const after = sectionHeader.querySelector(".update-date") || pageH1;
+      after.insertAdjacentElement("afterend", lead);
+    }
+
+    if (!article) return;
+    if (article.querySelector(".short-answer")) return;
+
+    const firstP = article.querySelector("p");
+    const text = firstP ? firstP.textContent.trim().replace(/\s+/g, " ") : "";
+    const short = document.createElement("div");
+    short.className = "short-answer";
+    short.innerHTML = `<strong>Коротко:</strong> ${text || "Ниже — ответы на ключевые вопросы и структура, которую нейросети удобно цитируют."}`;
+    article.insertAdjacentElement("afterbegin", short);
+  };
+
+  const buildTOCAndIds = () => {
+    if (!article) return;
+    const h2s = Array.from(article.querySelectorAll("h2"));
+    if (h2s.length < 2) return;
+
+    const toc = document.createElement("div");
+    toc.className = "content-toc";
+    toc.setAttribute("aria-label", "Содержание");
+
+    h2s.forEach((h2, idx) => {
+      if (!h2.id) h2.id = slugify(h2.textContent) + (idx ? `-${idx + 1}` : "");
+      const a = document.createElement("a");
+      a.href = `#${h2.id}`;
+      a.textContent = h2.textContent.trim();
+      toc.appendChild(a);
+    });
+
+    const existingToc = article.querySelector(".content-toc");
+    if (existingToc) existingToc.remove();
+    article.insertAdjacentElement("afterbegin", toc);
+  };
+
+  const injectFaqJsonLd = () => {
+    if (!article) return;
+    const h2s = Array.from(article.querySelectorAll("h2"));
+    if (!h2s.length) return;
+
+    const qa = [];
+    h2s.forEach(h2 => {
+      const q = h2.textContent.trim();
+      if (!q) return;
+
+      let ansText = "";
+      let el = h2.nextElementSibling;
+      while (el && el.tagName && !/^H2$/i.test(el.tagName)) {
+        if (/^(P|UL|OL|DIV)$/i.test(el.tagName)) {
+          ansText = el.textContent.trim().replace(/\s+/g, " ");
+          if (ansText) break;
+        }
+        el = el.nextElementSibling;
+      }
+      if (!ansText) return;
+      qa.push({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: ansText }
+      });
+    });
+
+    if (qa.length < 2) return;
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: qa
+    };
+
+    const existing = document.querySelector('script[data-auto="faq-jsonld"]');
+    if (existing) existing.remove();
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.dataset.auto = "faq-jsonld";
+    s.textContent = JSON.stringify(jsonLd);
+    document.head.appendChild(s);
+  };
+
+  const injectArticleJsonLd = () => {
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const description = metaDesc ? (metaDesc.getAttribute("content") || "").trim() : "";
+    const headline =
+      (pageH1 ? pageH1.textContent.trim() : "") ||
+      (document.title || "").trim() ||
+      "Статья";
+
+    // Fixed date requested (can be changed later to per-page values)
+    const date = "2026-04-08";
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline,
+      description,
+      datePublished: date,
+      dateModified: date,
+      author: {
+        "@type": "Organization",
+        name: "GEO Hub"
+      }
+    };
+
+    const existing = document.querySelector('script[data-auto="article-jsonld"]');
+    if (existing) existing.remove();
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.dataset.auto = "article-jsonld";
+    s.textContent = JSON.stringify(jsonLd);
+    document.head.appendChild(s);
+  };
+
+  const injectReadAlsoLinks = () => {
+    if (!article) return;
+    const h2s = Array.from(article.querySelectorAll("h2"));
+    if (!h2s.length) return;
+
+    const candidates = [
+      { href: `${prefix}methods/aeo.html`, label: "Что такое AEO оптимизация", kw: ["aeo", "answer", "ответ"] },
+      { href: `${prefix}methods/geo.html`, label: "Что такое GEO оптимизация", kw: ["geo", "локал", "карты"] },
+      { href: `${prefix}methods/seo.html`, label: "SEO оптимизация (2026)", kw: ["seo", "органик"] },
+      { href: `${prefix}comparisons/full-comparison.html`, label: "Сравнение всех методов", kw: ["vs", "сравнен", "выбрать"] },
+      { href: `${prefix}tools/checklists.html`, label: "Чеклисты (2026)", kw: ["чеклист", "шаг", "план"] },
+      { href: `${prefix}case-studies/local-business.html`, label: "Кейсы локального бизнеса", kw: ["локальн", "карты", "рядом"] }
+    ];
+
+    h2s.forEach(h2 => {
+      const already = h2.parentElement?.querySelector?.(`.read-also[data-for="${h2.id}"]`);
+      if (already) return;
+      const text = h2.textContent.toLowerCase();
+      const picked = candidates
+        .filter(c => c.kw.some(k => text.includes(k)))
+        .slice(0, 2);
+      if (!picked.length) return;
+
+      const box = document.createElement("p");
+      box.className = "read-also";
+      box.dataset.for = h2.id || "";
+      box.innerHTML =
+        `<strong>Читайте также:</strong> ` +
+        picked.map(p => `<a href="${p.href}">${p.label}</a>`).join(" | ");
+
+      const insertAfter = h2.nextElementSibling;
+      if (insertAfter) insertAfter.insertAdjacentElement("afterend", box);
+      else h2.insertAdjacentElement("afterend", box);
+    });
+  };
+
+  ensureUpdateDate();
+  ensureLeadAndShortAnswer();
+  buildTOCAndIds();
+  injectReadAlsoLinks();
+  injectFaqJsonLd();
+  injectArticleJsonLd();
+
+  const openTopMenu = () => {
+    if (!burger) return;
+    topMenu.hidden = false;
+    topMenu.classList.add("is-open");
+    burger.setAttribute("aria-expanded", "true");
+    document.body.classList.add("nav-open");
+  };
+
+  const closeTopMenu = () => {
+    if (!burger) return;
+    topMenu.classList.remove("is-open");
+    topMenu.hidden = true;
+    burger.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+  };
+
+  if (burger) {
+    burger.addEventListener("click", () => {
+      const isOpen = topMenu.classList.contains("is-open") && !topMenu.hidden;
+      if (isOpen) closeTopMenu();
+      else openTopMenu();
+    });
+  }
+
+  topMenu.addEventListener("click", e => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest("[data-topmenu-close]")) closeTopMenu();
+    const link = target.closest("a[href]");
+    if (link) closeTopMenu();
+  });
+
+  // Legacy nav toggle fallback (if drawer isn't present)
+  if (burger && nav && !document.querySelector(".top-menu")) {
     burger.addEventListener("click", () => {
       const expanded = burger.getAttribute("aria-expanded") === "true";
       burger.setAttribute("aria-expanded", String(!expanded));
@@ -18,6 +368,27 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.toggle("nav-open", !expanded);
     });
   }
+
+  // Header dropdowns: only one open at a time (drawer can stay expanded)
+  const headerDropdowns = Array.from(document.querySelectorAll(".main-nav details.nav-dd"));
+  const closeAllHeaderDropdowns = (exceptEl = null) => {
+    headerDropdowns.forEach(d => {
+      if (d !== exceptEl) d.removeAttribute("open");
+    });
+  };
+
+  headerDropdowns.forEach(d => {
+    d.addEventListener("toggle", () => {
+      if (d.open) closeAllHeaderDropdowns(d);
+    });
+  });
+
+  document.addEventListener("click", e => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+    const clickedInsideNav = Boolean(target.closest(".main-nav, .drawer-nav"));
+    if (!clickedInsideNav) closeAllDropdowns();
+  });
 
   // Footer/header popups
   const modal = document.querySelector("#site-modal");
@@ -76,15 +447,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Ensure header "Контакты" opens the same footer contacts popup
-  const headerContactsBtn = document.querySelector(".header-cta");
-  if (headerContactsBtn) {
-    headerContactsBtn.addEventListener("click", e => {
-      e.preventDefault();
-      openModal("contacts");
-    });
-  }
-
   if (modalClose) {
     modalClose.addEventListener("click", closeModal);
   }
@@ -96,7 +458,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("keydown", e => {
-    if (e.key === "Escape") closeModal();
+    if (e.key === "Escape") {
+      closeModal();
+      closeTopMenu();
+    }
   });
 
   const visibilitySection = document.querySelector(".visibility-section");
