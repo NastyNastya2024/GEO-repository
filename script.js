@@ -120,7 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Content upgrades for AI citation (TOC, ids, update date, short answer, JSON-LD FAQ)
   const sectionHeader = document.querySelector(".section-header");
-  const pageH1 = sectionHeader ? sectionHeader.querySelector("h1") : null;
+  const pageH1 =
+    (sectionHeader ? sectionHeader.querySelector("h1") : null) ||
+    document.querySelector("main h1") ||
+    document.querySelector("h1");
   const article = document.querySelector("article.content-article");
 
   const formatUpdateDate = () => {
@@ -153,8 +156,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .slice(0, 80) || "section";
 
   const ensureUpdateDate = () => {
-    if (!sectionHeader || !pageH1) return;
-    const existing = sectionHeader.querySelector(".update-date");
+    if (!pageH1) return;
+    const existing =
+      (sectionHeader && sectionHeader.querySelector(".update-date")) ||
+      pageH1.parentElement?.querySelector?.(".update-date");
     if (existing) return;
     const p = document.createElement("p");
     p.className = "update-date";
