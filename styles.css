@@ -41,6 +41,122 @@ a {
   text-decoration: none;
 }
 
+/* Content pages (AI/SEO-friendly articles) */
+.content-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.9rem 0 1.25rem;
+}
+
+.content-toc a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.55);
+  color: rgba(248, 250, 252, 0.92);
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.content-toc a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(17, 111, 235, 0.55);
+  background: rgba(15, 23, 42, 0.78);
+}
+
+.content-article {
+  max-width: 920px;
+  color: rgba(248, 250, 252, 0.92);
+}
+
+.content-article p {
+  color: rgba(203, 213, 225, 0.95);
+  line-height: 1.65;
+  margin: 0 0 0.9rem;
+}
+
+.content-article ul,
+.content-article ol {
+  margin: 0 0 1rem 1.1rem;
+  padding: 0;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.content-article li {
+  margin: 0.35rem 0;
+  line-height: 1.6;
+}
+
+.content-article h2 {
+  margin: 1.35rem 0 0.65rem;
+  color: #f8fafc;
+  font-size: clamp(1.05rem, 1.65vw, 1.35rem);
+  letter-spacing: 0.02em;
+}
+
+.content-article h3 {
+  margin: 1.1rem 0 0.55rem;
+  color: #f8fafc;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+}
+
+.content-table {
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.55);
+  padding: 0.25rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.content-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+.content-table th,
+.content-table td {
+  text-align: left;
+  padding: 0.75rem 0.85rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  color: rgba(226, 232, 240, 0.92);
+  vertical-align: top;
+}
+
+.content-table th {
+  color: rgba(248, 250, 252, 0.95);
+  font-weight: 700;
+  background: rgba(2, 6, 23, 0.35);
+}
+
+.content-related {
+  margin-top: 1.25rem;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(17, 111, 235, 0.22);
+  background: linear-gradient(180deg, rgba(17, 111, 235, 0.12), rgba(15, 23, 42, 0.45));
+}
+
+.content-related ul {
+  margin: 0.45rem 0 0 1.1rem;
+}
+
+.content-related a {
+  color: rgba(191, 219, 254, 0.95);
+  text-decoration: underline;
+  text-decoration-color: rgba(191, 219, 254, 0.35);
+  text-underline-offset: 3px;
+}
+
+.content-related a:hover {
+  text-decoration-color: rgba(17, 111, 235, 0.85);
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -171,6 +287,85 @@ main {
 .main-nav a:last-child::after {
   content: "";
   margin: 0;
+}
+
+.nav-dd {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dd summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-bottom: 0.15rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.nav-dd summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dd summary::after {
+  content: "/";
+  position: static;
+  margin: 0 0.45rem;
+  color: #116feb;
+}
+
+.nav-dd:last-child summary::after {
+  content: "";
+  margin: 0;
+}
+
+.nav-dd-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translate(-50%, 6px);
+  min-width: 260px;
+  z-index: 80;
+  padding: 0.55rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(2, 6, 23, 0.88);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+  display: grid;
+  gap: 0.2rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-dd[open] .nav-dd-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.nav-dd-panel a {
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  color: rgba(248, 250, 252, 0.92);
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.nav-dd-panel a::after {
+  content: "";
+  margin: 0;
+}
+
+.nav-dd-panel a:hover {
+  background: rgba(17, 111, 235, 0.14);
+  border: 1px solid rgba(17, 111, 235, 0.35);
 }
 
 .header-cta {
@@ -1698,7 +1893,7 @@ main {
 
 .site-header {
   position: fixed;
-  overflow: hidden;
+  overflow: visible;
   backdrop-filter: blur(18px);
   background: rgba(0, 0, 0, 0.45);
   border-bottom: 1px solid rgba(31, 41, 55, 0.9);

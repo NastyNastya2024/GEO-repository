@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аналитика GEO/AEO/SEO — как измерять AI‑видимость</title>
+    <meta
+      name="description"
+      content="Метрики для GEO/AEO/SEO и нейроплатформ: как отслеживать эффективность, какие KPI смотреть и как проверять цитируемость."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="canonical" href="/tools/analytics.html" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="../index.html" class="logo">
+          <img src="../Img/logo-geo.png" alt="GEO logo" class="logo-image" />
+        </a>
+        <nav class="main-nav" aria-label="Главное меню">
+          <a href="../index.html">Главная</a>
+          <a href="analytics.html">Аналитика</a>
+          <a href="checklists.html">Чеклисты</a>
+          <a href="../comparisons/full-comparison.html">Сравнение</a>
+        </nav>
+        <a href="#" class="btn btn-outline header-cta" data-popup="contacts">Контакты</a>
+        <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h1>Аналитика AI‑видимости</h1>
+            <p class="section-subtitle">
+              GEO/AEO — это не только “трафик”, но и цитируемость. Ниже — как измерять эффект в 2026.
+            </p>
+          </div>
+
+          <article class="content-article">
+            <h2>Какие KPI показывают, что контент начал “работать” для нейросетей?</h2>
+            <p>
+              Смотрите на связку: рост органики по “вопросным” интентам + рост брендового спроса + появление страниц‑ответов
+              в индексе. Для нейроплатформ — регулярные проверки по промптам и фиксация URL, которые цитируются.
+            </p>
+
+            <h2>Какие метрики отслеживать каждую неделю?</h2>
+            <div class="content-table" role="region" aria-label="Метрики AI-видимости">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Метрика</th>
+                    <th>Зачем</th>
+                    <th>Как смотреть</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Страницы в индексе</td>
+                    <td>База retrieval</td>
+                    <td>Вебмастер/Search Console</td>
+                  </tr>
+                  <tr>
+                    <td>Трафик по “вопросным” запросам</td>
+                    <td>Спрос на ответы</td>
+                    <td>Поисковая аналитика</td>
+                  </tr>
+                  <tr>
+                    <td>CTR по сниппетам</td>
+                    <td>AEO‑эффект</td>
+                    <td>Search Console</td>
+                  </tr>
+                  <tr>
+                    <td>Брендовые запросы</td>
+                    <td>Доверие/узнаваемость</td>
+                    <td>Поисковые данные/аналитика</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Как проверять цитируемость в ChatGPT/Perplexity/DeepSeek?</h2>
+            <ol>
+              <li>Сделайте список 20 типовых вопросов (как в H2 на страницах).</li>
+              <li>Проверяйте ответы раз в 1–2 недели и фиксируйте: цитата/URL/формулировка.</li>
+              <li>Если цитирования нет — усиливайте структуру (TL;DR, таблица) и доказательства (кейс/факты).</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-main">
+          <div class="footer-links">
+            <a href="../faq.html">FAQ</a>
+            <a href="../about.html">О проекте</a>
+            <a href="../contact.html">Контакты</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>(/) © 2026</p>
+          <div class="footer-meta">
+            <a href="#" data-popup="privacy">Политика конфиденциальности</a>
+            <a href="#" data-popup="consent">Согласие на обработку данных</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="site-modal" hidden>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+        <h3 id="modal-title"></h3>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
