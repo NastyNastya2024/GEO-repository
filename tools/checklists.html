@@ -120,6 +120,49 @@
               <li>Свяжите всё перелинковкой (pillar → cluster → pillar).</li>
             </ol>
 
+            <h2>Микрозаметка: отсутствие микроразметки Schema.org</h2>
+            <p><strong>Проблема:</strong> Отсутствие микроразметки Schema.org.</p>
+            <p>
+              <strong>Почему плохо:</strong> Вы пишете про «кейс», но не отмечаете его для поисковиков. Разметка
+              <strong>Article</strong> или <strong>FAQPage</strong> помогает системам понять тип страницы и может дать более богатые сниппеты.
+            </p>
+            <p>
+              <strong>Как исправить:</strong> Добавить JSON‑LD в <code>&lt;head&gt;</code> (пример ниже). Важно, чтобы данные соответствовали содержимому.
+            </p>
+
+            <div class="content-table" role="region" aria-label="Пример JSON-LD для Article и FAQPage">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Тип</th>
+                    <th>JSON‑LD (вставить в &lt;head&gt;)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Article</td>
+                    <td>
+                      <code>
+                        &lt;script type="application/ld+json"&gt;
+                        {"@context":"https://schema.org","@type":"Article","headline":"Кейс: ...","datePublished":"2026-04-01","dateModified":"2026-04-01","author":{"@type":"Organization","name":"GEO Hub"}}
+                        &lt;/script&gt;
+                      </code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>FAQPage</td>
+                    <td>
+                      <code>
+                        &lt;script type="application/ld+json"&gt;
+                        {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Вопрос 1?","acceptedAnswer":{"@type":"Answer","text":"Короткий ответ."}}]}
+                        &lt;/script&gt;
+                      </code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <h2>Какие элементы DeepSeek “видит” лучше всего?</h2>
             <ul>
               <li>H2‑заголовки, совпадающие с формулировкой запроса.</li>
@@ -153,8 +196,8 @@
         <div class="footer-bottom">
           <p>(/) © 2026</p>
           <div class="footer-meta">
-            <a href="#" data-popup="privacy">Политика конфиденциальности</a>
-            <a href="#" data-popup="consent">Согласие на обработку данных</a>
+            <button class="footer-meta__link" type="button" data-popup="privacy">Политика конфиденциальности</button>
+            <button class="footer-meta__link" type="button" data-popup="consent">Согласие на обработку данных</button>
           </div>
         </div>
       </div>

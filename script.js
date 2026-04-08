@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}methods/geo.html">GEO оптимизация</a>
         <a href="${prefix}methods/aeo.html">AEO оптимизация</a>
         <a href="${prefix}methods/seo.html">SEO оптимизация</a>
+        <a href="${prefix}methods/aio.html">AIO оптимизация</a>
         <a href="${prefix}methods/ai-smm.html">AI &amp; SMM</a>
         <a href="${prefix}methods/faq-methods.html">FAQ по методам</a>
       </div>
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}comparisons/geo-vs-seo.html">GEO vs SEO</a>
         <a href="${prefix}comparisons/geo-vs-aeo.html">GEO vs AEO</a>
         <a href="${prefix}comparisons/aeo-vs-seo.html">AEO vs SEO</a>
+        <a href="${prefix}comparisons/aio-vs-all.html">AIO vs все методы</a>
         <a href="${prefix}comparisons/full-comparison.html">Полное сравнение</a>
       </div>
 
@@ -88,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="footer-bottom">
           <p>(/) © 2026</p>
           <div class="footer-meta">
-            <a href="#" data-popup="privacy">Политика конфиденциальности</a>
-            <a href="#" data-popup="consent">Согласие на обработку данных</a>
+            <button class="footer-meta__link" type="button" data-popup="privacy">Политика конфиденциальности</button>
+            <button class="footer-meta__link" type="button" data-popup="consent">Согласие на обработку данных</button>
           </div>
         </div>
       </div>
@@ -290,14 +292,23 @@ document.addEventListener("DOMContentLoaded", () => {
       (document.title || "").trim() ||
       "Статья";
 
+    const canonicalEl = document.querySelector('link[rel="canonical"]');
+    const canonicalHref = canonicalEl ? (canonicalEl.getAttribute("href") || "").trim() : "";
+    const mainEntityOfPage =
+      canonicalHref ||
+      (typeof window !== "undefined" && window.location ? window.location.pathname : "");
+
     // Fixed date requested (can be changed later to per-page values)
     const date = "2026-04-08";
 
     const jsonLd = {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "TechArticle",
       headline,
       description,
+      proficiencyLevel: "Beginner",
+      dependencies: "SEO база",
+      mainEntityOfPage,
       datePublished: date,
       dateModified: date,
       author: {
