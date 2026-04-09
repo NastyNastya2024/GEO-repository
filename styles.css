@@ -1603,11 +1603,39 @@ main {
   z-index: 0;
 }
 
+/* Dots ring layer (paint) + subtle pulse */
+.visibility-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: paint(ring-particles);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+  animation: visibilityRingPulse 7.5s ease-in-out infinite;
+}
+
+@keyframes visibilityRingPulse {
+  0% { opacity: 0.82; filter: brightness(0.98); }
+  50% { opacity: 0.92; filter: brightness(1.03); }
+  100% { opacity: 0.85; filter: brightness(1.0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visibility-section::before {
+    animation: none;
+  }
+}
+
 .visibility-inner {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: 4rem;
+  padding-block: 6.2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .visibility-card {
@@ -1622,7 +1650,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center; /* вертикальное + горизонтальное центрирование контента */
-  min-height: clamp(300px, 32vh, 460px);
+  min-height: clamp(420px, 46vh, 680px);
+  position: relative;
+  z-index: 1;
 }
 
 .visibility-card::before,
@@ -1925,7 +1955,8 @@ main {
 
 .brands-scroller {
   --card-w: clamp(260px, 42vw, 320px);
-  --stack-overlap: calc(var(--card-w) * 0.94);
+  --stack-overlap: calc(var(--card-w) * 0.9); /* закрываем ~90% предыдущей карточки */
+  --stack-edge: clamp(14px, 3.6vw, 56px);
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: var(--card-w);
@@ -1934,8 +1965,10 @@ main {
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 1.25rem 0.2rem 0.2rem;
+  padding: 1.25rem var(--stack-edge) 0.2rem;
   margin-top: 1.1rem;
+  scroll-padding-left: var(--stack-edge);
+  scroll-padding-right: var(--stack-edge);
 }
 
 .brands-scroller::-webkit-scrollbar {

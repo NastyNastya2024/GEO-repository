@@ -583,9 +583,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const visibilitySections = Array.from(document.querySelectorAll(".visibility-section"));
   visibilitySections.forEach(visibilitySection => {
-    if ("paintWorklet" in CSS) {
-      visibilitySection.style.backgroundImage = "paint(ring-particles)";
-    }
     // Static centered ring
     visibilitySection.style.setProperty("--ring-x", "50");
     visibilitySection.style.setProperty("--ring-y", "50");
