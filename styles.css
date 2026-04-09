@@ -2880,7 +2880,7 @@ main {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-size: 0.95rem;
-  color: rgba(226, 232, 240, 0.9);
+  color: rgba(226, 232, 240, 0.62);
 }
 
 .header-ticker__sep {
@@ -2904,6 +2904,21 @@ main {
   margin: 0;
   border: 0;
   transition: opacity 180ms ease, max-width 240ms ease, margin 240ms ease, border-color 240ms ease;
+}
+
+.post-main-ticker {
+  overflow: hidden;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(2, 6, 23, 0.55);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+}
+
+.post-main-ticker .header-ticker__track {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
