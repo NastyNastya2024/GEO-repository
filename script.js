@@ -581,16 +581,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const visibilitySection = document.querySelector(".visibility-section");
-  if (visibilitySection) {
+  const visibilitySections = Array.from(document.querySelectorAll(".visibility-section"));
+  visibilitySections.forEach(visibilitySection => {
     if ("paintWorklet" in CSS) {
       visibilitySection.style.backgroundImage = "paint(ring-particles)";
     }
-
     // Static centered ring
     visibilitySection.style.setProperty("--ring-x", "50");
     visibilitySection.style.setProperty("--ring-y", "50");
-  }
+  });
 
   // Brands slider
   const brandButtons = document.querySelectorAll(".brands-nav-item");
