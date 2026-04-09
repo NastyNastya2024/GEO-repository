@@ -1119,9 +1119,11 @@ main {
 }
 
 .orb-media img {
-  width: min(420px, 44vw);
+  width: 100%;
+  max-width: 520px;
   height: auto;
   margin-top: clamp(2.2rem, 6vw, 4.6rem);
+  transform: translateX(clamp(-64px, -5vw, -18px));
   border-radius: 22px;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(148, 163, 184, 0.18);
@@ -1135,7 +1137,8 @@ main {
     justify-content: flex-start;
   }
   .orb-media img {
-    width: min(460px, 92vw);
+    max-width: none;
+    transform: none;
   }
 }
 
