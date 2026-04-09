@@ -2880,7 +2880,7 @@ main {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-size: 0.95rem;
-  color: rgba(226, 232, 240, 0.62);
+  color: rgba(226, 232, 240, 0.4);
 }
 
 .header-ticker__sep {
