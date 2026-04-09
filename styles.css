@@ -1030,6 +1030,34 @@ main {
   line-height: 1.45;
 }
 
+.pillar-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: 0.95rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 6, 23, 0.16);
+  background: rgba(255, 255, 255, 0.56);
+  color: rgba(2, 6, 23, 0.88);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 0.85rem;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.pillar-card__link:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(17, 111, 235, 0.35);
+}
+
+.pillar-card__link:focus-visible {
+  outline: 2px solid rgba(17, 111, 235, 0.7);
+  outline-offset: 2px;
+}
+
 .pillar-card--analytics::before {
   background-image: url("Img/block-strategy.png");
 }
