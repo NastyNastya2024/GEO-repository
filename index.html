@@ -54,12 +54,46 @@
       }
     </script>
   </head>
-  <body>
+  <body class="has-header-ticker home">
     <header class="site-header">
       <div class="container header-inner">
         <a href="#hero" class="logo">
-          <img src="Img/logo-geo.png" alt="GEO logo" class="logo-image" />
+          <img src="Img/logo-aeo.png" alt="GEO logo" class="logo-image" />
         </a>
+        <div class="header-ticker" aria-label="Нейроплатформы">
+          <div class="header-ticker__track" aria-hidden="true">
+            <div class="header-ticker__group">
+              <span class="header-ticker__item">CHATGPT</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">PERPLEXITY</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">DEEPSEEK</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">CLAUDE</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">GOOGLE GEMINI</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">ЯНДЕКС АЛИСА</span>
+              <span class="header-ticker__sep">•</span>
+            </div>
+            <div class="header-ticker__group">
+              <span class="header-ticker__item">CHATGPT</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">PERPLEXITY</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">DEEPSEEK</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">CLAUDE</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">GOOGLE GEMINI</span>
+              <span class="header-ticker__sep">•</span>
+              <span class="header-ticker__item">ЯНДЕКС АЛИСА</span>
+              <span class="header-ticker__sep">•</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn btn-header btn-header--white" data-popup="contacts">Консультация</a>
         <button
           class="burger"
           aria-label="Открыть меню"
@@ -67,6 +101,7 @@
         >
           <span></span><span></span><span></span>
         </button>
+        </div>
       </div>
     </header>
 
@@ -112,6 +147,7 @@
             <a role="menuitem" href="tools/ai-tools.html">AI‑инструменты</a>
             <a role="menuitem" href="tools/analytics.html">Аналитика</a>
             <a role="menuitem" href="tools/checklists.html">Чеклисты</a>
+            <a role="menuitem" href="tools/code-aeo-geo-audit.html">Аудит кода AEO + GEO</a>
           </div>
         </details>
 
@@ -134,13 +170,8 @@
             <a role="menuitem" href="case-studies/ai-discovery.html">AI‑discovery лидеры</a>
           </div>
         </details>
-
-        <a class="drawer-link" href="blog/main.html">БЛОГ</a>
       </nav>
     </aside>
-    <div class="header-under-image">
-      <img src="Img/header-under.png" alt="GEO / SEO visual" />
-    </div>
 
     <main>
       <!-- HERO -->
@@ -150,21 +181,24 @@
         </video>
         <div class="container hero-inner">
           <div class="hero-content">
-            <div class="badge"><span class="badge__dot" aria-hidden="true"></span>Модульная система AI‑видимости</div>
+            <div class="badge">
+              Сервис AI‑видимости
+              <span class="badge__circle" aria-hidden="true"></span>
+            </div>
             <h1>
-              <span>Продвижение брендов</span>
-              <span>в нейросетях</span>
+              <span>Продвижение</span>
+              <span class="hero-title-row">
+                <span class="hero-title-line2">в нейросетях</span>
+              </span>
             </h1>
-            <p class="module-lead">
-              Отслеживайте, что AI говорит о вашем бренде, находите точки роста и внедряйте изменения, которые повышают
-              цитируемость и рекомендации в AI‑поиске.
+            <p class="lead-ai">
+              <strong>AI‑контент 2026:</strong> GEO (Generative Engine Optimization) и AEO (Answer Engine Optimization) — как попасть в ответы
+              DeepSeek, ChatGPT, Perplexity и других нейроплатформ.
             </p>
             <div class="hero-actions">
-              <a href="#" class="btn btn-primary btn-lg btn-consult" data-popup="contacts">Бесплатная консультация</a>
-              <a href="methods/aio.html" class="btn btn-outline btn-lg">Что такое AIO</a>
             </div>
 
-            <div class="logo-strip" aria-label="Платформы">
+            <div class="logo-strip seo-ghost" aria-label="Платформы">
               <span class="logo-pill">ChatGPT</span>
               <span class="logo-pill">Perplexity</span>
               <span class="logo-pill">DeepSeek</span>
@@ -176,28 +210,16 @@
         </div>
       </section>
 
-      <section class="module module--tight">
+      <section class="module module-orb">
         <div class="container">
-          <div class="metrics-grid" aria-label="Метрики AI‑видимости">
-            <div class="metric-card">
-              <div class="metric-label">Видимость</div>
-              <div class="metric-value">+54%</div>
-              <div class="metric-sub">рост упоминаний в AI‑ответах</div>
+          <div class="orb-block">
+            <div class="orb-copy">
+              <p class="orb-text">
+                Пользователи всё чаще <strong>находят</strong>, <strong>сравнивают</strong> и <strong>выбирают</strong> продукты прямо внутри LLM‑чатботов.
+              </p>
             </div>
-            <div class="metric-card">
-              <div class="metric-label">Цитируемость</div>
-              <div class="metric-value">7/10</div>
-              <div class="metric-sub">насколько легко вас цитировать</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Позиция</div>
-              <div class="metric-value">#12</div>
-              <div class="metric-sub">в выдаче AI‑рекомендаций</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Доверие</div>
-              <div class="metric-value">93</div>
-              <div class="metric-sub">факты, кейсы, согласованность</div>
+            <div class="orb-media" aria-hidden="true">
+              <img src="Img/container-orb-azure-violet-pink.png" alt="" loading="lazy" />
             </div>
           </div>
         </div>

@@ -10,6 +10,79 @@ document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".main-nav");
 
+  // Slow down hero background video (index)
+  const heroVideo = document.querySelector(".hero-bg-video");
+  if (heroVideo instanceof HTMLVideoElement) {
+    const forwardRate = 0.5;
+    const forwardSeconds = 3;
+    const rewindRate = 1.0; // seconds of video per second of real time
+
+    let rafId = 0;
+    let lastTs = 0;
+
+    const stopRaf = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = 0;
+      lastTs = 0;
+    };
+
+    const rewindToStart = () => {
+      stopRaf();
+      heroVideo.pause();
+
+      const step = ts => {
+        if (!lastTs) lastTs = ts;
+        const dt = Math.min(0.06, (ts - lastTs) / 1000);
+        lastTs = ts;
+
+        const next = Math.max(0, heroVideo.currentTime - dt * rewindRate);
+        heroVideo.currentTime = next;
+
+        if (next <= 0.001) {
+          stopRaf();
+          playForwardWindow();
+          return;
+        }
+        rafId = requestAnimationFrame(step);
+      };
+
+      rafId = requestAnimationFrame(step);
+    };
+
+    const onTimeUpdate = () => {
+      // Stop right at forwardSeconds, then rewind back to start
+      if (heroVideo.currentTime >= forwardSeconds - 0.02) {
+        heroVideo.removeEventListener("timeupdate", onTimeUpdate);
+        rewindToStart();
+      }
+    };
+
+    const playForwardWindow = () => {
+      stopRaf();
+      heroVideo.playbackRate = forwardRate;
+      if (heroVideo.currentTime > forwardSeconds) heroVideo.currentTime = 0;
+      heroVideo.addEventListener("timeupdate", onTimeUpdate);
+      heroVideo.play().catch(() => {});
+    };
+
+    const startLoop = () => {
+      // Ensure metadata available for currentTime / duration
+      heroVideo.currentTime = 0;
+      playForwardWindow();
+    };
+
+    if (heroVideo.readyState >= 1) startLoop();
+    else heroVideo.addEventListener("loadedmetadata", startLoop, { once: true });
+  }
+
+  // Hide header ticker on scroll (keep logo + burger)
+  const updateHeaderTicker = () => {
+    const shouldHide = window.scrollY > 40;
+    document.body.classList.toggle("hide-header-ticker", shouldHide);
+  };
+  updateHeaderTicker();
+  window.addEventListener("scroll", updateHeaderTicker, { passive: true });
+
   // Footer sitemap (same on all pages)
   const scriptEl = document.querySelector('script[src$="script.js"]');
   const prefix = scriptEl
@@ -66,7 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-col">
         <div class="footer-col__title">Ещё</div>
-        <a href="${prefix}blog/main.html">Блог</a>
         <a href="${prefix}faq.html">FAQ</a>
       </div>
     </div>
@@ -164,6 +236,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const ensureLeadAndShortAnswer = () => {
     if (!sectionHeader || !pageH1) return;
+    // Avoid duplicating the same AI lead if page already has it (e.g. custom hero on index)
+    if (document.querySelector(".lead-ai")) {
+      // Still allow short-answer for articles below
+    } else {
     const existingLead = sectionHeader.querySelector(".lead-ai");
     if (!existingLead) {
       const lead = document.createElement("p");
@@ -173,6 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `как попасть в ответы DeepSeek, ChatGPT, Perplexity и других нейроплатформ.`;
       const after = sectionHeader.querySelector(".update-date") || pageH1;
       after.insertAdjacentElement("afterend", lead);
+    }
     }
 
     if (!article) return;
