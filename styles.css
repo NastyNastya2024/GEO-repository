@@ -467,7 +467,7 @@ main {
 
 .drawer-nav .nav-dd summary {
   padding: 0.65rem 0.65rem;
-  border-radius: 12px;
+  border-radius: var(--apple-radius-sm);
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: rgba(15, 23, 42, 0.35);
   width: 100%;
@@ -2677,12 +2677,18 @@ main {
 /* ===== Apple UI style overrides ===== */
 :root {
   --apple-bg: #0b0b0f;
-  --apple-surface: rgba(28, 28, 34, 0.58);
-  --apple-surface-strong: rgba(34, 34, 42, 0.72);
-  --apple-border: rgba(255, 255, 255, 0.14);
+  --apple-surface: rgba(28, 28, 34, 0.6);
+  --apple-surface-strong: rgba(34, 34, 42, 0.78);
+  --apple-border: rgba(255, 255, 255, 0.16);
   --apple-text: #f5f5f7;
   --apple-subtext: #b9bcc6;
   --apple-blue: #0a84ff;
+  --apple-green: #30d158;
+  --apple-radius-sm: 12px;
+  --apple-radius-md: 16px;
+  --apple-radius-lg: 20px;
+  --apple-shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.26);
+  --apple-shadow-md: 0 14px 40px rgba(0, 0, 0, 0.34);
 }
 
 html,
@@ -2718,9 +2724,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Audiowide", -apple-system, BlinkMacSystemFont, "SF Pro Display",
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
     "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
 }
 
 .site-header {
@@ -2757,8 +2763,11 @@ h6 {
 }
 
 .btn {
-  border-radius: 12px;
+  border-radius: var(--apple-radius-sm);
   font-weight: 600;
+  font-size: 1rem;
+  padding: 0.7rem 1.05rem;
+  letter-spacing: 0.01em;
 }
 
 .btn.header-cta {
@@ -2766,6 +2775,28 @@ h6 {
   border-color: var(--apple-blue);
   color: #fff;
   box-shadow: 0 8px 18px rgba(10, 132, 255, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.95), rgba(79, 70, 229, 0.95));
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 24px rgba(10, 132, 255, 0.22);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: rgba(245, 245, 247, 0.92);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.26);
 }
 
 .section,
@@ -2785,10 +2816,53 @@ h6 {
 .contact-form {
   background: var(--apple-surface);
   border: 1px solid var(--apple-border);
-  border-radius: 16px;
+  border-radius: var(--apple-radius-md);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  box-shadow: var(--apple-shadow-sm);
+}
+
+/* Content UI (tables, notes, modal) */
+.content-table {
+  border-radius: var(--apple-radius-md);
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(15, 23, 42, 0.52);
+}
+
+.content-table th {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.short-answer,
+.content-note,
+.content-related {
+  border-radius: var(--apple-radius-md);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.modal-dialog {
+  border-radius: var(--apple-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(28, 28, 34, 0.86);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  box-shadow: var(--apple-shadow-md);
+}
+
+.modal-close {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(245, 245, 247, 0.92);
+}
+
+a {
+  color: rgba(191, 219, 254, 0.96);
+}
+
+a:hover {
+  color: rgba(245, 245, 247, 0.96);
 }
 
 .section-subtitle,

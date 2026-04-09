@@ -26,15 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}methods/aio.html">AIO оптимизация</a>
         <a href="${prefix}methods/ai-smm.html">AI &amp; SMM</a>
         <a href="${prefix}methods/faq-methods.html">FAQ по методам</a>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col__title">Сравнения</div>
-        <a href="${prefix}comparisons/geo-vs-seo.html">GEO vs SEO</a>
-        <a href="${prefix}comparisons/geo-vs-aeo.html">GEO vs AEO</a>
-        <a href="${prefix}comparisons/aeo-vs-seo.html">AEO vs SEO</a>
-        <a href="${prefix}comparisons/aio-vs-all.html">AIO vs все методы</a>
-        <a href="${prefix}comparisons/full-comparison.html">Полное сравнение</a>
+        <a href="${prefix}methods/faq-methods.html#svodnoe-sravnenie-metodov">Сводное сравнение методов</a>
       </div>
 
       <div class="footer-col">
@@ -53,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}tools/ai-tools.html">AI‑инструменты</a>
         <a href="${prefix}tools/analytics.html">Аналитика</a>
         <a href="${prefix}tools/checklists.html">Чеклисты</a>
+        <a href="${prefix}tools/code-aeo-geo-audit.html">Аудит кода AEO + GEO</a>
       </div>
 
       <div class="footer-col">
@@ -335,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { href: `${prefix}methods/aeo.html`, label: "Что такое AEO оптимизация", kw: ["aeo", "answer", "ответ"] },
       { href: `${prefix}methods/geo.html`, label: "Что такое GEO оптимизация", kw: ["geo", "локал", "карты"] },
       { href: `${prefix}methods/seo.html`, label: "SEO оптимизация (2026)", kw: ["seo", "органик"] },
-      { href: `${prefix}comparisons/full-comparison.html`, label: "Сравнение всех методов", kw: ["vs", "сравнен", "выбрать"] },
+      { href: `${prefix}methods/faq-methods.html#svodnoe-sravnenie-metodov`, label: "Сводное сравнение методов", kw: ["vs", "сравнен", "выбрать"] },
       { href: `${prefix}tools/checklists.html`, label: "Чеклисты (2026)", kw: ["чеклист", "шаг", "план"] },
       { href: `${prefix}case-studies/local-business.html`, label: "Кейсы локального бизнеса", kw: ["локальн", "карты", "рядом"] }
     ];
