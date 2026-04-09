@@ -70,7 +70,7 @@ a {
 .update-date {
   margin: 0.35rem 0 0;
   color: #ffffff;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .lead-ai {
@@ -78,7 +78,7 @@ a {
   color: #ffffff;
   line-height: 1.6;
   max-width: 64ch;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .short-answer {
@@ -962,23 +962,119 @@ main {
   line-height: 1.65;
 }
 
+/* 2x2 blocks (as in reference) */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.2vw, 1.6rem);
+  margin-top: 1.35rem;
+}
+
+.pillar-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: clamp(220px, 24vw, 320px);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.98;
+  transform: scale(1.01);
+}
+
+.pillar-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.60) 46%, rgba(255, 255, 255, 0.0) 78%);
+  opacity: 0.95;
+}
+
+.pillar-card__content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.15rem, 2.4vw, 1.8rem);
+  max-width: 26ch;
+  color: rgba(2, 6, 23, 0.92);
+}
+
+.pillar-card__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  font-weight: 800;
+}
+
+.pillar-card__content h3 {
+  margin: 0.65rem 0 0.6rem;
+  font-size: clamp(1.25rem, 2.1vw, 1.7rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.pillar-card__content p {
+  margin: 0;
+  color: rgba(2, 6, 23, 0.78);
+  line-height: 1.45;
+}
+
+.pillar-card--analytics::before {
+  background-image: url("Img/block-strategy.png");
+}
+
+.pillar-card--strategy::before {
+  background-image: url("Img/block-analytics.png");
+}
+
+.pillar-card--realization::before {
+  background-image: url("Img/block-realization.png");
+}
+
+.pillar-card--optimization::before {
+  background-image: url("Img/block-optimization.png");
+}
+
+@media (max-width: 860px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .pillar-card::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.52) 52%, rgba(255, 255, 255, 0.0) 90%);
+  }
+  .pillar-card__content {
+    max-width: 42ch;
+  }
+}
+
 /* Orb text + image block */
 .module-orb {
   padding-top: 4.2rem;
-  padding-bottom: 2.2rem;
+  padding-bottom: 5.4rem;
 }
 
 .orb-block {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(1.2rem, 4vw, 3rem);
+  gap: clamp(1.8rem, 5vw, 4.2rem);
   align-items: center;
 }
 
 .orb-text {
   margin: 0;
-  font-size: clamp(1.25rem, 2.3vw, 2rem);
-  line-height: 1.12;
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  line-height: 1.22;
   letter-spacing: -0.02em;
   color: rgba(248, 250, 252, 0.95);
   max-width: 28ch;
@@ -997,6 +1093,7 @@ main {
 .orb-media img {
   width: min(420px, 44vw);
   height: auto;
+  margin-top: clamp(2.2rem, 6vw, 4.6rem);
   border-radius: 22px;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(148, 163, 184, 0.18);
@@ -1013,6 +1110,7 @@ main {
     width: min(460px, 92vw);
   }
 }
+
 
 @media (max-width: 980px) {
   .metrics-grid {
@@ -2582,7 +2680,7 @@ main {
 .hero-content {
   text-align: left;
   margin-top: clamp(8.6rem, 22vh, 18rem);
-  max-width: min(75%, 980px);
+  max-width: min(70%, 980px);
 }
 
 .hero-title-row {
@@ -2701,11 +2799,12 @@ main {
   background: rgba(15, 23, 42, 0.95);
   color: #ffffff;
   margin-bottom: 0.35rem;
+  font-size: 0.68rem;
 }
 
 .hero h1 {
   margin-top: 0.6rem;
-  font-size: clamp(3.0rem, 7vw, 5.0rem);
+  font-size: clamp(2.85rem, 6.6vw, 4.75rem);
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: #ffffff;
