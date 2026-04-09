@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-col">
         <div class="footer-col__title">Ещё</div>
+        <a href="${prefix}blog/main.html">Блог</a>
         <a href="${prefix}faq.html">FAQ</a>
       </div>
     </div>
