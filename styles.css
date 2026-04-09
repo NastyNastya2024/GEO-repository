@@ -1954,8 +1954,8 @@ main {
 }
 
 .brands-scroller {
-  --card-w: clamp(260px, 42vw, 320px);
-  --stack-overlap: calc(var(--card-w) * 0.9); /* закрываем ~90% предыдущей карточки */
+  --card-w: clamp(175px, 28vw, 214px); /* уже примерно в 1.5 раза */
+  --stack-overlap: calc(var(--card-w) * 0.93); /* сильнее наложение */
   --stack-edge: clamp(14px, 3.6vw, 56px);
   display: grid;
   grid-auto-flow: column;
