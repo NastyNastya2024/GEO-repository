@@ -848,6 +848,16 @@ main {
   font-size: 0.72rem;
 }
 
+.module-kicker--title {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.96);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  font-weight: 850;
+  font-size: clamp(1.5rem, 3.1vw, 2.35rem);
+  line-height: 1.08;
+}
+
 .module-title {
   margin: 0;
   color: rgba(248, 250, 252, 0.95);
@@ -860,6 +870,8 @@ main {
   max-width: 64ch;
   color: rgba(203, 213, 225, 0.95);
   line-height: 1.65;
+  font-size: clamp(1.05rem, 1.15vw, 1.25rem);
+  font-weight: 600;
 }
 
 .hero-actions {
@@ -1096,7 +1108,7 @@ main {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(1.8rem, 5vw, 4.2rem);
-  align-items: center;
+  align-items: start;
 }
 
 .orb-text {
@@ -1113,9 +1125,91 @@ main {
   font-weight: 800;
 }
 
+.word-rotator {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  margin: 0 0.25ch;
+  padding-right: 0.1ch;
+  line-height: 1;
+}
+
+.word-rotator::before {
+  content: "сравнивают";
+  visibility: hidden;
+  display: inline-block;
+}
+
+.word-rotator__word {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(0.22em);
+  animation: wordRotate 6.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.word-rotator__word:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.word-rotator__word:nth-child(2) {
+  animation-delay: 2.2s;
+}
+
+.word-rotator__word:nth-child(3) {
+  animation-delay: 4.4s;
+}
+
+@keyframes wordRotate {
+  0% {
+    opacity: 0;
+    transform: translateY(0.22em);
+    filter: blur(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  45% {
+    opacity: 0;
+    transform: translateY(-0.12em);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-0.12em);
+    filter: blur(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-rotator {
+    line-height: inherit;
+  }
+  .word-rotator__word {
+    position: static;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  .word-rotator__word:nth-child(n + 2) {
+    display: none;
+  }
+}
+
 .orb-media {
   display: flex;
   justify-content: flex-end;
+  align-self: start;
 }
 
 .orb-media img {

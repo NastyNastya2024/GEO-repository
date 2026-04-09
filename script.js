@@ -126,6 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}strategy/overview.html">Общий обзор</a>
         <a href="${prefix}strategy/unified-system.html">Единая система</a>
         <a href="${prefix}strategy/ai-contextual.html">AI и контекст</a>
+        <a href="${prefix}strategy/ai-visibility-analytics.html">Аналитика AI‑видимости</a>
+        <a href="${prefix}strategy/brand-strategy.html">Стратегия площадок</a>
+        <a href="${prefix}strategy/implementation-changes.html">Реализация изменений</a>
+        <a href="${prefix}strategy/optimization-tracking.html">Оптимизация и трекинг</a>
       </div>
 
       <div class="footer-col">
