@@ -3479,16 +3479,7 @@ main {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(14px, 2vw, 22px);
   margin-top: clamp(18px, 2.6vw, 28px);
-  /* Make the whole articles block a glass plaque like Services */
-  background:
-    linear-gradient(135deg, var(--glass-hi), var(--glass-lo)),
-    var(--apple-surface-strong);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: var(--glass-shadow);
-  border-radius: 26px;
-  padding: 26px;
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  width: 100%;
 }
 
 .articles-more {
@@ -3678,7 +3669,6 @@ main {
 @media (max-width: 980px) {
   .articles-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 22px;
   }
   .article-card__cta {
     width: 52px;
@@ -3688,7 +3678,6 @@ main {
 @media (max-width: 620px) {
   .articles-grid {
     grid-template-columns: 1fr;
-    padding: 18px;
   }
 }
 
