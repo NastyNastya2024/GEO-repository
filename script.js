@@ -192,6 +192,49 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `;
+
+    // Footer accordion on mobile (avoid super long sitemap)
+    const enhanceFooterAccordion = () => {
+      if (!window.matchMedia || !window.matchMedia("(max-width: 768px)").matches) return;
+      const sitemap = footer.querySelector(".footer-sitemap");
+      if (!sitemap) return;
+      if (sitemap.dataset.accordionReady === "true") return;
+
+      const cols = Array.from(sitemap.querySelectorAll(":scope > .footer-col"));
+      if (!cols.length) return;
+
+      cols.forEach((col, idx) => {
+        const titleEl = col.querySelector(".footer-col__title");
+        if (!titleEl) return;
+        const title = String(titleEl.textContent || "").trim();
+        const links = Array.from(col.querySelectorAll(":scope > a, :scope > button, :scope > [data-popup]"));
+
+        const details = document.createElement("details");
+        details.className = "footer-acc";
+        if (idx === 0) details.open = true;
+
+        const summary = document.createElement("summary");
+        summary.className = "footer-acc__summary";
+        summary.textContent = title || "Раздел";
+
+        const panel = document.createElement("div");
+        panel.className = "footer-acc__panel";
+
+        // Move existing anchors into panel
+        Array.from(col.children).forEach(child => {
+          if (child === titleEl) return;
+          panel.appendChild(child);
+        });
+
+        details.appendChild(summary);
+        details.appendChild(panel);
+        col.replaceWith(details);
+      });
+
+      sitemap.dataset.accordionReady = "true";
+    };
+
+    enhanceFooterAccordion();
   }
 
   // Top mega menu (overlay)
@@ -584,8 +627,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const popupTriggers = document.querySelectorAll("[data-popup]");
 
   // Contact form overlay (CodePen-like behavior, no jQuery)
+  const bindContactCloseHandlers = root => {
+    const scope = root instanceof Element ? root : document;
+    const bindClose = el => {
+      if (!(el instanceof Element)) return;
+      if (el.dataset.boundClose === "true") return;
+      const handler = e => {
+        try {
+          if (e && typeof e.preventDefault === "function") e.preventDefault();
+          if (e && typeof e.stopPropagation === "function") e.stopPropagation();
+        } catch {}
+        closeContactOverlay();
+      };
+      el.addEventListener("pointerdown", handler, { capture: true });
+      el.addEventListener("touchstart", handler, { capture: true, passive: false });
+      el.addEventListener("click", handler, { capture: true });
+      el.dataset.boundClose = "true";
+    };
+
+    scope.querySelectorAll("[data-contact-close]").forEach(bindClose);
+  };
+
   const ensureContactOverlay = () => {
-    if (document.querySelector("#contact-form-container")) return;
+    const existing = document.querySelector("#contact-form-container");
+    if (existing) {
+      bindContactCloseHandlers(document.querySelector(".contact-form-wrap") || document.body);
+      return;
+    }
 
     const wrap = document.createElement("div");
     wrap.className = "contact-form-wrap";
@@ -610,25 +678,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
     document.body.appendChild(wrap);
-
-    // Bind close handlers directly (more reliable in mobile webviews)
-    const bindClose = el => {
-      if (!(el instanceof Element)) return;
-      if (el.dataset.boundClose === "true") return;
-      const handler = e => {
-        try {
-          // Some webviews require preventDefault to stop focus/click glitches
-          if (e && typeof e.preventDefault === "function") e.preventDefault();
-        } catch {}
-        closeContactOverlay();
-      };
-      el.addEventListener("pointerdown", handler, { capture: true });
-      el.addEventListener("touchstart", handler, { capture: true, passive: false });
-      el.addEventListener("click", handler, { capture: true });
-      el.dataset.boundClose = "true";
-    };
-
-    wrap.querySelectorAll("[data-contact-close]").forEach(bindClose);
+    bindContactCloseHandlers(wrap);
   };
 
   const isValidEmail = email => {
@@ -639,6 +689,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openContactOverlay = () => {
     ensureContactOverlay();
+    // Re-bind close handlers every open (webviews can drop events)
+    bindContactCloseHandlers(document.querySelector(".contact-form-wrap") || document.body);
     document.body.classList.add("show-form-overlay");
     document.body.classList.remove("form-submitted");
     const head = document.querySelector("#contact-form-head");
