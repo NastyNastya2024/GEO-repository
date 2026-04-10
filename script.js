@@ -88,8 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (servicesSliderEl && typeof window.Swiper === "function") {
     new window.Swiper(servicesSliderEl, {
       spaceBetween: 30,
-      effect: "fade",
-      fadeEffect: { crossFade: true },
+      effect: "slide",
       loop: true,
       keyboard: true,
       // Wheel-scrolling the page should not "accidentally" swipe the slider.
