@@ -4218,12 +4218,12 @@ body.legacy-dark .btn-ghost {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-size: 0.95rem;
-  color: rgba(226, 232, 240, 0.4);
+  color: rgba(226, 232, 240, 0.26);
 }
 
 .header-ticker__sep {
   font-weight: 700;
-  opacity: 0.6;
+  opacity: 0.42;
   color: rgba(34, 211, 238, 0.95);
 }
 
