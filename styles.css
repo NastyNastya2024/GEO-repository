@@ -528,7 +528,7 @@ main {
   content: "+";
   width: 28px;
   height: 28px;
-  border-radius: 10px;
+  border-radius: 999px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(17, 111, 235, 0.85);
@@ -3479,17 +3479,26 @@ main {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(14px, 2vw, 22px);
   margin-top: clamp(18px, 2.6vw, 28px);
+  /* Make the whole articles block a glass plaque like Services */
+  background:
+    linear-gradient(135deg, var(--glass-hi), var(--glass-lo)),
+    var(--apple-surface-strong);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--glass-shadow);
+  border-radius: 26px;
+  padding: 26px;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
 }
 
 .articles-more {
-  display: inline-flex;
+  display: block;
   width: fit-content;
   margin: clamp(16px, 2.6vw, 22px) auto 0;
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 0.01em;
-  justify-content: center;
   text-align: center;
 }
 
@@ -3645,6 +3654,7 @@ main {
 .article-card__cta.article-card__cta--icon {
   width: 52px;
   height: 52px;
+  aspect-ratio: 1 / 1;
   padding: 0;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.78);
@@ -3668,6 +3678,7 @@ main {
 @media (max-width: 980px) {
   .articles-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 22px;
   }
   .article-card__cta {
     width: 52px;
@@ -3677,6 +3688,7 @@ main {
 @media (max-width: 620px) {
   .articles-grid {
     grid-template-columns: 1fr;
+    padding: 18px;
   }
 }
 
@@ -4182,7 +4194,7 @@ body.legacy-dark .btn-ghost {
 @media (max-width: 768px) {
   .hero-bg-video {
     /* Keep the focal area closer to the left edge on mobile */
-    object-position: 18% 10%;
+    object-position: 28% 8%;
   }
 }
 
@@ -4293,6 +4305,15 @@ body.legacy-dark .btn-ghost {
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: #ffffff;
+}
+
+@media (max-width: 520px) {
+  .hero h1 {
+    font-size: clamp(1.85rem, 7.2vw, 2.55rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
 }
 
 .hero h1 span:nth-child(2) {
