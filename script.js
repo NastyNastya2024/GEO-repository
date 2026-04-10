@@ -110,6 +110,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const sitemapHtml = `
     <div class="footer-sitemap" aria-label="Структура сайта">
       <div class="footer-col">
+        <div class="footer-col__title">Основное</div>
+        <a href="${prefix}blog/main.html">Блог</a>
+        <a href="${prefix}about.html">О компании</a>
+        <a href="#" data-popup="contacts">Контакты</a>
+        <a href="${prefix}faq.html">FAQ</a>
+      </div>
+
+      <div class="footer-col">
         <div class="footer-col__title">Методы</div>
         <a href="${prefix}methods/geo.html">GEO оптимизация</a>
         <a href="${prefix}methods/aeo.html">AEO оптимизация</a>
@@ -164,14 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}case-studies/local-business.html">Локальный бизнес</a>
         <a href="${prefix}case-studies/ai-discovery.html">AI‑discovery лидеры</a>
       </div>
-
-      <div class="footer-col">
-        <div class="footer-col__title">Ещё</div>
-        <a href="${prefix}blog/main.html">Блог</a>
-        <a href="${prefix}about.html">О компании</a>
-        <a href="#" data-popup="contacts">Контакты</a>
-        <a href="${prefix}faq.html">FAQ</a>
-      </div>
     </div>
   `;
 
@@ -203,7 +203,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="top-menu__backdrop" data-topmenu-close></div>
     <div class="top-menu__panel" role="dialog" aria-modal="true" aria-label="Меню сайта">
       <div class="top-menu__header">
-        <div class="top-menu__title">Меню</div>
+        <a class="top-menu__brand" href="${prefix}index.html#hero" aria-label="На главную">
+          <img src="${prefix}Img/logo-aeo.png" alt="GEO logo" />
+        </a>
         <button class="top-menu__close" type="button" data-topmenu-close aria-label="Закрыть меню">×</button>
       </div>
       <div class="top-menu__content">

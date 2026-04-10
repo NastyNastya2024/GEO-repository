@@ -417,6 +417,20 @@ main {
   font-size: 0.78rem;
 }
 
+.top-menu__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.top-menu__brand img {
+  height: 22px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.35));
+}
+
 .top-menu__close {
   width: 36px;
   height: 36px;
@@ -513,9 +527,9 @@ main {
     border-radius: 10px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(17, 111, 235, 0.85);
+    background: var(--cta-blue);
+    color: #ffffff;
     flex: 0 0 auto;
   }
 
