@@ -1463,6 +1463,9 @@ main {
     grid-template-columns: 1fr;
   }
   .orb-media {
+    display: none;
+  }
+  .orb-media {
     justify-content: flex-start;
   }
   .orb-media img {
