@@ -1199,8 +1199,9 @@ main {
   line-height: 1.22;
   letter-spacing: -0.02em;
   color: rgba(248, 250, 252, 0.95);
-  max-width: 28ch;
+  max-width: none;
   text-align: right;
+  white-space: nowrap;
 }
 
 .orb-text strong {
@@ -1229,7 +1230,7 @@ main {
   top: 0;
   white-space: nowrap;
   opacity: 0;
-  transform: translateY(0.22em);
+  transform: translateX(0.22em);
   animation: wordRotate 6.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
@@ -1248,27 +1249,27 @@ main {
 @keyframes wordRotate {
   0% {
     opacity: 0;
-    transform: translateY(0.22em);
+    transform: translateX(0.22em);
     filter: blur(10px);
   }
   10% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
     filter: blur(0);
   }
   33% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
     filter: blur(0);
   }
   45% {
     opacity: 0;
-    transform: translateY(-0.12em);
+    transform: translateX(-0.12em);
     filter: blur(10px);
   }
   100% {
     opacity: 0;
-    transform: translateY(-0.12em);
+    transform: translateX(-0.12em);
     filter: blur(10px);
   }
 }
