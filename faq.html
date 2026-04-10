@@ -8,20 +8,56 @@
       name="description"
       content="Главный FAQ по GEO/AEO/SEO и продвижению бренда в нейросетях: короткие ответы, ошибки, метрики и чеклист."
     />
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="FAQ — продвижение бренда в нейросетях" />
+    <meta property="og:description" content="Главный FAQ по GEO/AEO/SEO и продвижению бренда в нейросетях" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/faq.html" />
+    <meta property="og:image" content="./Img/logo-aeo.png" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FAQ — продвижение бренда в нейросетях" />
+    <meta name="twitter:description" content="Короткие ответы по GEO/AEO/SEO в нейросетях" />
+    
+    <!-- Additional SEO/AEO Meta Tags -->
+    <meta name="keywords" content="GEO, AEO, SEO, нейросети, ChatGPT, Perplexity, продвижение, видимость бренда" />
+    <meta name="author" content="GEO Hub" />
+    <meta name="theme-color" content="#116feb" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./styles.css" as="style" />
+    <link rel="preload" href="./script.js" as="script" />
+    
+    <!-- Font Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    
     <link rel="stylesheet" href="./styles.css" />
     <link rel="canonical" href="/faq.html" />
+    
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GEO Hub",
+      "url": "https://yourdomain.com",
+      "logo": "https://yourdomain.com/Img/logo-aeo.png",
+      "description": "Продвижение бренда в нейросетях: GEO, AEO, SEO оптимизация",
+      "sameAs": []
+    }
+    </script>
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
         <a href="./index.html" class="logo">
-          <img src="./Img/logo-aeo.png" alt="GEO logo" class="logo-image" />
+          <img src="./Img/logo-aeo.png" alt="GEO Hub - продвижение бренда в нейросетях" class="logo-image" loading="lazy" />
         </a>
         <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
@@ -93,7 +129,6 @@
           </div>
         </details>
         <a class="drawer-link" href="blog/main.html">БЛОГ</a>
-
       </nav>
     </aside>
 
@@ -101,47 +136,292 @@
       <section class="section">
         <div class="container">
           <div class="section-header">
-            <h1>FAQ</h1>
-            <p class="section-subtitle">Короткие ответы по GEO/AEO/SEO и “видимости бренда” в нейросетях.</p>
+            <h1>FAQ по продвижению бренда в нейросетях</h1>
+            <p class="section-subtitle">Короткие ответы по GEO/AEO/SEO и "видимости бренда" в нейросетях.</p>
           </div>
 
           <article class="content-article">
-            <h2>Что значит “продвижение бренда в нейросетях”?</h2>
-            <p>
-              Это набор действий, чтобы AI‑поиск и ассистенты чаще называли ваш бренд: понятные страницы‑ответы,
-              доказательства (кейсы/цифры), связная структура сайта и повторяемые факты о продукте.
-            </p>
+            <!-- Skip Navigation for Accessibility -->
+            <a href="#main-content" class="skip-to-content">Перейти к основному контенту</a>
 
-            <h2>Почему нейросети часто не упоминают бренд, даже если сайт красивый?</h2>
-            <ul>
-              <li>Нет страниц с вопросными заголовками (AI не находит точные совпадения запросов).</li>
-              <li>Нет конкретики: цифр, условий, ограничений, сравнительных таблиц.</li>
-              <li>Мало доказательств: кейсов, отзывов, публикаций.</li>
-              <li>Есть 404‑ссылки или разорванная структура разделов.</li>
-            </ul>
+            <!-- Quick Navigation Bar -->
+            <nav class="faq-quick-nav" aria-label="Быстрая навигация">
+              <ul class="faq-quick-links">
+                <li><a href="#chto-znachit">Определение</a></li>
+                <li><a href="#pochemu-ne-upominayut">Причины</a></li>
+                <li><a href="#skolko-stranic">Количество страниц</a></li>
+                <li><a href="#struktura-otveta">Структура</a></li>
+                <li><a href="#izmereniya">Измерения</a></li>
+              </ul>
+            </nav>
 
-            <h2>Сколько страниц нужно, чтобы начать получать “цитаты” AI?</h2>
-            <p>
-              Обычно достаточно 10–20 сильных страниц‑ответов в одном кластере (например, “Методы”), плюс 2–3 кейса и
-              1–2 таблицы сравнения. Важно качество и связность, а не количество.
-            </p>
+            <div id="main-content" class="faq-content">
+              <!-- Question 1 -->
+              <article class="faq-item">
+                <h2 id="chto-znachit">Что значит "продвижение бренда в нейросетях"?</h2>
+                <div class="short-answer">
+                  <strong>Коротко:</strong> Набор действий, чтобы AI‑поиск и ассистенты чаще называли ваш бренд через понятные страницы‑ответы, доказательства и связную структуру.
+                </div>
+                <p>
+                  Это набор действий, чтобы AI‑поиск и ассистенты чаще называли ваш бренд: понятные страницы‑ответы,
+                  доказательства (кейсы/цифры), связная структура сайта и повторяемые факты о продукте.
+                </p>
+                
+                <h3>Почему это важно?</h3>
+                <ul>
+                  <li><strong>AI‑видимость:</strong> В 2026 году AI ассистенты — основной источник информации.</li>
+                  <li><strong>Брендовость:</strong> Упоминание вашего бренда в ответах AI повышает доверие.</li>
+                  <li><strong>Конверсия:</strong> Пользователи AI переходят на сайт чаще, чем из органического поиска.</li>
+                </ul>
 
-            <h2>Какая структура ответа лучше всего подходит для AI?</h2>
-            <ol>
-              <li>H2‑вопрос “как/что/сколько/почему”.</li>
-              <li>Короткий ответ (60–120 слов) сразу.</li>
-              <li>Шаги или таблица факторов.</li>
-              <li>Ограничения/когда не подходит.</li>
-              <li>Мини‑FAQ (3–6 вопросов).</li>
-            </ol>
+                <div class="content-note">
+                  <strong>Примечание:</strong> В отличие от традиционного SEO, AEO/GEO фокусируются на попадании в обучающие данные AI и их ответы, а не на позициях в поисковой выдаче.
+                </div>
+              </article>
 
-            <h2>Как измерять прогресс, если “цитируемость” не видна напрямую?</h2>
-            <ul>
-              <li>Рост брендовых запросов.</li>
-              <li>Рост переходов на страницы‑ответы и времени чтения.</li>
-              <li>Появление запросов “как/что/сравнение” в поисковых отчётах.</li>
-              <li>Конверсия: заявки/консультации с контентных страниц.</li>
-            </ul>
+              <!-- Question 2 -->
+              <article class="faq-item">
+                <h2 id="pochemu-ne-upominayut">Почему нейросети часто не упоминают бренд, даже если сайт красивый?</h2>
+                <div class="short-answer">
+                  <strong>Коротко:</strong> AI не понимает "красоту" — ей нужны конкретные вопросы‑ответы, цифры и доказательства.
+                </div>
+                <ul>
+                  <li><strong>Нет страниц с вопросными заголовками</strong> — AI не находит точные совпадения запросов (например, "как использовать GEO для e-commerce").</li>
+                  <li><strong>Нет конкретики:</strong> цифр, условий, ограничений, сравнительных таблиц — AI нуждается в фактах, не в общих описаниях.</li>
+                  <li><strong>Мало доказательств:</strong> кейсов, отзывов, публикаций — AI проверяет авторитетность через примеры.</li>
+                  <li><strong>Есть 404‑ссылки или разорванная структура разделов</strong> — AI попадает на несуществующие страницы или видит противоречия.</li>
+                  <li><strong>Плохая внутренняя перелинковка</strong> — AI не понимает связи между разделами вашего сайта.</li>
+                  <li><strong>Нет структурированных данных (JSON-LD)</strong> — AI не может автоматически распарсить информацию.</li>
+                </ul>
+
+                <h3>Практический пример:</h3>
+                <div class="content-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>❌ Что AI игнорирует</th>
+                        <th>✅ Что AI видит и берёт</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>"Лучший способ продвижения"</td>
+                        <td>"GEO увеличивает видимость на 45% за 3 месяца"</td>
+                      </tr>
+                      <tr>
+                        <td>Красивый раздел "О компании"</td>
+                        <td>Таблица "Наши результаты: 150+ проектов, средний ROI +320%"</td>
+                      </tr>
+                      <tr>
+                        <td>Общий текст о методологии</td>
+                        <td>Пошаговый чеклист из 12 пунктов с примерами</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+
+              <!-- Question 3 -->
+              <article class="faq-item">
+                <h2 id="skolko-stranic">Сколько страниц нужно, чтобы начать получать "цитаты" AI?</h2>
+                <div class="short-answer">
+                  <strong>Коротко:</strong> 10–20 сильных страниц‑ответов в одном кластере + 2–3 кейса. Качество важнее количества.
+                </div>
+                <p>
+                  Обычно достаточно 10–20 сильных страниц‑ответов в одном кластере (например, "Методы"), плюс 2–3 кейса и 1–2 таблицы сравнения. Важно качество и связность, а не количество.
+                </p>
+
+                <h3>Рекомендуемая структура для AI‑видимости:</h3>
+                <ol>
+                  <li><strong>Ядро (12–15 страниц):</strong> Основные методы/продукты с вопросными заголовками.</li>
+                  <li><strong>Кейсы (2–3):</strong> Реальные примеры с числами (повысили видимость на X%, выросли продажи на Y%).</li>
+                  <li><strong>Сравнения (1–2):</strong> Таблицы "Метод А vs Метод B vs Метод C".</li>
+                  <li><strong>FAQ (1):</strong> Короткие ответы на частые вопросы (как этот документ).</li>
+                  <li><strong>Инструменты (опционально):</strong> Чеклисты, аудиты, калькуляторы.</li>
+                </ol>
+
+                <div class="content-note">
+                  <strong>Совет:</strong> Начните с одной области (например, "GEO оптимизация") и сделайте её идеальной для AI. Потом расширяйте.
+                </div>
+              </article>
+
+              <!-- Question 4 -->
+              <article class="faq-item">
+                <h2 id="struktura-otveta">Какая структура ответа лучше всего подходит для AI?</h2>
+                <div class="short-answer">
+                  <strong>Коротко:</strong> H2-вопрос → короткий ответ → шаги/таблица → ограничения → мини-FAQ.
+                </div>
+                <ol>
+                  <li><strong>H2‑вопрос "как/что/сколько/почему".</strong>
+                    <p>Пример: "Как GEO увеличивает видимость в ChatGPT?"</p>
+                  </li>
+                  <li><strong>Короткий ответ (60–120 слов) сразу.</strong>
+                    <p>AI берёт первый параграф как "позиция ноль" в поиске. Ответьте на вопрос в 2–3 предложения.</p>
+                  </li>
+                  <li><strong>Шаги или таблица факторов.</strong>
+                    <p>Нумерованные пункты (1–7) или таблица с примерами. AI лучше парсит структурированные данные.</p>
+                  </li>
+                  <li><strong>Ограничения/когда не подходит.</strong>
+                    <p>"⚠️ GEO НЕ поможет, если..." — AI ценит честность и полноту ответа.</p>
+                  </li>
+                  <li><strong>Мини‑FAQ (3–6 вопросов).</strong>
+                    <p>Под основным вопросом добавьте H3 с уточняющими вопросами (как здесь). AI будет цитировать и их.</p>
+                  </li>
+                </ol>
+
+                <h3>Пример идеального ответа для AI:</h3>
+                <div class="content-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Секция</th>
+                        <th>Длина</th>
+                        <th>Пример</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>H2 (вопрос)</strong></td>
+                        <td>1 строка</td>
+                        <td>"Как выбрать между GEO и SEO?"</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Ответ</strong></td>
+                        <td>80–100 слов</td>
+                        <td>"GEO фокусируется на AI‑поиске (ChatGPT, Perplexity), SEO — на Google. Выбирайте GEO, если... Выбирайте SEO, если..."</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Таблица/шаги</strong></td>
+                        <td>5–7 пунктов</td>
+                        <td>Таблица сравнения с числами (ROI, время реализации)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Ограничения</strong></td>
+                        <td>2–3 пункта</td>
+                        <td>"GEO требует качественного контента, не работает с спамом"</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Мини‑FAQ</strong></td>
+                        <td>3–4 вопроса</td>
+                        <td>H3: "Можно ли комбинировать GEO и SEO?" "За какое время работает GEO?"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+
+              <!-- Question 5 -->
+              <article class="faq-item">
+                <h2 id="izmereniya">Как измерять прогресс, если "цитируемость" не видна напрямую?</h2>
+                <div class="short-answer">
+                  <strong>Коротко:</strong> Смотрите на рост брендовых запросов, переходы на страницы и конверсию с контента.
+                </div>
+                <ul>
+                  <li><strong>Рост брендовых запросов:</strong>
+                    <p>В Google Search Console смотрите, какие запросы с вашим брендом растут. Это указывает на AI‑упоминания.</p>
+                  </li>
+                  <li><strong>Рост переходов на страницы‑ответы и времени чтения:</strong>
+                    <p>Если трафик на контентные страницы растёт, AI их обнаружила и рекомендует.</p>
+                  </li>
+                  <li><strong>Появление запросов "как/что/сравнение" в поисковых отчётах:</strong>
+                    <p>Ищите в Search Console запросы вида "как использовать [бренд]" или "[бренд] vs конкурент".</p>
+                  </li>
+                  <li><strong>Конверсия: заявки/консультации с контентных страниц.</strong>
+                    <p>Трекируйте, откуда приходят заявки. Страницы‑ответы обычно конвертят лучше всего.</p>
+                  </li>
+                  <li><strong>Проверка через AI (вручную):</strong>
+                    <p>Введите целевой запрос в ChatGPT, Perplexity, DeepSeek. Упоминается ли ваш бренд? Если да — GEO работает.</p>
+                  </li>
+                </ul>
+
+                <h3>KPI для отслеживания AI‑видимости:</h3>
+                <div class="content-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Метрика</th>
+                        <th>Где смотреть</th>
+                        <th>Целевое значение</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Брендовые запросы</strong></td>
+                        <td>GSC → Queries</td>
+                        <td>+50% за 3 месяца</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Переходы на FAQ/статьи</strong></td>
+                        <td>GA4 → Pages</td>
+                        <td>+100% за 6 месяцев</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Avg. Engagement Time</strong></td>
+                        <td>GA4 → Engagement</td>
+                        <td>&gt; 2 мин на страницу</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Conversion Rate (CTAs)</strong></td>
+                        <td>GA4 → Conversion</td>
+                        <td>2–5% (по отрасли)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Bounce Rate</strong></td>
+                        <td>GA4 → Pages</td>
+                        <td>&lt; 40% (для контента)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="content-related">
+                  <strong>🔗 Дополнительные ресурсы:</strong>
+                  <ul>
+                    <li><a href="tools/analytics.html">Аналитика AI‑видимости (инструменты)</a></li>
+                    <li><a href="strategy/ai-visibility-analytics.html">Как настроить трекинг AI‑упоминаний</a></li>
+                    <li><a href="blog/main.html">Кейсы и результаты в блоге</a></li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- Bonus Section: Common Mistakes -->
+              <article class="faq-item">
+                <h2 id="oshibki">Частые ошибки при оптимизации для AI</h2>
+                <div class="short-answer">
+                  <strong>Коротко:</strong> Копирование контента, игнор структуры, отсутствие ссылок и микроразметки.
+                </div>
+                <ul>
+                  <li><strong>❌ Копировать контент с конкурентов.</strong>
+                    <p>✅ AI изучает исходные источники. Напишите свой уникальный взгляд, даже если суть одна.</p>
+                  </li>
+                  <li><strong>❌ Писать для людей, игнорируя вопросные заголовки.</strong>
+                    <p>✅ Каждый H2 должен начинаться с "как", "что", "сколько" или "почему".</p>
+                  </li>
+                  <li><strong>❌ Не ставить внутренние ссылки на связанные статьи.</strong>
+                    <p>✅ AI видит граф вашего сайта. Связывайте страницы логически (3–5 ссылок на страницу).</p>
+                  </li>
+                  <li><strong>❌ Забывать о JSON-LD (FAQ, Article, BreadcrumbList).</strong>
+                    <p>✅ Добавляйте структурированные данные — AI парсит их в первую очередь.</p>
+                  </li>
+                  <li><strong>❌ Изменять URL структуру без редиректов.</strong>
+                    <p>✅ Если переименовываете страницы, используйте 301 редиректы.</p>
+                  </li>
+                  <li><strong>❌ Иметь разные версии одного контента (дублирование).</strong>
+                    <p>✅ Используйте canonical tags и консолидируйте похожий контент в одну мощную страницу.</p>
+                  </li>
+                </ul>
+              </article>
+
+              <!-- Call to Action -->
+              <section class="faq-cta">
+                <h2>Готовы оптимизировать сайт для AI?</h2>
+                <p>Наш чеклист и аудит помогут вам выявить проблемы и начать подъём AI‑видимости.</p>
+                <div class="cta-buttons">
+                  <a href="tools/code-aeo-geo-audit.html" class="btn btn-primary">Запустить бесплатный аудит</a>
+                  <a href="#" data-popup="contacts" class="btn btn-outline">Получить консультацию</a>
+                </div>
+              </section>
+            </div>
           </article>
         </div>
       </section>
