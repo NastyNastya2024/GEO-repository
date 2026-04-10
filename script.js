@@ -195,7 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Footer accordion on mobile (avoid super long sitemap)
     const enhanceFooterAccordion = () => {
-      if (!window.matchMedia || !window.matchMedia("(max-width: 768px)").matches) return;
+      // Only enable accordion when footer collapses into one long column
+      if (!window.matchMedia || !window.matchMedia("(max-width: 420px)").matches) return;
       const sitemap = footer.querySelector(".footer-sitemap");
       if (!sitemap) return;
       if (sitemap.dataset.accordionReady === "true") return;
@@ -211,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const details = document.createElement("details");
         details.className = "footer-acc";
-        if (idx === 0) details.open = true;
+        if (idx === 0) details.open = true; // "Основное" раскрыто по умолчанию
 
         const summary = document.createElement("summary");
         summary.className = "footer-acc__summary";
