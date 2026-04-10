@@ -137,6 +137,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}tools/analytics.html">Аналитика</a>
         <a href="${prefix}tools/checklists.html">Чеклисты</a>
         <a href="${prefix}tools/code-aeo-geo-audit.html">Аудит кода AEO + GEO</a>
+        <a href="${prefix}tools/brand-visibility-audit.html">Аудит видимости бренда</a>
+        <a href="${prefix}tools/content-factory.html">Контент‑завод</a>
+        <a href="${prefix}tools/it-audit.html">Аудит текущего IT‑решения</a>
+        <a href="${prefix}tools/promotion-strategy.html">Стратегия продвижения</a>
+        <a href="${prefix}tools/full-promotion.html">Полное продвижение</a>
+        <a href="${prefix}tools/support-service.html">Поддерживающий сервис</a>
       </div>
 
       <div class="footer-col">
