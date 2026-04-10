@@ -595,7 +595,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <button type="button" class="contact-form-close" data-contact-close aria-label="Закрыть">×</button>
         <div id="contact-form-content" class="contact-form-content">
           <div id="contact-form-head" class="contact-form-head">
-            <h3 class="pre">Консультация</h3>
+            <h3 class="pre">Обратная связь</h3>
             <p class="pre">Оставьте контакты — ответим в ближайшее время.</p>
             <h3 class="post">Спасибо!</h3>
             <p class="post">Мы свяжемся с вами как можно быстрее.</p>
@@ -603,13 +603,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <form id="contact-form" novalidate>
             <input class="input name" type="text" name="user_name" placeholder="Ваше имя" required />
             <input class="input email" type="email" name="user_email" placeholder="Email для связи" required />
-            <select class="input select" name="subject" required>
-              <option value="" disabled selected>Тема обращения</option>
-              <option value="audit">Аудит видимости / диагностика</option>
-              <option value="strategy">Стратегия продвижения</option>
-              <option value="content">Контент‑завод</option>
-              <option value="support">Поддерживающий сервис</option>
-            </select>
             <textarea class="input message" name="message" placeholder="Коротко: что нужно сделать?" required></textarea>
             <button class="btn input submit" type="submit">Отправить</button>
           </form>
@@ -617,6 +610,25 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
     document.body.appendChild(wrap);
+
+    // Bind close handlers directly (more reliable in mobile webviews)
+    const bindClose = el => {
+      if (!(el instanceof Element)) return;
+      if (el.dataset.boundClose === "true") return;
+      const handler = e => {
+        try {
+          // Some webviews require preventDefault to stop focus/click glitches
+          if (e && typeof e.preventDefault === "function") e.preventDefault();
+        } catch {}
+        closeContactOverlay();
+      };
+      el.addEventListener("pointerdown", handler, { capture: true });
+      el.addEventListener("touchstart", handler, { capture: true, passive: false });
+      el.addEventListener("click", handler, { capture: true });
+      el.dataset.boundClose = "true";
+    };
+
+    wrap.querySelectorAll("[data-contact-close]").forEach(bindClose);
   };
 
   const isValidEmail = email => {
@@ -705,16 +717,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!(target instanceof Element)) return;
     if (target.closest("[data-contact-close]")) closeContactOverlay();
   });
-
-  // Make close reliable in mobile webviews (touch events)
+  // Extra fallback for mobile webviews that don't fire click reliably
   document.addEventListener(
-    "touchend",
+    "pointerup",
     e => {
       const target = e.target;
       if (!(target instanceof Element)) return;
       if (target.closest("[data-contact-close]")) closeContactOverlay();
     },
-    { passive: true }
+    { capture: true }
   );
 
   document.addEventListener("submit", e => {
@@ -725,16 +736,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const name = form.querySelector('input[name="user_name"]');
     const email = form.querySelector('input[name="user_email"]');
-    const subject = form.querySelector('select[name="subject"]');
     const message = form.querySelector('textarea[name="message"]');
-    const fields = [name, email, subject, message].filter(Boolean);
+    const fields = [name, email, message].filter(Boolean);
 
     fields.forEach(el => el.classList.remove("form-error"));
 
     let hasError = false;
     if (name && !String(name.value || "").trim()) { name.classList.add("form-error"); hasError = true; }
     if (email && !isValidEmail(email.value)) { email.classList.add("form-error"); hasError = true; }
-    if (subject && !String(subject.value || "").trim()) { subject.classList.add("form-error"); hasError = true; }
     if (message && !String(message.value || "").trim()) { message.classList.add("form-error"); hasError = true; }
 
     if (hasError) return;
