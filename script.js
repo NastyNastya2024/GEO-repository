@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="footer-bottom">
-          <p>(/) © 2026</p>
+          <p>Компания AEO © 2026</p>
           <div class="footer-meta">
             <button class="footer-meta__link" type="button" data-popup="privacy">Политика конфиденциальности</button>
             <button class="footer-meta__link" type="button" data-popup="consent">Согласие на обработку данных</button>
