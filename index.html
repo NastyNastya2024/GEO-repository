@@ -226,15 +226,31 @@
         <div class="container">
           <div class="orb-block">
             <div class="orb-copy">
-              <p class="orb-text">
-                Пользователи всё чаще 
-                <span class="word-rotator" aria-label="находят, сравнивают, выбирают">
-                  <strong class="word-rotator__word">находят</strong>
-                  <strong class="word-rotator__word">сравнивают</strong>
-                  <strong class="word-rotator__word">выбирают</strong>
-                </span> 
-                продукты прямо внутри LLM‑чатботов.
-              </p>
+              <p class="orb-text">Пользователи всё чаще</p>
+              <div class="orb-ticker" aria-label="Пользователи находят, сравнивают, выбирают продукты внутри LLM‑чатботов">
+                <div class="orb-ticker__track" aria-hidden="true">
+                  <div class="orb-ticker__group">
+                    <span class="orb-ticker__item">находят</span>
+                    <span class="orb-ticker__sep">•</span>
+                    <span class="orb-ticker__item">сравнивают</span>
+                    <span class="orb-ticker__sep">•</span>
+                    <span class="orb-ticker__item">выбирают</span>
+                    <span class="orb-ticker__sep">•</span>
+                    <span class="orb-ticker__item">продукты внутри LLM‑чатботов</span>
+                    <span class="orb-ticker__sep">•</span>
+                  </div>
+                  <div class="orb-ticker__group">
+                    <span class="orb-ticker__item">находят</span>
+                    <span class="orb-ticker__sep">•</span>
+                    <span class="orb-ticker__item">сравнивают</span>
+                    <span class="orb-ticker__sep">•</span>
+                    <span class="orb-ticker__item">выбирают</span>
+                    <span class="orb-ticker__sep">•</span>
+                    <span class="orb-ticker__item">продукты внутри LLM‑чатботов</span>
+                    <span class="orb-ticker__sep">•</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="orb-media" aria-hidden="true">
               <img src="Img/container-orb-azure-violet-pink.png" alt="" loading="lazy" />
@@ -650,13 +666,15 @@
               </div>
               <div class="article-card__kicker">Стратегия</div>
               <div class="article-card__title">Аналитика AI‑видимости</div>
-              <div class="article-card__text">Как измерять присутствие бренда в ответах и находить точки роста.</div>
-              <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
-                <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
-                  <path d="M5 12h12"></path>
-                  <path d="M13 6l6 6-6 6"></path>
-                </svg>
-              </span>
+              <div class="article-card__bottom">
+                <div class="article-card__text">Как измерять присутствие бренда в ответах и находить точки роста.</div>
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
+                    <path d="M5 12h12"></path>
+                    <path d="M13 6l6 6-6 6"></path>
+                  </svg>
+                </span>
+              </div>
             </a>
 
             <a class="article-card" role="listitem" href="tools/code-aeo-geo-audit.html">
@@ -665,13 +683,15 @@
               </div>
               <div class="article-card__kicker">AEO</div>
               <div class="article-card__title">Аудит кода AEO + GEO</div>
-              <div class="article-card__text">Что проверить в структуре, schema и данных, чтобы повышать извлекаемость и цитируемость.</div>
-              <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
-                <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
-                  <path d="M5 12h12"></path>
-                  <path d="M13 6l6 6-6 6"></path>
-                </svg>
-              </span>
+              <div class="article-card__bottom">
+                <div class="article-card__text">Что проверить в структуре, schema и данных, чтобы повышать извлекаемость и цитируемость.</div>
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
+                    <path d="M5 12h12"></path>
+                    <path d="M13 6l6 6-6 6"></path>
+                  </svg>
+                </span>
+              </div>
             </a>
 
             <a class="article-card" role="listitem" href="tools/ai-tools.html">
@@ -680,28 +700,15 @@
               </div>
               <div class="article-card__kicker">Инструменты</div>
               <div class="article-card__title">AI‑инструменты (2026)</div>
-              <div class="article-card__text">Подборка и логика выбора инструментов для GEO / AEO: от интентов до контроля качества.</div>
-              <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
-                <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
-                  <path d="M5 12h12"></path>
-                  <path d="M13 6l6 6-6 6"></path>
-                </svg>
-              </span>
-            </a>
-
-            <a class="article-card" role="listitem" href="tools/checklists.html">
-              <div class="article-card__media" aria-hidden="true">
-                <img src="Img/strategy-card-bg-2.png" alt="" loading="lazy" />
+              <div class="article-card__bottom">
+                <div class="article-card__text">Подборка и логика выбора инструментов для GEO / AEO: от интентов до контроля качества.</div>
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
+                    <path d="M5 12h12"></path>
+                    <path d="M13 6l6 6-6 6"></path>
+                  </svg>
+                </span>
               </div>
-              <div class="article-card__kicker">Практика</div>
-              <div class="article-card__title">Чеклисты GEO / AEO</div>
-              <div class="article-card__text">Короткие списки проверок для контента, данных и технической упаковки.</div>
-              <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
-                <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
-                  <path d="M5 12h12"></path>
-                  <path d="M13 6l6 6-6 6"></path>
-                </svg>
-              </span>
             </a>
           </div>
 

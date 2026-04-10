@@ -92,7 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
       fadeEffect: { crossFade: true },
       loop: true,
       keyboard: true,
-      mousewheel: { invert: false },
+      // Wheel-scrolling the page should not "accidentally" swipe the slider.
+      mousewheel: false,
       autoHeight: true,
       pagination: {
         el: ".services-blog-slider .blog-slider__pagination",
