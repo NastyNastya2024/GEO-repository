@@ -222,7 +222,8 @@ img {
 .module .container,
 .visibility-section .container,
 .brands-section .container,
-#faq .container {
+#faq .container,
+.services-section .container {
   max-width: min(98vw, 1520px);
   padding-left: 4vw;
   padding-right: 4vw;
