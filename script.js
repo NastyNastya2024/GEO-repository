@@ -643,6 +643,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (content) content.classList.remove("expand");
     if (container) container.classList.remove("expand");
     document.body.classList.remove("show-form-overlay");
+    document.body.classList.remove("form-submitted");
   };
 
   const popupContent = {
@@ -704,6 +705,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!(target instanceof Element)) return;
     if (target.closest("[data-contact-close]")) closeContactOverlay();
   });
+
+  // Make close reliable in mobile webviews (touch events)
+  document.addEventListener(
+    "touchend",
+    e => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest("[data-contact-close]")) closeContactOverlay();
+    },
+    { passive: true }
+  );
 
   document.addEventListener("submit", e => {
     const form = e.target;
