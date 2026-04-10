@@ -83,6 +83,91 @@ document.addEventListener("DOMContentLoaded", () => {
   updateHeaderTicker();
   window.addEventListener("scroll", updateHeaderTicker, { passive: true });
 
+  // Services slider (Swiper)
+  const servicesRoot = document.querySelector(".services-slider");
+  const servicesSwiperEl = document.querySelector(".services-swiper");
+  if (servicesRoot && servicesSwiperEl && typeof window.Swiper === "function") {
+    const itemBg = servicesRoot.querySelector(".services-slider__item-bg");
+    const items = Array.from(servicesRoot.querySelectorAll(".news__item"));
+
+    const setActiveItem = el => {
+      items.forEach(i => i.classList.toggle("active", i === el));
+    };
+
+    const syncItemBgTo = el => {
+      if (!itemBg || !el) return;
+      const r = el.getBoundingClientRect();
+      const rootR = servicesRoot.getBoundingClientRect();
+      const x = r.left - rootR.left;
+      const y = r.top - rootR.top;
+      itemBg.style.width = `${r.width}px`;
+      itemBg.style.height = `${r.height}px`;
+      itemBg.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      itemBg.classList.add("active");
+    };
+
+    const clearItemBg = () => {
+      if (!itemBg) return;
+      itemBg.classList.remove("active");
+    };
+
+    const swiper = new window.Swiper(servicesSwiperEl, {
+      effect: "coverflow",
+      grabCursor: true,
+      loop: true,
+      centeredSlides: false,
+      keyboard: true,
+      spaceBetween: 28,
+      slidesPerView: 3,
+      speed: 360,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 0,
+        modifier: 3,
+        slideShadows: false
+      },
+      breakpoints: {
+        0: { slidesPerView: 1.15, spaceBetween: 16 },
+        740: { slidesPerView: 2.15, spaceBetween: 22 },
+        1024: { slidesPerView: 3, spaceBetween: 28 }
+      },
+      navigation: {
+        nextEl: ".services-slider .news-slider-next",
+        prevEl: ".services-slider .news-slider-prev"
+      },
+      pagination: {
+        el: ".services-slider .news-slider__pagination",
+        clickable: true
+      },
+      on: {
+        init() {
+          const active = servicesRoot.querySelector(".swiper-slide-active .news__item");
+          if (active) {
+            setActiveItem(active);
+            syncItemBgTo(active);
+          }
+        }
+      }
+    });
+
+    swiper.on("slideChangeTransitionEnd", () => {
+      const active = servicesRoot.querySelector(".swiper-slide-active .news__item");
+      if (active) {
+        setActiveItem(active);
+        syncItemBgTo(active);
+      }
+    });
+
+    // Hover highlight (desktop)
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      items.forEach(el => {
+        el.addEventListener("pointerenter", () => syncItemBgTo(el));
+        el.addEventListener("pointerleave", () => clearItemBg());
+      });
+    }
+  }
+
   // Footer sitemap (same on all pages)
   const scriptEl = document.querySelector('script[src$="script.js"]');
   const prefix = scriptEl
