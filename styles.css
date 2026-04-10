@@ -13,6 +13,7 @@ body {
     "Segoe UI", sans-serif;
   color: #0f172a;
   background-color: #020617;
+  overflow-x: hidden;
 }
 
 body {
@@ -1694,7 +1695,13 @@ main {
   }
 
   .platforms-slides {
+    margin-left: 0;
     margin-top: 1.2rem;
+  }
+
+  .platform-slide h3 {
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -3499,6 +3506,26 @@ main {
   padding-bottom: 0.35rem;
 }
 
+@media (max-width: 768px) {
+  .footer-sitemap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    overflow-x: hidden;
+    padding-bottom: 0;
+  }
+  .footer-col {
+    min-width: 0;
+    flex: initial;
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-col {
+    font-size: 0.76rem;
+  }
+}
+
 .footer-col {
   display: grid;
   align-content: start;
@@ -4641,7 +4668,7 @@ body::after {
 
 body.show-form-overlay .form-overlay {
   width: 100%;
-  opacity: 0.42;
+  opacity: 0.32;
   z-index: 999;
   pointer-events: auto;
   transition: background 1s, opacity 0.4s, width 0s;
@@ -4689,9 +4716,9 @@ body.show-form-overlay .contact-form-container {
   background:
     radial-gradient(900px 520px at 18% 14%, rgba(56, 189, 248, 0.16), transparent 60%),
     radial-gradient(800px 520px at 82% 18%, rgba(251, 113, 133, 0.12), transparent 58%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06)),
-    rgba(17, 24, 39, 0.66);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.1)),
+    rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   box-shadow: var(--glass-shadow);
@@ -4704,9 +4731,9 @@ body.show-form-overlay .contact-form-container {
   width: 38px;
   height: 38px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(248, 250, 252, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
   cursor: pointer;
   font-size: 1.55rem;
   line-height: 1;
@@ -4736,13 +4763,13 @@ body.show-form-overlay .contact-form-container {
 .contact-form-head h3 {
   margin: 0;
   font-size: clamp(1.7rem, 2.6vw, 2.2rem);
-  color: rgba(248, 250, 252, 0.98);
+  color: #ffffff;
   letter-spacing: -0.02em;
 }
 
 .contact-form-head p {
   margin: 0.55rem 0 0;
-  color: rgba(226, 232, 240, 0.92);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .contact-form-head .post,
@@ -4759,18 +4786,18 @@ body.show-form-overlay .contact-form-container {
 }
 
 #contact-form .input {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.1);
   display: block;
   height: 50px;
   width: 100%;
   margin: 10px 0;
   padding: 0 12px;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 14px;
   outline: none;
   box-shadow: none;
-  color: rgba(248, 250, 252, 0.96);
+  color: #ffffff;
 }
 
 #contact-form .input.message {
@@ -4780,7 +4807,7 @@ body.show-form-overlay .contact-form-container {
 }
 
 #contact-form .input::placeholder {
-  color: rgba(226, 232, 240, 0.78);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 #contact-form .input.form-error {
