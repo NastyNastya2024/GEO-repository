@@ -216,6 +216,47 @@ document.addEventListener("DOMContentLoaded", () => {
     header.insertAdjacentElement("afterend", topMenu);
   }
 
+  const enhanceTopMenuAccordion = () => {
+    const root = document.querySelector(".top-menu");
+    if (!root) return;
+    if (root.dataset.accordionReady === "true") return;
+
+    const sitemap = root.querySelector(".footer-sitemap");
+    if (!sitemap) return;
+
+    const cols = Array.from(sitemap.querySelectorAll(":scope > .footer-col"));
+    if (!cols.length) return;
+
+    cols.forEach((col, idx) => {
+      const titleEl = col.querySelector(".footer-col__title");
+      if (!titleEl) return;
+
+      const title = String(titleEl.textContent || "").trim();
+      const links = Array.from(col.querySelectorAll(":scope > a"));
+
+      const details = document.createElement("details");
+      details.className = "menu-acc";
+      if (idx === 0) details.open = true;
+
+      const summary = document.createElement("summary");
+      summary.className = "menu-acc__summary";
+      summary.textContent = title || "Раздел";
+
+      const panel = document.createElement("div");
+      panel.className = "menu-acc__panel";
+      links.forEach(a => panel.appendChild(a));
+
+      details.appendChild(summary);
+      details.appendChild(panel);
+
+      col.replaceWith(details);
+    });
+
+    root.dataset.accordionReady = "true";
+  };
+
+  enhanceTopMenuAccordion();
+
   // Content upgrades for AI citation (TOC, ids, update date, short answer, JSON-LD FAQ)
   const sectionHeader = document.querySelector(".section-header");
   const pageH1 =
