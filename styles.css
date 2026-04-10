@@ -1946,138 +1946,149 @@ main {
   font-weight: 600;
 }
 
-/* ===== WAAPI vs Anime.js demo (scoped) ===== */
-/* ===== Industries: horizontal scroller cards (overrides old slider) ===== */
+/* ===== Industries: CodePen-like expanding cards (scoped) ===== */
 .brands-layout {
-  display: block;
   position: relative;
 }
 
-.brands-scroller {
-  --card-w: clamp(175px, 28vw, 214px); /* уже примерно в 1.5 раза */
-  --stack-overlap: calc(var(--card-w) * 0.93); /* сильнее наложение */
-  --stack-edge: clamp(14px, 3.6vw, 56px);
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--card-w);
-  gap: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 1.25rem var(--stack-edge) 0.2rem;
-  margin-top: 1.1rem;
-  scroll-padding-left: var(--stack-edge);
-  scroll-padding-right: var(--stack-edge);
-}
-
-.brands-scroller::-webkit-scrollbar {
-  height: 10px;
-}
-.brands-scroller::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.26);
-  border-radius: 999px;
-}
-.brands-scroller::-webkit-scrollbar-track {
-  background: rgba(2, 6, 23, 0.25);
-  border-radius: 999px;
-}
-
-.brand-card {
-  scroll-snap-align: start;
-  position: relative;
-  z-index: 1;
-  border-radius: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: #020617; /* непрозрачная карточка */
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+.industry-options .options {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   overflow: hidden;
-  min-height: 420px;
-  display: grid;
-  grid-template-rows: 180px 1fr;
+  width: 100%;
+  max-width: min(98vw, 1520px);
+  height: clamp(280px, 40vh, 420px);
+  margin-top: 1.1rem;
 }
 
-/* Overlap stack effect */
-.brands-scroller .brand-card + .brand-card {
-  margin-left: calc(var(--stack-overlap) * -1);
-}
-
-.brands-scroller .brand-card:hover,
-.brands-scroller .brand-card:focus-within {
-  z-index: 3;
-}
-
-.brand-media {
+.industry-options .option {
   position: relative;
-  width: 100%;
-  height: 100%;
-  display: block;
+  overflow: hidden;
+  min-width: 60px;
+  margin: 10px;
+  background: var(--optionBackground, #0b1222);
+  background-size: auto 120%;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
 }
 
-.brand-media__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(1.1) contrast(1.02);
-  opacity: 0.9;
-}
-
-.brand-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(2, 6, 23, 0.0) 0%, rgba(2, 6, 23, 0.55) 60%, rgba(2, 6, 23, 0.88) 100%),
-    radial-gradient(70% 90% at 20% 10%, rgba(56, 189, 248, 0.18), rgba(2, 6, 23, 0) 60%);
-}
-
-.brand-media-label {
-  position: absolute;
-  left: 1.1rem;
-  bottom: 1rem;
+.industry-options .option.active {
+  flex-grow: 10000;
+  transform: scale(1);
+  max-width: 640px;
   margin: 0;
-  padding: 0.35rem 0.6rem;
+  border-radius: 40px;
+  background-size: auto 100%;
+}
+
+.industry-options .option:not(.active) {
+  flex-grow: 1;
+}
+
+.industry-options .option .shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.industry-options .option.active .shadow {
+  box-shadow:
+    inset 0 -140px 140px -120px rgba(0, 0, 0, 0.92),
+    inset 0 -140px 140px -100px rgba(0, 0, 0, 0.72);
+}
+
+.industry-options .option:not(.active) .shadow {
+  bottom: -40px;
+  box-shadow:
+    inset 0 -140px 0 -120px rgba(0, 0, 0, 0.92),
+    inset 0 -140px 0 -100px rgba(0, 0, 0, 0.72);
+}
+
+.industry-options .option .label {
+  display: flex;
+  position: absolute;
+  right: 0;
+  height: 44px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.industry-options .option.active .label {
+  bottom: 20px;
+  left: 20px;
+}
+
+.industry-options .option:not(.active) .label {
+  bottom: 10px;
+  left: 10px;
+}
+
+.industry-options .option .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 44px;
+  max-width: 44px;
+  height: 44px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(2, 6, 23, 0.55);
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
-  color: rgba(248, 250, 252, 0.92);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 800;
+  background: rgba(248, 250, 252, 0.96);
+  color: rgba(2, 6, 23, 0.92);
+  font-weight: 900;
+  letter-spacing: 0.02em;
 }
 
-.brand-content {
-  padding: 1.1rem 1.15rem 1.2rem;
+.industry-options .option .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  color: rgba(248, 250, 252, 0.96);
+  white-space: pre-line;
 }
 
-.brand-content h3 {
-  margin: 0 0 0.6rem;
-  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
-  line-height: 1.08;
-  color: #ffffff;
+.industry-options .option .info > div {
+  position: relative;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
 }
 
-.brand-text {
-  margin: 0;
-  color: rgba(226, 232, 240, 0.82);
-  line-height: 1.45;
-  font-size: 1rem;
+.industry-options .option .info .main {
+  font-weight: 900;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  letter-spacing: -0.01em;
+}
+
+.industry-options .option .info .sub {
+  opacity: 0.9;
+  max-width: 44ch;
+  font-size: 0.95rem;
+}
+
+.industry-options .option.active .info > div {
+  left: 0;
+  opacity: 1;
+}
+
+.industry-options .option:not(.active) .info > div {
+  left: 20px;
+  opacity: 0;
 }
 
 @media (max-width: 900px) {
-  .brands-title-header {
-    min-height: 0;
-    margin-bottom: 0.55rem;
+  .industry-options .options {
+    height: clamp(240px, 36vh, 340px);
   }
-  .brands-scroller {
-    padding-top: 0.85rem;
+  .industry-options .option.active {
+    max-width: 520px;
   }
-  .brand-card {
-    grid-template-rows: 160px 1fr;
-    min-height: 390px;
+  .industry-options .option .info .sub {
+    font-size: 0.9rem;
   }
 }
 

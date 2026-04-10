@@ -588,6 +588,26 @@ document.addEventListener("DOMContentLoaded", () => {
     visibilitySection.style.setProperty("--ring-y", "50");
   });
 
+  // Industries: CodePen-like expanding cards
+  const optionsRoot = document.querySelector(".industry-options .options");
+  if (optionsRoot) {
+    const options = Array.from(optionsRoot.querySelectorAll(".option"));
+    const setActive = next => {
+      options.forEach(o => o.classList.toggle("active", o === next));
+    };
+
+    options.forEach(opt => {
+      opt.tabIndex = 0;
+      opt.addEventListener("click", () => setActive(opt));
+      opt.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setActive(opt);
+        }
+      });
+    });
+  }
+
   // Brands slider
   const brandButtons = document.querySelectorAll(".brands-nav-item");
   const brandSlides = document.querySelectorAll(".brand-slide");
