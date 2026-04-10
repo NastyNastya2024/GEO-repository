@@ -540,6 +540,68 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = document.querySelector(".modal-close");
   const popupTriggers = document.querySelectorAll("[data-popup]");
 
+  // Contact form overlay (CodePen-like behavior, no jQuery)
+  const ensureContactOverlay = () => {
+    if (document.querySelector("#contact-form-container")) return;
+
+    const wrap = document.createElement("div");
+    wrap.className = "contact-form-wrap";
+    wrap.innerHTML = `
+      <div class="form-overlay" data-contact-close></div>
+      <div id="contact-form-container" class="contact-form-container" role="dialog" aria-modal="true" aria-label="Форма связи">
+        <button type="button" class="contact-form-close" data-contact-close aria-label="Закрыть">×</button>
+        <div id="contact-form-content" class="contact-form-content">
+          <div id="contact-form-head" class="contact-form-head">
+            <h3 class="pre">Консультация</h3>
+            <p class="pre">Оставьте контакты — ответим в ближайшее время.</p>
+            <h3 class="post">Спасибо!</h3>
+            <p class="post">Мы свяжемся с вами как можно быстрее.</p>
+          </div>
+          <form id="contact-form" novalidate>
+            <input class="input name" type="text" name="user_name" placeholder="Ваше имя" required />
+            <input class="input email" type="email" name="user_email" placeholder="Email для связи" required />
+            <select class="input select" name="subject" required>
+              <option value="" disabled selected>Тема обращения</option>
+              <option value="audit">Аудит видимости / диагностика</option>
+              <option value="strategy">Стратегия продвижения</option>
+              <option value="content">Контент‑завод</option>
+              <option value="support">Поддерживающий сервис</option>
+            </select>
+            <textarea class="input message" name="message" placeholder="Коротко: что нужно сделать?" required></textarea>
+            <button class="btn input submit" type="submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(wrap);
+  };
+
+  const isValidEmail = email => {
+    const v = String(email || "").trim();
+    if (!v) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  };
+
+  const openContactOverlay = () => {
+    ensureContactOverlay();
+    document.body.classList.add("show-form-overlay");
+    document.body.classList.remove("form-submitted");
+    const head = document.querySelector("#contact-form-head");
+    if (head) head.classList.remove("form-submitted");
+    const container = document.querySelector("#contact-form-container");
+    const content = document.querySelector("#contact-form-content");
+    if (container) container.classList.add("expand");
+    if (content) content.classList.add("expand");
+  };
+
+  const closeContactOverlay = () => {
+    const container = document.querySelector("#contact-form-container");
+    const content = document.querySelector("#contact-form-content");
+    if (content) content.classList.remove("expand");
+    if (container) container.classList.remove("expand");
+    document.body.classList.remove("show-form-overlay");
+  };
+
   const popupContent = {
     contacts: {
       title: "Контакты",
@@ -572,6 +634,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const openModal = key => {
+    if (key === "contacts") {
+      openContactOverlay();
+      return;
+    }
     if (!modal || !modalTitle || !modalBody || !popupContent[key]) return;
     modalTitle.textContent = popupContent[key].title;
     modalBody.innerHTML = popupContent[key].body;
@@ -590,6 +656,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.addEventListener("click", e => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest("[data-contact-close]")) closeContactOverlay();
+  });
+
+  document.addEventListener("submit", e => {
+    const form = e.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    if (form.id !== "contact-form") return;
+    e.preventDefault();
+
+    const name = form.querySelector('input[name="user_name"]');
+    const email = form.querySelector('input[name="user_email"]');
+    const subject = form.querySelector('select[name="subject"]');
+    const message = form.querySelector('textarea[name="message"]');
+    const fields = [name, email, subject, message].filter(Boolean);
+
+    fields.forEach(el => el.classList.remove("form-error"));
+
+    let hasError = false;
+    if (name && !String(name.value || "").trim()) { name.classList.add("form-error"); hasError = true; }
+    if (email && !isValidEmail(email.value)) { email.classList.add("form-error"); hasError = true; }
+    if (subject && !String(subject.value || "").trim()) { subject.classList.add("form-error"); hasError = true; }
+    if (message && !String(message.value || "").trim()) { message.classList.add("form-error"); hasError = true; }
+
+    if (hasError) return;
+
+    // UI-only "submitted" state (no backend in this repo)
+    document.body.classList.add("form-submitted");
+    const head = document.querySelector("#contact-form-head");
+    if (head) head.classList.add("form-submitted");
+
+    window.setTimeout(() => {
+      form.reset();
+      closeContactOverlay();
+      document.body.classList.remove("form-submitted");
+      if (head) head.classList.remove("form-submitted");
+    }, 1600);
+  });
+
   if (modalClose) {
     modalClose.addEventListener("click", closeModal);
   }
@@ -603,6 +710,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("keydown", e => {
     if (e.key === "Escape") {
       closeModal();
+      closeContactOverlay();
       closeTopMenu();
     }
   });
