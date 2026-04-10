@@ -1821,7 +1821,7 @@ main {
 }
 
 .visibility-logo {
-  width: min(260px, 64vw);
+  width: min(220px, 56vw);
   height: auto;
   opacity: 0.98;
   filter: drop-shadow(0 18px 60px rgba(0, 0, 0, 0.45));
@@ -1867,7 +1867,7 @@ main {
   text-align: center;
   text-shadow: 0 10px 34px rgba(0, 0, 0, 0.6);
   opacity: 0;
-  transform: translateY(36px) scale(0.98);
+  transform: translateX(-42px) scale(0.98);
   animation: visibilityPopUp 1200ms cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
   will-change: transform, opacity;
 }
@@ -1959,11 +1959,11 @@ main {
 @keyframes visibilityPopUp {
   0% {
     opacity: 0;
-    transform: translateY(42px) scale(0.98);
+    transform: translateX(-42px) scale(0.98);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateX(0) scale(1);
   }
 }
 
