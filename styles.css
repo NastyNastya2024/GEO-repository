@@ -714,18 +714,31 @@ main {
   justify-content: center;
   gap: 0.4rem;
   border-radius: 999px;
-  font-size: 1.8rem; /* размер шрифта кнопок в 2 раза больше */
-  font-weight: 500;
-  padding: 0.7rem 1.4rem;
-  border: 1px solid transparent;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.9rem 1.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(248, 250, 252, 0.96);
+  color: rgba(2, 6, 23, 0.92);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
   cursor: pointer;
   transition: all 0.18s ease;
   text-align: center;
 }
 
+.btn:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid rgba(248, 250, 252, 0.85);
+  outline-offset: 2px;
+}
+
 .btn-header {
   font-size: 1rem;
-  padding: 0.6rem 1.05rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 999px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -734,8 +747,8 @@ main {
 .btn-header--white {
   background: rgba(248, 250, 252, 0.96);
   color: rgba(2, 6, 23, 0.92);
-  border: 1px solid rgba(248, 250, 252, 0.55);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
 }
 
 .btn-header--white:hover {
@@ -743,38 +756,28 @@ main {
   transform: translateY(-1px);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #38bdf8, #4f46e5);
-  color: white;
-  box-shadow: 0 16px 35px rgba(56, 189, 248, 0.25);
-}
-
-.btn-primary:hover {
-  filter: brightness(1.08);
-  transform: translateY(-1px);
-}
-
-.btn-outline {
-  border-color: rgba(148, 163, 184, 0.6);
-  color: #e5e7eb;
-  background: rgba(15, 23, 42, 0.7);
-}
-
-.btn-outline:hover {
-  background: rgba(15, 23, 42, 0.9);
+/* Unified CTA look across site */
+.btn-primary,
+.btn-outline,
+.btn-ghost,
+.btn-white {
+  background: rgba(248, 250, 252, 0.96);
+  color: rgba(2, 6, 23, 0.92);
+  border-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
 }
 
 /* Ярко‑зелёная кнопка CONTACT в шапке поверх базовых стилей кнопок */
 .btn.header-cta {
-  background: #116feb;
-  border-color: #116feb;
-  color: #000000;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-radius: 8px;
-  font-size: 0.72rem;
-  padding: 0.5rem 1rem;
+  background: rgba(248, 250, 252, 0.96);
+  color: rgba(2, 6, 23, 0.92);
+  border-color: rgba(255, 255, 255, 0.65);
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  font-size: 1rem;
+  padding: 0.9rem 1.65rem;
 }
 
 .btn.header-cta:hover {
@@ -1059,25 +1062,25 @@ main {
   justify-content: center;
   width: fit-content;
   margin-top: 0.95rem;
-  padding: 0.55rem 0.85rem;
+  padding: 0.85rem 1.35rem;
   border-radius: 999px;
-  border: 1px solid rgba(2, 6, 23, 0.16);
-  background: rgba(255, 255, 255, 0.56);
-  color: rgba(2, 6, 23, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(248, 250, 252, 0.96);
+  color: rgba(2, 6, 23, 0.92);
   font-weight: 800;
   letter-spacing: 0.02em;
-  font-size: 0.85rem;
+  font-size: 1rem;
   transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
 }
 
 .pillar-card__link:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(17, 111, 235, 0.35);
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.85);
 }
 
 .pillar-card__link:focus-visible {
-  outline: 2px solid rgba(17, 111, 235, 0.7);
+  outline: 2px solid rgba(248, 250, 252, 0.85);
   outline-offset: 2px;
 }
 
@@ -1086,11 +1089,11 @@ main {
 }
 
 .pillar-card--strategy::before {
-  background-image: url("Img/strategy-card-bg.png");
+  background-image: url("Img/strategy-card-bg-2.png");
 }
 
 .pillar-card--realization::before {
-  background-image: url("Img/strategy-card-bg.png");
+  background-image: url("Img/strategy-card-bg-2.png");
 }
 
 .pillar-card--optimization::before {
