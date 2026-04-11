@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     CSS.paintWorklet
       .addModule("https://unpkg.com/css-houdini-ringparticles/dist/ringparticles.js")
       .then(() => {
+        /* На телефонах только CSS‑fallback: без ожидания сети и сразу видимая сетка */
+        if (window.matchMedia("(max-width: 768px)").matches) return;
         document.documentElement.classList.add("houdini-ringparticles");
       })
       .catch(() => {});
