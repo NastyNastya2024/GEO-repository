@@ -1303,8 +1303,8 @@ main {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding: clamp(1.15rem, 2.4vw, 1.8rem);
-  row-gap: 0.35rem;
+  padding: clamp(1.35rem, 2.65vw, 2.05rem);
+  row-gap: 0.45rem;
   color: rgba(248, 250, 252, 0.96);
   text-shadow: none;
 }
@@ -1321,21 +1321,15 @@ main {
 }
 
 .pillar-card__content h3 {
-  margin: 0.65rem 0 0.6rem;
-  font-size: clamp(1rem, 1.65vw, 1.38rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  margin: 0.5rem 0 0.55rem;
+  font-size: clamp(1.22rem, 2.05vw, 1.62rem);
+  font-weight: 850;
+  line-height: 1.18;
+  letter-spacing: -0.022em;
   color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
   max-width: 100%;
-}
-
-.pillar-card--strategy .pillar-card__content h3 {
-  font-size: clamp(1.18rem, 2.15vw, 1.68rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
 }
 
 .pillar-card__content p {
@@ -1343,8 +1337,9 @@ main {
   flex: 1 1 auto;
   min-height: 0;
   max-width: none;
-  color: rgba(226, 232, 240, 0.88);
-  line-height: 1.5;
+  font-size: clamp(1.06rem, 1.5vw, 1.22rem);
+  color: rgba(226, 232, 240, 0.9);
+  line-height: 1.52;
 }
 
 .pillar-card__link {
@@ -1389,12 +1384,19 @@ main {
   .pillars-grid {
     grid-template-columns: 1fr;
   }
-  .pillar-card__content h3 {
-    font-size: clamp(0.95rem, 2.8vw, 1.25rem);
+
+  .pillar-card__content {
+    padding: clamp(1.25rem, 3.2vw, 1.75rem);
   }
 
-  .pillar-card--strategy .pillar-card__content h3 {
-    font-size: clamp(1.05rem, 3.4vw, 1.48rem);
+  .pillar-card__content h3 {
+    font-size: clamp(1.12rem, 3.4vw, 1.48rem);
+    font-weight: 850;
+  }
+
+  .pillar-card__content p {
+    font-size: clamp(1.02rem, 2.15vw, 1.14rem);
+    line-height: 1.5;
   }
 }
 
