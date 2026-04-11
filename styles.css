@@ -648,6 +648,21 @@ main {
   overflow-x: hidden;
 }
 
+.drawer-nav .nav-dd-subhead {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.95);
+  margin: 0.65rem 0 0.2rem;
+  padding: 0 0.6rem;
+}
+
+.drawer-nav .nav-dd-panel > .nav-dd-subhead:first-of-type {
+  margin-top: 0.12rem;
+}
+
 .drawer-nav .nav-dd-panel a {
   display: block;
   width: 100%;
@@ -2032,8 +2047,29 @@ main {
   /* screen на части WebView/Safari даёт «невидимые» точки на чёрном — normal надёжнее */
   mix-blend-mode: normal;
   filter: saturate(1.05) contrast(1.02) blur(0.2px);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 24%, rgba(0, 0, 0, 0.7) 52%, transparent 82%);
-  mask-image: radial-gradient(ellipse at center, #000 24%, rgba(0, 0, 0, 0.7) 52%, transparent 82%);
+  /* Alpha mask: прозрачный центр = точки не рисуются; белый край = видно (надёжнее #000/transparent в WebView) */
+  -webkit-mask-image: radial-gradient(
+    ellipse 84% 72% at 50% 48%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 28%,
+    rgba(255, 255, 255, 0.35) 42%,
+    rgba(255, 255, 255, 1) 54%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 84% 72% at 50% 48%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 28%,
+    rgba(255, 255, 255, 0.35) 42%,
+    rgba(255, 255, 255, 1) 54%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
   animation:
     visibilityRingPulse 7.2s ease-in-out infinite,
     visibilityDotsMarquee 30s linear infinite;
@@ -2055,11 +2091,31 @@ main {
   opacity: 0.42;
   mix-blend-mode: normal;
   filter: saturate(1.12) contrast(1.04) blur(0.2px);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 24%, rgba(0, 0, 0, 0.7) 52%, transparent 82%);
-  mask-image: radial-gradient(ellipse at center, #000 24%, rgba(0, 0, 0, 0.7) 52%, transparent 82%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 84% 72% at 50% 48%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 28%,
+    rgba(255, 255, 255, 0.35) 42%,
+    rgba(255, 255, 255, 1) 54%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 84% 72% at 50% 48%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 28%,
+    rgba(255, 255, 255, 0.35) 42%,
+    rgba(255, 255, 255, 1) 54%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
   animation:
     visibilityRingHue 10.5s ease-in-out infinite,
-    visibilityDotsMarquee 38s linear infinite;
+    visibilityDotsMarquee 38s linear infinite reverse;
 }
 
 /* paint() только если worklet реально подключился (см. script.js), иначе остаётся radial-gradient */
@@ -2078,16 +2134,44 @@ main {
 }
 
 @media (max-width: 768px) {
-  /* Телефоны: шире кольцо точек, без screen (ещё раз для надёжности без Houdini) */
+  /* Телефоны: больше «дырка» под текст, те же alpha-маски */
   .visibility-section::before {
     opacity: 0.82;
-    -webkit-mask-image: radial-gradient(ellipse at center, #000 18%, rgba(0, 0, 0, 0.72) 58%, transparent 88%);
-    mask-image: radial-gradient(ellipse at center, #000 18%, rgba(0, 0, 0, 0.72) 58%, transparent 88%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 92% 78% at 50% 46%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 36%,
+      rgba(255, 255, 255, 0.38) 48%,
+      rgba(255, 255, 255, 1) 60%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 92% 78% at 50% 46%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 36%,
+      rgba(255, 255, 255, 0.38) 48%,
+      rgba(255, 255, 255, 1) 60%,
+      rgba(255, 255, 255, 1) 100%
+    );
   }
   .visibility-section::after {
     opacity: 0.52;
-    -webkit-mask-image: radial-gradient(ellipse at center, #000 18%, rgba(0, 0, 0, 0.72) 58%, transparent 88%);
-    mask-image: radial-gradient(ellipse at center, #000 18%, rgba(0, 0, 0, 0.72) 58%, transparent 88%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 92% 78% at 50% 46%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 36%,
+      rgba(255, 255, 255, 0.38) 48%,
+      rgba(255, 255, 255, 1) 60%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 92% 78% at 50% 46%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 36%,
+      rgba(255, 255, 255, 0.38) 48%,
+      rgba(255, 255, 255, 1) 60%,
+      rgba(255, 255, 255, 1) 100%
+    );
   }
 
   .houdini-ringparticles .visibility-section::before,
@@ -2127,9 +2211,10 @@ main {
   100% { filter: brightness(1.04) hue-rotate(0deg); opacity: 0.5; }
 }
 
+/* Двигаем только паттерн: transform + mask на псевдоэлементах даёт «сплошную сетку» в Safari/WebView */
 @keyframes visibilityDotsMarquee {
-  0% { transform: translate3d(2.2%, 0, 0); }
-  100% { transform: translate3d(-2.2%, 0, 0); }
+  0% { background-position: 0 0; }
+  100% { background-position: 18px 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
