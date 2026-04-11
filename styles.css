@@ -3784,6 +3784,22 @@ main {
     margin-top: 14px;
     text-align: center;
     padding: 0 10px 12px;
+    align-items: center;
+  }
+
+  .services-blog-slider .blog-slider__code {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .services-blog-slider .blog-slider__title,
+  .services-blog-slider .blog-slider__text {
+    width: 100%;
+    max-width: 100%;
   }
 
   .services-blog-slider .services-blog-slider__arrow.swiper-button-prev,
@@ -3806,6 +3822,16 @@ main {
   }
   .services-blog-slider .blog-slider__button {
     width: 100%;
+  }
+
+  /* Точки visibility-секции не заходят на карточку «Наши услуги» */
+  #services.services-section {
+    padding-bottom: clamp(1rem, 4vw, 2rem);
+  }
+
+  .services-section + .visibility-section {
+    margin-top: 0;
+    padding-top: clamp(2rem, 6vw, 3.5rem);
   }
 }
 
