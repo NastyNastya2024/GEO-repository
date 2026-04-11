@@ -2770,17 +2770,27 @@ main {
 
 .industry-options .option-link {
   display: none;
+  box-sizing: border-box;
   align-items: center;
+  justify-content: center;
   margin: 0;
-  padding: 0.4rem 0.75rem;
+  width: 52px;
+  min-width: 52px;
+  height: 52px;
+  padding: 0 4px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  background: rgba(248, 250, 252, 0.96);
-  color: rgba(2, 6, 23, 0.92);
-  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: var(--cta-blue);
+  color: #ffffff;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   text-decoration: none;
-  font-weight: 700;
-  font-size: clamp(0.88rem, 1.1vw, 0.95rem);
+  font-weight: 800;
+  font-size: clamp(0.52rem, 0.85vw, 0.62rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-align: center;
   opacity: 0;
   transform: translateY(-6px);
   pointer-events: none;
@@ -2788,7 +2798,8 @@ main {
     opacity 0.25s ease,
     transform 0.35s cubic-bezier(0.05, 0.61, 0.41, 0.95),
     border-color 0.15s ease,
-    background 0.15s ease;
+    background 0.15s ease,
+    filter 0.15s ease;
 }
 
 .industry-options .option.active .option-link {
@@ -2800,8 +2811,8 @@ main {
 }
 
 .industry-options .option-link:hover {
-  border-color: rgba(255, 255, 255, 0.95);
-  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  filter: brightness(1.06);
 }
 
 .industry-options .option-link:focus-visible {
