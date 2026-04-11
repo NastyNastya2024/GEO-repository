@@ -86,18 +86,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // Services slider (blog-slider layout)
   const servicesSliderEl = document.querySelector(".services-blog-slider");
   if (servicesSliderEl && typeof window.Swiper === "function") {
+    const servicesReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     new window.Swiper(servicesSliderEl, {
       spaceBetween: 30,
       effect: "slide",
       loop: true,
       keyboard: true,
-      // Wheel-scrolling the page should not "accidentally" swipe the slider.
       mousewheel: false,
       autoHeight: true,
-      pagination: {
-        el: ".services-blog-slider .blog-slider__pagination",
-        clickable: true
-      }
+      navigation: {
+        prevEl: ".services-blog-slider .swiper-button-prev",
+        nextEl: ".services-blog-slider .swiper-button-next"
+      },
+      autoplay: servicesReduceMotion
+        ? false
+        : {
+            delay: 5200,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+          }
     });
   }
 
