@@ -165,6 +165,17 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="footer-col">
+        <div class="footer-col__title">Отрасли</div>
+        <a href="${prefix}case-studies/all-industries-geo-aeo.html">Все отрасли и нейропоиск</a>
+        <a href="${prefix}case-studies/marketplaces-neuro-strategy.html">Маркетплейсы</a>
+        <a href="${prefix}case-studies/clinics-neuro-strategy.html">Клиники</a>
+        <a href="${prefix}case-studies/service-centers-neuro-strategy.html">Сервисные центры</a>
+        <a href="${prefix}case-studies/showrooms-neuro-strategy.html">Шоурумы</a>
+        <a href="${prefix}case-studies/beauty-neuro-strategy.html">Салоны красоты</a>
+        <a href="${prefix}case-studies/delivery-neuro-strategy.html">Доставка</a>
+      </div>
+
+      <div class="footer-col">
         <div class="footer-col__title">Кейсы</div>
         <a href="${prefix}case-studies/corporations.html">Корпорации</a>
         <a href="${prefix}case-studies/ecommerce.html">E‑commerce</a>
