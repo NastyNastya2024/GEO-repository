@@ -1975,6 +1975,22 @@ main {
   padding-bottom: 0;
 }
 
+/* Перед «Отрасли клиентов»: кольцо с точками без залезания в FAQ */
+.visibility-section--industries-lead {
+  margin-top: 0;
+  padding-top: clamp(2.8rem, 6.5vw, 4.8rem);
+  margin-bottom: -5.5rem;
+  padding-bottom: clamp(5.2rem, 11vw, 7.2rem);
+}
+
+.visibility-section--industries-lead .visibility-card {
+  min-height: clamp(340px, 42vh, 560px);
+}
+
+.visibility-section--industries-lead .visibility-text {
+  max-width: min(36rem, 92vw);
+}
+
 /* Dots ring layer (paint) + subtle pulse */
 .visibility-section::before {
   content: "";
