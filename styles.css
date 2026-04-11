@@ -1304,6 +1304,7 @@ main {
   max-width: 100%;
   box-sizing: border-box;
   padding: clamp(1.15rem, 2.4vw, 1.8rem);
+  row-gap: 0.35rem;
   color: rgba(248, 250, 252, 0.96);
   text-shadow: none;
 }
@@ -2146,6 +2147,35 @@ main {
   filter: drop-shadow(0 18px 60px rgba(0, 0, 0, 0.45));
   position: relative;
   z-index: 1;
+}
+
+.visibility-logo-tagline {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.1rem;
+  font-size: clamp(0.92rem, 1.55vw, 1.12rem);
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  text-align: center;
+  max-width: min(28ch, 90vw);
+  line-height: 1.35;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.38);
+  padding-bottom: 0.2em;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.visibility-logo-tagline:hover {
+  color: #ffffff;
+  border-bottom-color: rgba(56, 189, 248, 0.85);
+}
+
+.visibility-logo-tagline:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.85);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .visibility-section--logo .visibility-card {
