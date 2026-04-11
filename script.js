@@ -175,7 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="footer-col">
-        <div class="footer-col__title">Отрасли</div>
+        <div class="footer-col__title">Отрасли и кейсы</div>
+        <div class="footer-col__subhead">Отрасли</div>
         <a href="${prefix}case-studies/all-industries-geo-aeo.html">Все отрасли и нейропоиск</a>
         <a href="${prefix}case-studies/marketplaces-neuro-strategy.html">Маркетплейсы</a>
         <a href="${prefix}case-studies/clinics-neuro-strategy.html">Клиники</a>
@@ -183,10 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}case-studies/showrooms-neuro-strategy.html">Шоурумы</a>
         <a href="${prefix}case-studies/beauty-neuro-strategy.html">Салоны красоты</a>
         <a href="${prefix}case-studies/delivery-neuro-strategy.html">Доставка</a>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col__title">Кейсы</div>
+        <div class="footer-col__subhead">Кейсы</div>
         <a href="${prefix}case-studies/corporations.html">Корпорации</a>
         <a href="${prefix}case-studies/ecommerce.html">E‑commerce</a>
         <a href="${prefix}case-studies/saas.html">SaaS &amp; digital</a>
@@ -299,7 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!titleEl) return;
 
       const title = String(titleEl.textContent || "").trim();
-      const links = Array.from(col.querySelectorAll(":scope > a"));
 
       const details = document.createElement("details");
       details.className = "menu-acc";
@@ -311,7 +308,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const panel = document.createElement("div");
       panel.className = "menu-acc__panel";
-      links.forEach(a => panel.appendChild(a));
+      Array.from(col.children).forEach(child => {
+        if (child === titleEl) return;
+        panel.appendChild(child);
+      });
 
       details.appendChild(summary);
       details.appendChild(panel);

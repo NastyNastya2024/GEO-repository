@@ -471,6 +471,17 @@ main {
   margin-bottom: 0.25rem;
 }
 
+.top-menu .footer-col__subhead {
+  color: rgba(148, 163, 184, 0.92);
+  margin: 0.65rem 0 0.15rem;
+  padding: 0 0.6rem;
+  font-size: 0.62rem;
+}
+
+.top-menu .footer-col > .footer-col__subhead:first-of-type {
+  margin-top: 0.35rem;
+}
+
 .top-menu .footer-col a {
   display: block;
   padding: 0.52rem 0.6rem;
@@ -4387,6 +4398,19 @@ main {
   text-transform: uppercase;
   font-size: clamp(0.68rem, 0.95vw, 0.78rem);
   margin-bottom: 0.15rem;
+}
+
+.footer-col__subhead {
+  font-size: clamp(0.58rem, 0.85vw, 0.65rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.95);
+  margin: 0.55rem 0 0.12rem;
+}
+
+.footer-col > .footer-col__subhead:first-of-type {
+  margin-top: 0.2rem;
 }
 
 .footer-col a {
