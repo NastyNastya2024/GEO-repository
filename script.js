@@ -1,9 +1,12 @@
 // Мобильное меню (без анимаций пролистывания)
 document.addEventListener("DOMContentLoaded", () => {
-  // Ring particles around the visibility paragraph (CodePen-inspired)
+  // Ring particles (Houdini): только после успешной загрузки worklet — иначе @supports/paint даёт пустой фон
   if ("paintWorklet" in CSS) {
     CSS.paintWorklet
       .addModule("https://unpkg.com/css-houdini-ringparticles/dist/ringparticles.js")
+      .then(() => {
+        document.documentElement.classList.add("houdini-ringparticles");
+      })
       .catch(() => {});
   }
 
