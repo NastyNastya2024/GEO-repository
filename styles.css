@@ -3036,6 +3036,8 @@ main {
     bottom: 12px;
     left: 14px;
     right: 14px;
+    gap: 8px;
+    min-height: 0;
   }
   .industry-options .option:not(.active) .label {
     bottom: 12px;
@@ -3073,12 +3075,24 @@ main {
     width: 20px;
     height: 20px;
   }
+  .industry-options .option.active .info {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow: hidden;
+  }
   .industry-options .option .info .main {
-    font-size: clamp(1.3rem, 3.8vw, 1.75rem);
+    font-size: clamp(1.12rem, 3.2vw, 1.55rem);
+    line-height: 1.1;
+    flex-shrink: 0;
   }
   .industry-options .option .info .sub {
-    font-size: clamp(0.98rem, 2.4vw, 1.12rem);
-    max-width: 36ch;
+    font-size: clamp(0.82rem, 2.05vw, 0.98rem);
+    line-height: 1.32;
+    max-width: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
   }
   /* Show fewer thin cards on the left (like CodePen) */
   .industry-options .option:nth-child(n + 5) {
@@ -3100,6 +3114,7 @@ main {
     right: 12px;
     top: 10px;
     bottom: 10px;
+    gap: 6px;
   }
   .industry-options .option:not(.active) .label {
     padding-inline: 3px;
@@ -3134,11 +3149,14 @@ main {
     height: 18px;
   }
   .industry-options .option .info .main {
-    font-size: clamp(1.2rem, 5vw, 1.55rem);
+    font-size: clamp(1.05rem, 4.4vw, 1.38rem);
+    line-height: 1.08;
   }
   .industry-options .option .info .sub {
-    font-size: clamp(0.92rem, 3.2vw, 1.05rem);
+    font-size: clamp(0.76rem, 2.85vw, 0.92rem);
+    line-height: 1.28;
     max-width: 100%;
+    -webkit-line-clamp: 3;
   }
 }
 
@@ -4800,9 +4818,16 @@ body.legacy-dark .btn-ghost {
   opacity: 0.92;
 }
 
-@media (max-width: 768px) {
+/* Планшет: сдвиг вправо и ниже — край лица и подбородок в кадре (не телефон в ландшафте) */
+@media (min-width: 768px) and (max-width: 1194px) and (min-height: 560px) {
   .hero-bg-video {
-    /* Keep the focal area closer to the left edge on mobile */
+    object-position: 92% 22%;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-bg-video {
+    /* Телефоны: фокус ближе к левому краю кадра */
     object-position: 28% 8%;
   }
 }
