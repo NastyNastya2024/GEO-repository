@@ -126,6 +126,8 @@ a {
 .content-article {
   max-width: 920px;
   color: rgba(248, 250, 252, 0.92);
+  /* 1.5× от типичного body (1rem): основной текст абзацев и списков по наследованию */
+  font-size: 1.5rem;
 }
 
 .content-article p {
@@ -149,14 +151,14 @@ a {
 .content-article h2 {
   margin: 1.35rem 0 0.65rem;
   color: #f8fafc;
-  font-size: clamp(1.05rem, 1.65vw, 1.35rem);
+  font-size: clamp(1.575rem, 2.475vw, 2.025rem);
   letter-spacing: 0.02em;
 }
 
 .content-article h3 {
   margin: 1.1rem 0 0.55rem;
   color: #f8fafc;
-  font-size: 1.02rem;
+  font-size: 1.53rem;
   letter-spacing: 0.02em;
 }
 
@@ -176,7 +178,7 @@ a {
   border: 1px solid rgba(148, 163, 184, 0.22);
   background: rgba(2, 6, 23, 0.5);
   overflow-x: auto;
-  font-size: 0.82rem;
+  font-size: 1.23rem;
   line-height: 1.45;
   color: rgba(226, 232, 240, 0.95);
 }
