@@ -492,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
       banner.setAttribute("role", "region");
       banner.setAttribute(
         "aria-label",
-        "Разберите ваш вопрос с опытным специалистом по продвижению"
+        "Консультация с экспертом. Разберите ваш вопрос с опытным специалистом по продвижению."
       );
 
       const copy = document.createElement("div");
@@ -500,9 +500,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const title = document.createElement("p");
       title.className = "article-consult-banner__title";
-      title.textContent = "Разберите ваш вопрос с опытным специалистом по продвижению.";
+      title.textContent = "Консультация с экспертом";
+
+      const hint = document.createElement("span");
+      hint.className = "article-consult-banner__hint";
+      hint.textContent = "Разберите ваш вопрос с опытным специалистом по продвижению.";
 
       copy.appendChild(title);
+      copy.appendChild(hint);
 
       const cta = document.createElement("button");
       cta.type = "button";
@@ -743,14 +748,27 @@ document.addEventListener("DOMContentLoaded", () => {
       const footer = document.createElement("div");
       footer.className = "article-consult-footer";
       footer.setAttribute("role", "region");
-      footer.setAttribute("aria-label", "Консультация с экспертом");
+      footer.setAttribute(
+        "aria-label",
+        "Консультация с экспертом. Разберите ваш вопрос с опытным специалистом по продвижению."
+      );
 
       const inner = document.createElement("div");
       inner.className = "article-consult-footer__inner";
 
+      const copy = document.createElement("div");
+      copy.className = "article-consult-footer__copy";
+
       const title = document.createElement("p");
       title.className = "article-consult-footer__title";
       title.textContent = "Консультация с экспертом";
+
+      const hint = document.createElement("p");
+      hint.className = "article-consult-footer__hint";
+      hint.textContent = "Разберите ваш вопрос с опытным специалистом по продвижению.";
+
+      copy.appendChild(title);
+      copy.appendChild(hint);
 
       const btn = document.createElement("button");
       btn.type = "button";
@@ -762,7 +780,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"></path>` +
         `</svg><span class="article-consult-footer__cta-text">Забронировать</span>`;
 
-      inner.appendChild(title);
+      inner.appendChild(copy);
       inner.appendChild(btn);
       footer.appendChild(inner);
       article.appendChild(footer);
