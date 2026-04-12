@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-col">
         <div class="footer-col__title">Инструменты</div>
-        <a href="${prefix}tools/analytics.html">Аналитика и аудиты</a>
+        <a href="${prefix}tools/analytics.html">Аналитика и аудит</a>
         <a href="${prefix}tools/content-factory.html">Контент‑завод</a>
         <a href="${prefix}tools/it-audit.html">Аудит текущего IT‑решения</a>
         <a href="${prefix}tools/promotion-strategy.html">Стратегия продвижения</a>
