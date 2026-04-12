@@ -119,6 +119,47 @@ document.addEventListener("DOMContentLoaded", () => {
     ? (scriptEl.getAttribute("src") || "").replace(/script\.js(\?.*)?$/, "")
     : "";
 
+  /** В шапке только «Консультация» + бургер: убираем прочие кнопки/ссылки и при необходимости добавляем консультацию. */
+  const ensureHeaderConsultationCta = () => {
+    const headerInner = document.querySelector("header.site-header .header-inner");
+    if (!headerInner) return;
+
+    const actions = headerInner.querySelector(".header-actions");
+    if (actions) {
+      actions.querySelectorAll("a.btn.btn-header").forEach(a => {
+        const keep =
+          a.classList.contains("btn-header--white") && a.getAttribute("data-popup") === "contacts";
+        if (!keep) a.remove();
+      });
+      actions.querySelectorAll("button.btn.btn-header").forEach(b => b.remove());
+    }
+
+    if (headerInner.querySelector(".header-actions a.btn-header--white[data-popup='contacts']")) return;
+
+    const consult = document.createElement("a");
+    consult.href = "#";
+    consult.className = "btn btn-header btn-header--white";
+    consult.dataset.popup = "contacts";
+    consult.textContent = "Консультация";
+
+    const burger = headerInner.querySelector(".burger");
+
+    if (actions) {
+      actions.insertBefore(consult, actions.firstChild);
+      return;
+    }
+
+    if (!burger) return;
+
+    const wrap = document.createElement("div");
+    wrap.className = "header-actions";
+    burger.replaceWith(wrap);
+    wrap.appendChild(consult);
+    wrap.appendChild(burger);
+  };
+
+  ensureHeaderConsultationCta();
+
   const sitemapHtml = `
     <div class="footer-sitemap" aria-label="Структура сайта">
       <div class="footer-col">
@@ -153,11 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-col">
         <div class="footer-col__title">Инструменты</div>
-        <a href="${prefix}tools/ai-tools.html">AI‑инструменты</a>
-        <a href="${prefix}tools/analytics.html">Аналитика</a>
-        <a href="${prefix}tools/checklists.html">Чеклисты</a>
-        <a href="${prefix}tools/code-aeo-geo-audit.html">Аудит кода AEO + GEO</a>
-        <a href="${prefix}tools/brand-visibility-audit.html">Аудит видимости бренда</a>
+        <a href="${prefix}tools/analytics.html">Аналитика и аудиты</a>
         <a href="${prefix}tools/content-factory.html">Контент‑завод</a>
         <a href="${prefix}tools/it-audit.html">Аудит текущего IT‑решения</a>
         <a href="${prefix}tools/promotion-strategy.html">Стратегия продвижения</a>
@@ -373,6 +410,122 @@ document.addEventListener("DOMContentLoaded", () => {
     pageH1.insertAdjacentElement("afterend", p);
   };
 
+  /** Модульная сетка статей: заголовок на всю ширину, контент + боковая колонка (теги + описание). */
+  const initArticlePageLayout = () => {
+    document.querySelectorAll("main .section > .container").forEach(container => {
+      if (container.dataset.articleLayout === "1") return;
+      const article = container.querySelector(":scope > article.content-article");
+      const header = container.querySelector(":scope > .section-header");
+      if (!article || !header || !header.querySelector("h1")) return;
+
+      const rail = document.createElement("aside");
+      rail.className = "article-page-layout__rail";
+      rail.setAttribute("aria-label", "Теги и описание");
+
+      const kwRaw = document.querySelector('meta[name="keywords"]')?.getAttribute("content") || "";
+      const tagParts = kwRaw
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean)
+        .slice(0, 10);
+      if (tagParts.length) {
+        const wrap = document.createElement("div");
+        wrap.className = "article-page-layout__tags";
+        tagParts.forEach(text => {
+          const span = document.createElement("span");
+          span.className = "article-tag";
+          span.textContent = text;
+          wrap.appendChild(span);
+        });
+        rail.appendChild(wrap);
+      }
+
+      const sub = header.querySelector(".section-subtitle");
+      if (sub) {
+        rail.appendChild(sub);
+      } else {
+        const metaDesc = document.querySelector('meta[name="description"]')?.getAttribute("content") || "";
+        const t = metaDesc.trim();
+        if (t) {
+          const p = document.createElement("p");
+          p.className = "article-page-layout__lede";
+          p.textContent = t;
+          rail.appendChild(p);
+        }
+      }
+
+      if (!rail.firstChild) return;
+
+      const intro = document.createElement("div");
+      intro.className = "article-page-layout__intro section-header";
+      while (header.firstChild) intro.appendChild(header.firstChild);
+      header.replaceWith(intro);
+      container.appendChild(rail);
+      container.classList.add("article-page-layout");
+      container.dataset.articleLayout = "1";
+    });
+  };
+
+  /** Голубая плашка + рейл в одной правой колонке (без «пустых» строк сетки). */
+  const injectArticleConsultBanner = () => {
+    document.querySelectorAll(".container.article-page-layout").forEach(container => {
+      const rail = container.querySelector(".article-page-layout__rail");
+      if (!rail) return;
+
+      const looseBanner = container.querySelector(":scope > .article-consult-banner");
+      if (looseBanner && rail.parentElement === container) {
+        const sb = document.createElement("div");
+        sb.className = "article-page-layout__sidebar";
+        container.insertBefore(sb, looseBanner);
+        sb.appendChild(looseBanner);
+        sb.appendChild(rail);
+        return;
+      }
+
+      if (container.querySelector(".article-consult-banner")) return;
+
+      const sidebar = document.createElement("div");
+      sidebar.className = "article-page-layout__sidebar";
+
+      const banner = document.createElement("div");
+      banner.className = "article-consult-banner";
+      banner.setAttribute("role", "region");
+      banner.setAttribute("aria-label", "Консультация с экспертом");
+
+      const copy = document.createElement("div");
+      copy.className = "article-consult-banner__copy";
+
+      const title = document.createElement("p");
+      title.className = "article-consult-banner__title";
+      title.textContent = "Консультация с экспертом";
+
+      const hint = document.createElement("span");
+      hint.className = "article-consult-banner__hint";
+      hint.textContent =
+        "15 минут — разберём вашу нишу и первые шаги к видимости в нейросетях и AI‑поиске.";
+
+      copy.appendChild(title);
+      copy.appendChild(hint);
+
+      const cta = document.createElement("button");
+      cta.type = "button";
+      cta.className = "article-consult-banner__cta";
+      cta.setAttribute("data-popup", "contacts");
+      cta.setAttribute("aria-label", "Записаться на консультацию с экспертом");
+      cta.innerHTML =
+        `<svg class="visibility-cta__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
+        `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"></path>` +
+        `</svg><span class="article-consult-banner__cta-text">Забронировать</span>`;
+
+      banner.appendChild(copy);
+      banner.appendChild(cta);
+
+      container.insertBefore(sidebar, rail);
+      sidebar.appendChild(banner);
+      sidebar.appendChild(rail);
+    });
+  };
+
   const ensureLeadAndShortAnswer = () => {
     if (!sectionHeader || !pageH1) return;
     // Avoid duplicating the same AI lead if page already has it (e.g. custom hero on index)
@@ -545,7 +698,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { href: `${prefix}methods/geo.html`, label: "Что такое GEO оптимизация", kw: ["geo", "локал", "карты"] },
       { href: `${prefix}methods/seo.html`, label: "SEO оптимизация (2026)", kw: ["seo", "органик"] },
       { href: `${prefix}methods/faq-methods.html#svodnoe-sravnenie-metodov`, label: "Сводное сравнение методов", kw: ["vs", "сравнен", "выбрать"] },
-      { href: `${prefix}tools/checklists.html`, label: "Чеклисты (2026)", kw: ["чеклист", "шаг", "план"] },
+      { href: `${prefix}tools/content-factory.html#checklists`, label: "Чеклисты (2026)", kw: ["чеклист", "шаг", "план"] },
       { href: `${prefix}case-studies/local-business.html`, label: "Кейсы локального бизнеса", kw: ["локальн", "карты", "рядом"] }
     ];
 
@@ -571,10 +724,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  /** Вспомогательные блоки (TL;DR, оглавление, примечания) — в боковую колонку. «Читайте также» и «Связанные страницы» остаются в основном тексте. */
+  const relocateArticleRailBlocks = () => {
+    document.querySelectorAll(".article-page-layout").forEach(layout => {
+      const rail = layout.querySelector(".article-page-layout__rail");
+      const article = layout.querySelector("article.content-article");
+      if (!rail || !article) return;
+      if (rail.dataset.blocksRelocated === "1") return;
+      rail.dataset.blocksRelocated = "1";
+
+      const nodes = article.querySelectorAll(".short-answer, .content-toc, .content-note");
+      nodes.forEach(el => rail.appendChild(el));
+    });
+  };
+
+  /** Синий блок внизу каждой статьи: консультация + кнопка «Забронировать» со звездой. */
+  const injectArticleConsultFooter = () => {
+    document.querySelectorAll("main article.content-article").forEach(article => {
+      if (article.querySelector(".article-consult-footer")) return;
+
+      const footer = document.createElement("div");
+      footer.className = "article-consult-footer";
+      footer.setAttribute("role", "region");
+      footer.setAttribute("aria-label", "Консультация с экспертом");
+
+      const inner = document.createElement("div");
+      inner.className = "article-consult-footer__inner";
+
+      const title = document.createElement("p");
+      title.className = "article-consult-footer__title";
+      title.textContent = "Консультация с экспертом";
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "article-consult-footer__cta";
+      btn.setAttribute("data-popup", "contacts");
+      btn.setAttribute("aria-label", "Записаться на консультацию с экспертом");
+      btn.innerHTML =
+        `<svg class="visibility-cta__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
+        `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"></path>` +
+        `</svg><span class="article-consult-footer__cta-text">Забронировать</span>`;
+
+      inner.appendChild(title);
+      inner.appendChild(btn);
+      footer.appendChild(inner);
+      article.appendChild(footer);
+    });
+  };
+
   ensureUpdateDate();
   ensureLeadAndShortAnswer();
+  initArticlePageLayout();
+  injectArticleConsultBanner();
   buildTOCAndIds();
   injectReadAlsoLinks();
+  relocateArticleRailBlocks();
+  injectArticleConsultFooter();
   injectFaqJsonLd();
   injectArticleJsonLd();
 
