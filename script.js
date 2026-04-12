@@ -502,7 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const hint = document.createElement("span");
       hint.className = "article-consult-banner__hint";
       hint.textContent =
-        "15 минут — разберём вашу нишу и первые шаги к видимости в нейросетях и AI‑поиске.";
+        "Разберите ваш вопрос с опытным специалистом по продвижению.";
 
       copy.appendChild(title);
       copy.appendChild(hint);
