@@ -24,6 +24,8 @@ body {
   /* Use the smallest title scale (like FAQ) */
   --section-title-size: clamp(1.6rem, 2.1vw, 2rem);
   --cta-blue: #116feb;
+  /* Главная: одинаковая минимальная высота у блоков с цитатой и у карточек «Стратегия продвижения» (2×2) */
+  --home-highlight-min-height: clamp(420px, 46vh, 680px);
   /* Текст плашек/тегов на тёмном фоне: тот же акцент, но светлее для читаемости */
   --cta-blue-foreground: #c8e4ff;
 }
@@ -1604,6 +1606,8 @@ main {
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
   gap: clamp(1rem, 2.2vw, 1.6rem);
   margin-top: 1.35rem;
 }
@@ -1614,7 +1618,8 @@ main {
   flex-direction: column;
   border-radius: 22px;
   overflow: hidden;
-  min-height: clamp(220px, 24vw, 320px);
+  min-height: var(--home-highlight-min-height);
+  height: 100%;
   border: none;
   background-color: #0b1222;
   background-image: linear-gradient(
@@ -1790,6 +1795,10 @@ main {
 }
 
 @media (max-width: 860px) {
+  :root {
+    --home-highlight-min-height: clamp(300px, 44vh, 520px);
+  }
+
   .pillars-grid {
     grid-template-columns: 1fr;
   }
@@ -2405,7 +2414,7 @@ main {
 }
 
 .visibility-section--industries-lead .visibility-card {
-  min-height: clamp(340px, 42vh, 560px);
+  min-height: var(--home-highlight-min-height);
 }
 
 .visibility-section--industries-lead .visibility-text {
@@ -2645,7 +2654,7 @@ main {
 }
 
 .visibility-section.section:has(+ #services) .visibility-card {
-  min-height: clamp(240px, 28vh, 420px);
+  min-height: var(--home-highlight-min-height);
   padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1.1rem, 2.8vw, 1.85rem);
 }
 
@@ -2669,7 +2678,7 @@ body.home #services.services-section {
   flex-direction: column;
   justify-content: center;
   align-items: center; /* вертикальное + горизонтальное центрирование контента */
-  min-height: clamp(420px, 46vh, 680px);
+  min-height: var(--home-highlight-min-height);
   position: relative;
   z-index: 1;
 }
@@ -2738,7 +2747,7 @@ body.home #services.services-section {
 }
 
 .visibility-section--logo .visibility-card {
-  min-height: clamp(320px, 38vh, 520px);
+  min-height: var(--home-highlight-min-height);
 }
 
 .visibility-wave-ribbon::before,
