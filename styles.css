@@ -24,8 +24,8 @@ body {
   /* Use the smallest title scale (like FAQ) */
   --section-title-size: clamp(1.6rem, 2.1vw, 2rem);
   --cta-blue: #116feb;
-  /* Главная: одинаковая минимальная высота у блоков с цитатой и у карточек «Стратегия продвижения» (2×2) */
-  --home-highlight-min-height: clamp(420px, 46vh, 680px);
+  /* Главная: минимальная высота у блоков с цитатой и смежных секций */
+  --home-highlight-min-height: clamp(360px, 38vh, 560px);
   /* Текст плашек/тегов на тёмном фоне: тот же акцент, но светлее для читаемости */
   --cta-blue-foreground: #c8e4ff;
 }
@@ -1618,7 +1618,8 @@ main {
   flex-direction: column;
   border-radius: 22px;
   overflow: hidden;
-  min-height: var(--home-highlight-min-height);
+  /* Ниже блока «видимость»: плашки компактнее общего --home-highlight-min-height */
+  min-height: clamp(280px, 32vh, 480px);
   height: 100%;
   border: none;
   background-color: #0b1222;
@@ -1713,12 +1714,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: flex-start;
   min-height: 0;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding: clamp(1.35rem, 2.65vw, 2.05rem);
-  row-gap: 0.45rem;
+  padding: clamp(1.15rem, 2.2vw, 1.75rem);
+  row-gap: 0.4rem;
   color: rgba(248, 250, 252, 0.96);
   text-shadow: none;
 }
@@ -1748,7 +1750,7 @@ main {
 
 .pillar-card__content p {
   margin: 0;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-height: 0;
   max-width: none;
   font-size: clamp(1.06rem, 1.5vw, 1.22rem);
@@ -1761,7 +1763,7 @@ main {
   align-items: center;
   justify-content: center;
   width: fit-content;
-  margin-top: auto;
+  margin-top: 0.75rem;
   margin-bottom: 0;
   align-self: flex-start;
   padding: 0.85rem 1.35rem;
@@ -1796,15 +1798,19 @@ main {
 
 @media (max-width: 860px) {
   :root {
-    --home-highlight-min-height: clamp(300px, 44vh, 520px);
+    --home-highlight-min-height: clamp(280px, 40vh, 460px);
   }
 
   .pillars-grid {
     grid-template-columns: 1fr;
   }
 
+  .pillar-card {
+    min-height: clamp(240px, 36vh, 400px);
+  }
+
   .pillar-card__content {
-    padding: clamp(1.25rem, 3.2vw, 1.75rem);
+    padding: clamp(1.1rem, 3vw, 1.55rem);
   }
 
   .pillar-card__content h3 {
@@ -4131,6 +4137,31 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   margin: 0.55rem 0 0;
   font-size: 0.9rem;
   color: #9ca3af;
+}
+
+.faq-list details ul,
+.faq-list details ol {
+  margin: 0.55rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  line-height: 1.52;
+}
+
+.faq-list details li {
+  margin: 0.35rem 0;
+}
+
+.faq-list details li + li {
+  margin-top: 0.4rem;
+}
+
+.faq-methods-intro {
+  margin: 0 0 1.25rem;
+  max-width: 52rem;
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.58;
+  color: rgba(203, 213, 225, 0.96);
 }
 
 /* Увеличение шрифта в FAQ в 2 раза */

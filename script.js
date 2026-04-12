@@ -172,13 +172,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-col">
         <div class="footer-col__title">Методы</div>
+        <a href="${prefix}methods/methods-guide.html">Методы продвижения — обзор</a>
         <a href="${prefix}methods/geo.html">GEO оптимизация</a>
         <a href="${prefix}methods/aeo.html">AEO оптимизация</a>
         <a href="${prefix}methods/seo.html">SEO оптимизация</a>
         <a href="${prefix}methods/aio.html">AIO оптимизация</a>
         <a href="${prefix}methods/ai-smm.html">AI &amp; SMM</a>
         <a href="${prefix}methods/faq-methods.html">FAQ по методам</a>
-        <a href="${prefix}methods/methods-guide.html">Методы продвижения — обзор</a>
       </div>
 
       <div class="footer-col">
