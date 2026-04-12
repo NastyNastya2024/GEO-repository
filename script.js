@@ -165,8 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="footer-col">
         <div class="footer-col__title">Основное</div>
         <a href="${prefix}blog/main.html">Блог</a>
-        <a href="${prefix}about.html">Компания: о нас, услуги, контакты</a>
-        <a href="#" data-popup="contacts">Обратная связь</a>
+        <a href="${prefix}about.html">Компания</a>
       </div>
 
       <div class="footer-col">
@@ -939,7 +938,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <button type="button" class="contact-form-close" data-contact-close aria-label="Закрыть">×</button>
         <div id="contact-form-content" class="contact-form-content">
           <div id="contact-form-head" class="contact-form-head">
-            <h3 class="pre">Обратная связь</h3>
+            <h3 class="pre">Заявка и контакты</h3>
             <p class="pre">Оставьте контакты — ответим в ближайшее время.</p>
             <h3 class="post">Спасибо!</h3>
             <p class="post">Мы свяжемся с вами как можно быстрее.</p>

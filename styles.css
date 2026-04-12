@@ -157,8 +157,12 @@ a {
   letter-spacing: 0.02em;
 }
 
-.content-sources .content-sources__title {
+/* Сильнее, чем .content-article h3 — заголовок блока источников компактный */
+.content-article .content-sources > h3.content-sources__title {
+  margin: 0 0 0.65rem;
   font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .content-sources__list {
