@@ -80,12 +80,26 @@
                   </tr>
                   <tr>
                     <td>Средняя длина сессии, мин (модель)</td>
-                    <td><strong>12–28</strong></td>
+                    <td><strong>12–28 мин</strong></td>
                     <td>Длиннее при код‑ревью и «пошаговых» задачах.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <figure class="pct-chart" role="group" aria-label="Доли в процентах: IT/учёба и мобильные сессии. Высота столбца — середина модельного коридора, шкала до 70 %.">
+              <p class="pct-chart__caption">Визуализация долей в % (не минуты и не скидка API): высота столбца ≈ середина коридора; шкала 0–70 %.</p>
+              <p class="pct-chart__scale"><span>0 %</span><span>70 %</span></p>
+              <div class="pct-chart__cols">
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 55; --pct-scale: 70"></span></div>
+                  <span class="pct-chart__label">IT/код/учёба</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 57.5; --pct-scale: 70"></span></div>
+                  <span class="pct-chart__label">Мобильный трафик</span>
+                </div>
+              </div>
+            </figure>
             <p><strong>О чём таблица:</strong> региональное распределение пользователей веб‑чата; каждая строка — <strong>доля в процентах</strong> внутри модели (сумма строк ≈100 % при «узкой» трактовке, допускаются коридоры).</p>
             <p class="content-note"><strong>Источники:</strong> публичной детальной географии у DeepSeek мало; проценты — <strong>модель GEO Hub</strong> (КНР + диаспора как якорь, остальное — экстраполяция по языкам и трафику).</p>
             <div class="content-table" role="region" aria-label="DeepSeek — география, модель">
@@ -120,13 +134,39 @@
                 </tbody>
               </table>
             </div>
-            <p><strong>О чём таблица:</strong> возрастные когорты (доля в %) и распределение <strong>российской</strong> целевой аудитории по уровню дохода (доля в % среди RU‑релевантных пользователей DeepSeek).</p>
-            <p class="content-note"><strong>Источники:</strong> нет открытой разбивки; коридоры — <strong>модель GEO Hub</strong> (профиль tech/студентов + доходы РФ из открытой статистики как фон).</p>
-            <div class="content-table" role="region" aria-label="DeepSeek — возраст и доход, модель">
+            <figure class="pct-chart" role="group" aria-label="География аудитории в процентах по модели. Высота столбца — середина коридора, шкала до 50 %.">
+              <p class="pct-chart__caption">Вертикальные столбцы по регионам: доля аудитории в %, высота ≈ середина коридора; шкала 0–50 %.</p>
+              <p class="pct-chart__scale"><span>0 %</span><span>50 %</span></p>
+              <div class="pct-chart__cols">
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 34"></span></div>
+                  <span class="pct-chart__label">КНР + диаспора</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 23"></span></div>
+                  <span class="pct-chart__label">Сев. Америка</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 16"></span></div>
+                  <span class="pct-chart__label">Европа</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 21.5"></span></div>
+                  <span class="pct-chart__label">Ю‑В и Юж. Азия</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 16"></span></div>
+                  <span class="pct-chart__label">Прочие</span>
+                </div>
+              </div>
+            </figure>
+            <p><strong>О чём таблица:</strong> возрастные когорты глобальной аудитории веб‑чата; каждая строка — <strong>доля в процентах</strong> по модели GEO Hub.</p>
+            <p class="content-note"><strong>Источники:</strong> открытой разбивки по возрасту у DeepSeek нет; коридоры — <strong>модель GEO Hub</strong> (профиль студентов и tech).</p>
+            <div class="content-table" role="region" aria-label="DeepSeek — возраст, модель">
               <table>
                 <thead>
                   <tr>
-                    <th>Срез</th>
+                    <th>Возрастная когорта</th>
                     <th>Доля, % (модель)</th>
                   </tr>
                 </thead>
@@ -143,21 +183,71 @@
                     <td>41+</td>
                     <td><strong>12–22 %</strong></td>
                   </tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="pct-chart" role="group" aria-label="Возрастные когорты в процентах по модели. Высота столбца — середина коридора, шкала до 50 %.">
+              <p class="pct-chart__caption">Доли по возрасту в %: высота столбца ≈ середина коридора; шкала 0–50 %.</p>
+              <p class="pct-chart__scale"><span>0 %</span><span>50 %</span></p>
+              <div class="pct-chart__cols">
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 38"></span></div>
+                  <span class="pct-chart__label">14–22</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 44"></span></div>
+                  <span class="pct-chart__label">23–40</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 17"></span></div>
+                  <span class="pct-chart__label">41+</span>
+                </div>
+              </div>
+            </figure>
+            <p><strong>О чём таблица:</strong> распределение <strong>российской</strong> целевой аудитории по уровню дохода; каждая строка — <strong>доля в процентах</strong> среди RU‑релевантных пользователей DeepSeek по модели.</p>
+            <p class="content-note"><strong>Источники:</strong> нет публичной разбивки DeepSeek по доходам в РФ; коридоры — <strong>модель GEO Hub</strong> (фон — открытая статистика по доходам ЦА в РФ, не выручка сервиса).</p>
+            <div class="content-table" role="region" aria-label="DeepSeek — доход РФ ЦА, модель">
+              <table>
+                <thead>
                   <tr>
-                    <td>Доход РФ ЦА &lt; 120k ₽/мес</td>
+                    <th>Доход РФ ЦА (₽/мес)</th>
+                    <th>Доля, % (модель)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt; 120k</td>
                     <td><strong>35–50 %</strong></td>
                   </tr>
                   <tr>
-                    <td>Доход РФ ЦА 120–250k ₽/мес</td>
+                    <td>120–250k</td>
                     <td><strong>30–42 %</strong></td>
                   </tr>
                   <tr>
-                    <td>Доход РФ ЦА &gt; 250k ₽/мес</td>
+                    <td>&gt; 250k</td>
                     <td><strong>12–28 %</strong></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <figure class="pct-chart" role="group" aria-label="Доход российской ЦА в процентах по модели. Высота столбца — середина коридора, шкала до 50 %.">
+              <p class="pct-chart__caption">Доли по сегментам дохода в %: высота столбца ≈ середина коридора; шкала 0–50 %.</p>
+              <p class="pct-chart__scale"><span>0 %</span><span>50 %</span></p>
+              <div class="pct-chart__cols">
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 42.5"></span></div>
+                  <span class="pct-chart__label">&lt; 120k</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 36"></span></div>
+                  <span class="pct-chart__label">120–250k</span>
+                </div>
+                <div class="pct-chart__col">
+                  <div class="pct-chart__track"><span class="pct-chart__fill" style="--pct-mid: 20"></span></div>
+                  <span class="pct-chart__label">&gt; 250k</span>
+                </div>
+              </div>
+            </figure>
 
             <h3>Динамика пользователей по годам (модель)</h3>
             <p><strong>О чём таблица:</strong> MAU веб‑чата по годам и <strong>темп изменения в процентах</strong> к предыдущему году; 2025 — пик после релизов, 2026 — консолидация ниже пика в модели.</p>
