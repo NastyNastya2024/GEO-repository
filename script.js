@@ -490,22 +490,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const banner = document.createElement("div");
       banner.className = "article-consult-banner";
       banner.setAttribute("role", "region");
-      banner.setAttribute("aria-label", "Консультация с экспертом");
+      banner.setAttribute(
+        "aria-label",
+        "Разберите ваш вопрос с опытным специалистом по продвижению"
+      );
 
       const copy = document.createElement("div");
       copy.className = "article-consult-banner__copy";
 
       const title = document.createElement("p");
       title.className = "article-consult-banner__title";
-      title.textContent = "Консультация с экспертом";
-
-      const hint = document.createElement("span");
-      hint.className = "article-consult-banner__hint";
-      hint.textContent =
-        "Разберите ваш вопрос с опытным специалистом по продвижению.";
+      title.textContent = "Разберите ваш вопрос с опытным специалистом по продвижению.";
 
       copy.appendChild(title);
-      copy.appendChild(hint);
 
       const cta = document.createElement("button");
       cta.type = "button";
