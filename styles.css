@@ -2606,6 +2606,29 @@ main {
   z-index: 1;
 }
 
+/* Кольцо с точками и цитата перед «Наши услуги» — меньше вертикального воздуха */
+.visibility-section.section:has(+ #services) {
+  margin-bottom: -4.25rem;
+  padding-bottom: 4.25rem;
+}
+
+.visibility-section.section:has(+ #services) .visibility-inner {
+  padding-block: clamp(2rem, 3.6vw, 3.25rem);
+}
+
+.visibility-section.section:has(+ #services) .visibility-card {
+  min-height: clamp(240px, 28vh, 420px);
+  padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1.1rem, 2.8vw, 1.85rem);
+}
+
+.visibility-section.section:has(+ #services) .visibility-cta {
+  margin-top: 0.7rem;
+}
+
+body.home #services.services-section {
+  padding-top: clamp(0.85rem, 2vw, 1.45rem) !important;
+}
+
 .visibility-card {
   position: relative;
   max-width: 1120px;
@@ -2868,6 +2891,17 @@ main {
 .section-header {
   text-align: left;
   margin-bottom: 2rem;
+}
+
+/* Главный заголовок страниц со статьёй: в 2× относительно --section-title-size */
+main .section > .container:has(> article.content-article) > .section-header h1,
+main .article-page-layout > .article-page-layout__intro.section-header h1 {
+  font-size: clamp(3.2rem, 4.2vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 0 0 0.65rem;
+  color: #f8fafc;
+  font-weight: 800;
 }
 
 /* Секции без анимации пролистывания */
