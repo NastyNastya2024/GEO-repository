@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${prefix}methods/aio.html">AIO оптимизация</a>
         <a href="${prefix}methods/ai-smm.html">AI &amp; SMM</a>
         <a href="${prefix}methods/faq-methods.html">FAQ по методам</a>
-        <a href="${prefix}methods/faq-methods.html#svodnoe-sravnenie-metodov">Сводное сравнение методов</a>
+        <a href="${prefix}methods/methods-guide.html">Методы продвижения — обзор</a>
       </div>
 
       <div class="footer-col">
@@ -721,7 +721,11 @@ document.addEventListener("DOMContentLoaded", () => {
       { href: `${prefix}methods/aeo.html`, label: "Что такое AEO оптимизация", kw: ["aeo", "answer", "ответ"] },
       { href: `${prefix}methods/geo.html`, label: "Что такое GEO оптимизация", kw: ["geo", "локал", "карты"] },
       { href: `${prefix}methods/seo.html`, label: "SEO оптимизация (2026)", kw: ["seo", "органик"] },
-      { href: `${prefix}methods/faq-methods.html#svodnoe-sravnenie-metodov`, label: "Сводное сравнение методов", kw: ["vs", "сравнен", "выбрать"] },
+      {
+        href: `${prefix}methods/methods-guide.html`,
+        label: "Методы продвижения: как сочетать",
+        kw: ["vs", "сравнен", "выбрать", "метод", "ландшафт", "стек", "конфликт"]
+      },
       { href: `${prefix}tools/content-factory.html#checklists`, label: "Чеклисты (2026)", kw: ["чеклист", "шаг", "план"] },
       { href: `${prefix}case-studies/local-business.html`, label: "Кейсы локального бизнеса", kw: ["локальн", "карты", "рядом"] }
     ];
@@ -730,8 +734,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const already = h2.parentElement?.querySelector?.(`.read-also[data-for="${h2.id}"]`);
       if (already) return;
       const text = h2.textContent.toLowerCase();
+      const currentUrl = new URL(window.location.href);
       const picked = candidates
         .filter(c => c.kw.some(k => text.includes(k)))
+        .filter(c => {
+          try {
+            const target = new URL(c.href, currentUrl.href);
+            return target.pathname !== currentUrl.pathname;
+          } catch (e) {
+            return true;
+          }
+        })
         .slice(0, 2);
       if (!picked.length) return;
 
