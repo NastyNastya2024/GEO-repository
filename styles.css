@@ -4061,6 +4061,30 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   justify-content: center;
 }
 
+/* FAQ-аккордеон внутри статей (например, ChatGPT) */
+.content-article .faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.65rem 0 1.15rem;
+}
+
+.content-article .faq-list details {
+  border-radius: 12px;
+  border: 1px solid rgba(17, 111, 235, 0.35);
+  background: rgba(15, 23, 42, 0.72);
+  padding: 0.65rem 0.85rem;
+}
+
+.content-article .faq-list summary {
+  font-weight: 600;
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.content-article .faq-list p {
+  color: rgba(203, 213, 225, 0.96);
+}
+
 .faq-list details {
   border-radius: 0.9rem;
   border: 1px solid rgba(148, 163, 184, 0.4);

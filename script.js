@@ -615,8 +615,30 @@ document.addEventListener("DOMContentLoaded", () => {
       const q = h2.textContent.trim();
       if (!q) return;
 
-      let ansText = "";
       let el = h2.nextElementSibling;
+      if (el && el.classList && el.classList.contains("faq-list")) {
+        el.querySelectorAll(":scope > details").forEach(detail => {
+          const sum = detail.querySelector("summary");
+          if (!sum) return;
+          const name = sum.textContent.trim().replace(/\s+/g, " ");
+          const parts = [];
+          detail.querySelectorAll(":scope > p").forEach(p => {
+            const t = p.textContent.trim();
+            if (t) parts.push(t);
+          });
+          const text = parts.join(" ").replace(/\s+/g, " ");
+          if (name && text) {
+            qa.push({
+              "@type": "Question",
+              name,
+              acceptedAnswer: { "@type": "Answer", text }
+            });
+          }
+        });
+        return;
+      }
+
+      let ansText = "";
       while (el && el.tagName && !/^H2$/i.test(el.tagName)) {
         if (/^(P|UL|OL|DIV)$/i.test(el.tagName)) {
           ansText = el.textContent.trim().replace(/\s+/g, " ");
