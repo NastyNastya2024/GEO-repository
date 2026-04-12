@@ -118,8 +118,10 @@
 
             <h2 id="chatgpt-auditoriya">Аудитория ChatGPT: цифры и модель</h2>
             <p class="content-note">
-              OpenAI публично не публикует полную разбивку аудитории по странам и доходам. Ниже: <strong>(A)</strong> опорные величины из заявлений прессы и <strong>(B)</strong> маркетинговые <strong>оценки порядка</strong> для планирования (суммы в долях и ₽ — модель, не отчёт платформы).
+              Все <strong>доли и проценты</strong> ниже явно помечены знаком <strong>%</strong> и привязаны к базе (MAU, сессии, сегмент). Перед каждой таблицей — что именно считается и <strong>откуда взяты цифры</strong>: где нет строки в отчётности OpenAI, используется <strong>модель GEO Hub</strong> для брифов.
             </p>
+            <p><strong>О чём таблица:</strong> порядок величины WAU, доли платящих и языков/устройств/частоты использования в процентах от соответствующей базы.</p>
+            <p class="content-note"><strong>Источники:</strong> эпизодические публичные заявления OpenAI и интервью (в т.ч. порядок WAU ~200 млн в 2024); оценки аналитиков рынка и трафика; <strong>модель GEO Hub</strong> для долей, где прямой разбивки нет. Не выгрузка из кабинета OpenAI.</p>
             <div class="content-table" role="region" aria-label="ChatGPT — масштаб аудитории">
               <table>
                 <thead>
@@ -137,103 +139,107 @@
                   </tr>
                   <tr>
                     <td>Платные подписки Plus / Pro / команды</td>
-                    <td>оценка <strong>8–15%</strong> от MAU как «monetized power users»; корпоративный сегмент отдельно и уже по контрактам</td>
+                    <td>оценка <strong>8–15 %</strong> от MAU как «monetized power users»; корпоративный сегмент отдельно и уже по контрактам</td>
                     <td>Бесплатный слой остаётся абсолютным большинством по охвату.</td>
                   </tr>
                   <tr>
                     <td>Язык запросов (модель для контента)</td>
-                    <td>английский <strong>~55–70%</strong>, испанский <strong>~8–12%</strong>, прочие (в т.ч. русский) <strong>~20–35%</strong></td>
+                    <td>английский <strong>~55–70 %</strong>, испанский <strong>~8–12 %</strong>, прочие (в т.ч. русский) <strong>~20–35 %</strong> от запросов</td>
                     <td>Русский сильнее в RU/CIS крупных городов и у digital‑аудитории.</td>
                   </tr>
                   <tr>
                     <td>Устройство входа</td>
-                    <td>мобильные клиенты <strong>~55–65%</strong>, десктоп/веб <strong>~35–45%</strong></td>
+                    <td>мобильные клиенты <strong>~55–65 %</strong>, десктоп/веб <strong>~35–45 %</strong> сессий (модель)</td>
                     <td>B2B‑сценарии чаще дневной десктоп; студенты — мобайл вечером.</td>
                   </tr>
                   <tr>
                     <td>Частота (модель)</td>
-                    <td>ежедневно <strong>~35–45%</strong>, несколько раз в неделю <strong>~30–40%</strong>, реже <strong>~15–30%</strong></td>
+                    <td>ежедневно <strong>~35–45 %</strong>, несколько раз в неделю <strong>~30–40 %</strong>, реже <strong>~15–30 %</strong> пользователей</td>
                     <td>«Power users» дают непропорционально много запросов на 1 аккаунт.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p><strong>О чём таблица:</strong> географическое и возрастное распределение аудитории; каждая строка — <strong>доля в процентах</strong> от условной «глобальной» аудитории ChatGPT в модели (сумма строк не обязана быть ровно 100 % из‑за пересечений и округления).</p>
+            <p class="content-note"><strong>Источники:</strong> OpenAI не публикует полную географию/возраст; проценты — <strong>нормировка GEO Hub</strong> с опорой на языковой состав, региональные цены подписок и типичные паттерны adoption для consumer AI.</p>
             <div class="content-table" role="region" aria-label="ChatGPT — география и возраст, модель">
               <table>
                 <thead>
                   <tr>
                     <th>Срез</th>
-                    <th>Доля, % (модель)</th>
+                    <th>Доля аудитории, % (модель)</th>
                     <th>Зачем маркетологу</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>Северная Америка</td>
-                    <td><strong>28–38</strong></td>
+                    <td><strong>28–38 %</strong></td>
                     <td>Высокая концентрация платящих и B2B‑тестов промптов.</td>
                   </tr>
                   <tr>
                     <td>Западная и Центральная Европа</td>
-                    <td><strong>18–26</strong></td>
+                    <td><strong>18–26 %</strong></td>
                     <td>Сильный EN + локальные языки; хорош для SaaS и e‑commerce EU.</td>
                   </tr>
                   <tr>
                     <td>Азия (без КНР как отдельного контура)</td>
-                    <td><strong>22–32</strong></td>
+                    <td><strong>22–32 %</strong></td>
                     <td>Быстрый рост мобильного использования.</td>
                   </tr>
                   <tr>
                     <td>Латинская Америка, Ближний Восток, Африка, прочее</td>
-                    <td><strong>15–25</strong></td>
+                    <td><strong>15–25 %</strong></td>
                     <td>Ценочувствительный free‑сегмент, выше доля «обучения/подработки».</td>
                   </tr>
                   <tr>
                     <td>Возраст 14–24</td>
-                    <td><strong>28–38</strong></td>
+                    <td><strong>28–38 %</strong></td>
                     <td>Учёба, домашки, первый контакт с брендами через советы AI.</td>
                   </tr>
                   <tr>
                     <td>Возраст 25–44</td>
-                    <td><strong>38–48</strong></td>
+                    <td><strong>38–48 %</strong></td>
                     <td>Основной коммерческий и B2B‑костяк.</td>
                   </tr>
                   <tr>
                     <td>Возраст 45+</td>
-                    <td><strong>15–25</strong></td>
+                    <td><strong>15–25 %</strong></td>
                     <td>Растёт доля «бытовых» и здоровье/финансы/дача.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p><strong>О чём таблица:</strong> какой <strong>процент</strong> российской аудитории, релевантной ChatGPT (города, digital, доступ к сервису), попадает в корзины по уровню дохода.</p>
+            <p class="content-note"><strong>Источники:</strong> нет публичной разбивки OpenAI по доходам в РФ; коридоры — <strong>модель GEO Hub</strong> на стыке распределений доходов (Росстат/ВЦИОМ как фон) и допущения о перепредставлении платёжеспособных городских профессий.</p>
             <div class="content-table" role="region" aria-label="ChatGPT — доходы ЦА в РФ, модель">
               <table>
                 <thead>
                   <tr>
                     <th>Доход домохозяйства / личный, ₽/мес (РФ, модель)</th>
-                    <th>Доля среди RU‑релевантной аудитории ChatGPT, %</th>
+                    <th>Доля среди RU‑релевантной аудитории ChatGPT, % (модель)</th>
                     <th>Поведение</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>до 80 000</td>
-                    <td><strong>18–28</strong></td>
+                    <td><strong>18–28 %</strong></td>
                     <td>Почти только free; запросы «как сэкономить / бесплатная альтернатива».</td>
                   </tr>
                   <tr>
                     <td>80 000 – 150 000</td>
-                    <td><strong>28–38</strong></td>
+                    <td><strong>28–38 %</strong></td>
                     <td>Часть пробует Plus на 1–3 месяца; смешанные work+life запросы.</td>
                   </tr>
                   <tr>
                     <td>150 000 – 300 000</td>
-                    <td><strong>22–32</strong></td>
+                    <td><strong>22–32 %</strong></td>
                     <td>Plus/Team чаще; B2B‑исследования, маркетинг, разработка.</td>
                   </tr>
                   <tr>
                     <td>свыше 300 000</td>
-                    <td><strong>12–22</strong></td>
+                    <td><strong>12–22 %</strong></td>
                     <td>Корпоративные аккаунты, консалтинг, инвестиции, дорогие покупки.</td>
                   </tr>
                 </tbody>
@@ -241,9 +247,8 @@
             </div>
 
             <h3>Динамика пользователей по годам (модель)</h3>
-            <p class="content-note">
-              Ряд по <strong>WAU</strong> (активные за 7 дней). Год — ориентир на <strong>конец календарного года</strong>. Цифры сведены из эпизодических публичных заявлений и экстраполяции; это не непрерывная официальная статистика OpenAI.
-            </p>
+            <p><strong>О чём таблица:</strong> изменение порядка величины <strong>WAU</strong> и темп <strong>роста в процентах</strong> год к году (год — конец календарного года).</p>
+            <p class="content-note"><strong>Источники:</strong> отдельные публичные milestone OpenAI; дальше — <strong>экстраполяция GEO Hub</strong>. Не непрерывный временной ряд из отчётности компании.</p>
             <div class="content-table" role="region" aria-label="ChatGPT — динамика WAU по годам, модель">
               <table>
                 <thead>
@@ -270,19 +275,19 @@
                   <tr>
                     <td>2024</td>
                     <td><strong>185–220</strong></td>
-                    <td><strong>+45–110</strong></td>
+                    <td><strong>+45–110 %</strong></td>
                     <td>Публичная опора ~200 млн WAU; расширение тарифов и приложений.</td>
                   </tr>
                   <tr>
                     <td>2025</td>
                     <td><strong>220–295</strong></td>
-                    <td><strong>+8–35</strong></td>
+                    <td><strong>+8–35 %</strong></td>
                     <td>Рост за счёт мобайла, голоса, корпоративных сценариев.</td>
                   </tr>
                   <tr>
                     <td>2026</td>
                     <td><strong>240–320</strong></td>
-                    <td><strong>+5–20</strong></td>
+                    <td><strong>+5–20 %</strong></td>
                     <td>Зрелая фаза: выше конкуренция между чатами и поиском с AI.</td>
                   </tr>
                 </tbody>
@@ -303,6 +308,8 @@
             <p>
               Официальной сквозной статистики по РФ у OpenAI в открытом доступе нет. Ниже — <strong>модель проникновения</strong> для брифов (не для юридических документов).
             </p>
+            <p><strong>О чём таблица:</strong> какой <strong>процент</strong> людей в сегменте хотя бы пробовал ChatGPT за 90 дней и какой процент использует сервис <strong>≥4 раз в месяц</strong> (модель).</p>
+            <p class="content-note"><strong>Источники:</strong> данных РФ в отчётности OpenAI нет; оценки — <strong>модель GEO Hub</strong> (гипотезы по digital‑проникновению). Подтверждение — опросы, панели, мониторинг промптов.</p>
             <div class="content-table" role="region" aria-label="ChatGPT в РФ — модель проникновения">
               <table>
                 <thead>
@@ -315,28 +322,28 @@
                 <tbody>
                   <tr>
                     <td>Все интернет‑пользователи 15+</td>
-                    <td><strong>14–26</strong></td>
-                    <td><strong>4–9</strong></td>
+                    <td><strong>14–26 %</strong></td>
+                    <td><strong>4–9 %</strong></td>
                   </tr>
                   <tr>
                     <td>Москва и Санкт‑Петербург</td>
-                    <td><strong>22–38</strong></td>
-                    <td><strong>8–16</strong></td>
+                    <td><strong>22–38 %</strong></td>
+                    <td><strong>8–16 %</strong></td>
                   </tr>
                   <tr>
                     <td>IT, digital, продукт, консалтинг</td>
-                    <td><strong>55–78</strong></td>
-                    <td><strong>28–52</strong></td>
+                    <td><strong>55–78 %</strong></td>
+                    <td><strong>28–52 %</strong></td>
                   </tr>
                   <tr>
                     <td>Студенты очной формы</td>
-                    <td><strong>38–58</strong></td>
-                    <td><strong>15–32</strong></td>
+                    <td><strong>38–58 %</strong></td>
+                    <td><strong>15–32 %</strong></td>
                   </tr>
                   <tr>
                     <td>Топ‑менеджмент и владельцы SMB</td>
-                    <td><strong>32–52</strong></td>
-                    <td><strong>10–24</strong></td>
+                    <td><strong>32–52 %</strong></td>
+                    <td><strong>10–24 %</strong></td>
                   </tr>
                 </tbody>
               </table>
@@ -484,6 +491,8 @@
             </div>
 
             <h2>Какие типы вопросов лучше всего закрывать отдельными страницами — и в каком виде?</h2>
+            <p><strong>О чём таблица:</strong> какие типы пользовательских вопросов логично закрывать отдельными URL и в каком формате контента (без долей в % — рекомендации по структуре).</p>
+            <p class="content-note"><strong>Источники:</strong> практика GEO/AEO и наблюдение за ответами ChatGPT; <strong>не частотный отчёт OpenAI</strong>. Проверяйте на своих интентах.</p>
             <div class="content-table" role="region" aria-label="Типы вопросов и форматы для ChatGPT">
               <table>
                 <thead>
