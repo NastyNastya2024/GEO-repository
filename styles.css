@@ -87,6 +87,15 @@ a {
   outline-offset: 2px;
 }
 
+@media (max-width: 720px) {
+  .content-toc a {
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}
+
 .update-date {
   margin: 0.35rem 0 0;
   color: #ffffff;
@@ -449,6 +458,7 @@ a {
   grid-row: 2;
   max-width: none;
   width: 100%;
+  min-width: 0; /* prevent wide descendants (tables) from blowing up the grid track */
 }
 
 .article-page-layout > .article-page-layout__sidebar {
@@ -530,6 +540,54 @@ a {
   gap: 0.4rem;
 }
 
+.article-rail-dd {
+  width: 100%;
+}
+
+.article-rail-dd__summary {
+  list-style: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(17, 111, 235, 0.35);
+  background: rgba(2, 6, 23, 0.45);
+  color: rgba(226, 232, 240, 0.95);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  user-select: none;
+}
+
+.article-rail-dd__summary::-webkit-details-marker {
+  display: none;
+}
+
+.article-rail-dd__summary:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.75);
+  outline-offset: 3px;
+}
+
+.article-rail-dd__panel {
+  margin-top: 0.65rem;
+}
+
+@media (max-width: 960px) {
+  /* Put the collapsed rail above the consultation banner in the sidebar stack */
+  .article-page-layout__sidebar > .article-rail-dd {
+    order: -1;
+  }
+
+  .article-rail-dd__panel {
+    display: none !important;
+  }
+
+  .article-rail-dd[open] .article-rail-dd__panel {
+    display: block !important;
+  }
+}
+
 .article-tag {
   display: inline-flex;
   align-items: center;
@@ -542,6 +600,10 @@ a {
   color: var(--cta-blue-foreground);
   border: 1px solid var(--cta-blue);
   background: transparent;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .article-page-layout__rail .section-subtitle {
@@ -571,15 +633,15 @@ a {
 
   .article-page-layout > .content-article {
     grid-column: 1 / -1;
-    grid-row: 2;
+    grid-row: 3;
   }
 
   .article-page-layout > .article-page-layout__sidebar {
     grid-column: 1 / -1;
-    grid-row: 3;
+    grid-row: 2;
   }
 
-  .article-page-layout__sidebar > .article-page-layout__rail {
+  .article-page-layout__sidebar .article-page-layout__rail {
     position: static;
     max-height: none;
     overflow-y: visible;
@@ -604,6 +666,36 @@ a {
 /* В двухколоночной статье таблица подстраивается под ширину колонки */
 .article-page-layout .content-table table {
   min-width: 0;
+}
+
+@media (max-width: 720px) {
+  /*
+   * Wide “content” tables: never squeeze columns to 1–2 letters on phones.
+   * Prefer horizontal scroll inside `.content-table` (it already has overflow:auto).
+   */
+  .content-table {
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .article-page-layout .content-table table,
+  .content-table table {
+    min-width: 720px;
+    width: auto;
+    max-width: none;
+    table-layout: auto;
+  }
+
+  .content-table th,
+  .content-table td {
+    font-size: 0.92rem;
+    line-height: 1.35;
+    padding: 0.65rem 0.7rem;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: manual;
+  }
 }
 
 .content-table th,
@@ -3064,6 +3156,8 @@ body.home #services.services-section {
 
 /* Главный заголовок страниц со статьёй: в 2× относительно --section-title-size */
 main .section > .container:has(> article.content-article) > .section-header h1,
+/* Safari/iOS: `:has()` support is incomplete — keep a non-`:has` fallback */
+main .section > .container > .section-header h1,
 main .article-page-layout > .article-page-layout__intro.section-header h1 {
   font-size: clamp(3.2rem, 4.2vw, 4rem);
   line-height: 1.08;
@@ -3071,6 +3165,25 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   margin: 0 0 0.65rem;
   color: #f8fafc;
   font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  main .section > .container:has(> article.content-article) > .section-header h1,
+  main .section > .container > .section-header h1,
+  main .article-page-layout > .article-page-layout__intro.section-header h1 {
+    font-size: clamp(2rem, 8.2vw, 2.6rem);
+    line-height: 1.05;
+  }
+
+  main .section > .container:has(> article.content-article) > .section-header .section-subtitle,
+  main .section > .container > .section-header .section-subtitle,
+  main .article-page-layout > .article-page-layout__intro.section-header .section-subtitle,
+  main .section > .container:has(> article.content-article) > .section-header .lead-ai,
+  main .section > .container > .section-header .lead-ai,
+  main .article-page-layout > .article-page-layout__intro.section-header .lead-ai {
+    overflow-wrap: anywhere;
+  }
 }
 
 /* Секции без анимации пролистывания */
@@ -5279,8 +5392,25 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
     width: 100%;
   }
 
+  .site-header .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .header-inner {
     padding-inline: 1rem;
+    gap: 0.65rem;
+    margin: 0.55rem auto;
+  }
+
+  .header-ticker {
+    display: none;
+  }
+
+  .site-header .header-actions .btn.btn-header.btn-header--white {
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
   }
 
   .contact-form {

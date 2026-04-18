@@ -773,6 +773,81 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  /** Mobile-only: collapse the whole blue rail (tags + TL;DR + TOC) behind a "⋯" disclosure. */
+  const syncArticleRailMobileCollapse = () => {
+    const mq = window.matchMedia && window.matchMedia("(max-width: 960px)");
+    const isMobile = mq ? mq.matches : false;
+
+    document.querySelectorAll(".article-page-layout").forEach(layout => {
+      const sidebar = layout.querySelector(".article-page-layout__sidebar");
+      if (!sidebar) return;
+
+      const unwrapRail = railEl => {
+        if (!(railEl instanceof Element)) return;
+        const hostDd = railEl.closest("details.article-rail-dd");
+        if (!hostDd) return;
+        const banner = sidebar.querySelector(":scope > .article-consult-banner");
+        if (banner && banner.nextSibling !== hostDd) {
+          sidebar.insertBefore(hostDd, banner.nextSibling);
+        }
+
+        // Put rail back right after the consultation banner (banner first, rail second)
+        if (banner) sidebar.insertBefore(railEl, banner.nextSibling);
+        else sidebar.insertBefore(railEl, hostDd);
+
+        hostDd.remove();
+        delete railEl.dataset.mobileWrapped;
+      };
+
+      const wrapRail = railEl => {
+        if (!(railEl instanceof Element)) return;
+        if (railEl.closest("details.article-rail-dd")) return;
+
+        // If an older version wrapped only tags, unwrap back to a plain tag list.
+        const legacyTagsDd = railEl.querySelector(":scope > details.article-tags-dd");
+        if (legacyTagsDd) {
+          const legacyPanel = legacyTagsDd.querySelector(":scope > .article-tags-dd__panel");
+          const tags = legacyPanel && legacyPanel.querySelector(":scope > .article-page-layout__tags");
+          if (tags) legacyTagsDd.replaceWith(tags);
+          else legacyTagsDd.remove();
+        }
+
+        const dd = document.createElement("details");
+        dd.className = "article-rail-dd";
+        dd.open = false;
+
+        const summary = document.createElement("summary");
+        summary.className = "article-rail-dd__summary";
+        summary.setAttribute("aria-label", "Показать навигацию по статье");
+        summary.textContent = "⋯";
+
+        const panel = document.createElement("div");
+        panel.className = "article-rail-dd__panel";
+        panel.appendChild(railEl);
+
+        dd.appendChild(summary);
+        dd.appendChild(panel);
+        sidebar.appendChild(dd);
+
+        railEl.dataset.mobileWrapped = "1";
+      };
+
+      const rail = sidebar.querySelector(":scope > .article-page-layout__rail") ||
+        sidebar.querySelector(".article-page-layout__rail");
+      if (!rail) return;
+
+      if (isMobile) wrapRail(rail);
+      else unwrapRail(rail);
+    });
+  };
+
+  const mqArticleRail = window.matchMedia && window.matchMedia("(max-width: 960px)");
+  if (mqArticleRail && typeof mqArticleRail.addEventListener === "function") {
+    mqArticleRail.addEventListener("change", syncArticleRailMobileCollapse);
+  } else if (mqArticleRail && typeof mqArticleRail.addListener === "function") {
+    mqArticleRail.addListener(syncArticleRailMobileCollapse);
+  }
+
   /** Синий блок внизу каждой статьи: консультация + кнопка «Забронировать» со звездой. */
   const injectArticleConsultFooter = () => {
     document.querySelectorAll("main article.content-article").forEach(article => {
@@ -827,6 +902,7 @@ document.addEventListener("DOMContentLoaded", () => {
   buildTOCAndIds();
   injectReadAlsoLinks();
   relocateArticleRailBlocks();
+  syncArticleRailMobileCollapse();
   injectArticleConsultFooter();
   injectFaqJsonLd();
   injectArticleJsonLd();
