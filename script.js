@@ -181,13 +181,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-col">
         <div class="footer-col__title">Нейроплатформы</div>
+        <a href="${prefix}neural-platforms/platform-comparison.html">Что такое нейроплатформы</a>
         <a href="${prefix}neural-platforms/chatgpt.html">ChatGPT</a>
         <a href="${prefix}neural-platforms/perplexity.html">Perplexity</a>
         <a href="${prefix}neural-platforms/deepseek.html">DeepSeek</a>
         <a href="${prefix}neural-platforms/claude.html">Claude</a>
         <a href="${prefix}neural-platforms/google-gemini.html">Google Gemini</a>
         <a href="${prefix}neural-platforms/yandex-alice.html">Яндекс Алиса</a>
-        <a href="${prefix}neural-platforms/platform-comparison.html">Сравнение платформ</a>
       </div>
 
       <div class="footer-col">
