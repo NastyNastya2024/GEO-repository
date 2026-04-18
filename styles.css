@@ -4998,6 +4998,21 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   }
 }
 
+/* Блог: каталог плитками (как «Интересные статьи» на главной) */
+.blog-hub__strip.section {
+  min-height: 0;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+
+.blog-hub__strip.section + .blog-hub__strip.section {
+  padding-top: 0;
+}
+
+.blog-hub__intro.section {
+  min-height: 0;
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
 /* Contact */
 .section-accent .container {
   position: relative;
