@@ -203,7 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="footer-col">
         <div class="footer-col__title">Стратегия</div>
         <a href="${prefix}strategy/overview.html">Стратегия — обзор раздела</a>
+        <a href="${prefix}strategy/strategic-intent.html">Стратегический интент</a>
+        <a href="${prefix}strategy/geo-aeo-rollout.html">GEO/AEO: сайт и контентная система</a>
         <a href="${prefix}strategy/audit-ai-visibility.html">Аудит AI‑видимости и метрики</a>
+        <a href="${prefix}strategy/geo-aeo-metrics-bi.html">Метрики GEO/AEO и BI</a>
+        <a href="${prefix}tools/geo-aeo-bi-dashboard.html">GEO/AEO BI‑дашборд</a>
         <a href="${prefix}strategy/implementation-changes.html">Реализация изменений</a>
         <a href="${prefix}strategy/optimization-tracking.html">Оптимизация и трекинг</a>
       </div>

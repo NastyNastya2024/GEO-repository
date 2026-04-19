@@ -218,13 +218,13 @@ a {
 
 .content-article {
   max-width: 920px;
-  color: rgba(248, 250, 252, 0.92);
-  /* 1.5× от типичного body (1rem): основной текст абзацев и списков по наследованию */
-  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.96);
+  /* Чуть компактнее прежнего 1.5rem: основной кегль статей */
+  font-size: 1.34rem;
 }
 
 .content-article p {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.94);
   line-height: 1.65;
   margin: 0 0 var(--sp-4);
 }
@@ -233,7 +233,7 @@ a {
 .content-article ol {
   margin: 0 0 1rem 1.1rem;
   padding: 0;
-  color: rgba(226, 232, 240, 0.92);
+  color: rgba(255, 255, 255, 0.93);
 }
 
 .content-article li {
@@ -243,15 +243,15 @@ a {
 
 .content-article h2 {
   margin: var(--sp-8) 0 var(--sp-3);
-  color: var(--text-primary);
-  font-size: clamp(1.575rem, 2.475vw, 2.025rem);
+  color: rgba(255, 255, 255, 0.98);
+  font-size: clamp(1.45rem, 2.2vw, 1.88rem);
   letter-spacing: -0.015em;
 }
 
 .content-article h3 {
   margin: var(--sp-6) 0 var(--sp-2);
-  color: var(--text-primary);
-  font-size: 1.53rem;
+  color: rgba(255, 255, 255, 0.98);
+  font-size: 1.38rem;
   letter-spacing: -0.01em;
 }
 
@@ -271,9 +271,9 @@ a {
   border: 1px solid rgba(148, 163, 184, 0.22);
   background: rgba(2, 6, 23, 0.5);
   overflow-x: auto;
-  font-size: 1.23rem;
+  font-size: 1.06rem;
   line-height: 1.45;
-  color: rgba(226, 232, 240, 0.95);
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .content-article pre code {
@@ -283,6 +283,32 @@ a {
   background: transparent;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   white-space: pre;
+}
+
+.content-article .content-note,
+.content-article .read-also {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.content-article .content-related {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.content-article .content-related h3 {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.content-article .faq-list p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.content-article .content-table th,
+.content-article .content-table td {
+  color: rgba(255, 255, 255, 0.93);
+}
+
+.content-article .content-table th {
+  color: rgba(255, 255, 255, 0.98);
 }
 
 /* Модульная статья: основной текст + боковая колонка (теги + описание) */
