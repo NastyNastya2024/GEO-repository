@@ -4454,6 +4454,21 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   color: rgba(203, 213, 225, 0.96);
 }
 
+.content-article .faq-intent-list {
+  margin: 0.5rem 0 1.25rem;
+  padding-left: 1.2rem;
+  max-width: 52rem;
+  list-style: disc;
+}
+
+.content-article .faq-intent-list li + li {
+  margin-top: 0.55rem;
+}
+
+.content-article .faq-intent-list li {
+  line-height: 1.55;
+}
+
 /* Увеличение шрифта в FAQ в 2 раза */
 #faq .kicker {
   font-size: 1.4rem;

@@ -1,0 +1,202 @@
+# Продвижение в нейросетях
+
+> Материалы по GEO, AEO и SEO: как усилить видимость бренда в поиске, картах, ответах нейросетей и голосовом поиске.
+
+## Основные разделы
+
+[Методы продвижения — обзор](methods/methods-guide.html): Сводка направлений GEO, AEO, SEO, AIO и AI+SMM с приоритетами и связями.
+
+[Нейроплатформы](neural-platforms/platform-comparison.html): Обзор чатов и AI-поиска, сравнение платформ и сценариев использования.
+
+[Инструменты — аналитика и аудит](tools/analytics.html): Метрики, аудит видимости бренда в AI и чеклист кода под AEO и GEO.
+
+[Инструменты — контент-завод](tools/content-factory.html): Страницы-ответы, структуры контента и подборка инструментов для производства материалов.
+
+[GEO/AEO BI-дашборд](tools/geo-aeo-bi-dashboard.html): Демо-панель метрик AI-видимости и распределения интентов на Chart.js.
+
+[Стратегия — обзор раздела](strategy/overview.html): Навигация по статьям про аудит, внедрение, трекинг и связку с методами.
+
+[Отрасли и нейропоиск](case-studies/all-industries-geo-aeo.html): Кейсы и сценарии по отраслям с упором на нейропоиск.
+
+[Блог](blog/main.html): Подборка статей и карточек материалов по продвижению и AI-видимости.
+
+[Компания](about.html): О проекте, подходе и разделе с контактами.
+
+[FAQ по промо в AI и поиске](faq-promotion.html): Десять интентов бизнеса и маркетинга, короткие ответы и ссылки на материалы сайта.
+
+## Ключевые страницы
+
+[Главная](index.html): Лендинг сервиса AI-видимости, блоки стратегии и ссылки в основные разделы.
+
+[GEO оптимизация](methods/geo.html): Generative Engine Optimization: цитируемость, локальность, чеклист для ответов нейросетей.
+
+[AEO оптимизация](methods/aeo.html): Answer Engine Optimization: формат вопрос-ответ, сниппеты и AI-поиск.
+
+[SEO оптимизация](methods/seo.html): Классический поиск: индексация, структура сайта и пересечение с GEO и AEO.
+
+[AIO оптимизация](methods/aio.html): Сайт как база знаний для извлечения и цитирования во внешних AI-интерфейсах.
+
+[FAQ по методам](methods/faq-methods.html): Короткие ответы по терминам и сводное сравнение методов.
+
+[FAQ по промо в AI и поиске](faq-promotion.html): Интенты видимости, влияния, контента, техники, метрик и внедрения в сжатом виде.
+
+[Стратегический интент](strategy/strategic-intent.html): Интенты видимости, влияния, контента, каналов и метрик в одной логике.
+
+[GEO/AEO: сайт и контентная система](strategy/geo-aeo-rollout.html): Внедрение: интенты, граф знаний, типы страниц, контент-завод, техника и мониторинг.
+
+[Аудит AI-видимости и метрики](strategy/audit-ai-visibility.html): Слои аудита, KPI и блок про стратегию опорных площадок в конце страницы.
+
+[Метрики GEO/AEO и BI](strategy/geo-aeo-metrics-bi.html): Система показателей от AI Visibility Rate до Knowledge Graph Strength и связь с дашбордом.
+
+[Реализация изменений](strategy/implementation-changes.html): Соцсети, статьи и правки в коде продукта под AEO и GEO.
+
+[Оптимизация и трекинг](strategy/optimization-tracking.html): Циклы измерений и корректировок после запуска.
+
+[ChatGPT — продвижение и видимость](neural-platforms/chatgpt.html): Гайд по платформе, аудитории и практикам для брендов.
+
+[Perplexity — продвижение](neural-platforms/perplexity.html): Источники в ответах, структура контента и таблицы метрик модели.
+
+## Технико-коммерческое предложение / Техническое задание
+
+**Проект:** Продвижение бренда в нейросетях (GEO, AEO, SEO, AIO)  
+**Обновлено:** апрель 2026  
+**Ключевые методы:** Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), классическое SEO, AIO (сайт как база знаний), AI+SMM.
+
+### 1. Концепция проекта
+
+Пользователи всё чаще находят, сравнивают и выбирают продукты внутри LLM-чатов (DeepSeek, ChatGPT, Perplexity, Google Gemini, «Яндекс Алиса» и др.). AI меняет правила поиска: он выбирает, какие компании рекомендовать. Если бренд не попадает в ответ нейросети, он выпадает из контекста.
+
+**Цель проекта:** обеспечить видимость бренда в поиске, картах, ответах нейросетей и голосовом поиске через внедрение методологий GEO, AEO и связанных дисциплин.
+
+Опорные материалы: [главная](index.html), [обзор методов](methods/methods-guide.html), [стратегический интент](strategy/strategic-intent.html).
+
+### 2. Этапы стратегии продвижения (4 блока)
+
+| Этап | Действия | Результат |
+| --- | --- | --- |
+| АУДИТ | Проверка видимости бренда в открытых источниках и ответах нейросетей: сайт, карточки, упоминания. Фактическая картина. | Отчёт по текущей AI-видимости |
+| СТРАТЕГИЯ | Проектирование цифрового присутствия бренда: интенты, граф знаний, типы страниц. | Стратегия видимости |
+| РЕАЛИЗАЦИЯ | Создание контента, структуры и технической упаковки под нужные сценарии. | Контент-завод, размещение |
+| ОПТИМИЗАЦИЯ | Усиление AI-видимости, цитируемости и цифрового присутствия со временем. | Рост метрик, трекинг |
+
+Связка на сайте: [аудит AI-видимости](strategy/audit-ai-visibility.html), [внедрение GEO/AEO](strategy/geo-aeo-rollout.html), [реализация изменений](strategy/implementation-changes.html), [оптимизация и трекинг](strategy/optimization-tracking.html).
+
+### 3. Методы продвижения (сводка)
+
+| Метод | Расшифровка | Приоритет | Что делает |
+| --- | --- | --- | --- |
+| GEO | Generative Engine Optimization | Высокий | Цитируемость, локальность, чеклист для ответов нейросетей |
+| AEO | Answer Engine Optimization | Высокий | Формат вопрос-ответ, сниппеты, AI-поиск |
+| SEO | Search Engine Optimization | Средний | Индексация, структура сайта, пересечение с GEO/AEO |
+| AIO | AI Optimization | Высокий | Сайт как база знаний для извлечения и цитирования во внешних AI-интерфейсах |
+| AI+SMM | Социальные сети + AI | Средний | Упоминания в соцсетях как источник для LLM |
+
+Полный FAQ по методам: [methods/faq-methods.html](methods/faq-methods.html). Запросы бизнеса по интентам: [faq-promotion.html](faq-promotion.html).
+
+### 4. Нейроплатформы для продвижения
+
+| Платформа | Материал на сайте | Сценарии использования |
+| --- | --- | --- |
+| ChatGPT | [neural-platforms/chatgpt.html](neural-platforms/chatgpt.html) | Контент-генерация, ответы на запросы |
+| Perplexity | [neural-platforms/perplexity.html](neural-platforms/perplexity.html) | AI-поиск с цитированием |
+| DeepSeek | [neural-platforms/deepseek.html](neural-platforms/deepseek.html) | Технические ответы, код |
+| Claude | [neural-platforms/claude.html](neural-platforms/claude.html) | Длинный контекст, аналитические ответы |
+| Google Gemini | [neural-platforms/google-gemini.html](neural-platforms/google-gemini.html) | Мультимодальность, связка с поиском |
+| Яндекс Алиса | [neural-platforms/yandex-alice.html](neural-platforms/yandex-alice.html) | Русскоязычный рынок, голос |
+| Другие / сравнение | [neural-platforms/platform-comparison.html](neural-platforms/platform-comparison.html) | Выбор площадок под задачу |
+
+### 5. Инструменты проекта
+
+**5.1 Аналитика и аудит**
+
+- Метрики AI-видимости, аудит бренда в AI, чеклист кода: [tools/analytics.html](tools/analytics.html)  
+- Аудит кода AEO/GEO (отдельная страница): [tools/code-aeo-geo-audit.html](tools/code-aeo-geo-audit.html)  
+- Демо BI на Chart.js: [tools/geo-aeo-bi-dashboard.html](tools/geo-aeo-bi-dashboard.html)  
+
+**5.2 Контент-завод**
+
+- Страницы-ответы, структуры под GEO/AEO, инструменты: [tools/content-factory.html](tools/content-factory.html)  
+
+**5.3 Коммерческие и сервисные страницы (раздел «Инструменты»)**
+
+- [Аудит текущего IT-решения](tools/it-audit.html): title, canonical, JSON-LD, chunkable-контент для LLM  
+- [Стратегия продвижения](tools/promotion-strategy.html)  
+- [Полное продвижение](tools/full-promotion.html)  
+- [Поддерживающий сервис](tools/support-service.html)  
+- Дополнительно: [аудит видимости бренда](tools/brand-visibility-audit.html), [чеклисты](tools/checklists.html), [AI-инструменты](tools/ai-tools.html)  
+
+### 6. Система метрик и KPI
+
+| Метрика | Описание |
+| --- | --- |
+| AI Visibility Rate | Частота упоминания бренда в ответах LLM |
+| Knowledge Graph Strength | Сила графа знаний вокруг бренда |
+| Intent Distribution | Распределение интентов (транзакционные, информационные, навигационные) |
+| Citation Quality Score | Качество и авторитетность источников, цитируемых AI |
+| AEO Snippet Coverage | Доля запросов, где бренд в формате «вопрос-ответ» |
+
+Полная система: [strategy/geo-aeo-metrics-bi.html](strategy/geo-aeo-metrics-bi.html). Визуализация: [tools/geo-aeo-bi-dashboard.html](tools/geo-aeo-bi-dashboard.html).
+
+### 7. Отрасли и специализация
+
+Вертикали с кейсами на сайте: маркетплейсы, клиники, сервисные центры, шоурумы, салоны красоты, доставка, корпорации, e-commerce, SaaS & digital, локальный бизнес, AI-discovery лидеры.
+
+Сводка и навигация: [case-studies/all-industries-geo-aeo.html](case-studies/all-industries-geo-aeo.html). Примеры URL кейсов: [case-studies/marketplaces-neuro-strategy.html](case-studies/marketplaces-neuro-strategy.html), [case-studies/clinics-neuro-strategy.html](case-studies/clinics-neuro-strategy.html), [case-studies/corporations.html](case-studies/corporations.html), [case-studies/ecommerce.html](case-studies/ecommerce.html), [case-studies/saas.html](case-studies/saas.html), [case-studies/local-business.html](case-studies/local-business.html), [case-studies/ai-discovery.html](case-studies/ai-discovery.html) и др. в том же каталоге.
+
+### 8. Структура сайта / карта разделов (для реализации)
+
+| Раздел | Страницы |
+| --- | --- |
+| Главная | [index.html](index.html) — лендинг AI-видимости |
+| Методы | [Обзор](methods/methods-guide.html), [GEO](methods/geo.html), [AEO](methods/aeo.html), [SEO](methods/seo.html), [AIO](methods/aio.html), [AI+SMM](methods/ai-smm.html), [FAQ по методам](methods/faq-methods.html) |
+| Нейроплатформы | [Обзор](neural-platforms/platform-comparison.html), [ChatGPT](neural-platforms/chatgpt.html), [Perplexity](neural-platforms/perplexity.html), [DeepSeek](neural-platforms/deepseek.html), [Claude](neural-platforms/claude.html), [Gemini](neural-platforms/google-gemini.html), [Алиса](neural-platforms/yandex-alice.html) |
+| Инструменты | [Аналитика и аудит](tools/analytics.html), [Контент-завод](tools/content-factory.html), [Аудит IT-решения](tools/it-audit.html), [Стратегия продвижения](tools/promotion-strategy.html), [Полное продвижение](tools/full-promotion.html), [Поддерживающий сервис](tools/support-service.html), [BI-дашборд](tools/geo-aeo-bi-dashboard.html) |
+| Стратегия | [Обзор](strategy/overview.html), [Стратегический интент](strategy/strategic-intent.html), [GEO/AEO внедрение](strategy/geo-aeo-rollout.html), [Аудит AI-видимости](strategy/audit-ai-visibility.html), [Метрики и BI (статья)](strategy/geo-aeo-metrics-bi.html), [Реализация](strategy/implementation-changes.html), [Оптимизация](strategy/optimization-tracking.html) |
+| Отрасли | [Все отрасли](case-studies/all-industries-geo-aeo.html) и вертикали в каталоге `case-studies/` |
+| Сервис / ТКП | [Полное продвижение](tools/full-promotion.html), [главная](index.html) |
+| Общее | [FAQ промо в AI](faq-promotion.html), [компания](about.html) |
+| Блог | [blog/main.html](blog/main.html) |
+| Компания и контакты | [about.html](about.html) (раздел контактов: `#kompaniya-kontakty`); [contact.html](contact.html) — редирект на компанию |
+
+### 9. Требования к реализации (ТЗ кратко)
+
+**GEO / AEO**
+
+- Разметка JSON-LD: FAQ, HowTo, QAPage (и иные подходящие типы schema.org под контент).
+- Чистая HTML-структура с ответами на естественном языке.
+- Скорость загрузки в зоне Core Web Vitals; ориентир LCP менее 1,5 с на ключевых шаблонах при хорошем хостинге.
+- Адаптив под мобильные (в т.ч. для голосового поиска).
+
+**AIO**
+
+- Сайт как «база знаний»: логическая структура, внутренняя перелинковка, отсутствие противоречий в фактах.
+- Доступность контента для краулеров LLM: без капчи и paywall на ключевых ответах; критический текст не только в недоступном JS.
+
+**BI-дашборд**
+
+- Реализация на Chart.js, как в [tools/geo-aeo-bi-dashboard.html](tools/geo-aeo-bi-dashboard.html).
+- Отображение: AI Visibility Rate, распределение интентов, динамика по неделям (по макету демо).
+
+**Контент-завод**
+
+- Страницы-ответы под приоритетные вопросы аудитории (в т.ч. топ-кластеры по нише).
+- Шаблонизация структур под AEO (вопрос — краткий ответ — детали — ограничения).
+
+### 10. Что входит в результат (для ТКП клиенту)
+
+- Аудит текущей AI-видимости бренда ([аудит](strategy/audit-ai-visibility.html), [аналитика](tools/analytics.html)).
+- Стратегия GEO/AEO под выбранные нейроплатформы ([обзор стратегии](strategy/overview.html), [внедрение](strategy/geo-aeo-rollout.html)).
+- Настройка контент-завода: типы страниц, структуры ([контент-завод](tools/content-factory.html)).
+- Внедрение технической разметки (JSON-LD для AEO; см. [аудит IT](tools/it-audit.html), [AIO](methods/aio.html)).
+- BI-дашборд метрик AI-видимости ([демо](tools/geo-aeo-bi-dashboard.html), [метрики](strategy/geo-aeo-metrics-bi.html)).
+- Оптимизация и трекинг: циклы измерений ([оптимизация и трекинг](strategy/optimization-tracking.html)).
+- Документация и обучение команды (в рамках договора; входные материалы — разделы `strategy/` и `methods/` на сайте как база знаний).
+
+### 11. Контакты и поддержка
+
+[Контакты и обратная связь](about.html#kompaniya-kontakty): телефон и форма на странице компании.  
+[contact.html](contact.html): редирект на раздел контактов в [about.html](about.html).
+
+## Контакты
+
+[Контакты и обратная связь](about.html#kompaniya-kontakty): Раздел на странице компании; отдельный `contact.html` перенаправляет сюда.
