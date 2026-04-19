@@ -1,24 +1,18 @@
+# === БЛОК ДЛЯ ВСЕХ AI-БОТОВ ===
 User-agent: GPTBot
-Allow: /
-Crawl-delay: 5
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /cgi-bin/
-Disallow: /temp/
-Disallow: /private/
-
 User-agent: Google-Extended
-Allow: /
-Crawl-delay: 5
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /cgi-bin/
-Disallow: /temp/
-Disallow: /private/
-
 User-agent: ClaudeBot
 User-agent: PerplexityBot
 User-agent: CCBot
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /temp/
+Disallow: /private/
+Crawl-delay: 3
+
 User-agent: *
 Disallow: /admin/
 Disallow: /wp-admin/
@@ -40,13 +34,5 @@ Crawl-delay: 5
 
 User-agent: PetalBot
 Crawl-delay: 5
-
-User-agent: Applebot
-Allow: /
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /cgi-bin/
-Disallow: /temp/
-Disallow: /private/
 
 Sitemap: https://example.com/sitemap.xml
