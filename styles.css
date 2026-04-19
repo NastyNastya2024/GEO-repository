@@ -2595,7 +2595,8 @@ main {
   position: relative;
   --ring-x: 50;
   --ring-y: 50;
-  --ring-radius: 130;
+  /* Кольцо точек: в два раза уже по горизонтали (маска + paint) */
+  --ring-radius: 65;
   --ring-thickness: 420;
   --particle-count: 72;
   --particle-rows: 18;
@@ -2688,8 +2689,8 @@ main {
     rgba(255, 255, 255, 0.28) 80%,
     rgba(255, 255, 255, 0) 91%
   );
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  -webkit-mask-size: 50% 100%;
+  mask-size: 50% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -2739,8 +2740,8 @@ main {
     rgba(255, 255, 255, 0.28) 80%,
     rgba(255, 255, 255, 0) 91%
   );
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  -webkit-mask-size: 50% 100%;
+  mask-size: 50% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -2805,6 +2806,8 @@ main {
       rgba(255, 255, 255, 0.18) 61%,
       rgba(255, 255, 255, 0) 71%
     );
+    -webkit-mask-size: 50% 100%;
+    mask-size: 50% 100%;
   }
 
   .visibility-section::after {
@@ -4856,6 +4859,10 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   z-index: 1;
 }
 
+.article-card > .article-card__tags {
+  z-index: 6;
+}
+
 .article-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.26);
@@ -4905,6 +4912,39 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.72rem;
+}
+
+/* Блог: хештеги в белой плашке, чёрный текст */
+.article-card__tags {
+  position: absolute;
+  top: clamp(12px, 2vw, 18px);
+  left: clamp(12px, 2vw, 18px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.55rem;
+  align-items: center;
+  max-width: min(92%, 22rem);
+  pointer-events: none;
+  padding: 0.38rem 0.55rem;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.article-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  box-shadow: none;
 }
 
 .article-card__title {
@@ -5011,6 +5051,26 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
 .blog-hub__intro.section {
   min-height: 0;
   padding-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Блог: единый каталог без полос между блоками */
+.blog-hub__catalog.section {
+  min-height: 0;
+  padding: clamp(2rem, 4vw, 3.25rem) 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.blog-hub__articles.articles-grid {
+  margin-top: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.article-card.article-card--no-link {
+  cursor: default;
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-card.article-card--no-link:hover {
+  transform: none;
 }
 
 /* Contact */

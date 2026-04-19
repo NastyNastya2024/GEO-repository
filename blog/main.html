@@ -69,9 +69,9 @@
         <details class="nav-dd" open>
           <summary>Стратегия</summary>
           <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../strategy/overview.html">Общий обзор</a>
-            <a role="menuitem" href="../strategy/unified-system.html">Единая система</a>
-            <a role="menuitem" href="../strategy/ai-contextual.html">AI и контекст</a>
+            <a role="menuitem" href="../strategy/overview.html#obshij-obzor">Обзор и система (одна статья)</a>
+            <a role="menuitem" href="../strategy/implementation-changes.html">Реализация изменений</a>
+            <a role="menuitem" href="../strategy/optimization-tracking.html">Оптимизация и трекинг</a>
           </div>
         </details>
 
@@ -95,86 +95,473 @@
       </nav>
     </aside>
 
-    <main>
-      <section class="section">
+    <main class="blog-hub">
+      <section class="section blog-hub__catalog" aria-labelledby="blog-title">
         <div class="container">
           <div class="section-header">
-            <h1>Блог</h1>
+            <h1 id="blog-title">Блог</h1>
             <p class="section-subtitle">
-              Короткие материалы в формате “вопрос‑ответ”, которые удобно читать и цитировать.
+              Короткие материалы в формате «вопрос — ответ», которые удобно читать и цитировать. Рубрики отмечены хештегами на карточках — один общий каталог без разбивки на секции.
             </p>
           </div>
-
-          <article class="content-article">
-            <h2>Какой контент нейросети цитируют чаще всего?</h2>
-            <p>
-              Структурированный: вопрос в H2 → короткий ответ → список шагов/таблица → ограничения → FAQ.
-              Такой формат легче извлекать и озвучивать.
-            </p>
-
-            <h2 id="metody">Методы</h2>
-            <ul>
-              <li><a href="../methods/geo.html">GEO оптимизация</a></li>
-              <li><a href="../methods/aeo.html">AEO оптимизация</a></li>
-              <li><a href="../methods/seo.html">SEO оптимизация</a></li>
-              <li><a href="../methods/aio.html">AIO оптимизация</a></li>
-              <li><a href="../methods/ai-smm.html">AI &amp; SMM стратегии</a></li>
-              <li><a href="../methods/faq-methods.html">FAQ по методам</a></li>
-              <li><a href="../methods/methods-guide.html">Методы продвижения — обзор</a></li>
-            </ul>
-
-            <h2 id="slovar">Словарь</h2>
-            <ul>
-              <li><a href="sku.html">Что такое SKU</a></li>
-            </ul>
-
-            <h2 id="o-kompanii">О компании</h2>
-            <ul>
-              <li><a href="../about.html">Компания</a></li>
-              <li><a href="about-aeo.html">Кто мы: AEO‑компания (статья в блоге)</a></li>
-            </ul>
-
-            <h2 id="neiroplatformy">Нейроплатформы</h2>
-            <ul>
-              <li><a href="../neural-platforms/chatgpt.html">ChatGPT</a></li>
-              <li><a href="../neural-platforms/perplexity.html">Perplexity</a></li>
-              <li><a href="../neural-platforms/deepseek.html">DeepSeek</a></li>
-              <li><a href="../neural-platforms/claude.html">Claude</a></li>
-              <li><a href="../neural-platforms/google-gemini.html">Google Gemini</a></li>
-              <li><a href="../neural-platforms/yandex-alice.html">Яндекс Алиса</a></li>
-              <li><a href="../neural-platforms/platform-comparison.html">Что такое нейроплатформы</a></li>
-            </ul>
-
-            <h2 id="instrumenty">Инструменты</h2>
-            <ul>
-              <li><a href="../tools/analytics.html">Аналитика и аудит</a></li>
-              <li><a href="../tools/content-factory.html">Контент‑завод</a> (в т.ч. <a href="../tools/content-factory.html#ai-tools">AI‑инструменты</a> и <a href="../tools/content-factory.html#checklists">чеклисты</a>)</li>
-            </ul>
-
-            <h2 id="strategiya">Стратегия</h2>
-            <ul>
-              <li><a href="../strategy/overview.html">Общий обзор</a></li>
-              <li><a href="../strategy/unified-system.html">Единая система</a></li>
-              <li><a href="../strategy/ai-contextual.html">AI и контекст</a></li>
-            </ul>
-
-            <h2 id="keisy">Кейсы</h2>
-            <ul>
-              <li><a href="../case-studies/corporations.html">Кейсы больших корпораций</a></li>
-              <li><a href="../case-studies/ecommerce.html">Кейсы e‑commerce</a></li>
-              <li><a href="../case-studies/saas.html">Кейсы SaaS и digital</a></li>
-              <li><a href="../case-studies/local-business.html">Кейсы локального бизнеса</a></li>
-              <li><a href="../case-studies/ai-discovery.html">AI‑discovery лидеры</a></li>
-            </ul>
-
-            <div class="content-related">
-              <h3>Быстрые ссылки</h3>
-              <ul>
-                <li><a href="../about.html#kompaniya-voprosy">Вопросы о сотрудничестве</a></li>
-                <li><a href="../index.html">Главная</a></li>
-              </ul>
+          <div class="articles-grid blog-hub__articles" role="list">
+            <div class="article-card article-card--no-link" role="listitem">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#блог</span>
+              <span class="article-card__tag">#формат</span>
             </div>
-          </article>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-06.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Какой контент нейросети цитируют чаще всего?</div>
+              <p class="article-card__text">Структурированный: вопрос в H2 → короткий ответ → шаги или таблица → ограничения → FAQ. Такой формат легче извлекать и озвучивать.</p>
+            </div>
+            <a class="article-card" role="listitem" href="../index.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#блог</span>
+              <span class="article-card__tag">#главная</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-11.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">На главную</div>
+              <p class="article-card__text">Обзор сервиса, отрасли и быстрый вход в разделы сайта.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../about.html#kompaniya-voprosy">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#блог</span>
+              <span class="article-card__tag">#компания</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-04.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Вопросы о сотрудничестве</div>
+              <p class="article-card__text">Блок на странице компании: как с нами связаться и что уточнить перед стартом.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../methods/geo.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#методы</span>
+              <span class="article-card__tag">#geo</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-09.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">GEO оптимизация</div>
+              <p class="article-card__text">Как попадать в ответы нейросетей и AI‑поиска: цитируемость, структура и доверие.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../methods/aeo.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#методы</span>
+              <span class="article-card__tag">#aeo</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-02.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">AEO оптимизация</div>
+              <p class="article-card__text">Прямые ответы, извлекаемость и страницы под «вопрос — короткий ответ».</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../methods/seo.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#методы</span>
+              <span class="article-card__tag">#seo</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-07.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">SEO оптимизация</div>
+              <p class="article-card__text">Органический трафик, техническая база и связка с AI‑видимостью.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../methods/aio.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#методы</span>
+              <span class="article-card__tag">#aio</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-12.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">AIO оптимизация</div>
+              <p class="article-card__text">Упаковка знаний на вашем домене для систем, которые подтягивают URL в ответ.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../methods/ai-smm.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#методы</span>
+              <span class="article-card__tag">#smm</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-05.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">AI &amp; SMM стратегии</div>
+              <p class="article-card__text">Как соцсети и генеративный контент поддерживают доверие и узнаваемость бренда.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../methods/faq-methods.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#методы</span>
+              <span class="article-card__tag">#faq</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-10.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">FAQ по методам</div>
+              <p class="article-card__text">Ответы на частые вопросы по GEO, AEO, SEO и смежным темам.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../methods/methods-guide.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#методы</span>
+              <span class="article-card__tag">#обзор</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-03.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Методы продвижения — обзор</div>
+              <p class="article-card__text">Как сочетать методы в одной системе и чем они дополняют друг друга.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="sku.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#словарь</span>
+              <span class="article-card__tag">#sku</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-08.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Что такое SKU</div>
+              <p class="article-card__text">Определение, зачем SKU в каталоге и как формулировать для поиска и нейросетей.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../about.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#компания</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-01.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">О компании</div>
+              <p class="article-card__text">Кто мы, как работаем и какие задачи закрываем в продвижении в нейросетях.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="about-aeo.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#блог</span>
+              <span class="article-card__tag">#о-нас</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-06.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Кто мы: AEO‑компания</div>
+              <p class="article-card__text">Статья в блоге: позиционирование и подход к answer‑first продвижению.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../neural-platforms/platform-comparison.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#нейроплатформы</span>
+              <span class="article-card__tag">#обзор</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-11.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Что такое нейроплатформы</div>
+              <p class="article-card__text">Определение, RAG, рынок LLM и сравнение ключевых продуктов для GEO/AEO.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../neural-platforms/chatgpt.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#нейроплатформы</span>
+              <span class="article-card__tag">#chatgpt</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-04.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">ChatGPT</div>
+              <p class="article-card__text">Как попадать в ответы: страницы‑ответы, сущности и retrieval.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../neural-platforms/perplexity.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#нейроплатформы</span>
+              <span class="article-card__tag">#perplexity</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-09.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Perplexity</div>
+              <p class="article-card__text">Поиск с цитатами: факты, ссылки и доказательный контент на сайте.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../neural-platforms/deepseek.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#нейроплатформы</span>
+              <span class="article-card__tag">#deepseek</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-02.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">DeepSeek</div>
+              <p class="article-card__text">Цена API, технические аудитории и формат «вопрос — структурированный ответ».</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../neural-platforms/claude.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#нейроплатформы</span>
+              <span class="article-card__tag">#claude</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-07.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Claude</div>
+              <p class="article-card__text">Длинный контекст, B2B‑сценарии и аккуратные формулировки для цитирования.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../neural-platforms/google-gemini.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#нейроплатформы</span>
+              <span class="article-card__tag">#gemini</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-12.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Google Gemini</div>
+              <p class="article-card__text">Экосистема, поиск и Android: связка SEO и AEO для AI‑ответов.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../neural-platforms/yandex-alice.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#нейроплатформы</span>
+              <span class="article-card__tag">#алиса</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-05.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Яндекс Алиса</div>
+              <p class="article-card__text">Голос и локальность: как готовить сайт под сценарии «рядом» и карты.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../tools/analytics.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#инструменты</span>
+              <span class="article-card__tag">#аналитика</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-10.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Аналитика и аудит</div>
+              <p class="article-card__text">Метрики GEO/AEO, аудит видимости в AI и проверка кода под извлекаемость.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../tools/analytics.html#audit-code-aeo-geo">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#инструменты</span>
+              <span class="article-card__tag">#аудит</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-03.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Аудит кода AEO + GEO</div>
+              <p class="article-card__text">Что проверить в структуре, schema и данных для цитируемости.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../tools/content-factory.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#инструменты</span>
+              <span class="article-card__tag">#контент</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-08.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Контент‑завод (2026)</div>
+              <p class="article-card__text">Производство материалов для GEO/AEO, AI‑инструменты и чеклисты на одной странице.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../tools/content-factory.html#ai-tools">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#инструменты</span>
+              <span class="article-card__tag">#ai</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-01.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">AI‑инструменты для контента</div>
+              <p class="article-card__text">Подборка сервисов и сценарии использования в контент‑контуре.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../tools/content-factory.html#checklists">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#инструменты</span>
+              <span class="article-card__tag">#чеклист</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-06.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Чеклисты контент‑завода</div>
+              <p class="article-card__text">Готовые списки шагов для запуска и контроля качества материалов.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../strategy/overview.html#obshij-obzor">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#стратегия</span>
+              <span class="article-card__tag">#обзор</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-11.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Обзор, система, контекст, аналитика и площадки</div>
+              <p class="article-card__text">Одна статья: общий обзор, единая система каналов, как нейросети используют контент, метрики AI‑видимости и выбор площадок.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../strategy/implementation-changes.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#стратегия</span>
+              <span class="article-card__tag">#внедрение</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-04.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Реализация изменений</div>
+              <p class="article-card__text">Как внедрять правки на сайте и в каналах без хаоса в приоритетах.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../strategy/optimization-tracking.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#стратегия</span>
+              <span class="article-card__tag">#трекинг</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-09.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Оптимизация и трекинг</div>
+              <p class="article-card__text">Циклы измерений, корректировок и контроля эффекта по AI‑видимости.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../case-studies/corporations.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#кейсы</span>
+              <span class="article-card__tag">#корпорации</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-02.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Кейсы больших корпораций</div>
+              <p class="article-card__text">Сложные ветвления бренда, согласования и масштаб контента в AI‑эпоху.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../case-studies/ecommerce.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#кейсы</span>
+              <span class="article-card__tag">#ecommerce</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-07.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Кейсы e‑commerce</div>
+              <p class="article-card__text">Каталоги, фильтры, карточки товара и ответы нейросетей про выбор.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../case-studies/saas.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#кейсы</span>
+              <span class="article-card__tag">#saas</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-12.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Кейсы SaaS и digital</div>
+              <p class="article-card__text">Сравнения, тарифы, онбординг и доказательства для B2B‑запросов в чатах.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../case-studies/local-business.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#кейсы</span>
+              <span class="article-card__tag">#локально</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-05.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">Кейсы локального бизнеса</div>
+              <p class="article-card__text">Карты, «рядом со мной», голос и согласованность NAP на сайте.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+            <a class="article-card" role="listitem" href="../case-studies/ai-discovery.html">
+            <div class="article-card__tags" aria-label="Теги">
+              <span class="article-card__tag">#кейсы</span>
+              <span class="article-card__tag">#discovery</span>
+            </div>
+              <div class="article-card__media" aria-hidden="true"><img src="../Img/blog/cover-10.png" alt="" loading="lazy" /></div>
+              <div class="article-card__title">AI‑discovery лидеры</div>
+              <p class="article-card__text">Как лидеры рынка удерживают видимость в нейропоиске и обзорах.</p>
+              <div class="article-card__bottom">
+                <span class="article-card__cta article-card__cta--icon" aria-hidden="true">
+                  <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
     </main>
