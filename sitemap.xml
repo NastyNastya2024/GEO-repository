@@ -1,327 +1,327 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://example.com/index.html</loc>
+    <loc>https://example.com/</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://example.com/about.html</loc>
+    <loc>https://example.com/methods/aeo</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://example.com/blog/main.html</loc>
+    <loc>https://example.com/methods/geo</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://example.com/methods/methods-guide</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://example.com/strategy/audit-ai-visibility</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://example.com/strategy/geo-aeo-rollout</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://example.com/tools/analytics</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://example.com/tools/content-factory</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://example.com/tools/full-promotion</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://example.com/blog/main</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/all-industries-geo-aeo.html</loc>
+    <loc>https://example.com/case-studies/all-industries-geo-aeo</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/faq-promotion.html</loc>
+    <loc>https://example.com/faq-promotion</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/methods/methods-guide.html</loc>
+    <loc>https://example.com/neural-platforms/platform-comparison</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/neural-platforms/platform-comparison.html</loc>
+    <loc>https://example.com/strategy/overview</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/overview.html</loc>
+    <loc>https://example.com/strategy/strategic-intent</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/analytics.html</loc>
+    <loc>https://example.com/methods/ai-smm</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/methods/aeo.html</loc>
+    <loc>https://example.com/methods/aio</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/methods/aio.html</loc>
+    <loc>https://example.com/methods/faq-methods</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/methods/ai-smm.html</loc>
+    <loc>https://example.com/methods/seo</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/methods/faq-methods.html</loc>
+    <loc>https://example.com/strategy/geo-aeo-metrics-bi</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/methods/geo.html</loc>
+    <loc>https://example.com/strategy/implementation-changes</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/methods/seo.html</loc>
+    <loc>https://example.com/strategy/optimization-tracking</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/audit-ai-visibility.html</loc>
+    <loc>https://example.com/tools/geo-aeo-bi-dashboard</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/geo-aeo-metrics-bi.html</loc>
+    <loc>https://example.com/tools/it-audit</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/geo-aeo-rollout.html</loc>
+    <loc>https://example.com/tools/promotion-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/implementation-changes.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://example.com/strategy/optimization-tracking.html</loc>
+    <loc>https://example.com/tools/ai-tools</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/strategic-intent.html</loc>
+    <loc>https://example.com/tools/brand-visibility-audit</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/ai-tools.html</loc>
+    <loc>https://example.com/tools/checklists</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/brand-visibility-audit.html</loc>
+    <loc>https://example.com/tools/code-aeo-geo-audit</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/checklists.html</loc>
+    <loc>https://example.com/tools/support-service</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/code-aeo-geo-audit.html</loc>
+    <loc>https://example.com/case-studies/ai-discovery</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/content-factory.html</loc>
+    <loc>https://example.com/case-studies/beauty-neuro-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/full-promotion.html</loc>
+    <loc>https://example.com/case-studies/clinics-neuro-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/geo-aeo-bi-dashboard.html</loc>
+    <loc>https://example.com/case-studies/corporations</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/it-audit.html</loc>
+    <loc>https://example.com/case-studies/delivery-neuro-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/promotion-strategy.html</loc>
+    <loc>https://example.com/case-studies/ecommerce</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/support-service.html</loc>
+    <loc>https://example.com/case-studies/local-business</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/blog/about-aeo.html</loc>
+    <loc>https://example.com/case-studies/marketplaces-neuro-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/blog/sku.html</loc>
+    <loc>https://example.com/case-studies/saas</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/ai-discovery.html</loc>
+    <loc>https://example.com/case-studies/service-centers-neuro-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/beauty-neuro-strategy.html</loc>
+    <loc>https://example.com/case-studies/showrooms-neuro-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/clinics-neuro-strategy.html</loc>
+    <loc>https://example.com/neural-platforms/chatgpt</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/corporations.html</loc>
+    <loc>https://example.com/neural-platforms/claude</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/delivery-neuro-strategy.html</loc>
+    <loc>https://example.com/neural-platforms/deepseek</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/ecommerce.html</loc>
+    <loc>https://example.com/neural-platforms/google-gemini</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/local-business.html</loc>
+    <loc>https://example.com/neural-platforms/perplexity</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/marketplaces-neuro-strategy.html</loc>
+    <loc>https://example.com/neural-platforms/yandex-alice</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/saas.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://example.com/case-studies/service-centers-neuro-strategy.html</loc>
+    <loc>https://example.com/blog/about-aeo</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://example.com/case-studies/showrooms-neuro-strategy.html</loc>
+    <loc>https://example.com/blog/sku</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://example.com/neural-platforms/chatgpt.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://example.com/neural-platforms/claude.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://example.com/neural-platforms/deepseek.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://example.com/neural-platforms/google-gemini.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://example.com/neural-platforms/perplexity.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://example.com/neural-platforms/yandex-alice.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://example.com/strategy/ai-contextual.html</loc>
+    <loc>https://example.com/strategy/ai-contextual</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/ai-visibility-analytics.html</loc>
+    <loc>https://example.com/strategy/ai-visibility-analytics</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/brand-strategy.html</loc>
+    <loc>https://example.com/strategy/brand-strategy</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
-    <loc>https://example.com/strategy/unified-system.html</loc>
+    <loc>https://example.com/strategy/unified-system</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://example.com/about</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
