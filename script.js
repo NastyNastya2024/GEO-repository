@@ -202,7 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-col">
         <div class="footer-col__title">Стратегия</div>
-        <a href="${prefix}strategy/overview.html#obshij-obzor">Стратегия: обзор, система, AI, аналитика, площадки</a>
+        <a href="${prefix}strategy/overview.html">Стратегия — обзор раздела</a>
+        <a href="${prefix}strategy/audit-ai-visibility.html">Аудит AI‑видимости и метрики</a>
         <a href="${prefix}strategy/implementation-changes.html">Реализация изменений</a>
         <a href="${prefix}strategy/optimization-tracking.html">Оптимизация и трекинг</a>
       </div>

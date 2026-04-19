@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аудит AI‑видимости бренда и система метрик — стратегия</title>
+    <meta
+      name="description"
+      content="Аудит AI‑видимости: присутствие в ответах нейросетей, источники, контент, техника, восприятие, конкуренты, CJM и система KPI/RPI. Как управлять присутствием бренда в ChatGPT, Gemini, Perplexity и др."
+    />
+    <meta name="keywords" content="аудит AI видимости, метрики нейросетей, APR, AI-SOV, GEO, AEO, retrieval, бренд в ответах ChatGPT" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="canonical" href="/strategy/audit-ai-visibility.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Аудит AI-видимости бренда и система метрик: как управлять присутствием в ответах нейросетей",
+        "inLanguage": "ru-RU",
+        "isPartOf": { "@type": "WebSite", "name": "GEO" },
+        "about": ["AI visibility", "brand audit", "GEO", "metrics"]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="../index.html" class="logo">
+          <img src="../Img/logo-aeo.png" alt="GEO logo" class="logo-image" />
+        </a>
+        <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <div class="drawer-backdrop" data-drawer-close hidden></div>
+    <aside class="mobile-drawer" id="site-drawer" aria-label="Меню" aria-hidden="true">
+      <div class="mobile-drawer__header">
+        <span class="mobile-drawer__title">Меню</span>
+        <button class="mobile-drawer__close" type="button" data-drawer-close aria-label="Закрыть меню">×</button>
+      </div>
+      <nav class="drawer-nav" aria-label="Навигация сайта">
+        <details class="nav-dd" open>
+          <summary>Методы</summary>
+          <div class="nav-dd-panel" role="menu">
+            <a role="menuitem" href="../methods/methods-guide.html">Методы продвижения — обзор</a>
+            <a role="menuitem" href="../methods/geo.html">GEO оптимизация</a>
+            <a role="menuitem" href="../methods/aeo.html">AEO оптимизация</a>
+            <a role="menuitem" href="../methods/seo.html">SEO оптимизация</a>
+            <a role="menuitem" href="../methods/aio.html">AIO оптимизация</a>
+            <a role="menuitem" href="../methods/ai-smm.html">AI &amp; SMM стратегии</a>
+            <a role="menuitem" href="../methods/faq-methods.html">FAQ по методам</a>
+          </div>
+        </details>
+        <details class="nav-dd" open>
+          <summary>Нейроплатформы</summary>
+          <div class="nav-dd-panel" role="menu">
+            <a role="menuitem" href="../neural-platforms/platform-comparison.html">Что такое нейроплатформы</a>
+            <a role="menuitem" href="../neural-platforms/chatgpt.html">ChatGPT</a>
+            <a role="menuitem" href="../neural-platforms/perplexity.html">Perplexity</a>
+            <a role="menuitem" href="../neural-platforms/deepseek.html">DeepSeek</a>
+            <a role="menuitem" href="../neural-platforms/yandex-alice.html">Яндекс Алиса</a>
+          </div>
+        </details>
+        <details class="nav-dd" open>
+          <summary>Инструменты</summary>
+          <div class="nav-dd-panel" role="menu">
+            <a role="menuitem" href="../tools/analytics.html">Аналитика и аудит</a>
+            <a role="menuitem" href="../tools/content-factory.html">Контент‑завод</a>
+          </div>
+        </details>
+        <details class="nav-dd" open>
+          <summary>Стратегия</summary>
+          <div class="nav-dd-panel" role="menu">
+            <a role="menuitem" href="overview.html">Обзор раздела «Стратегия»</a>
+            <a role="menuitem" href="audit-ai-visibility.html">Аудит AI‑видимости и метрики</a>
+            <a role="menuitem" href="implementation-changes.html">Реализация изменений</a>
+            <a role="menuitem" href="optimization-tracking.html">Оптимизация и трекинг</a>
+          </div>
+        </details>
+        <details class="nav-dd" open>
+          <summary>Отрасли</summary>
+          <div class="nav-dd-panel" role="menu">
+            <a role="menuitem" href="../case-studies/all-industries-geo-aeo.html">Все отрасли и нейропоиск</a>
+            <a role="menuitem" href="../case-studies/marketplaces-neuro-strategy.html">Маркетплейсы</a>
+            <a role="menuitem" href="../case-studies/clinics-neuro-strategy.html">Клиники</a>
+            <a role="menuitem" href="../case-studies/service-centers-neuro-strategy.html">Сервисные центры</a>
+            <a role="menuitem" href="../case-studies/showrooms-neuro-strategy.html">Шоурумы</a>
+            <a role="menuitem" href="../case-studies/beauty-neuro-strategy.html">Салоны красоты</a>
+            <a role="menuitem" href="../case-studies/delivery-neuro-strategy.html">Доставка</a>
+            <a role="menuitem" href="../case-studies/corporations.html">Кейсы больших корпораций</a>
+            <a role="menuitem" href="../case-studies/ecommerce.html">Кейсы e‑commerce</a>
+            <a role="menuitem" href="../case-studies/saas.html">Кейсы SaaS и digital</a>
+            <a role="menuitem" href="../case-studies/local-business.html">Кейсы локального бизнеса</a>
+            <a role="menuitem" href="../case-studies/ai-discovery.html">AI‑discovery лидеры</a>
+          </div>
+        </details>
+        <a class="drawer-link" href="../blog/main.html">БЛОГ</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <header class="section-header">
+            <h1>Аудит AI-видимости бренда и система метрик: как управлять присутствием в ответах нейросетей</h1>
+            <p class="section-subtitle">Стратегия: от фиксации упоминаний до KPI и RPI — единая логика аудита и управления AI‑присутствием.</p>
+          </header>
+
+          <nav class="content-toc" aria-label="Содержание статьи">
+            <a href="#audit-sloj-1">1. Поверхностный слой</a>
+            <a href="#audit-sloj-2">2. Источники</a>
+            <a href="#audit-sloj-3">3. Контент</a>
+            <a href="#audit-sloj-4">4. Техническая готовность</a>
+            <a href="#audit-sloj-5">5. Эмоциональный анализ</a>
+            <a href="#audit-sloj-6">6. Конкурентный анализ</a>
+            <a href="#audit-sloj-7">7. CJM в AI-среде</a>
+            <a href="#audit-sloj-8">8. Система метрик</a>
+            <a href="#audit-sloj-9">9. RPI</a>
+            <a href="#audit-itog">Итог</a>
+            <a href="#audit-strategiya-ploschadki">Стратегия и площадки</a>
+          </nav>
+
+          <article class="content-article" itemscope itemtype="https://schema.org/Article">
+            <meta itemprop="headline" content="Аудит AI-видимости бренда и система метрик: как управлять присутствием в ответах нейросетей" />
+
+            <p>Поисковая парадигма изменилась: пользователь всё чаще получает готовый ответ внутри интерфейсов вроде ChatGPT, Google Gemini или Perplexity AI, не переходя на сайты. Это означает, что конкуренция смещается из выдачи в слой интерпретации: выигрывает тот бренд, который встроен в ответ.</p>
+
+            <p>Аудит AI-видимости — это системный анализ того, как бренд представлен в этих ответах, за счёт каких источников он туда попадает, какой образ формируется и — ключевое — какие метрики этим процессом управляют.</p>
+
+            <h2 id="audit-sloj-1">1. Поверхностный слой: присутствие бренда в AI-ответах</h2>
+            <p>Первый уровень — фиксация факта присутствия.</p>
+            <p>Анализируются:</p>
+            <ul>
+              <li>появляется ли бренд по ключевым интентам,</li>
+              <li>в каком контексте он упоминается,</li>
+              <li>какие формулировки используются,</li>
+              <li>рядом с какими конкурентами он фигурирует.</li>
+            </ul>
+            <p>Важно: нейросеть не просто «называет бренды», а выстраивает иерархию — лидер, альтернатива, нишевое решение. Это и есть новая поисковая выдача, только в сжатом виде.</p>
+
+            <h2 id="audit-sloj-2">2. Источники: как формируется ответ</h2>
+            <p>Ответ нейросети — это производная от цифрового следа бренда.</p>
+            <p>Основные источники:</p>
+            <ul>
+              <li>сайт и его страницы,</li>
+              <li>публикации в медиа,</li>
+              <li>базы знаний и агрегаторы,</li>
+              <li>карточки компаний,</li>
+              <li>социальные платформы,</li>
+              <li>структурированные данные.</li>
+            </ul>
+            <p>Документация Google подчёркивает роль структурированных данных как сигнала для интерпретации сущностей:
+            <a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data" rel="noopener noreferrer">developers.google.com/search/docs/appearance/structured-data/intro-structured-data</a></p>
+            <p>Дополнительно, исследования retrieval-подходов (RAG) показывают, что модели усиливают ответы за счёт внешних источников:
+            Статья Meta AI:
+            <a href="https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/" rel="noopener noreferrer">ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/</a></p>
+            <p>Если бренд слабо представлен в этих источниках, он не попадает в ответы — независимо от качества продукта.</p>
+
+            <h2 id="audit-sloj-3">3. Контент: пригодность для AI-интерпретации</h2>
+            <p>Контент должен быть не просто «написан», а структурирован как ответ.</p>
+            <p>Критерии:</p>
+            <ul>
+              <li>прямые ответы на вопросы,</li>
+              <li>логичная структура (H1–H3, списки),</li>
+              <li>наличие сравнений и альтернатив,</li>
+              <li>чёткие определения,</li>
+              <li>отсутствие «воды».</li>
+            </ul>
+            <p>Рекомендации Google Search Central по helpful content:
+            <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener noreferrer">developers.google.com/search/docs/fundamentals/creating-helpful-content</a></p>
+            <p>Дополнительно, гайд OpenAI по prompt/response структурам показывает, что модели лучше извлекают явно структурированные блоки:
+            <a href="https://platform.openai.com/docs/guides/gpt-best-practices" rel="noopener noreferrer">platform.openai.com/docs/guides/gpt-best-practices</a></p>
+            <p>Контент становится API для нейросети.</p>
+
+            <h2 id="audit-sloj-4">4. Техническая готовность: индексируемость и доступность</h2>
+            <p>Даже идеальный контент бесполезен, если он недоступен для извлечения.</p>
+            <p>Ключевые факторы:</p>
+            <ul>
+              <li>чистый HTML и семантика,</li>
+              <li>schema.org,</li>
+              <li>скорость загрузки,</li>
+              <li>минимизация client-side rendering,</li>
+              <li>открытость контента.</li>
+            </ul>
+            <p>Руководство по JavaScript SEO от Google:
+            <a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics" rel="noopener noreferrer">developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics</a></p>
+
+            <h2 id="audit-sloj-5">5. Эмоциональный анализ: какой образ формируется</h2>
+            <p>AI агрегирует не только факты, но и оценки.</p>
+            <p>Анализируются:</p>
+            <ul>
+              <li>тональность (sentiment),</li>
+              <li>ассоциации,</li>
+              <li>уровень доверия,</li>
+              <li>консистентность образа.</li>
+            </ul>
+            <p>Методологическая база — sentiment analysis от IBM:
+            <a href="https://www.ibm.com/topics/sentiment-analysis" rel="noopener noreferrer">www.ibm.com/topics/sentiment-analysis</a></p>
+            <p>Задача — выявить разрыв между желаемым и фактическим позиционированием.</p>
+
+            <h2 id="audit-sloj-6">6. Конкурентный анализ: реальная среда конкуренции</h2>
+            <p>Нейросети формируют «динамический рынок» — список альтернатив в ответе.</p>
+            <p>Важно понять:</p>
+            <ul>
+              <li>кто упоминается вместе с брендом,</li>
+              <li>кто чаще оказывается «рекомендованным»,</li>
+              <li>какие формулировки закреплены за конкурентами.</li>
+            </ul>
+            <p>Это ближе к perception share, чем к классическому market share.</p>
+
+            <h2 id="audit-sloj-7">7. CJM в AI-среде: путь пользователя без клика</h2>
+            <p>Классический CJM трансформируется:</p>
+            <p>Запрос в AI<br />Получение ответа<br />Уточнение<br />Выбор (часто без перехода на сайт)</p>
+            <p>Методология CJM от Nielsen Norman Group:
+            <a href="https://www.nngroup.com/articles/customer-journey-mapping/" rel="noopener noreferrer">www.nngroup.com/articles/customer-journey-mapping/</a></p>
+            <p>Добавляется новая точка контакта — интерфейс нейросети как основной медиатор решения.</p>
+
+            <h2 id="audit-sloj-8">8. Система метрик: как измерять AI-видимость</h2>
+            <p>Без метрик этот процесс неуправляем. Ниже — система KPI, адаптированная под AI-среду.</p>
+
+            <h3>Core AI Visibility Metrics</h3>
+            <ol>
+              <li><strong>AI Presence Rate (APR)</strong><br />Доля запросов, где бренд появляется в ответах<br />→ % упоминаний / общее число тестовых интентов</li>
+              <li><strong>AI Position Share (APS)</strong><br />Насколько высоко бренд в структуре ответа<br />→ первый / второй / список</li>
+              <li><strong>Citation Rate (CR)</strong><br />Как часто бренд используется как источник или ссылка</li>
+              <li><strong>Entity Clarity Score (ECS)</strong><br />Насколько чётко AI понимает:<br />кто вы,<br />что делаете,<br />для кого</li>
+            </ol>
+
+            <h3>Perception Metrics (восприятие)</h3>
+            <ol start="5">
+              <li><strong>Sentiment Score (SS)</strong><br />Тональность упоминаний</li>
+              <li><strong>Association Map Density (AMD)</strong><br />Количество устойчивых ассоциаций вокруг бренда</li>
+              <li><strong>Trust Signal Index (TSI)</strong><br />Наличие признаков экспертности:<br />упоминания в медиа<br />ссылки на исследования<br />структурированные данные</li>
+            </ol>
+
+            <h3>Competitive Metrics</h3>
+            <ol start="8">
+              <li><strong>AI Share of Voice (AI-SOV)</strong><br />Доля упоминаний относительно конкурентов</li>
+              <li><strong>Replacement Rate (RR)</strong><br />Как часто AI предлагает конкурента вместо бренда</li>
+            </ol>
+
+            <h3>CJM Metrics</h3>
+            <ol start="10">
+              <li><strong>Drop-off Rate (AI-CJM)</strong><br />На каком этапе бренд исчезает из ответа</li>
+              <li><strong>Reinforcement Rate</strong><br />Усиливается ли бренд при уточняющих вопросах</li>
+            </ol>
+
+            <h2 id="audit-sloj-9">9. RPI: метрики влияния на бизнес</h2>
+            <p>В отличие от KPI (что происходит), RPI показывает, на что это влияет.</p>
+
+            <h3>Revenue &amp; Product Impact</h3>
+            <ol>
+              <li><strong>AI-assisted Conversion Rate</strong><br />Конверсии, где пользователь пришёл после AI</li>
+              <li><strong>Zero-click Influence Rate</strong><br />Доля решений, принятых без перехода на сайт</li>
+            </ol>
+            <p>(подход описан в исследованиях zero-click поиска от SparkToro:
+            <a href="https://sparktoro.com/blog/in-2024-nearly-60-of-google-searches-end-without-a-click/" rel="noopener noreferrer">sparktoro.com/blog/in-2024-nearly-60-of-google-searches-end-without-a-click/</a>)</p>
+
+            <h3>Brand Impact</h3>
+            <ol start="3">
+              <li><strong>AI Brand Recall Lift</strong><br />Рост узнаваемости после взаимодействия с AI</li>
+              <li><strong>Perceived Authority Score</strong><br />Насколько бренд воспринимается как эксперт</li>
+            </ol>
+
+            <h3>Growth Impact</h3>
+            <ol start="5">
+              <li><strong>Content Leverage Ratio</strong><br />Сколько AI-ответов генерируется на единицу контента</li>
+              <li><strong>Indexation Velocity</strong><br />Скорость попадания нового контента в ответы</li>
+            </ol>
+
+            <h2 id="audit-itog">Итог: управляемая модель AI-присутствия</h2>
+            <p>Аудит AI-видимости больше не ограничивается анализом контента или технических факторов. Это многослойная система, включающая:</p>
+            <ul>
+              <li>присутствие в ответах,</li>
+              <li>источники формирования,</li>
+              <li>структуру контента,</li>
+              <li>техническую доступность,</li>
+              <li>эмоциональное восприятие,</li>
+              <li>конкурентную среду,</li>
+              <li>CJM внутри AI,</li>
+              <li>и, главное — систему метрик и влияния на бизнес.</li>
+            </ul>
+            <p>Результат — это не отчёт, а операционная модель управления присутствием бренда в нейросетях, где каждая точка может быть измерена, оптимизирована и масштабирована.</p>
+
+            <h2 id="audit-strategiya-ploschadki">Стратегия и опорные площадки</h2>
+            <p class="content-note">Стратегия — это не «вести блог». Это выбор сценариев, каналов и доказательств так, чтобы AI уверенно рекомендовал вас в нужных запросах.</p>
+
+            <h3>Что мы понимаем под стратегией</h3>
+            <ul>
+              <li><strong>Сценарии</strong>: где вас должны рекомендовать (выбор, сравнение, «лучшее», «как сделать», «где купить»).</li>
+              <li><strong>Категории и конкуренты</strong>: с кем вас сравнивают и на каких критериях выигрывают.</li>
+              <li><strong>Доказательства</strong>: факты, кейсы, цифры, сертификаты, отзывы, экспертиза.</li>
+              <li><strong>Источники</strong>: какие площадки и типы страниц AI чаще использует в вашем рынке.</li>
+              <li><strong>Правила коммуникации</strong>: терминология, позиционирование, список «не говорить / говорить».</li>
+            </ul>
+
+            <h3 id="audit-ploschadki-matrix">Какие площадки подходят бренду — и какие нет</h3>
+            <p class="content-note">
+              «Подходит» = даёт проверяемые сигналы для AI: чёткие сущности, критерии выбора, подтверждения и устойчивые источники.
+            </p>
+            <div class="content-table" role="region" aria-label="Матрица выбора площадок для AI-видимости">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Площадка</th>
+                    <th>Когда подходит</th>
+                    <th>Когда не подходит</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Сайт бренда</td>
+                    <td>Есть продукт/услуга, нужна «база» (о компании, FAQ, цены, спецификации)</td>
+                    <td>Сайт — витрина без фактов, без структуры, без ответов</td>
+                  </tr>
+                  <tr>
+                    <td>Статьи/гайды</td>
+                    <td>Нужны «answer‑first» ответы, критерии выбора, сравнения, инструкции</td>
+                    <td>Пишем «воду» ради охвата, без конкретики и критериев</td>
+                  </tr>
+                  <tr>
+                    <td>Маркетплейсы</td>
+                    <td>Вы реально продаёте там и отзывы влияют на выбор</td>
+                    <td>Каталог пустой/без отзывов, товар не ваш</td>
+                  </tr>
+                  <tr>
+                    <td>Соцсети</td>
+                    <td>Нужно сформировать темы/позиционирование и социальное доказательство</td>
+                    <td>Нет ресурса на регулярность и качество, контент не про продукт</td>
+                  </tr>
+                  <tr>
+                    <td>Медиа/партнёрки</td>
+                    <td>Нужно внешнее подтверждение, «третья сторона»</td>
+                    <td>Сомнительные площадки, нативка без фактов, без прозрачности</td>
+                  </tr>
+                  <tr>
+                    <td>Отзывы/комьюнити</td>
+                    <td>Там реально обсуждают ваш продукт/категорию</td>
+                    <td>Пытаемся «накрутить» — риск репутации</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Короткий алгоритм выбора каналов</h3>
+            <ol>
+              <li><strong>Фиксируем 20–50 промптов</strong> по интентам (выбор/сравнение/как сделать/альтернативы).</li>
+              <li><strong>Снимаем «карту источников»</strong>: что AI цитирует и откуда берёт факты.</li>
+              <li><strong>Выбираем 3–5 опорных площадок</strong> (сайт + 1–2 внешние + соц/комьюнити при необходимости).</li>
+              <li><strong>Определяем «доказательства»</strong> и планируем, где они будут опубликованы.</li>
+              <li><strong>Ставим метрики и период контроля</strong> (например, 2–4 недели).</li>
+            </ol>
+
+            <div class="content-related">
+              <h3>Связанные страницы</h3>
+              <ul>
+                <li><a href="overview.html">Раздел «Стратегия» — обзор и ссылки</a></li>
+                <li><a href="../methods/methods-guide.html">Методы продвижения — обзор</a></li>
+                <li><a href="optimization-tracking.html">Оптимизация и трекинг</a></li>
+                <li><a href="implementation-changes.html">Реализация изменений</a></li>
+                <li><a href="../tools/analytics.html">Аналитика и аудит (инструменты)</a></li>
+                <li><a href="../tools/analytics.html#audit-brand-visibility">Аудит видимости бренда — раздел на странице инструментов</a></li>
+                <li><a href="../methods/geo.html">GEO оптимизация</a></li>
+                <li><a href="../methods/aeo.html">AEO оптимизация</a></li>
+                <li><a href="../neural-platforms/platform-comparison.html">Нейроплатформы — сравнение</a></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
