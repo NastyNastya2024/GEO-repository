@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Strategy for implementing a GEO/AEO website and content system</title>
+<meta content="The path to implementing a GEO/AEO website and content system: live intent headings, audit and knowledge map, page types, content plant, technique, connectivity and metrics. Link with an article about BI metrics and an interactive dashboard." name="description"/>
+<meta content="GEO implementation, AEO website, content system, knowledge graph, intent map, content factory, schema.org" name="keywords"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;family=Jura:wght@300..700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="/en/strategy/geo-aeo-rollout.html" rel="canonical"/>
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Стратегия внедрения GEO/AEO-сайта и контентной системы",
+        "inLanguage": "ru-RU",
+        "isPartOf": { "@type": "WebSite", "name": "GEO" },
+        "about": ["GEO", "AEO", "content system", "knowledge graph", "AI extraction"]
+      }
+    </script>
+</head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="../index.html">
+<img alt="GEO logo" class="logo-image" src="../Img/logo-aeo.png"/>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="burger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="drawer-backdrop" data-drawer-close="" hidden=""></div>
+<aside aria-hidden="true" aria-label="Menu" class="mobile-drawer" id="site-drawer">
+<div class="mobile-drawer__header">
+<span class="mobile-drawer__title">Menu</span>
+<button aria-label="Close menu" class="mobile-drawer__close" data-drawer-close="" type="button">×</button>
+</div>
+<nav aria-label="Site navigation" class="drawer-nav">
+<details class="nav-dd" open="">
+<summary>Methods</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../methods/methods-guide.html" role="menuitem">Promotion methods - overview</a>
+<a href="../methods/geo.html" role="menuitem">GEO optimization</a>
+<a href="../methods/aeo.html" role="menuitem">AEO optimization</a>
+<a href="../methods/seo.html" role="menuitem">SEO optimization</a>
+<a href="../methods/aio.html" role="menuitem">AIO optimization</a>
+<a href="../methods/ai-smm.html" role="menuitem">AI &amp; SMM strategies</a>
+<a href="../methods/faq-methods.html" role="menuitem">FAQ on methods</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Neuroplatforms</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../neural-platforms/platform-comparison.html" role="menuitem">What are neuroplatforms</a>
+<a href="../neural-platforms/chatgpt.html" role="menuitem">ChatGPT</a>
+<a href="../neural-platforms/perplexity.html" role="menuitem">Perplexity</a>
+<a href="../neural-platforms/deepseek.html" role="menuitem">DeepSeek</a>
+<a href="../neural-platforms/yandex-alice.html" role="menuitem">Yandex Alice</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Tools</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../tools/analytics.html" role="menuitem">Analytics and audit</a>
+<a href="../tools/geo-aeo-bi-dashboard.html" role="menuitem">GEO/AEO BI dashboard</a>
+<a href="../tools/content-factory.html" role="menuitem">Content factory</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Strategy</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="overview.html" role="menuitem">Strategy Section Overview</a>
+<a href="strategic-intent.html" role="menuitem">Strategic intent</a>
+<a href="geo-aeo-rollout.html" role="menuitem">GEO/AEO: website and content system</a>
+<a href="audit-ai-visibility.html" role="menuitem">AI visibility audit and metrics</a>
+<a href="geo-aeo-metrics-bi.html" role="menuitem">GEO/AEO and BI metrics</a>
+<a href="implementation-changes.html" role="menuitem">Implementation of changes</a>
+<a href="optimization-tracking.html" role="menuitem">Optimization and tracking</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Industries</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../case-studies/all-industries-geo-aeo.html" role="menuitem">All industries and neurosearch</a>
+<a href="../case-studies/marketplaces-neuro-strategy.html" role="menuitem">Marketplaces</a>
+<a href="../case-studies/clinics-neuro-strategy.html" role="menuitem">Clinics</a>
+<a href="../case-studies/service-centers-neuro-strategy.html" role="menuitem">Service centers</a>
+<a href="../case-studies/showrooms-neuro-strategy.html" role="menuitem">Showrooms</a>
+<a href="../case-studies/beauty-neuro-strategy.html" role="menuitem">Beauty salons</a>
+<a href="../case-studies/delivery-neuro-strategy.html" role="menuitem">Delivery</a>
+<a href="../case-studies/corporations.html" role="menuitem">Cases of large corporations</a>
+<a href="../case-studies/ecommerce.html" role="menuitem">e‑commerce cases</a>
+<a href="../case-studies/saas.html" role="menuitem">SaaS and digital cases</a>
+<a href="../case-studies/local-business.html" role="menuitem">Local business cases</a>
+<a href="../case-studies/ai-discovery.html" role="menuitem">AI‑discovery leaders</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>General</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../faq-promotion.html" role="menuitem">FAQ on promotions in AI and search</a>
+<a href="../about.html" role="menuitem">Company and contacts</a>
+</div>
+</details>
+<a class="drawer-link" href="../blog/main.html">BLOG</a>
+</nav>
+</aside>
+<main>
+<section class="section">
+<div class="container">
+<header class="section-header">
+<h1>Strategy for implementing a GEO/AEO website and content system</h1>
+<p class="section-subtitle">
+              Below is the same implementation plan, but in the language of living intentions: as if this is not the table of contents of the manual, but a chain of questions asked by the marketer, product and neural network. Next - a knowledge map, pages, a “factory” of blocks, equipment and metrics; a detailed system of metrics and a demo dashboard are in separate materials.
+            </p>
+</header>
+<nav aria-label="Contents of the article" class="content-toc">
+<a href="#geoaeo-q1">Not “just another SEO site”</a>
+<a href="#geoaeo-q2">What to remove before content</a>
+<a href="#geoaeo-q3">What does the response page look like?</a>
+<a href="#geoaeo-q4">Where do blocks come from?</a>
+<a href="#geoaeo-q5">What's wrong with the code?</a>
+<a href="#geoaeo-q6">How to write under GEO</a>
+<a href="#geoaeo-q7">How not to argue with yourself</a>
+<a href="#geoaeo-q8">What to watch after launch</a>
+<a href="#geoaeo-q9">Website or knowledge factory</a>
+</nav>
+<article class="content-article">
+<h2 id="geoaeo-q1">Are we still ordering a “site for SEO”? Why in 2026 the main bet is not positions, but put forward answers</h2>
+<p>To be honest: the positions in the search results have not disappeared, but increasingly the user <strong>does not reach the point of clicking on ten links</strong> — he receives a ready-made answer in the chat or in the AI ​​search wrapper. Therefore, we do not design “pages for the sake of the crawler,” but <strong>retrievable response system</strong> for neural networks and next generation search.</p>
+<p>Each element of the system must satisfy three simple tests:</p>
+<ul>
+<li>it can be pulled out as an independent fragment of the answer;</li>
+<li>it reads without “read the previous three paragraphs”;</li>
+<li>its structure is unambiguous for both man and machine.</li>
+</ul>
+<h2 id="geoaeo-q2">There is no content yet: where to really start - an AI audit, a map of questions and a graph of topics without self-deception?</h2>
+<p>While not a single line has been written, you can still <strong>burn your budget on beautiful text</strong>, if you haven’t recorded: what the model already “knows” about the brand, what questions you didn’t receive and how the topics are related to each other. Stage 1 is about an honest picture, and not about the technical specifications for copyright.</p>
+<h3 id="geoaeo-q21">Does the brand appear in ChatGPT or does it not exist at all - what to remove during a zero audit?</h3>
+<p><strong>Audit of current AI visibility</strong> — we fix:</p>
+<ul>
+<li>what queries already bring the brand to LLM/search;</li>
+<li>in what contexts the brand is mentioned;</li>
+<li>which competitors dominate the responses;</li>
+<li>what topics are not closed at all.</li>
+</ul>
+<p class="content-note"><strong>Stage result:</strong> map of current AI visibility.</p>
+<h3 id="geoaeo-q22">Why do we need a map of questions instead of “two thousand lines of semantics”?</h3>
+<p>The classic core is useful for advertising and SEO, but is more important for response systems <strong>how people formulate problems</strong>. Therefore, instead of a list of “keys” we collect <strong>intent card</strong> — a set of real semantic queries:</p>
+<ul>
+<li><strong>Explain</strong> - What is this;</li>
+<li><strong>How-to</strong> - how to do it;</li>
+<li><strong>Compare</strong> — comparison of solutions;</li>
+<li><strong>Decision</strong> — what to choose;</li>
+<li><strong>Commercial</strong> — solutions and services.</li>
+</ul>
+<p class="content-note"><strong>Result:</strong> an intent map that replaces the SEO structure.</p>
+<h3 id="geoaeo-q23">How not to leave topics as “islands” if the site should draw internal links and meaning?</h3>
+<p>We design <strong>knowledge graph</strong> in the human sense of the word - not necessarily in the triple-store database, but as a conscious network of pages. We define:</p>
+<ul>
+<li>key nodes (main topics);</li>
+<li>secondary nodes (subtopics);</li>
+<li>connections between them.</li>
+</ul>
+<p><strong>Important:</strong> each topic must have at least 2-3 links; isolated content is excluded.</p>
+<p class="content-note"><strong>Result:</strong> website architecture as a knowledge graph.</p>
+<h2 id="geoaeo-q3">What should the page look like if it is read not by “scrolling”, but by “cutting out paragraphs” in the model’s response?</h2>
+<p>The page is not a longread for the sake of volume, but <strong>container for fragments</strong>, which retrieval can raise separately. Therefore, above is the answer, below are evidence and formats that are easy to retell.</p>
+<h3 id="geoaeo-q31">What should a person (and a model) see in the first seconds - without scrolling to the point?</h3>
+<p>A single principle for layout of meaning:</p>
+<ul>
+<li>short direct answer at the beginning;</li>
+<li>explanation blocks (atomic);</li>
+<li>structured lists/steps/tables;</li>
+<li>FAQ inside the page.</li>
+</ul>
+<h3 id="geoaeo-q32">Why split the text into micro-blocks that live on their own?</h3>
+<p>Each block is a mini-contract with the reader and the model. He is obliged:</p>
+<ul>
+<li>solve one specific micro-issue;</li>
+<li>be autonomous (understandable separately);</li>
+<li>be logically complete;</li>
+<li>do not depend on neighboring sections.</li>
+</ul>
+<h3 id="geoaeo-q33">What four types of URLs are almost always needed to close demand from explanation to purchase?</h3>
+<ul>
+<li><strong>Answer Pages</strong> - direct answers;</li>
+<li><strong>How-to Pages</strong> — instructions;</li>
+<li><strong>Comparison Pages</strong> - comparisons;</li>
+<li><strong>Product/Service Pages</strong> - commercial entities.</li>
+</ul>
+<h2 id="geoaeo-q4">Where can I get a stream of small answers without endless long reads “for the sake of coverage”?</h2>
+<p>“Content factory” sounds industrial, but in meaning it is <strong>editorial discipline</strong>: one intent - one released block, clear deadline and clear format. Otherwise, the team will drown in drafts, and the site will remain a beautiful showcase without extractable meanings.</p>
+<h3 id="geoaeo-q41">Why is the unit of production a response block and not an “article as a file”?</h3>
+<p>Content is created not as articles, but as <strong>stream of atomic response blocks</strong>.</p>
+<p>Each block: one intent, one meaning, one result.</p>
+<h3 id="geoaeo-q42">What formats can the system produce consistently, and not “whatever happens to the author”?</h3>
+<ul>
+<li>explanatory blocks (definition-first);</li>
+<li>instructions (step-based);</li>
+<li>comparisons (table-driven);</li>
+<li>FAQ answers (query-driven).</li>
+</ul>
+<h3 id="geoaeo-q43">Where should the blocks be sent if “everything on the site” no longer works as the only channel?</h3>
+<ul>
+<li><strong>Website</strong> — main knowledge base;</li>
+<li><strong>Social networks</strong> — distribution of explanations;</li>
+<li><strong>External platforms</strong> — increased AI visibility.</li>
+</ul>
+<h2 id="geoaeo-q5">What exactly in the code and layout prevents neural networks and crawlers from “getting to the meaning”?</h2>
+<p>An ideal text is powerless if it <strong>hides behind hydration, tabs and empty div</strong>. The technical layer is part of GEO/AEO: delivering text so that it can be reliably read and indexed.</p>
+<h3 id="geoaeo-q51">SSR, SSG or "thick client": which is closer to "text to HTML immediately"?</h3>
+<ul>
+<li>SSR/static generation;</li>
+<li>minimizing client-side JS;</li>
+<li>Availability of content without interactive dependencies.</li>
+</ul>
+<h3 id="geoaeo-q52">Schema.org for show or a normal hierarchy of headings - what really feeds the model?</h3>
+<p>Types like <strong>Article</strong>, <strong>FAQPage</strong>, <strong>HowTo</strong>, <strong>Product</strong> - but the key thing is: <strong>not the markup itself, but the HTML structure</strong>, from which the meaning is read without the “magic” of scripts.</p>
+<h3 id="geoaeo-q53">How to understand that the render is “clean”: DOM, hidden blocks and lazy text loading?</h3>
+<ul>
+<li>quick access to text;</li>
+<li>no hidden blocks;</li>
+<li>lack of critical lazy-load for the main text;</li>
+<li>clean DOM structure.</li>
+</ul>
+<h2 id="geoaeo-q6">What does the text sound like that the model wants to retell, and not “bypass”?</h2>
+<p>GEO is not “add a keyword.” This <strong>specific language</strong>: Fewer abstractions, more testable statements that are resistant to compression and paraphrasing.</p>
+<h3 id="geoaeo-q61">What one-paragraph rules save both the editor and embeddings?</h3>
+<ul>
+<li>one meaning = one block;</li>
+<li>without “marketing noise”;</li>
+<li>without abstract formulations;</li>
+<li>maximum specificity.</li>
+</ul>
+<h3 id="geoaeo-q62">What does “retellability” mean: the model will compress the text, but the meaning will remain?</h3>
+<p>Content should:</p>
+<ul>
+<li>easy to shorten without losing meaning;</li>
+<li>maintain structure when paraphrasing;</li>
+<li>be resistant to LLM extraction.</li>
+</ul>
+<h3 id="geoaeo-q63">Why does the block need autonomy: it was pulled out of the page - is it still valuable?</h3>
+<p>Each block can be pulled out of the page - it will remain understandable and retain its value separately.</p>
+<h2 id="geoaeo-q7">How can you make sure that pages don't argue with each other using the same words?</h2>
+<p>Cohesion is not “internal PageRank for the sake of SEO,” but <strong>single map of meaning</strong>: from definitions to deepening and back to the supporting topic. Otherwise, the user and model will receive different responses from different URLs.</p>
+<h3 id="geoaeo-q71">Where should each page link to so the reader doesn't get stuck?</h3>
+<p>Each page:</p>
+<ul>
+<li>refers to basic definitions;</li>
+<li>goes into recesses;</li>
+<li>returns to the main node.</li>
+</ul>
+<h3 id="geoaeo-q72">How to agree on terms so that the site does not have five “different products” with the same name?</h3>
+<p><strong>Semantic consistency:</strong> common terms, common definitions, absence of synonymous noise.</p>
+<h2 id="geoaeo-q8">Launched - and what to watch in the first weeks: AI, content or human behavior?</h2>
+<p>Without metrics you are not managing the system, you are <strong>hope for luck</strong>. Minimum set: visibility in replies, block retrievability, AI traffic behavior. A detailed system of indicators and a demo dashboard are in the material <a href="geo-aeo-metrics-bi.html">"GEO/AEO and BI Metrics"</a> and on the page <a href="../tools/geo-aeo-bi-dashboard.html">interactive BI dashboard</a>.</p>
+<h3 id="geoaeo-q81">Do we appear in the answers and by what wording can we check this manually and on a schedule?</h3>
+<ul>
+<li>whether the brand appears in AI responses;</li>
+<li>for what requests;</li>
+<li>in what context.</li>
+</ul>
+<h3 id="geoaeo-q82">Which pages and blocks actually “feed” responses – and which ones simply exist?</h3>
+<ul>
+<li>which blocks are retrieved more often;</li>
+<li>which pages are cited;</li>
+<li>which intents are closed.</li>
+</ul>
+<h3 id="geoaeo-q83">Does AI traffic lead to depth and conversion - or are these random clicks?</h3>
+<ul>
+<li>involvement;</li>
+<li>depth of interaction;</li>
+<li>conversions from AI traffic.</li>
+</ul>
+<h2 id="geoaeo-q9">At the end of the project: do we have a new website or a working knowledge factory for AI?</h2>
+<p>If everything is done wisely, what goes into production is not “a set of pages”, but <strong>knowledge infrastructure optimized for AI extraction</strong> — with an intent map, graph, block flow, technology and metrics.</p>
+<p>It consists of:</p>
+<ul>
+<li>intent map;</li>
+<li>knowledge graph;</li>
+<li>atomic content systems;</li>
+<li>technically clean website;</li>
+<li>AI visibility metrics (see also <a href="geo-aeo-metrics-bi.html">metrics and BI system</a>).</li>
+</ul>
+<div class="content-related">
+<h3>Related Pages</h3>
+<ul>
+<li><a href="overview.html">Strategy Section Overview</a></li>
+<li><a href="strategic-intent.html">Strategic intent</a></li>
+<li><a href="audit-ai-visibility.html">AI visibility audit and metrics</a></li>
+<li><a href="geo-aeo-metrics-bi.html">GEO/AEO and BI metrics</a></li>
+<li><a href="../tools/geo-aeo-bi-dashboard.html">Interactive GEO/AEO BI dashboard</a></li>
+<li><a href="implementation-changes.html">Implementation of changes</a></li>
+<li><a href="../methods/geo.html">GEO optimization</a></li>
+<li><a href="../methods/aeo.html">AEO optimization</a></li>
+<li><a href="../tools/content-factory.html">Content factory</a></li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"></footer>
+<script src="../script.js"></script>
+</body>
+</html>

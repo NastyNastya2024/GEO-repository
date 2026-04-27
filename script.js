@@ -119,6 +119,245 @@ document.addEventListener("DOMContentLoaded", () => {
     ? (scriptEl.getAttribute("src") || "").replace(/script\.js(\?.*)?$/, "")
     : "";
 
+  const isEnglish = () => {
+    try {
+      const p = String(window.location.pathname || "");
+      return p.includes("/en/");
+    } catch {
+      return false;
+    }
+  };
+
+  const LANG = isEnglish() ? "en" : "ru";
+
+  const I18N = {
+    ru: {
+      langSwitchLabel: "Переключить на английский",
+      langSwitchText: "EN",
+      consultation: "Консультация",
+      menu: "Меню",
+      closeMenu: "Закрыть меню",
+      siteMenuAria: "Меню сайта",
+      homeAria: "На главную",
+      sitemapAria: "Структура сайта",
+      section: "Раздел",
+      footerCompany: "Компания AEO © 2026",
+      privacy: "Политика конфиденциальности",
+      consent: "Согласие на обработку данных",
+      updated: "Обновлено",
+      tldr: "Коротко (TL;DR):",
+      toc: "Содержание",
+      readAlso: "Читайте также:",
+      railAria: "Теги и описание",
+      railShowAria: "Показать навигацию по статье",
+      consultationTitle: "Консультация с экспертом",
+      consultationHint: "Разберите ваш вопрос с опытным специалистом по продвижению.",
+      reserve: "Забронировать",
+      contacts: "Контакты",
+      contactFormAria: "Форма связи",
+      formTitle: "Заявка и контакты",
+      formIntro: "Оставьте контакты — ответим в ближайшее время.",
+      thanks: "Спасибо!",
+      thanksText: "Мы свяжемся с вами как можно быстрее.",
+      yourName: "Ваше имя",
+      yourEmail: "Email для связи",
+      yourMessage: "Коротко: что нужно сделать?",
+      send: "Отправить",
+      popupPrivacyBody1: "Мы обрабатываем персональные данные только для связи по заявкам и оказания услуг.",
+      popupPrivacyBody2: "Данные не передаются третьим лицам без законных оснований и хранятся в защищенном виде.",
+      popupConsentBody1:
+        "Оставляя данные на сайте, вы даете согласие на обработку персональных данных в целях обратной связи и оказания услуг.",
+      popupConsentBody2:
+        "Вы можете отозвать согласие, направив запрос по контактному номеру, указанному в разделе «Контакты».",
+      terms: "Условия использования",
+      popupTermsBody1: "Используя сайт, вы соглашаетесь с условиями обработки информации и правилами взаимодействия.",
+      popupTermsBody2: "Материалы сайта носят информационный характер и не являются публичной офертой.",
+      footerCols: {
+        main: "Основное",
+        methods: "Методы",
+        platforms: "Нейроплатформы",
+        tools: "Инструменты",
+        strategy: "Стратегия",
+        industries: "Отрасли"
+      },
+      links: {
+        blog: "Блог",
+        company: "Компания",
+        methodsGuide: "Методы продвижения — обзор",
+        geo: "GEO оптимизация",
+        aeo: "AEO оптимизация",
+        seo: "SEO оптимизация",
+        aio: "AIO оптимизация",
+        aiSmm: "AI & SMM",
+        faqMethods: "FAQ по методам",
+        platformsIntro: "Что такое нейроплатформы",
+        yandexAlice: "Яндекс Алиса",
+        analyticsAudit: "Аналитика и аудит",
+        contentFactory: "Контент‑завод",
+        itAudit: "Аудит текущего IT‑решения",
+        promoStrategy: "Стратегия продвижения",
+        fullPromo: "Полное продвижение",
+        supportService: "Поддерживающий сервис",
+        strategyOverview: "Стратегия — обзор раздела",
+        strategicIntent: "Стратегический интент",
+        rollout: "GEO/AEO: сайт и контентная система",
+        auditAi: "Аудит AI‑видимости и метрики",
+        metrics: "Метрики GEO/AEO и BI",
+        dashboard: "GEO/AEO BI‑дашборд",
+        implementation: "Реализация изменений",
+        optimization: "Оптимизация и трекинг",
+        allIndustries: "Все отрасли и нейропоиск",
+        marketplaces: "Маркетплейсы",
+        clinics: "Клиники",
+        serviceCenters: "Сервисные центры",
+        showrooms: "Шоурумы",
+        beauty: "Салоны красоты",
+        delivery: "Доставка",
+        corporations: "Корпорации",
+        ecommerce: "E‑commerce",
+        saas: "SaaS & digital",
+        localBusiness: "Локальный бизнес",
+        aiDiscovery: "AI‑discovery лидеры"
+      }
+    },
+    en: {
+      langSwitchLabel: "Switch to Russian",
+      langSwitchText: "RU",
+      consultation: "Consultation",
+      menu: "Menu",
+      closeMenu: "Close menu",
+      siteMenuAria: "Site menu",
+      homeAria: "Home",
+      sitemapAria: "Site structure",
+      section: "Section",
+      footerCompany: "AEO Company © 2026",
+      privacy: "Privacy policy",
+      consent: "Data processing consent",
+      updated: "Updated",
+      tldr: "TL;DR:",
+      toc: "Table of contents",
+      readAlso: "Read also:",
+      railAria: "Tags and description",
+      railShowAria: "Show article navigation",
+      consultationTitle: "Expert consultation",
+      consultationHint: "Discuss your question with an experienced visibility specialist.",
+      reserve: "Book",
+      contacts: "Contacts",
+      contactFormAria: "Contact form",
+      formTitle: "Request & contacts",
+      formIntro: "Leave your details — we'll get back to you soon.",
+      thanks: "Thank you!",
+      thanksText: "We'll contact you as soon as possible.",
+      yourName: "Your name",
+      yourEmail: "Email",
+      yourMessage: "Briefly: what do you need?",
+      send: "Send",
+      popupPrivacyBody1: "We process personal data only to respond to requests and provide services.",
+      popupPrivacyBody2: "Data is not shared with third parties without legal grounds and is stored securely.",
+      popupConsentBody1:
+        "By submitting your details on the website, you consent to personal data processing for communication and service delivery.",
+      popupConsentBody2: "You can revoke consent by contacting us using the phone number in the Contacts section.",
+      terms: "Terms of use",
+      popupTermsBody1: "By using this website, you agree to information handling and interaction rules.",
+      popupTermsBody2: "Website materials are informational and do not constitute a public offer.",
+      footerCols: {
+        main: "Main",
+        methods: "Methods",
+        platforms: "AI platforms",
+        tools: "Tools",
+        strategy: "Strategy",
+        industries: "Industries"
+      },
+      links: {
+        blog: "Blog",
+        company: "Company",
+        methodsGuide: "Promotion methods — overview",
+        geo: "GEO optimization",
+        aeo: "AEO optimization",
+        seo: "SEO optimization",
+        aio: "AIO optimization",
+        aiSmm: "AI & SMM",
+        faqMethods: "Methods FAQ",
+        platformsIntro: "What are AI platforms",
+        yandexAlice: "Yandex Alice",
+        analyticsAudit: "Analytics & audit",
+        contentFactory: "Content factory",
+        itAudit: "Current IT audit",
+        promoStrategy: "Promotion strategy",
+        fullPromo: "Full promotion",
+        supportService: "Ongoing support",
+        strategyOverview: "Strategy — overview",
+        strategicIntent: "Strategic intent",
+        rollout: "GEO/AEO: website & content system",
+        auditAi: "AI visibility audit & metrics",
+        metrics: "GEO/AEO metrics & BI",
+        dashboard: "GEO/AEO BI dashboard",
+        implementation: "Implementation",
+        optimization: "Optimization & tracking",
+        allIndustries: "All industries & AI search",
+        marketplaces: "Marketplaces",
+        clinics: "Clinics",
+        serviceCenters: "Service centers",
+        showrooms: "Showrooms",
+        beauty: "Beauty salons",
+        delivery: "Delivery",
+        corporations: "Corporations",
+        ecommerce: "E‑commerce",
+        saas: "SaaS & digital",
+        localBusiness: "Local business",
+        aiDiscovery: "AI discovery leaders"
+      }
+    }
+  };
+
+  const tr = key => {
+    const dict = I18N[LANG] || I18N.ru;
+    return dict[key] ?? (I18N.ru[key] ?? "");
+  };
+
+  const trPath = (path, fallback) => {
+    const dict = I18N[LANG] || I18N.ru;
+    const ru = I18N.ru;
+    return (dict.links && dict.links[path]) || (ru.links && ru.links[path]) || fallback || "";
+  };
+
+  const buildLanguageSwitchUrl = () => {
+    const u = new URL(window.location.href);
+    const p = String(u.pathname || "/");
+    if (p.includes("/en/")) {
+      u.pathname = p.replace(/\/en(\/|$)/, "/");
+      return u.toString();
+    }
+    u.pathname = p === "/" ? "/en/" : `/en${p}`;
+    return u.toString();
+  };
+
+  const ensureLanguageSwitch = () => {
+    const headerInner = document.querySelector("header.site-header .header-inner");
+    if (!headerInner) return;
+
+    const actions = headerInner.querySelector(".header-actions");
+    const host = actions || headerInner;
+    if (host.querySelector(".lang-switch")) return;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "lang-switch";
+    btn.textContent = tr("langSwitchText");
+    btn.setAttribute("aria-label", tr("langSwitchLabel"));
+    btn.addEventListener("click", () => {
+      window.location.href = buildLanguageSwitchUrl();
+    });
+
+    if (actions) {
+      actions.insertBefore(btn, actions.firstChild);
+    } else {
+      const burger = headerInner.querySelector(".burger");
+      if (burger) burger.insertAdjacentElement("beforebegin", btn);
+      else headerInner.appendChild(btn);
+    }
+  };
+
   /** В шапке только «Консультация» + бургер: убираем прочие кнопки/ссылки и при необходимости добавляем консультацию. */
   const ensureHeaderConsultationCta = () => {
     const headerInner = document.querySelector("header.site-header .header-inner");
@@ -140,7 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
     consult.href = "#";
     consult.className = "btn btn-header btn-header--white";
     consult.dataset.popup = "contacts";
-    consult.textContent = "Консультация";
+    consult.textContent = tr("consultation");
 
     const burger = headerInner.querySelector(".burger");
 
@@ -159,73 +398,74 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   ensureHeaderConsultationCta();
+  ensureLanguageSwitch();
 
   const sitemapHtml = `
-    <div class="footer-sitemap" aria-label="Структура сайта">
+    <div class="footer-sitemap" aria-label="${tr("sitemapAria")}">
       <div class="footer-col">
-        <div class="footer-col__title">Основное</div>
-        <a href="${prefix}blog/main.html">Блог</a>
-        <a href="${prefix}about.html">Компания</a>
+        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.main}</div>
+        <a href="${prefix}blog/main.html">${trPath("blog", "Blog")}</a>
+        <a href="${prefix}about.html">${trPath("company", "Company")}</a>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col__title">Методы</div>
-        <a href="${prefix}methods/methods-guide.html">Методы продвижения — обзор</a>
-        <a href="${prefix}methods/geo.html">GEO оптимизация</a>
-        <a href="${prefix}methods/aeo.html">AEO оптимизация</a>
-        <a href="${prefix}methods/seo.html">SEO оптимизация</a>
-        <a href="${prefix}methods/aio.html">AIO оптимизация</a>
-        <a href="${prefix}methods/ai-smm.html">AI &amp; SMM</a>
-        <a href="${prefix}methods/faq-methods.html">FAQ по методам</a>
+        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.methods}</div>
+        <a href="${prefix}methods/methods-guide.html">${trPath("methodsGuide", "Methods overview")}</a>
+        <a href="${prefix}methods/geo.html">${trPath("geo", "GEO optimization")}</a>
+        <a href="${prefix}methods/aeo.html">${trPath("aeo", "AEO optimization")}</a>
+        <a href="${prefix}methods/seo.html">${trPath("seo", "SEO optimization")}</a>
+        <a href="${prefix}methods/aio.html">${trPath("aio", "AIO optimization")}</a>
+        <a href="${prefix}methods/ai-smm.html">${trPath("aiSmm", "AI &amp; SMM")}</a>
+        <a href="${prefix}methods/faq-methods.html">${trPath("faqMethods", "Methods FAQ")}</a>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col__title">Нейроплатформы</div>
-        <a href="${prefix}neural-platforms/platform-comparison.html">Что такое нейроплатформы</a>
+        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.platforms}</div>
+        <a href="${prefix}neural-platforms/platform-comparison.html">${trPath("platformsIntro", "What are AI platforms")}</a>
         <a href="${prefix}neural-platforms/chatgpt.html">ChatGPT</a>
         <a href="${prefix}neural-platforms/perplexity.html">Perplexity</a>
         <a href="${prefix}neural-platforms/deepseek.html">DeepSeek</a>
         <a href="${prefix}neural-platforms/claude.html">Claude</a>
         <a href="${prefix}neural-platforms/google-gemini.html">Google Gemini</a>
-        <a href="${prefix}neural-platforms/yandex-alice.html">Яндекс Алиса</a>
+        <a href="${prefix}neural-platforms/yandex-alice.html">${trPath("yandexAlice", "Yandex Alice")}</a>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col__title">Инструменты</div>
-        <a href="${prefix}tools/analytics.html">Аналитика и аудит</a>
-        <a href="${prefix}tools/content-factory.html">Контент‑завод</a>
-        <a href="${prefix}tools/it-audit.html">Аудит текущего IT‑решения</a>
-        <a href="${prefix}tools/promotion-strategy.html">Стратегия продвижения</a>
-        <a href="${prefix}tools/full-promotion.html">Полное продвижение</a>
-        <a href="${prefix}tools/support-service.html">Поддерживающий сервис</a>
+        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.tools}</div>
+        <a href="${prefix}tools/analytics.html">${trPath("analyticsAudit", "Analytics & audit")}</a>
+        <a href="${prefix}tools/content-factory.html">${trPath("contentFactory", "Content factory")}</a>
+        <a href="${prefix}tools/it-audit.html">${trPath("itAudit", "IT audit")}</a>
+        <a href="${prefix}tools/promotion-strategy.html">${trPath("promoStrategy", "Promotion strategy")}</a>
+        <a href="${prefix}tools/full-promotion.html">${trPath("fullPromo", "Full promotion")}</a>
+        <a href="${prefix}tools/support-service.html">${trPath("supportService", "Ongoing support")}</a>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col__title">Стратегия</div>
-        <a href="${prefix}strategy/overview.html">Стратегия — обзор раздела</a>
-        <a href="${prefix}strategy/strategic-intent.html">Стратегический интент</a>
-        <a href="${prefix}strategy/geo-aeo-rollout.html">GEO/AEO: сайт и контентная система</a>
-        <a href="${prefix}strategy/audit-ai-visibility.html">Аудит AI‑видимости и метрики</a>
-        <a href="${prefix}strategy/geo-aeo-metrics-bi.html">Метрики GEO/AEO и BI</a>
-        <a href="${prefix}tools/geo-aeo-bi-dashboard.html">GEO/AEO BI‑дашборд</a>
-        <a href="${prefix}strategy/implementation-changes.html">Реализация изменений</a>
-        <a href="${prefix}strategy/optimization-tracking.html">Оптимизация и трекинг</a>
+        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.strategy}</div>
+        <a href="${prefix}strategy/overview.html">${trPath("strategyOverview", "Strategy overview")}</a>
+        <a href="${prefix}strategy/strategic-intent.html">${trPath("strategicIntent", "Strategic intent")}</a>
+        <a href="${prefix}strategy/geo-aeo-rollout.html">${trPath("rollout", "GEO/AEO rollout")}</a>
+        <a href="${prefix}strategy/audit-ai-visibility.html">${trPath("auditAi", "AI visibility audit")}</a>
+        <a href="${prefix}strategy/geo-aeo-metrics-bi.html">${trPath("metrics", "Metrics & BI")}</a>
+        <a href="${prefix}tools/geo-aeo-bi-dashboard.html">${trPath("dashboard", "BI dashboard")}</a>
+        <a href="${prefix}strategy/implementation-changes.html">${trPath("implementation", "Implementation")}</a>
+        <a href="${prefix}strategy/optimization-tracking.html">${trPath("optimization", "Optimization & tracking")}</a>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col__title">Отрасли</div>
-        <a href="${prefix}case-studies/all-industries-geo-aeo.html">Все отрасли и нейропоиск</a>
-        <a href="${prefix}case-studies/marketplaces-neuro-strategy.html">Маркетплейсы</a>
-        <a href="${prefix}case-studies/clinics-neuro-strategy.html">Клиники</a>
-        <a href="${prefix}case-studies/service-centers-neuro-strategy.html">Сервисные центры</a>
-        <a href="${prefix}case-studies/showrooms-neuro-strategy.html">Шоурумы</a>
-        <a href="${prefix}case-studies/beauty-neuro-strategy.html">Салоны красоты</a>
-        <a href="${prefix}case-studies/delivery-neuro-strategy.html">Доставка</a>
-        <a href="${prefix}case-studies/corporations.html">Корпорации</a>
-        <a href="${prefix}case-studies/ecommerce.html">E‑commerce</a>
-        <a href="${prefix}case-studies/saas.html">SaaS &amp; digital</a>
-        <a href="${prefix}case-studies/local-business.html">Локальный бизнес</a>
-        <a href="${prefix}case-studies/ai-discovery.html">AI‑discovery лидеры</a>
+        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.industries}</div>
+        <a href="${prefix}case-studies/all-industries-geo-aeo.html">${trPath("allIndustries", "All industries")}</a>
+        <a href="${prefix}case-studies/marketplaces-neuro-strategy.html">${trPath("marketplaces", "Marketplaces")}</a>
+        <a href="${prefix}case-studies/clinics-neuro-strategy.html">${trPath("clinics", "Clinics")}</a>
+        <a href="${prefix}case-studies/service-centers-neuro-strategy.html">${trPath("serviceCenters", "Service centers")}</a>
+        <a href="${prefix}case-studies/showrooms-neuro-strategy.html">${trPath("showrooms", "Showrooms")}</a>
+        <a href="${prefix}case-studies/beauty-neuro-strategy.html">${trPath("beauty", "Beauty salons")}</a>
+        <a href="${prefix}case-studies/delivery-neuro-strategy.html">${trPath("delivery", "Delivery")}</a>
+        <a href="${prefix}case-studies/corporations.html">${trPath("corporations", "Corporations")}</a>
+        <a href="${prefix}case-studies/ecommerce.html">${trPath("ecommerce", "E‑commerce")}</a>
+        <a href="${prefix}case-studies/saas.html">${trPath("saas", "SaaS &amp; digital")}</a>
+        <a href="${prefix}case-studies/local-business.html">${trPath("localBusiness", "Local business")}</a>
+        <a href="${prefix}case-studies/ai-discovery.html">${trPath("aiDiscovery", "AI discovery leaders")}</a>
       </div>
     </div>
   `;
@@ -239,10 +479,10 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="footer-bottom">
-          <p>Компания AEO © 2026</p>
+          <p>${tr("footerCompany")}</p>
           <div class="footer-meta">
-            <button class="footer-meta__link" type="button" data-popup="privacy">Политика конфиденциальности</button>
-            <button class="footer-meta__link" type="button" data-popup="consent">Согласие на обработку данных</button>
+            <button class="footer-meta__link" type="button" data-popup="privacy">${tr("privacy")}</button>
+            <button class="footer-meta__link" type="button" data-popup="consent">${tr("consent")}</button>
           </div>
         </div>
       </div>
@@ -271,7 +511,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const summary = document.createElement("summary");
         summary.className = "footer-acc__summary";
-        summary.textContent = title || "Раздел";
+        summary.textContent = title || tr("section");
 
         const panel = document.createElement("div");
         panel.className = "footer-acc__panel";
@@ -300,12 +540,12 @@ document.addEventListener("DOMContentLoaded", () => {
   topMenu.hidden = true;
   topMenu.innerHTML = `
     <div class="top-menu__backdrop" data-topmenu-close></div>
-    <div class="top-menu__panel" role="dialog" aria-modal="true" aria-label="Меню сайта">
+    <div class="top-menu__panel" role="dialog" aria-modal="true" aria-label="${tr("siteMenuAria")}">
       <div class="top-menu__header">
-        <a class="top-menu__brand" href="${prefix}index.html#hero" aria-label="На главную">
+        <a class="top-menu__brand" href="${prefix}index.html#hero" aria-label="${tr("homeAria")}">
           <img src="${prefix}Img/logo-aeo.png" alt="GEO logo" />
         </a>
-        <button class="top-menu__close" type="button" data-topmenu-close aria-label="Закрыть меню">×</button>
+        <button class="top-menu__close" type="button" data-topmenu-close aria-label="${tr("closeMenu")}">×</button>
       </div>
       <div class="top-menu__content">
         ${sitemapHtml}
@@ -340,7 +580,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const summary = document.createElement("summary");
       summary.className = "menu-acc__summary";
-      summary.textContent = title || "Раздел";
+      summary.textContent = title || tr("section");
 
       const panel = document.createElement("div");
       panel.className = "menu-acc__panel";
@@ -370,20 +610,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const formatUpdateDate = () => {
     const d = new Date();
-    const months = [
-      "январь",
-      "февраль",
-      "март",
-      "апрель",
-      "май",
-      "июнь",
-      "июль",
-      "август",
-      "сентябрь",
-      "октябрь",
-      "ноябрь",
-      "декабрь"
-    ];
+    const months =
+      LANG === "en"
+        ? [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ]
+        : [
+            "январь",
+            "февраль",
+            "март",
+            "апрель",
+            "май",
+            "июнь",
+            "июль",
+            "август",
+            "сентябрь",
+            "октябрь",
+            "ноябрь",
+            "декабрь"
+          ];
     return `${months[d.getMonth()]} ${d.getFullYear()}`;
   };
 
@@ -405,7 +661,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (existing) return;
     const p = document.createElement("p");
     p.className = "update-date";
-    p.textContent = `Обновлено: ${formatUpdateDate()}`;
+    p.textContent = `${tr("updated")}: ${formatUpdateDate()}`;
     pageH1.insertAdjacentElement("afterend", p);
   };
 
@@ -491,7 +747,7 @@ document.addEventListener("DOMContentLoaded", () => {
       banner.setAttribute("role", "region");
       banner.setAttribute(
         "aria-label",
-        "Консультация с экспертом. Разберите ваш вопрос с опытным специалистом по продвижению."
+        `${tr("consultationTitle")}. ${tr("consultationHint")}`
       );
 
       const copy = document.createElement("div");
@@ -499,11 +755,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const title = document.createElement("p");
       title.className = "article-consult-banner__title";
-      title.textContent = "Консультация с экспертом";
+      title.textContent = tr("consultationTitle");
 
       const hint = document.createElement("span");
       hint.className = "article-consult-banner__hint";
-      hint.textContent = "Разберите ваш вопрос с опытным специалистом по продвижению.";
+      hint.textContent = tr("consultationHint");
 
       copy.appendChild(title);
       copy.appendChild(hint);
@@ -512,11 +768,11 @@ document.addEventListener("DOMContentLoaded", () => {
       cta.type = "button";
       cta.className = "article-consult-banner__cta";
       cta.setAttribute("data-popup", "contacts");
-      cta.setAttribute("aria-label", "Записаться на консультацию с экспертом");
+      cta.setAttribute("aria-label", tr("consultationTitle"));
       cta.innerHTML =
         `<svg class="visibility-cta__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
         `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"></path>` +
-        `</svg><span class="article-consult-banner__cta-text">Забронировать</span>`;
+        `</svg><span class="article-consult-banner__cta-text">${tr("reserve")}</span>`;
 
       banner.appendChild(copy);
       banner.appendChild(cta);
@@ -578,7 +834,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const text = toTldr(pickAnswerText(), 3);
     const short = document.createElement("div");
     short.className = "short-answer";
-    short.innerHTML = `<strong>Коротко (TL;DR):</strong> ${text || "Ниже — прямые ответы на ключевые вопросы и структура, которую нейросети удобно цитируют."}`;
+    short.innerHTML = `<strong>${tr("tldr")}</strong> ${
+      text || (LANG === "en"
+        ? "Below are direct answers to key questions and a structure that AI systems can easily quote."
+        : "Ниже — прямые ответы на ключевые вопросы и структура, которую нейросети удобно цитируют.")
+    }`;
     article.insertAdjacentElement("afterbegin", short);
   };
 
@@ -589,7 +849,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const toc = document.createElement("div");
     toc.className = "content-toc";
-    toc.setAttribute("aria-label", "Содержание");
+    toc.setAttribute("aria-label", tr("toc"));
 
     h2s.forEach((h2, idx) => {
       if (!h2.id) h2.id = slugify(h2.textContent) + (idx ? `-${idx + 1}` : "");
@@ -751,7 +1011,7 @@ document.addEventListener("DOMContentLoaded", () => {
       box.className = "read-also";
       box.dataset.for = h2.id || "";
       box.innerHTML =
-        `<strong>Читайте также:</strong> ` +
+        `<strong>${tr("readAlso")}</strong> ` +
         picked.map(p => `<a href="${p.href}">${p.label}</a>`).join(" | ");
 
       const insertAfter = h2.nextElementSibling;
@@ -859,7 +1119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       footer.setAttribute("role", "region");
       footer.setAttribute(
         "aria-label",
-        "Консультация с экспертом. Разберите ваш вопрос с опытным специалистом по продвижению."
+        `${tr("consultationTitle")}. ${tr("consultationHint")}`
       );
 
       const inner = document.createElement("div");
@@ -870,11 +1130,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const title = document.createElement("p");
       title.className = "article-consult-footer__title";
-      title.textContent = "Консультация с экспертом";
+      title.textContent = tr("consultationTitle");
 
       const hint = document.createElement("p");
       hint.className = "article-consult-footer__hint";
-      hint.textContent = "Разберите ваш вопрос с опытным специалистом по продвижению.";
+      hint.textContent = tr("consultationHint");
 
       copy.appendChild(title);
       copy.appendChild(hint);
@@ -883,11 +1143,11 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.type = "button";
       btn.className = "article-consult-footer__cta";
       btn.setAttribute("data-popup", "contacts");
-      btn.setAttribute("aria-label", "Записаться на консультацию с экспертом");
+      btn.setAttribute("aria-label", tr("consultationTitle"));
       btn.innerHTML =
         `<svg class="visibility-cta__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
         `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"></path>` +
-        `</svg><span class="article-consult-footer__cta-text">Забронировать</span>`;
+        `</svg><span class="article-consult-footer__cta-text">${tr("reserve")}</span>`;
 
       inner.appendChild(copy);
       inner.appendChild(btn);
@@ -1011,20 +1271,20 @@ document.addEventListener("DOMContentLoaded", () => {
     wrap.className = "contact-form-wrap";
     wrap.innerHTML = `
       <div class="form-overlay" data-contact-close></div>
-      <div id="contact-form-container" class="contact-form-container" role="dialog" aria-modal="true" aria-label="Форма связи">
-        <button type="button" class="contact-form-close" data-contact-close aria-label="Закрыть">×</button>
+      <div id="contact-form-container" class="contact-form-container" role="dialog" aria-modal="true" aria-label="${tr("contactFormAria")}">
+        <button type="button" class="contact-form-close" data-contact-close aria-label="${LANG === "en" ? "Close" : "Закрыть"}">×</button>
         <div id="contact-form-content" class="contact-form-content">
           <div id="contact-form-head" class="contact-form-head">
-            <h3 class="pre">Заявка и контакты</h3>
-            <p class="pre">Оставьте контакты — ответим в ближайшее время.</p>
-            <h3 class="post">Спасибо!</h3>
-            <p class="post">Мы свяжемся с вами как можно быстрее.</p>
+            <h3 class="pre">${tr("formTitle")}</h3>
+            <p class="pre">${tr("formIntro")}</p>
+            <h3 class="post">${tr("thanks")}</h3>
+            <p class="post">${tr("thanksText")}</p>
           </div>
           <form id="contact-form" novalidate>
-            <input class="input name" type="text" name="user_name" placeholder="Ваше имя" required />
-            <input class="input email" type="email" name="user_email" placeholder="Email для связи" required />
-            <textarea class="input message" name="message" placeholder="Коротко: что нужно сделать?" required></textarea>
-            <button class="btn input submit" type="submit">Отправить</button>
+            <input class="input name" type="text" name="user_name" placeholder="${tr("yourName")}" required />
+            <input class="input email" type="email" name="user_email" placeholder="${tr("yourEmail")}" required />
+            <textarea class="input message" name="message" placeholder="${tr("yourMessage")}" required></textarea>
+            <button class="btn input submit" type="submit">${tr("send")}</button>
           </form>
         </div>
       </div>
@@ -1064,31 +1324,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const popupContent = {
     contacts: {
-      title: "Контакты",
+      title: tr("contacts"),
       body: `
         <p>ИП Комарова</p>
-        <p>Телефон: <a href="tel:89060959296">8 906 095-92-96</a></p>
+        <p>${LANG === "en" ? "Phone" : "Телефон"}: <a href="tel:89060959296">8 906 095-92-96</a></p>
       `
     },
     privacy: {
-      title: "Политика конфиденциальности",
+      title: tr("privacy"),
       body: `
-        <p>Мы обрабатываем персональные данные только для связи по заявкам и оказания услуг.</p>
-        <p>Данные не передаются третьим лицам без законных оснований и хранятся в защищенном виде.</p>
+        <p>${tr("popupPrivacyBody1")}</p>
+        <p>${tr("popupPrivacyBody2")}</p>
       `
     },
     consent: {
-      title: "Согласие на обработку данных",
+      title: tr("consent"),
       body: `
-        <p>Оставляя данные на сайте, вы даете согласие на обработку персональных данных в целях обратной связи и оказания услуг.</p>
-        <p>Вы можете отозвать согласие, направив запрос по контактному номеру, указанному в разделе «Контакты».</p>
+        <p>${tr("popupConsentBody1")}</p>
+        <p>${tr("popupConsentBody2")}</p>
       `
     },
     terms: {
-      title: "Условия использования",
+      title: tr("terms"),
       body: `
-        <p>Используя сайт, вы соглашаетесь с условиями обработки информации и правилами взаимодействия.</p>
-        <p>Материалы сайта носят информационный характер и не являются публичной офертой.</p>
+        <p>${tr("popupTermsBody1")}</p>
+        <p>${tr("popupTermsBody2")}</p>
       `
     }
   };

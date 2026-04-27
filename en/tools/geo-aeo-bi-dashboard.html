@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GEO/AEO BI dashboard - demo of AI visibility metrics</title>
+<meta content="Interactive demo dashboard: AI Visibility, Intent Coverage, Gap Index, system KPIs. Chart.js, static data for a BI prototype for GEO and AEO." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;family=Jura:wght@300..700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="/en/tools/geo-aeo-bi-dashboard.html" rel="canonical"/>
+<style>
+      .geo-bi {
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+      .geo-bi__lead {
+        margin: 0 0 1.25rem;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .geo-bi__grid-kpi {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      @media (min-width: 900px) {
+        .geo-bi__grid-kpi {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+      .geo-bi__kpi {
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        background: rgba(15, 23, 42, 0.58);
+        padding: 1rem 1.1rem;
+      }
+      .geo-bi__kpi-label {
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(148, 163, 184, 0.95);
+        margin-bottom: 0.35rem;
+      }
+      .geo-bi__kpi-value {
+        font-size: 1.65rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.98);
+        line-height: 1.15;
+      }
+      .geo-bi__kpi-hint {
+        margin-top: 0.4rem;
+        font-size: 0.82rem;
+        color: rgba(203, 213, 225, 0.88);
+      }
+      .geo-bi__charts {
+        display: grid;
+        gap: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+      @media (min-width: 900px) {
+        .geo-bi__charts--2 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .geo-bi__card {
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        background: rgba(15, 23, 42, 0.55);
+        padding: 1rem 1.1rem 1.1rem;
+      }
+      .geo-bi__card h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.96);
+      }
+      .geo-bi__chart-wrap {
+        position: relative;
+        height: 280px;
+      }
+      .geo-bi__health ul {
+        margin: 0;
+        padding-left: 1.15rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.55;
+      }
+      .geo-bi__health li {
+        margin: 0.35rem 0;
+      }
+      .geo-bi__footnote {
+        margin-top: 1rem;
+        font-size: 0.92rem;
+        color: rgba(203, 213, 225, 0.9);
+      }
+    </style>
+</head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="../index.html">
+<img alt="GEO logo" class="logo-image" src="../Img/logo-aeo.png"/>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="burger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="drawer-backdrop" data-drawer-close="" hidden=""></div>
+<aside aria-hidden="true" aria-label="Menu" class="mobile-drawer" id="site-drawer">
+<div class="mobile-drawer__header">
+<span class="mobile-drawer__title">Menu</span>
+<button aria-label="Close menu" class="mobile-drawer__close" data-drawer-close="" type="button">×</button>
+</div>
+<nav aria-label="Site navigation" class="drawer-nav">
+<details class="nav-dd" open="">
+<summary>Methods</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../methods/methods-guide.html" role="menuitem">Promotion methods - overview</a>
+<a href="../methods/geo.html" role="menuitem">GEO optimization</a>
+<a href="../methods/aeo.html" role="menuitem">AEO optimization</a>
+<a href="../methods/seo.html" role="menuitem">SEO optimization</a>
+<a href="../methods/aio.html" role="menuitem">AIO optimization</a>
+<a href="../methods/ai-smm.html" role="menuitem">AI &amp; SMM strategies</a>
+<a href="../methods/faq-methods.html" role="menuitem">FAQ on methods</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Neuroplatforms</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../neural-platforms/platform-comparison.html" role="menuitem">What are neuroplatforms</a>
+<a href="../neural-platforms/chatgpt.html" role="menuitem">ChatGPT</a>
+<a href="../neural-platforms/perplexity.html" role="menuitem">Perplexity</a>
+<a href="../neural-platforms/deepseek.html" role="menuitem">DeepSeek</a>
+<a href="../neural-platforms/yandex-alice.html" role="menuitem">Yandex Alice</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Tools</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../tools/analytics.html" role="menuitem">Analytics and audit</a>
+<a href="../tools/geo-aeo-bi-dashboard.html" role="menuitem">GEO/AEO BI dashboard</a>
+<a href="../tools/content-factory.html" role="menuitem">Content factory</a>
+<a href="../tools/it-audit.html" role="menuitem">Audit of the current IT solution</a>
+<a href="../tools/promotion-strategy.html" role="menuitem">Promotion strategy</a>
+<a href="../tools/full-promotion.html" role="menuitem">Full promotion</a>
+<a href="../tools/support-service.html" role="menuitem">Support service</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Strategy</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../strategy/overview.html" role="menuitem">Strategy Section Overview</a>
+<a href="../strategy/strategic-intent.html" role="menuitem">Strategic intent</a>
+<a href="../strategy/geo-aeo-rollout.html" role="menuitem">GEO/AEO: website and content system</a>
+<a href="../strategy/audit-ai-visibility.html" role="menuitem">AI visibility audit and metrics</a>
+<a href="../strategy/geo-aeo-metrics-bi.html" role="menuitem">GEO/AEO and BI metrics</a>
+<a href="../strategy/implementation-changes.html" role="menuitem">Implementation of changes</a>
+<a href="../strategy/optimization-tracking.html" role="menuitem">Optimization and tracking</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Industries</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../case-studies/all-industries-geo-aeo.html" role="menuitem">All industries and neurosearch</a>
+<a href="../case-studies/marketplaces-neuro-strategy.html" role="menuitem">Marketplaces</a>
+<a href="../case-studies/clinics-neuro-strategy.html" role="menuitem">Clinics</a>
+<a href="../case-studies/service-centers-neuro-strategy.html" role="menuitem">Service centers</a>
+<a href="../case-studies/showrooms-neuro-strategy.html" role="menuitem">Showrooms</a>
+<a href="../case-studies/beauty-neuro-strategy.html" role="menuitem">Beauty salons</a>
+<a href="../case-studies/delivery-neuro-strategy.html" role="menuitem">Delivery</a>
+<a href="../case-studies/corporations.html" role="menuitem">Cases of large corporations</a>
+<a href="../case-studies/ecommerce.html" role="menuitem">e‑commerce cases</a>
+<a href="../case-studies/saas.html" role="menuitem">SaaS and digital cases</a>
+<a href="../case-studies/local-business.html" role="menuitem">Local business cases</a>
+<a href="../case-studies/ai-discovery.html" role="menuitem">AI‑discovery leaders</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>General</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../faq-promotion.html" role="menuitem">FAQ on promotions in AI and search</a>
+<a href="../about.html" role="menuitem">Company and contacts</a>
+</div>
+</details>
+<a class="drawer-link" href="../blog/main.html">BLOG</a>
+</nav>
+</aside>
+<main>
+<section class="section">
+<div class="container geo-bi">
+<header class="section-header">
+<h1>GEO/AEO BI dashboard</h1>
+<p class="section-subtitle">
+              Metrics dashboard prototype: demo data on Chart.js. The logic of indicators and decoding is in the article
+              <a href="../strategy/geo-aeo-metrics-bi.html">"GEO/AEO and BI Metrics"</a>.
+            </p>
+</header>
+<p class="geo-bi__lead">
+            The cards and graphs below illustrate the typical composition of the report: visibility over time, intent distribution, the share of “holes” in coverage and the system health block. In the product, a layer of models (ChatGPT / Gemini / Perplexity), a heatmap of intents and an overlay of competitors are added here.
+          </p>
+<div aria-label="Key KPIs" class="geo-bi__grid-kpi">
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">AI Visibility Rate</div>
+<div class="geo-bi__kpi-value">44%</div>
+<div class="geo-bi__kpi-hint">share of prompts mentioning the brand</div>
+</div>
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">Intent Coverage</div>
+<div class="geo-bi__kpi-value">68%</div>
+<div class="geo-bi__kpi-hint">closed intentions on the map</div>
+</div>
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">Answer Share Index</div>
+<div class="geo-bi__kpi-value">0,31</div>
+<div class="geo-bi__kpi-hint">conditional weight in the answer</div>
+</div>
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">Gap Index</div>
+<div class="geo-bi__kpi-value">22%</div>
+<div class="geo-bi__kpi-hint">intentions without a brand</div>
+</div>
+</div>
+<div class="geo-bi__charts geo-bi__charts--2">
+<div class="geo-bi__card">
+<h3>AI Visibility Dynamics</h3>
+<div class="geo-bi__chart-wrap">
+<canvas aria-label="AI Visibility Line Graph" id="geoBiChartVisibility"></canvas>
+</div>
+</div>
+<div class="geo-bi__card">
+<h3>Intent Distribution</h3>
+<div class="geo-bi__chart-wrap">
+<canvas aria-label="Histogram of intent distribution" id="geoBiChartIntent"></canvas>
+</div>
+</div>
+</div>
+<div class="geo-bi__charts geo-bi__charts--2">
+<div class="geo-bi__card">
+<h3>Content Gap Index</h3>
+<div class="geo-bi__chart-wrap">
+<canvas aria-label="Pie chart gap" id="geoBiChartGap"></canvas>
+</div>
+</div>
+<div class="geo-bi__card geo-bi__health">
+<h3>System Health Metrics</h3>
+<ul>
+<li><strong>Extraction Rate:</strong> 72% - pieces of content that end up in replies</li>
+<li><strong>Brand Authority Positioning:</strong> Strong - stable role in the category</li>
+<li><strong>AI Contribution Score:</strong> High - the core of the pages pulls visibility</li>
+<li><strong>Indexation-to-AI Lag:</strong> 3.2 days - median before appearing in LLM</li>
+<li><strong>Knowledge Graph Strength:</strong> Growing - the entity is gaining connections</li>
+</ul>
+</div>
+</div>
+<p class="geo-bi__footnote">
+            The data is fictitious to demonstrate the UI. The next step of the product: LLM tracking layer (separately by model), intent heatmap and competitor overlay (share of AI voice).
+          </p>
+<div class="content-related">
+<h3>Related materials</h3>
+<ul>
+<li><a href="../strategy/geo-aeo-metrics-bi.html">Article: GEO/AEO and BI metrics</a></li>
+<li><a href="../strategy/audit-ai-visibility.html">AI visibility audit</a></li>
+<li><a href="analytics.html">Analytics and audit</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+      (function () {
+        const grid = "rgba(255,255,255,0.06)";
+        const tick = "rgba(148, 163, 184, 0.95)";
+        const common = {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: "rgba(248, 250, 252, 0.92)" } },
+          },
+        };
+
+        new Chart(document.getElementById("geoBiChartVisibility"), {
+          type: "line",
+          data: {
+            labels: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн"],
+            datasets: [
+              {
+                label: "AI Visibility Rate, %",
+                data: [28, 30, 33, 36, 41, 44],
+                borderColor: "rgb(56, 189, 248)",
+                backgroundColor: "rgba(56, 189, 248, 0.12)",
+                fill: true,
+                tension: 0.35,
+                pointRadius: 3,
+              },
+            ],
+          },
+          options: {
+            ...common,
+            scales: {
+              x: { ticks: { color: tick }, grid: { color: grid } },
+              y: { ticks: { color: tick }, grid: { color: grid }, suggestedMin: 0, suggestedMax: 55 },
+            },
+          },
+        });
+
+        new Chart(document.getElementById("geoBiChartIntent"), {
+          type: "bar",
+          data: {
+            labels: ["Explain", "How-to", "Compare", "Decision", "Commercial"],
+            datasets: [
+              {
+                label: "Покрыто, %",
+                data: [72, 64, 58, 51, 48],
+                backgroundColor: [
+                  "rgba(56, 189, 248, 0.75)",
+                  "rgba(129, 140, 248, 0.75)",
+                  "rgba(52, 211, 153, 0.75)",
+                  "rgba(251, 191, 36, 0.8)",
+                  "rgba(248, 113, 113, 0.75)",
+                ],
+              },
+            ],
+          },
+          options: {
+            ...common,
+            scales: {
+              x: { ticks: { color: tick }, grid: { display: false } },
+              y: { ticks: { color: tick }, grid: { color: grid }, suggestedMax: 100 },
+            },
+          },
+        });
+
+        new Chart(document.getElementById("geoBiChartGap"), {
+          type: "doughnut",
+          data: {
+            labels: ["Покрыто", "Gap (нет бренда)", "В работе"],
+            datasets: [
+              {
+                data: [58, 22, 20],
+                backgroundColor: [
+                  "rgba(52, 211, 153, 0.85)",
+                  "rgba(248, 113, 113, 0.85)",
+                  "rgba(148, 163, 184, 0.55)",
+                ],
+                borderWidth: 0,
+              },
+            ],
+          },
+          options: {
+            ...common,
+            cutout: "52%",
+            plugins: {
+              ...common.plugins,
+              legend: { position: "bottom", labels: { color: "rgba(248, 250, 252, 0.92)", padding: 14 } },
+            },
+          },
+        });
+      })();
+    </script>
+<script src="../script.js"></script>
+</body>
+</html>

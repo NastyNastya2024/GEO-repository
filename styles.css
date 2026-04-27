@@ -1367,6 +1367,34 @@ main {
   flex: 0 0 auto;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-width: 44px;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(2, 6, 23, 0.35);
+  color: rgba(248, 250, 252, 0.92);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.lang-switch:hover {
+  border-color: rgba(17, 111, 235, 0.55);
+  background: rgba(17, 111, 235, 0.12);
+}
+
+.lang-switch:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.9);
+  outline-offset: 2px;
+}
+
 /* Квадратные скобки вокруг меню */
 .main-nav::before,
 .main-nav::after {

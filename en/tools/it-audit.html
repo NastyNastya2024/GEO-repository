@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit of the current IT solution: why title, canonical, FAQPage, GEO and “pieces” of content for LLM</title>
+<meta content="Article guide: why each element of a site audit is needed - from title and canonical to FAQPage, LocalBusiness, NAP, geo pages and chunkable content. Question-answer format for SEO, AEO and GEO." name="description"/>
+<meta content="IT solution audit, site audit, GEO, AEO, SEO, canonical, hreflang, FAQPage, JSON-LD, schema.org, LocalBusiness, NAP, SSR, LLM, chunkable content" name="keywords"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;family=Jura:wght@300..700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="/en/tools/it-audit.html" rel="canonical"/>
+</head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="../index.html">
+<img alt="AEO" class="logo-image" src="../Img/logo-aeo.png"/>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="burger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container">
+<div class="section-header">
+<h1>Audit of the current IT solution</h1>
+<p class="section-subtitle">
+              Material for site owners and development teams: how classic SEO, AEO, GEO and optimization for LLM converge in one audit, and why each checklist item is needed. Each section begins with a short answer to a question - this is more convenient for both people and answering systems.
+            </p>
+</div>
+<article class="content-article">
+<p class="content-note">
+<strong>TL;DR:</strong> auditing an IT solution is not about “checking boxes”, but about checking whether the search and neural network can reliably understand the topic of the page, trust the facts, connect entities and pull out a ready-made fragment in response to the user. Below are questions and answers on the same axes as in the practical checklist: meta tags, structure, markup, locale, content for extraction and frontend.
+            </p>
+<h2>What is an audit of a current IT solution in conjunction with SEO, AEO and GEO?</h2>
+<p>
+              This is a systematic check of code, content and data for how the site looks to search robots and to models that answer questions in ChatGPT, Perplexity and similar.
+            </p>
+<p>
+              Classic SEO answers the question “whether the page will be indexed and understood by search engines.” AEO - “does the page have a ready-made answer in explicit form and in machine-readable markup?” GEO - on “whether the system knows where you are in the world and in which local reality to compare you.” Optimizing for LLM adds: “is it safe to cut out a paragraph and quote it as a fact.” The audit brings this together into one report with implementation priorities.
+            </p>
+<p>
+              Below is one end-to-end route through the site: from the fact that the system reads the URL “from the label”, to how it gets to the text and images, then to answers and markup, entities and locales, to ease of quoting and clean layout. Each subsequent block builds on the previous one; If you disrupt the beginning of the chain, the meaning of the following points on the checklist is lost.
+            </p>
+<h2>Why do you need a meaningful title, meta description and one clear h1?</h2>
+<p>
+              The first practical layer of auditing an IT solution is how the page is presented on the outside: what is included in the snippet and what is declared as the main thesis inside the document. This is where the crawler and many crawling pipelines look before parsing the main text.
+            </p>
+<p>
+              They set the “label” of the page: what is it about in one line for the snippet and what is the main thesis inside the page.
+            </p>
+<p>
+<code>&lt;title&gt;</code> и <code>meta description</code> help both Google and the person in search results; for neural networks, this is often the first relevance signal when crawling or when learning from page snapshots. One semantic <code>&lt;h1&gt;</code> without water, it reduces the risk that the model will link the page to the wrong topic. The structure of sections (methods, cases, blog) provides a hierarchy of “supporting” URLs around commercial and educational intents - this is the basis of both SEO clusters and citation logic.
+            </p>
+<h2>Why internal linking and lazy loading of images?</h2>
+<p>
+              When the page label is clear, the next audit question is how the robot and model <em>they reach</em> to the important text: which URLs are related to each other and whether the first screen is delayed by heavy visuals.
+            </p>
+<p>
+              Linking distributes weight and meaning between pages and shows which documents the author considers supporting; lazy loading reduces the load on the first screen and speeds up the crawler's receipt of text.
+            </p>
+<p>
+              For GEO/AEO, it is important that important pages do not “drown” behind heavy images: the faster text and headings appear in the DOM, the sooner the system can index them and use them in training or retrieval.
+            </p>
+<h2>Are meta keywords, canonical and hreflang necessary in 2026?</h2>
+<p>
+              Linking directs attention to the necessary documents; canonical and hreflang answer a different question - <strong>Which URL should be considered the main one?</strong> with doubles and <strong>what version</strong> dedicated to language and region. Without this, the “label” and content signal gets blurred between page copies.
+            </p>
+<p>
+<code>meta keywords</code> for large search engines they have not carried weight for a long time; they can be removed to avoid causing noise. <code>link rel="canonical"</code> и <code>hreflang</code> on the contrary, they are critical for duplicates and multilingualism.
+            </p>
+<p>
+              Canonical explains which URL should be considered the main one for duplicate or almost repeating pages - without this, the signal will be diluted both in SEO and in training models on your content. <code>hreflang</code> tells which version is for which language and region; without it, a multilingual site gives conflicting signals and is less likely to be included in local and multilingual responses.
+            </p>
+<h2>Why do both SEO and neural network responses suffer without SSR or pre-rendering?</h2>
+<p>
+              Even the perfect title and canonical don’t work if there is no meaningful text in the first HTML response: further on the checklist is how exactly the markup and content is served, before or after executing the heavy client code.
+            </p>
+<p>
+              If all the text appears only after heavy JavaScript, the robot and model may see a blank or truncated version of the page.
+            </p>
+<p>
+              SSR, static generation or pre-rendering produce HTML “in the first packet” - this is a direct signal “the content really exists”. For AEO, this also means that the block with the answer will be included in the index as a whole, and not as a stub.
+            </p>
+<h2>Why do we need “text weight” and explicit response blocks on key URLs?</h2>
+<p>
+              If the page is rendered entirely in HTML, the audit moves on to the content: does the key URL have a density of facts and pre-selected “response” fragments that the system can select for a snippet or quote.
+            </p>
+<p>
+              Search engines and LLMs select fragments with a high density of facts and definitions; a landing page in one short column without revealing the topic is less likely to become a source of quotation.
+            </p>
+<p>
+              Separate paragraphs in the “question - short answer - details” format increase the chance that the system will take the first sentence as a definition. Tables, lists, and mini-FAQs next to the main text enhance retrieval without compromising human readability.
+            </p>
+<h2>How is a visible FAQ different from the FAQPage markup in JSON-LD for AEO?</h2>
+<p>
+              Explicit question-short answer paragraphs are good for people; It’s easier for a machine when the same logic is duplicated in structured data—further about the combination of HTML and JSON‑LD.
+            </p>
+<p>
+              HTML FAQ is good for people; <code>FAQPage</code> JSON-LD explicitly tells the machine: “this is a question, this is an answer, this is an order.”
+            </p>
+<p>
+              Models and parsers cling more reliably to structured question-answer pairs than to arbitrary text inside <code>&lt;details&gt;</code>. Example data form (simplified):</p>
+<pre><code>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Что такое GEO?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Краткое определение одной строкой." }
+    }
+  ]
+}</code></pre>
+<p>
+              Combine both approaches: a visible FAQ on the page and duplicate JSON‑LD meaning without contradicting the text.
+            </p>
+<h2>What are entity signals and why do neural networks need them?</h2>
+<p>
+              Question-answer pairs describe individual meanings; the next step is to link them to <strong>entities</strong> brand, product and location, so that the system does not confuse you with objects of the same name and can rely on the official picture in the data.
+            </p>
+<p>
+              This is an explicit connection “brand - product - location - topic” through text and schema.org, so that the system does not confuse you with the object of the same name.
+            </p>
+<p>
+              Mention of ChatGPT or Perplexity in text without <code>Organization</code>, <code>Product</code> or <code>Service</code> in the markup gives a weak signal: the model does not know what entity we are talking about in the official sense. Cohesion of articles, consistent NAP wording, and consistent service names enhance citation credibility.
+            </p>
+<h2>Why is one Organization in schema not enough for GEO and what does LocalBusiness give?</h2>
+<p>
+              Basic <code>Organization</code> sets the company as a whole; for answers in the spirit of “near me” and maps, you need a type that binds the offer to the address, time and zone - otherwise GEO remains only in the wording of the text.
+            </p>
+<p>
+<code>Organization</code> describes the company as a whole; <code>LocalBusiness</code> (or subtype) binds the offer to the address, hours and geofence of service.
+            </p>
+<p>
+              Maps, local pack and "near me" responses are based on the agreed address, phone and coordinates. Without this, GEO remains in the marketer's text, and not in the data that search and assistants can verify.
+            </p>
+<h2>Why remove NAP and make separate pages for cities?</h2>
+<p>
+              When a local entity type is selected, the audit checks for consistency of contact information and the presence of separate URLs for geomodifiers - this is a practical implementation of GEO at the site level.
+            </p>
+<p>
+              NAP (Name, Address, Phone) in one checked block reduces the risk of contradictions between the site, maps and catalogs; geo-URL like <code>/moscow/</code> give pure intent for the crawler and for the user.
+            </p>
+<p>
+              For neural networks, a separate city page is a ready-made document responding to queries with a geomodifier; It’s easier to place local cases, reviews and micro markup inside it without mixing it with the federal version of the offer.
+            </p>
+<h2>What do chunkable content and supporting articles mean for LLM?</h2>
+<p>
+              Local and thematic pages should not only rank, but also be convenient <strong>cut into quotes</strong>: the next block is about self-sufficient paragraphs and supporting materials of the knowledge base.
+            </p>
+<p>
+              These are short self-contained blocks: definition, steps, comparison “A vs B”, which can be pulled out in response without retelling the entire page.
+            </p>
+<p>
+              The link “What is GEO / How it works / GEO vs SEO vs AEO” is an example of a knowledge base framework: each piece has one main meaning. Add numbers, links to studies and cases - these are signals of trust that models prefer to bare slogans.
+            </p>
+<h2>How do semantic layout and aria help, but how do decor and duplicates get in the way?</h2>
+<p>
+<code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> and level headings make navigation easier for both screen readers and parsers; aria signatures clarify the role of the widget.
+            </p>
+<p>
+              Long decorative zones and repeating tickers increase the “noise to signal”: in token statistics, useful text is sparse, and the model is less able to highlight the key thesis. Reduce duplicates and place the decoration where it does not break the main semantic flow.
+            </p>
+<h2>What is included in a custom audit and what artifacts do you receive?</h2>
+<p>
+              The output is usually a checklist of priorities, a table of problems with a link to the URL, recommendations for schema and structure, an implementation plan for sprints and control metrics (speed, index, appearance in responses to test requests).
+            </p>
+<p>
+              The technical part covers speed, indexing, redirects and duplicates; content - linking, support pages and response formats; data - JSON‑LD, NAP and local entities. Such a package can be sent directly to development and editors without losing the context of “why is this needed.”
+            </p>
+<div aria-label="Audit Axes Summary Table" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>What we check</th>
+<th>For what</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEO</td>
+<td>Title, description, h1, canonical, hreflang, linking, SSR</td>
+<td>Correct indexing and snippets without duplicates</td>
+</tr>
+<tr>
+<td>AEO</td>
+<td>FAQ, JSON-LD FAQPage, answer-first blocks, entities</td>
+<td>Ready-made answers and citations in AI search</td>
+</tr>
+<tr>
+<td>GEO</td>
+<td>LocalBusiness, NAP, geo pages</td>
+<td>Local relevance and maps</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>Chunkable text, supports, numbers, external links</td>
+<td>Trust and Retrievability of Fragments</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>Semantics, aria, absence of noise</td>
+<td>Fewer errors when parsing DOM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="read-also">
+              Healthy: <a href="../tools/analytics.html#audit-code-aeo-geo">AEO + GEO code audit</a>.
+            </p>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"></footer>
+<script src="../script.js"></script>
+</body>
+</html>
