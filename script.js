@@ -121,8 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isEnglish = () => {
     try {
-      const p = String(window.location.pathname || "");
-      return p.includes("/en/");
+      const parts = String(window.location.pathname || "/")
+        .split("/")
+        .filter(Boolean);
+      if (!parts.length) return false;
+      const isGithubProject = String(window.location.hostname || "").endsWith("github.io") && parts.length >= 2;
+      return isGithubProject ? parts[1] === "en" : parts[0] === "en";
     } catch {
       return false;
     }
@@ -323,12 +327,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const buildLanguageSwitchUrl = () => {
     const u = new URL(window.location.href);
-    const p = String(u.pathname || "/");
-    if (p.includes("/en/")) {
-      u.pathname = p.replace(/\/en(\/|$)/, "/");
-      return u.toString();
+    const parts = String(u.pathname || "/")
+      .split("/")
+      .filter(Boolean);
+
+    const isGithubProject = String(window.location.hostname || "").endsWith("github.io") && parts.length >= 1;
+
+    const idx = isGithubProject ? 1 : 0; // github project pages: /<repo>/en/... ; custom domain: /en/...
+    const hasEn = parts[idx] === "en";
+
+    if (hasEn) {
+      parts.splice(idx, 1);
+    } else {
+      parts.splice(idx, 0, "en");
     }
-    u.pathname = p === "/" ? "/en/" : `/en${p}`;
+
+    u.pathname = "/" + parts.join("/");
+    // Preserve trailing slash if it was there
+    if (String(window.location.pathname || "").endsWith("/") && !u.pathname.endsWith("/")) u.pathname += "/";
     return u.toString();
   };
 
