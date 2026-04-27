@@ -2738,16 +2738,17 @@ main {
 
 /* Dots ring layer (paint) + subtle pulse */
 .visibility-section::before {
+  display: none !important;
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -26%;
   pointer-events: none;
   /* 0, not -1: with isolation + #000 bg, negative z-index paints under the fill and vanishes */
   z-index: 0;
-  --particle-color: #fb7185; /* red dots only */
+  --particle-color: #38bdf8; /* blue dots */
   --seed: 120;
   /* Fallback for browsers without CSS Houdini paint() (common in mobile webviews) */
-  background-image: radial-gradient(circle, rgba(251, 113, 133, 0.92) 1.8px, transparent 2.4px);
+  background-image: radial-gradient(circle, rgba(56, 189, 248, 0.92) 1.8px, transparent 2.4px);
   background-repeat: repeat;
   background-size: 18px 18px;
   opacity: 0.72;
@@ -2786,6 +2787,9 @@ main {
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
+  /* Break visible horizontal dot rows from the repeated pattern */
+  transform: rotate(13deg) scale(1.12);
+  transform-origin: center;
   animation:
     visibilityRingPulse 7.2s ease-in-out infinite,
     visibilityDotsMarquee 30s linear infinite;
@@ -2793,8 +2797,16 @@ main {
 
 /* Second color layer for multi-color dots */
 .visibility-section::after {
+  display: none !important;
   display: none;
   animation: none;
+}
+
+/* Also disable Houdini paint() dots if enabled */
+.houdini-ringparticles .visibility-section::before,
+.houdini-ringparticles .visibility-section::after {
+  display: none !important;
+  background-image: none !important;
 }
 
 /* paint() только если worklet реально подключился (см. script.js), иначе остаётся radial-gradient */
@@ -2944,7 +2956,7 @@ body.home #services.services-section {
   max-width: 1120px;
   width: 100%;
   padding: clamp(2.5rem, 4vw, 3.4rem) clamp(1.6rem, 4vw, 3rem);
-  overflow: hidden;
+  overflow: visible;
   border-radius: 24px;
   isolation: isolate;
   display: flex;
@@ -2954,6 +2966,10 @@ body.home #services.services-section {
   min-height: var(--home-highlight-min-height);
   position: relative;
   z-index: 1;
+  /* no visible "panel": keep only background gradients via pseudo-elements */
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .visibility-card::before,
@@ -2966,7 +2982,20 @@ body.home #services.services-section {
 }
 
 .visibility-card::before {
-  display: none; /* убираем квадратные точки */
+  display: block;
+  opacity: 0.65;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(56, 189, 248, 0.20), transparent 58%),
+    radial-gradient(circle at 50% 42%, rgba(56, 189, 248, 0.10), transparent 72%);
+  filter: blur(0.4px);
+  /* Force a real circle shape */
+  inset: auto;
+  width: min(72vmin, 980px);
+  height: min(72vmin, 980px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
 }
 
 .visibility-card::after {
@@ -3048,11 +3077,11 @@ body.home #services.services-section {
 .visibility-text {
   position: relative;
   z-index: 1;
-  font-size: clamp(1.2rem, 1.85vw, 1.65rem);
+  font-size: clamp(1.45rem, 2.45vw, 2.1rem);
   line-height: 1.45;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  max-width: 38rem;
+  max-width: min(48rem, 92vw);
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
@@ -5735,6 +5764,8 @@ body.legacy-dark .btn-ghost {
   margin: 0 1rem;
   border-left: 1px solid rgba(148, 163, 184, 0.12);
   border-right: 1px solid rgba(148, 163, 184, 0.12);
+  /* Remove dotted horizontal background (keep only text ticker) */
+  background: transparent;
 }
 
 .header-ticker__track {
