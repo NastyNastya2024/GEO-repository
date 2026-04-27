@@ -1367,11 +1367,17 @@ main {
   flex: 0 0 auto;
 }
 
-.header-ticker,
 .post-main-ticker,
 .orb-ticker-fullbleed,
 .orb-ticker {
   display: none !important;
+}
+
+/* Header ticker: show on desktop, hide on mobile */
+@media (max-width: 768px) {
+  .header-ticker {
+    display: none !important;
+  }
 }
 
 .lang-switch {
@@ -2704,6 +2710,8 @@ main {
   isolation: isolate;
 }
 
+/* Ring dots are configured below (do not hide globally). */
+
 /* After services: do NOT overlap соседние плашки */
 .visibility-section--logo {
   margin-top: 0;
@@ -2736,10 +2744,10 @@ main {
   pointer-events: none;
   /* 0, not -1: with isolation + #000 bg, negative z-index paints under the fill and vanishes */
   z-index: 0;
-  --particle-color: #38bdf8; /* sky blue */
+  --particle-color: #fb7185; /* red dots only */
   --seed: 120;
   /* Fallback for browsers without CSS Houdini paint() (common in mobile webviews) */
-  background-image: radial-gradient(circle, rgba(56, 189, 248, 0.95) 1.8px, transparent 2.4px);
+  background-image: radial-gradient(circle, rgba(251, 113, 133, 0.92) 1.8px, transparent 2.4px);
   background-repeat: repeat;
   background-size: 18px 18px;
   opacity: 0.72;
@@ -2771,8 +2779,9 @@ main {
     rgba(255, 255, 255, 0.28) 80%,
     rgba(255, 255, 255, 0) 91%
   );
-  -webkit-mask-size: 50% 100%;
-  mask-size: 50% 100%;
+  /* make ring 2x narrower horizontally */
+  -webkit-mask-size: 25% 100%;
+  mask-size: 25% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -2784,53 +2793,8 @@ main {
 
 /* Second color layer for multi-color dots */
 .visibility-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  --particle-color: #fb7185; /* pink */
-  --seed: 480;
-  /* Fallback for browsers without CSS Houdini paint() */
-  background-image: radial-gradient(circle, rgba(251, 113, 133, 0.88) 1.8px, transparent 2.4px);
-  background-repeat: repeat;
-  background-size: 18px 18px;
-  opacity: 0.42;
-  mix-blend-mode: normal;
-  filter: saturate(1.12) contrast(1.04) blur(0.2px);
-  -webkit-mask-image: radial-gradient(
-    circle farthest-corner at 50% 48%,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 22%,
-    rgba(255, 255, 255, 0.22) 30%,
-    rgba(255, 255, 255, 0.72) 38%,
-    rgba(255, 255, 255, 1) 44%,
-    rgba(255, 255, 255, 1) 56%,
-    rgba(255, 255, 255, 0.68) 68%,
-    rgba(255, 255, 255, 0.28) 80%,
-    rgba(255, 255, 255, 0) 91%
-  );
-  mask-image: radial-gradient(
-    circle farthest-corner at 50% 48%,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 22%,
-    rgba(255, 255, 255, 0.22) 30%,
-    rgba(255, 255, 255, 0.72) 38%,
-    rgba(255, 255, 255, 1) 44%,
-    rgba(255, 255, 255, 1) 56%,
-    rgba(255, 255, 255, 0.68) 68%,
-    rgba(255, 255, 255, 0.28) 80%,
-    rgba(255, 255, 255, 0) 91%
-  );
-  -webkit-mask-size: 50% 100%;
-  mask-size: 50% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  animation:
-    visibilityRingHue 10.5s ease-in-out infinite,
-    visibilityDotsMarquee 38s linear infinite reverse;
+  display: none;
+  animation: none;
 }
 
 /* paint() только если worklet реально подключился (см. script.js), иначе остаётся radial-gradient */
@@ -2838,7 +2802,7 @@ main {
   background-image: paint(ring-particles);
   background-size: cover;
   background-repeat: no-repeat;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }
 
 .houdini-ringparticles .visibility-section::after {
@@ -4972,7 +4936,7 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   position: relative;
   border-radius: var(--apple-radius-md);
   overflow: hidden;
-  height: 156px;
+  height: 78px;
   flex-shrink: 0;
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--border-subtle);
