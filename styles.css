@@ -1367,6 +1367,13 @@ main {
   flex: 0 0 auto;
 }
 
+.header-ticker,
+.post-main-ticker,
+.orb-ticker-fullbleed,
+.orb-ticker {
+  display: none !important;
+}
+
 .lang-switch {
   display: inline-flex;
   align-items: center;
