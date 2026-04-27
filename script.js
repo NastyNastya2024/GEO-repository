@@ -119,83 +119,20 @@ document.addEventListener("DOMContentLoaded", () => {
     ? (scriptEl.getAttribute("src") || "").replace(/script\.js(\?.*)?$/, "")
     : "";
 
-  // Build correct absolute link base for GitHub Pages project sites.
-  // Examples:
-  // - https://<user>.github.io/<repo>/...  -> base "/<repo>/"
-  // - custom domain (or localhost)         -> base "/"
-  const basePath = (() => {
-    try {
-      const isGithub = String(window.location.hostname || "").endsWith("github.io");
-      if (!isGithub) return "/";
-      const parts = String(window.location.pathname || "/").split("/").filter(Boolean);
-      if (!parts.length) return "/";
-      // Normalize both layouts:
-      // - /<repo>/en/...  (correct)
-      // - /en/<repo>/...  (legacy/wrong)
-      const repo = parts[0] === "en" ? parts[1] : parts[0];
-      if (!repo) return "/";
-      return `/${repo}/`;
-    } catch {
-      return "/";
-    }
-  })();
-
-  const pageBase = `${basePath}${LANG === "en" ? "en/" : ""}`;
-
   const isEnglish = () => {
     try {
-      const parts = String(window.location.pathname || "/").split("/").filter(Boolean);
+      const parts = String(window.location.pathname || "/")
+        .split("/")
+        .filter(Boolean);
       if (!parts.length) return false;
-
-      const isGithub = String(window.location.hostname || "").endsWith("github.io");
-      if (!isGithub) return parts[0] === "en";
-
-      // Support both correct and legacy/wrong layouts:
-      // - correct project pages: /<repo>/en/...
-      // - wrong/legacy:          /en/<repo>/...
-      if (parts[0] === "en") return true;
-      return parts[1] === "en";
+      const isGithubProject = String(window.location.hostname || "").endsWith("github.io") && parts.length >= 2;
+      return isGithubProject ? parts[1] === "en" : parts[0] === "en";
     } catch {
       return false;
     }
   };
 
   const LANG = isEnglish() ? "en" : "ru";
-
-  const toEnglishUrl = (href) => {
-    try {
-      const u = new URL(href, window.location.href);
-      if (u.origin !== window.location.origin) return null;
-      const parts = String(u.pathname || "/").split("/").filter(Boolean);
-      const isGithub = String(window.location.hostname || "").endsWith("github.io");
-
-      if (!isGithub) {
-        if (parts[0] === "en") return u.toString();
-        parts.unshift("en");
-        u.pathname = "/" + parts.join("/");
-        return u.toString();
-      }
-
-      if (!parts.length) return null;
-
-      // Normalize both layouts:
-      // - correct: /<repo>/en/...
-      // - wrong:   /en/<repo>/...
-      if (parts[0] === "en" && parts.length >= 2) {
-        const repo = parts[1];
-        const rest = parts.slice(2);
-        u.pathname = "/" + [repo, "en", ...rest].join("/");
-        return u.toString();
-      }
-
-      const repo = parts[0];
-      if (parts[1] === "en") return u.toString();
-      u.pathname = "/" + [repo, "en", ...parts.slice(1)].join("/");
-      return u.toString();
-    } catch {
-      return null;
-    }
-  };
 
   const I18N = {
     ru: {
@@ -390,37 +327,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const buildLanguageSwitchUrl = () => {
     const u = new URL(window.location.href);
-    const parts = String(u.pathname || "/").split("/").filter(Boolean);
-    const wasTrailingSlash = String(window.location.pathname || "").endsWith("/");
+    const parts = String(u.pathname || "/")
+      .split("/")
+      .filter(Boolean);
 
-    const isGithub = String(window.location.hostname || "").endsWith("github.io");
-    if (!isGithub) {
-      const hasEn = parts[0] === "en";
-      if (hasEn) parts.splice(0, 1);
-      else parts.splice(0, 0, "en");
-      u.pathname = "/" + parts.join("/");
-      if (wasTrailingSlash && !u.pathname.endsWith("/")) u.pathname += "/";
-      return u.toString();
+    const isGithubProject = String(window.location.hostname || "").endsWith("github.io") && parts.length >= 1;
+
+    const idx = isGithubProject ? 1 : 0; // github project pages: /<repo>/en/... ; custom domain: /en/...
+    const hasEn = parts[idx] === "en";
+
+    if (hasEn) {
+      parts.splice(idx, 1);
+    } else {
+      parts.splice(idx, 0, "en");
     }
 
-    // GitHub project pages should be: /<repo>/en/...
-    // If user is on legacy/wrong:      /en/<repo>/..., normalize too.
-    if (!parts.length) return u.toString();
-
-    let repo = parts[0];
-    let rest: string[] = parts.slice(1);
-    let currentlyEn = rest[0] === "en";
-
-    if (repo === "en" && parts.length >= 2) {
-      // wrong layout: /en/<repo>/...
-      repo = parts[1];
-      rest = parts.slice(2);
-      currentlyEn = true;
-    }
-
-    const nextParts = currentlyEn ? [repo, ...rest] : [repo, "en", ...rest];
-    u.pathname = "/" + nextParts.join("/");
-    if (wasTrailingSlash && !u.pathname.endsWith("/")) u.pathname += "/";
+    u.pathname = "/" + parts.join("/");
+    // Preserve trailing slash if it was there
+    if (String(window.location.pathname || "").endsWith("/") && !u.pathname.endsWith("/")) u.pathname += "/";
     return u.toString();
   };
 
@@ -449,29 +373,6 @@ document.addEventListener("DOMContentLoaded", () => {
       else headerInner.appendChild(btn);
     }
   };
-
-  // Hard guarantee: when browsing EN pages, keep internal navigation in EN.
-  // This protects against any leftover RU links in static HTML menus.
-  if (LANG === "en") {
-    document.addEventListener(
-      "click",
-      e => {
-        const target = e.target;
-        if (!(target instanceof Element)) return;
-        const a = target.closest("a[href]");
-        if (!a) return;
-        const href = a.getAttribute("href") || "";
-        if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
-        const next = toEnglishUrl(href);
-        if (!next) return;
-        // If link already points to EN, do nothing.
-        if (next === new URL(href, window.location.href).toString()) return;
-        e.preventDefault();
-        window.location.href = next;
-      },
-      { capture: true }
-    );
-  }
 
   /** В шапке только «Консультация» + бургер: убираем прочие кнопки/ссылки и при необходимости добавляем консультацию. */
   const ensureHeaderConsultationCta = () => {
@@ -519,68 +420,68 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="footer-sitemap" aria-label="${tr("sitemapAria")}">
       <div class="footer-col">
         <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.main}</div>
-        <a href="${pageBase}blog/main.html">${trPath("blog", "Blog")}</a>
-        <a href="${pageBase}about.html">${trPath("company", "Company")}</a>
+        <a href="${prefix}blog/main.html">${trPath("blog", "Blog")}</a>
+        <a href="${prefix}about.html">${trPath("company", "Company")}</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.methods}</div>
-        <a href="${pageBase}methods/methods-guide.html">${trPath("methodsGuide", "Methods overview")}</a>
-        <a href="${pageBase}methods/geo.html">${trPath("geo", "GEO optimization")}</a>
-        <a href="${pageBase}methods/aeo.html">${trPath("aeo", "AEO optimization")}</a>
-        <a href="${pageBase}methods/seo.html">${trPath("seo", "SEO optimization")}</a>
-        <a href="${pageBase}methods/aio.html">${trPath("aio", "AIO optimization")}</a>
-        <a href="${pageBase}methods/ai-smm.html">${trPath("aiSmm", "AI &amp; SMM")}</a>
-        <a href="${pageBase}methods/faq-methods.html">${trPath("faqMethods", "Methods FAQ")}</a>
+        <a href="${prefix}methods/methods-guide.html">${trPath("methodsGuide", "Methods overview")}</a>
+        <a href="${prefix}methods/geo.html">${trPath("geo", "GEO optimization")}</a>
+        <a href="${prefix}methods/aeo.html">${trPath("aeo", "AEO optimization")}</a>
+        <a href="${prefix}methods/seo.html">${trPath("seo", "SEO optimization")}</a>
+        <a href="${prefix}methods/aio.html">${trPath("aio", "AIO optimization")}</a>
+        <a href="${prefix}methods/ai-smm.html">${trPath("aiSmm", "AI &amp; SMM")}</a>
+        <a href="${prefix}methods/faq-methods.html">${trPath("faqMethods", "Methods FAQ")}</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.platforms}</div>
-        <a href="${pageBase}neural-platforms/platform-comparison.html">${trPath("platformsIntro", "What are AI platforms")}</a>
-        <a href="${pageBase}neural-platforms/chatgpt.html">ChatGPT</a>
-        <a href="${pageBase}neural-platforms/perplexity.html">Perplexity</a>
-        <a href="${pageBase}neural-platforms/deepseek.html">DeepSeek</a>
-        <a href="${pageBase}neural-platforms/claude.html">Claude</a>
-        <a href="${pageBase}neural-platforms/google-gemini.html">Google Gemini</a>
-        <a href="${pageBase}neural-platforms/yandex-alice.html">${trPath("yandexAlice", "Yandex Alice")}</a>
+        <a href="${prefix}neural-platforms/platform-comparison.html">${trPath("platformsIntro", "What are AI platforms")}</a>
+        <a href="${prefix}neural-platforms/chatgpt.html">ChatGPT</a>
+        <a href="${prefix}neural-platforms/perplexity.html">Perplexity</a>
+        <a href="${prefix}neural-platforms/deepseek.html">DeepSeek</a>
+        <a href="${prefix}neural-platforms/claude.html">Claude</a>
+        <a href="${prefix}neural-platforms/google-gemini.html">Google Gemini</a>
+        <a href="${prefix}neural-platforms/yandex-alice.html">${trPath("yandexAlice", "Yandex Alice")}</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.tools}</div>
-        <a href="${pageBase}tools/analytics.html">${trPath("analyticsAudit", "Analytics & audit")}</a>
-        <a href="${pageBase}tools/content-factory.html">${trPath("contentFactory", "Content factory")}</a>
-        <a href="${pageBase}tools/it-audit.html">${trPath("itAudit", "IT audit")}</a>
-        <a href="${pageBase}tools/promotion-strategy.html">${trPath("promoStrategy", "Promotion strategy")}</a>
-        <a href="${pageBase}tools/full-promotion.html">${trPath("fullPromo", "Full promotion")}</a>
-        <a href="${pageBase}tools/support-service.html">${trPath("supportService", "Ongoing support")}</a>
+        <a href="${prefix}tools/analytics.html">${trPath("analyticsAudit", "Analytics & audit")}</a>
+        <a href="${prefix}tools/content-factory.html">${trPath("contentFactory", "Content factory")}</a>
+        <a href="${prefix}tools/it-audit.html">${trPath("itAudit", "IT audit")}</a>
+        <a href="${prefix}tools/promotion-strategy.html">${trPath("promoStrategy", "Promotion strategy")}</a>
+        <a href="${prefix}tools/full-promotion.html">${trPath("fullPromo", "Full promotion")}</a>
+        <a href="${prefix}tools/support-service.html">${trPath("supportService", "Ongoing support")}</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.strategy}</div>
-        <a href="${pageBase}strategy/overview.html">${trPath("strategyOverview", "Strategy overview")}</a>
-        <a href="${pageBase}strategy/strategic-intent.html">${trPath("strategicIntent", "Strategic intent")}</a>
-        <a href="${pageBase}strategy/geo-aeo-rollout.html">${trPath("rollout", "GEO/AEO rollout")}</a>
-        <a href="${pageBase}strategy/audit-ai-visibility.html">${trPath("auditAi", "AI visibility audit")}</a>
-        <a href="${pageBase}strategy/geo-aeo-metrics-bi.html">${trPath("metrics", "Metrics & BI")}</a>
-        <a href="${pageBase}tools/geo-aeo-bi-dashboard.html">${trPath("dashboard", "BI dashboard")}</a>
-        <a href="${pageBase}strategy/implementation-changes.html">${trPath("implementation", "Implementation")}</a>
-        <a href="${pageBase}strategy/optimization-tracking.html">${trPath("optimization", "Optimization & tracking")}</a>
+        <a href="${prefix}strategy/overview.html">${trPath("strategyOverview", "Strategy overview")}</a>
+        <a href="${prefix}strategy/strategic-intent.html">${trPath("strategicIntent", "Strategic intent")}</a>
+        <a href="${prefix}strategy/geo-aeo-rollout.html">${trPath("rollout", "GEO/AEO rollout")}</a>
+        <a href="${prefix}strategy/audit-ai-visibility.html">${trPath("auditAi", "AI visibility audit")}</a>
+        <a href="${prefix}strategy/geo-aeo-metrics-bi.html">${trPath("metrics", "Metrics & BI")}</a>
+        <a href="${prefix}tools/geo-aeo-bi-dashboard.html">${trPath("dashboard", "BI dashboard")}</a>
+        <a href="${prefix}strategy/implementation-changes.html">${trPath("implementation", "Implementation")}</a>
+        <a href="${prefix}strategy/optimization-tracking.html">${trPath("optimization", "Optimization & tracking")}</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.industries}</div>
-        <a href="${pageBase}case-studies/all-industries-geo-aeo.html">${trPath("allIndustries", "All industries")}</a>
-        <a href="${pageBase}case-studies/marketplaces-neuro-strategy.html">${trPath("marketplaces", "Marketplaces")}</a>
-        <a href="${pageBase}case-studies/clinics-neuro-strategy.html">${trPath("clinics", "Clinics")}</a>
-        <a href="${pageBase}case-studies/service-centers-neuro-strategy.html">${trPath("serviceCenters", "Service centers")}</a>
-        <a href="${pageBase}case-studies/showrooms-neuro-strategy.html">${trPath("showrooms", "Showrooms")}</a>
-        <a href="${pageBase}case-studies/beauty-neuro-strategy.html">${trPath("beauty", "Beauty salons")}</a>
-        <a href="${pageBase}case-studies/delivery-neuro-strategy.html">${trPath("delivery", "Delivery")}</a>
-        <a href="${pageBase}case-studies/corporations.html">${trPath("corporations", "Corporations")}</a>
-        <a href="${pageBase}case-studies/ecommerce.html">${trPath("ecommerce", "E‑commerce")}</a>
-        <a href="${pageBase}case-studies/saas.html">${trPath("saas", "SaaS &amp; digital")}</a>
-        <a href="${pageBase}case-studies/local-business.html">${trPath("localBusiness", "Local business")}</a>
-        <a href="${pageBase}case-studies/ai-discovery.html">${trPath("aiDiscovery", "AI discovery leaders")}</a>
+        <a href="${prefix}case-studies/all-industries-geo-aeo.html">${trPath("allIndustries", "All industries")}</a>
+        <a href="${prefix}case-studies/marketplaces-neuro-strategy.html">${trPath("marketplaces", "Marketplaces")}</a>
+        <a href="${prefix}case-studies/clinics-neuro-strategy.html">${trPath("clinics", "Clinics")}</a>
+        <a href="${prefix}case-studies/service-centers-neuro-strategy.html">${trPath("serviceCenters", "Service centers")}</a>
+        <a href="${prefix}case-studies/showrooms-neuro-strategy.html">${trPath("showrooms", "Showrooms")}</a>
+        <a href="${prefix}case-studies/beauty-neuro-strategy.html">${trPath("beauty", "Beauty salons")}</a>
+        <a href="${prefix}case-studies/delivery-neuro-strategy.html">${trPath("delivery", "Delivery")}</a>
+        <a href="${prefix}case-studies/corporations.html">${trPath("corporations", "Corporations")}</a>
+        <a href="${prefix}case-studies/ecommerce.html">${trPath("ecommerce", "E‑commerce")}</a>
+        <a href="${prefix}case-studies/saas.html">${trPath("saas", "SaaS &amp; digital")}</a>
+        <a href="${prefix}case-studies/local-business.html">${trPath("localBusiness", "Local business")}</a>
+        <a href="${prefix}case-studies/ai-discovery.html">${trPath("aiDiscovery", "AI discovery leaders")}</a>
       </div>
     </div>
   `;
@@ -657,7 +558,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="top-menu__backdrop" data-topmenu-close></div>
     <div class="top-menu__panel" role="dialog" aria-modal="true" aria-label="${tr("siteMenuAria")}">
       <div class="top-menu__header">
-        <a class="top-menu__brand" href="${pageBase}index.html#hero" aria-label="${tr("homeAria")}">
+        <a class="top-menu__brand" href="${prefix}index.html#hero" aria-label="${tr("homeAria")}">
           <img src="${prefix}Img/logo-aeo.png" alt="GEO logo" />
         </a>
         <button class="top-menu__close" type="button" data-topmenu-close aria-label="${tr("closeMenu")}">×</button>
@@ -1092,16 +993,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!h2s.length) return;
 
     const candidates = [
-      { href: `${pageBase}methods/aeo.html`, label: LANG === "en" ? "What is AEO optimization" : "Что такое AEO оптимизация", kw: ["aeo", "answer", "ответ"] },
-      { href: `${pageBase}methods/geo.html`, label: LANG === "en" ? "What is GEO optimization" : "Что такое GEO оптимизация", kw: ["geo", "локал", "карты"] },
-      { href: `${pageBase}methods/seo.html`, label: LANG === "en" ? "SEO optimization (2026)" : "SEO оптимизация (2026)", kw: ["seo", "органик"] },
+      { href: `${prefix}methods/aeo.html`, label: "Что такое AEO оптимизация", kw: ["aeo", "answer", "ответ"] },
+      { href: `${prefix}methods/geo.html`, label: "Что такое GEO оптимизация", kw: ["geo", "локал", "карты"] },
+      { href: `${prefix}methods/seo.html`, label: "SEO оптимизация (2026)", kw: ["seo", "органик"] },
       {
-        href: `${pageBase}methods/methods-guide.html`,
-        label: LANG === "en" ? "Promotion methods: how to combine" : "Методы продвижения: как сочетать",
+        href: `${prefix}methods/methods-guide.html`,
+        label: "Методы продвижения: как сочетать",
         kw: ["vs", "сравнен", "выбрать", "метод", "ландшафт", "стек", "конфликт"]
       },
-      { href: `${pageBase}tools/content-factory.html#checklists`, label: LANG === "en" ? "Checklists (2026)" : "Чеклисты (2026)", kw: ["чеклист", "шаг", "план"] },
-      { href: `${pageBase}case-studies/local-business.html`, label: LANG === "en" ? "Local business case studies" : "Кейсы локального бизнеса", kw: ["локальн", "карты", "рядом"] }
+      { href: `${prefix}tools/content-factory.html#checklists`, label: "Чеклисты (2026)", kw: ["чеклист", "шаг", "план"] },
+      { href: `${prefix}case-studies/local-business.html`, label: "Кейсы локального бизнеса", kw: ["локальн", "карты", "рядом"] }
     ];
 
     h2s.forEach(h2 => {
