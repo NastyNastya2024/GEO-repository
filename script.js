@@ -479,12 +479,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const sitemapHtml = `
     <div class="footer-sitemap" aria-label="${tr("sitemapAria")}">
       <div class="footer-col">
-        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.main}</div>
-        <a href="${pageBase}blog/main.html">${trPath("blog", "Blog")}</a>
-        <a href="${pageBase}about.html">${trPath("company", "Company")}</a>
-      </div>
-
-      <div class="footer-col">
         <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.methods}</div>
         <a href="${pageBase}methods/methods-guide.html">${trPath("methodsGuide", "Methods overview")}</a>
         <a href="${pageBase}methods/geo.html">${trPath("geo", "GEO optimization")}</a>
@@ -542,6 +536,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="${pageBase}case-studies/saas.html">${trPath("saas", "SaaS &amp; digital")}</a>
         <a href="${pageBase}case-studies/local-business.html">${trPath("localBusiness", "Local business")}</a>
         <a href="${pageBase}case-studies/ai-discovery.html">${trPath("aiDiscovery", "AI discovery leaders")}</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">${(I18N[LANG] || I18N.ru).footerCols.main}</div>
+        <a href="${pageBase}blog/main.html">${trPath("blog", "Blog")}</a>
+        <a href="${pageBase}about.html">${trPath("company", "Company")}</a>
       </div>
     </div>
   `;
