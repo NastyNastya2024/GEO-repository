@@ -436,6 +436,8 @@ document.addEventListener("DOMContentLoaded", () => {
       currentlyEn = true;
     }
 
+    // Correct layout: /<repo>/en/...  -> RU is /<repo>/...
+    if (currentlyEn) rest = rest.slice(1);
     const nextParts = currentlyEn ? [repo, ...rest] : [repo, "en", ...rest];
     u.pathname = "/" + nextParts.join("/");
     if (wasTrailingSlash && !u.pathname.endsWith("/")) u.pathname += "/";
