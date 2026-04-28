@@ -1418,6 +1418,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const wrap = document.createElement("div");
     wrap.className = "contact-form-wrap";
+    const quickTitle = LANG === "en" ? "GEO handbook" : "Справочник GEO";
+    const quickHello =
+      LANG === "en"
+        ? "Hi! Choose a section — I’ll show a short answer and a link to the right page."
+        : "Привет! Мы — компания, которая занимается продвижением в нейросетях. Выберите раздел — ответ пришлю сразу: коротко + ссылка на нужную страницу.";
+
     const quickTags =
       LANG === "en"
         ? [
@@ -1535,33 +1541,50 @@ document.addEventListener("DOMContentLoaded", () => {
       <div id="contact-form-container" class="contact-form-container contact-form-container--quick" role="dialog" aria-modal="true" aria-label="${tr("contactFormAria")}">
         <button type="button" class="contact-form-close" data-contact-close aria-label="${LANG === "en" ? "Close" : "Закрыть"}">×</button>
         <div class="contact-quick">
-          <div class="contact-quick__head">
-            <h3 class="contact-quick__title">${tr("formTitle")}</h3>
-            <p class="contact-quick__subtitle">${tr("formIntro")}</p>
-          </div>
-          <div class="contact-quick__tags" aria-label="Навигация">
-            ${tagsHtml}
-          </div>
-          <div class="contact-quick__body">
-            <div class="contact-quick__card" id="contact-quick-card">
-              <div class="contact-quick__card-title"></div>
-              <div class="contact-quick__card-text"></div>
-              <a class="contact-quick__link btn btn-header btn-header--white" href="#" id="contact-quick-link">${LANG === "en" ? "Open article" : "Открыть статью"}</a>
+          <div class="contact-quick__chat">
+            <div class="contact-quick__chat-head">
+              <div class="contact-quick__avatar" aria-hidden="true">
+                <img src="${prefix}Img/logo-aeo.png" alt="" />
+              </div>
+              <div class="contact-quick__chat-meta">
+                <div class="contact-quick__chat-title">${quickTitle}</div>
+                <div class="contact-quick__chat-subtitle">${LANG === "en" ? "AI visibility & answers" : "AI‑видимость и ответы"}</div>
+              </div>
             </div>
 
-            <form id="contact-form" class="contact-quick__form" method="post" novalidate hidden>
-              <input class="input phone" type="tel" name="user_phone" placeholder="${LANG === "en" ? "Phone" : "Телефон"}" required />
-              <input class="input email" type="email" name="user_email" placeholder="${tr("yourEmail")}" required />
-              <textarea class="input message" name="message" placeholder="${tr("yourMessage")}" required></textarea>
-              <button class="btn input submit" type="submit">${tr("send")}</button>
-              <p class="contact-quick__hint">
-                ${
-                  LANG === "en"
-                    ? "To enable automatic emails on GitHub Pages, set a Formspree endpoint via <meta name=\"form-endpoint\" content=\"https://formspree.io/f/xxxxxxx\">."
-                    : "Чтобы заявки автоматически приходили на почту на GitHub Pages, задайте Formspree endpoint через <meta name=\"form-endpoint\" content=\"https://formspree.io/f/xxxxxxx\">."
-                }
-              </p>
-            </form>
+            <div class="contact-quick__chat-stream" aria-live="polite">
+              <div id="contact-quick-messages">
+                <div class="chat-msg chat-msg--bot">
+                  <div class="chat-msg__bubble">${quickHello}</div>
+                </div>
+
+                <div class="chat-msg chat-msg--bot" id="contact-quick-form-msg" hidden>
+                  <div class="chat-msg__bubble">
+                    <div class="contact-quick__card-title">${LANG === "en" ? "Leave a request" : "Оставить заявку"}</div>
+                    <div class="contact-quick__card-text">${LANG === "en" ? "Leave your phone/email and a short comment — we’ll contact you." : "Оставьте телефон/почту и короткий комментарий — мы свяжемся."}</div>
+                    <form id="contact-form" class="contact-quick__form" method="post" novalidate>
+                      <input class="input phone" type="tel" name="user_phone" placeholder="${LANG === "en" ? "Phone" : "Телефон"}" required />
+                      <input class="input email" type="email" name="user_email" placeholder="${tr("yourEmail")}" required />
+                      <textarea class="input message" name="message" placeholder="${tr("yourMessage")}" required></textarea>
+                      <button class="btn input submit" type="submit">${tr("send")}</button>
+                      <p class="contact-quick__hint">
+                        ${
+                          LANG === "en"
+                            ? "Messages are sent via Formspree."
+                            : "Заявка отправляется через Formspree."
+                        }
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-quick__composer" aria-label="Разделы">
+              <div class="contact-quick__tags">
+                ${tagsHtml}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1571,10 +1594,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Wire up quick tags behavior
     const tagButtons = Array.from(wrap.querySelectorAll("[data-qtag]"));
-    const card = wrap.querySelector("#contact-quick-card");
-    const cardTitle = wrap.querySelector(".contact-quick__card-title");
-    const cardText = wrap.querySelector(".contact-quick__card-text");
-    const link = wrap.querySelector("#contact-quick-link");
+    const stream = wrap.querySelector(".contact-quick__chat-stream");
+    const messages = wrap.querySelector("#contact-quick-messages");
+    const formMsg = wrap.querySelector("#contact-quick-form-msg");
     const form = wrap.querySelector("#contact-form");
     const endpointFromMeta = document.querySelector('meta[name="form-endpoint"]')?.getAttribute("content") || "";
     const resolvedEndpoint = endpointFromMeta || DEFAULT_FORM_ENDPOINT;
@@ -1585,23 +1607,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const setActive = id => {
       tagButtons.forEach(b => b.classList.toggle("is-active", b.getAttribute("data-qtag") === id));
       const t = quickTags.find(x => x.id === id) || quickTags[0];
-      if (cardTitle) cardTitle.textContent = t.title;
-      if (cardText) cardText.textContent = t.answer;
       const isForm = t.href === "#form";
-      if (form instanceof HTMLFormElement) form.hidden = !isForm;
-      if (card instanceof Element) card.hidden = isForm;
-      if (link instanceof HTMLAnchorElement) {
-        const target = isForm ? "#" : t.href;
-        const next = toLangUrl(target) || (isForm ? "#" : new URL(target, window.location.href).toString());
-        link.href = next;
-        link.style.display = isForm ? "none" : "inline-flex";
+      if (formMsg instanceof HTMLElement) formMsg.hidden = !isForm;
+
+      if (!isForm && messages instanceof HTMLElement) {
+        const nextHref = toLangUrl(t.href) || new URL(t.href, window.location.href).toString();
+        const msg = document.createElement("div");
+        msg.className = "chat-msg chat-msg--bot";
+        msg.innerHTML = `
+          <div class="chat-msg__bubble">
+            <div class="contact-quick__card-title">${t.title}</div>
+            <div class="contact-quick__card-text">${t.answer}</div>
+            <a class="contact-quick__link btn btn-header btn-header--white" href="${nextHref}">${LANG === "en" ? "Open article" : "Открыть статью"}</a>
+          </div>
+        `;
+        messages.appendChild(msg);
+      }
+
+      // Keep latest message in view
+      if (stream instanceof HTMLElement) {
+        stream.scrollTop = stream.scrollHeight;
       }
     };
 
     tagButtons.forEach(btn => {
       btn.addEventListener("click", () => setActive(btn.getAttribute("data-qtag") || ""));
     });
-    setActive(quickTags[0].id);
+    // Initial: just show hello + tags (no extra answer message)
+    tagButtons.forEach(b => b.classList.toggle("is-active", b.getAttribute("data-qtag") === quickTags[0].id));
   };
 
   const isValidEmail = email => {
