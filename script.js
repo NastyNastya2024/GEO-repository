@@ -1412,7 +1412,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text: isRu
           ? "Мы — команда, которая ведёт проект комплексного цифрового продвижения: органический поиск и структура сайта (SEO), видимость в ответах нейросетей и AI‑поиска (GEO, AEO, AIO), согласованность бренда в соцсетях и публичных каналах (AI+SMM) и связанная аналитика. Сайт — наша публичная экспертная база: гайды, чеклисты и разборы помогают ориентироваться в теме; параллельно мы оказываем консультации и услуги под ключ по этим направлениям — для компаний, которым нужна практическая помощь, а не только теория."
           : "We’re a team delivering end-to-end digital growth: organic search and site structure (SEO), visibility in AI answers and AI search (GEO/AEO/AIO), consistent brand presence across social/public channels (AI+SMM), and analytics. This site is our public knowledge base (guides, checklists, breakdowns). In parallel, we provide consultations and turnkey services for companies that need practical help, not just theory.",
-        links: [{ label: isRu ? "О компании" : "About", href: "about.html" }]
+        links: [{ label: isRu ? "Заказать консультацию" : "Order consultation", href: "chatmodal:consult" }]
       },
       consult: {
         title: isRu ? "Заказать консультацию" : "Order consultation",
@@ -1549,6 +1549,28 @@ document.addEventListener("DOMContentLoaded", () => {
         addUserChoice(sec.title);
         addBotCard(sec);
       });
+    });
+
+    const openSection = id => {
+      const sec = sections[id];
+      if (!sec) return;
+      const btn = tagButtons.find(b => b.getAttribute("data-chatmodal-tag") === id);
+      if (btn) tagButtons.forEach(b => b.classList.toggle("is-active", b === btn));
+      addUserChoice(sec.title);
+      addBotCard(sec);
+    };
+
+    // In-chat link routing (e.g. "chatmodal:consult")
+    root.addEventListener("click", e => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest("a.chatModal__link");
+      if (!(link instanceof HTMLAnchorElement)) return;
+      const href = String(link.getAttribute("href") || "");
+      if (!href.startsWith("chatmodal:")) return;
+      e.preventDefault();
+      const id = href.replace(/^chatmodal:/, "");
+      openSection(id);
     });
 
     const setFormError = (el, on) => {
