@@ -1449,7 +1449,16 @@ document.addEventListener("DOMContentLoaded", () => {
         text: isRu
           ? "Соберём стратегию продвижения: аудит, приоритеты, контент‑план и метрики."
           : "We’ll build a promotion strategy: audit, priorities, content plan, and metrics.",
-        links: () => getNavLinksBySummary(isRu ? "Инструменты" : "Tools")
+        links: () => [
+          { label: isRu ? "Стратегия — обзор раздела" : "Strategy overview", href: `${pageBase}strategy/overview.html` },
+          { label: isRu ? "Стратегический интент" : "Strategic intent", href: `${pageBase}strategy/strategic-intent.html` },
+          { label: isRu ? "GEO/AEO: сайт и контентная система" : "GEO/AEO: site & content system", href: `${pageBase}strategy/geo-aeo-rollout.html` },
+          { label: isRu ? "Аудит AI‑видимости и метрики" : "AI visibility audit & metrics", href: `${pageBase}strategy/audit-ai-visibility.html` },
+          { label: isRu ? "Метрики GEO/AEO и BI" : "GEO/AEO metrics & BI", href: `${pageBase}strategy/geo-aeo-metrics-bi.html` },
+          { label: isRu ? "GEO/AEO BI‑дашборд" : "GEO/AEO BI dashboard", href: `${pageBase}tools/geo-aeo-bi-dashboard.html` },
+          { label: isRu ? "Реализация изменений" : "Implementation", href: `${pageBase}strategy/implementation-changes.html` },
+          { label: isRu ? "Оптимизация и трекинг" : "Optimization & tracking", href: `${pageBase}strategy/optimization-tracking.html` }
+        ]
       },
       industries: {
         title: isRu ? "Отрасли" : "Industries",
