@@ -6682,6 +6682,21 @@ body::after {
   animation: typewriterCaret 180ms ease infinite alternate;
 }
 
+/* ===== Disable entrance animations (requested) ===== */
+.js-reveal,
+.js-reveal.is-visible,
+.js-typewriter,
+.js-typewriter.is-typed,
+.js-typewriter.is-typed::after,
+.visibility-text,
+.hero-content h1 span {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
 /* Popup modal */
 .modal-overlay {
   position: fixed;
