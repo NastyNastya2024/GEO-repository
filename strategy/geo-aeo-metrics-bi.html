@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Как оценивать эффективность GEO/AEO: метрики, BI и система анализа</title>
-    <meta
-      name="description"
-      content="Живые интент-вопросы про AI-видимость бренда: от AI Visibility Rate до Knowledge Graph Strength. Система метрик, таблица показателей и ссылка на интерактивный GEO/AEO BI-дашборд."
-    />
-    <meta
-      name="keywords"
-      content="GEO метрики, AEO аналитика, AI Visibility Rate, Intent Coverage, Answer Share, BI дашборд, LLM tracking"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="canonical" href="/strategy/geo-aeo-metrics-bi.html" />
-    <script type="application/ld+json">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Как оценивать эффективность GEO/AEO: метрики, BI и система анализа</title>
+<meta content="Живые интент-вопросы про AI-видимость бренда: от AI Visibility Rate до Knowledge Graph Strength. Система метрик, таблица показателей и ссылка на интерактивный GEO/AEO BI-дашборд." name="description"/>
+<meta content="GEO метрики, AEO аналитика, AI Visibility Rate, Intent Coverage, Answer Share, BI дашборд, LLM tracking" name="keywords"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;family=Jura:wght@300..700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="/strategy/geo-aeo-metrics-bi.html" rel="canonical"/>
+<script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -27,282 +21,263 @@
         "about": ["GEO metrics", "AEO analytics", "AI visibility", "BI dashboard"]
       }
     </script>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="../index.html" class="logo">
-          <img src="../Img/logo-aeo.png" alt="GEO logo" class="logo-image" />
-        </a>
-        <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-    </header>
-
-    <div class="drawer-backdrop" data-drawer-close hidden></div>
-    <aside class="mobile-drawer" id="site-drawer" aria-label="Меню" aria-hidden="true">
-      <div class="mobile-drawer__header">
-        <span class="mobile-drawer__title">Меню</span>
-        <button class="mobile-drawer__close" type="button" data-drawer-close aria-label="Закрыть меню">×</button>
-      </div>
-      <nav class="drawer-nav" aria-label="Навигация сайта">
-        <details class="nav-dd" open>
-          <summary>Методы</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../methods/methods-guide.html">Методы продвижения — обзор</a>
-            <a role="menuitem" href="../methods/geo.html">GEO оптимизация</a>
-            <a role="menuitem" href="../methods/aeo.html">AEO оптимизация</a>
-            <a role="menuitem" href="../methods/seo.html">SEO оптимизация</a>
-            <a role="menuitem" href="../methods/aio.html">AIO оптимизация</a>
-            <a role="menuitem" href="../methods/ai-smm.html">AI &amp; SMM стратегии</a>
-            <a role="menuitem" href="../methods/faq-methods.html">FAQ по методам</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Нейроплатформы</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../neural-platforms/platform-comparison.html">Что такое нейроплатформы</a>
-            <a role="menuitem" href="../neural-platforms/chatgpt.html">ChatGPT</a>
-            <a role="menuitem" href="../neural-platforms/perplexity.html">Perplexity</a>
-            <a role="menuitem" href="../neural-platforms/deepseek.html">DeepSeek</a>
-            <a role="menuitem" href="../neural-platforms/yandex-alice.html">Яндекс Алиса</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Инструменты</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../tools/analytics.html">Аналитика и аудит</a>
-            <a role="menuitem" href="../tools/geo-aeo-bi-dashboard.html">GEO/AEO BI‑дашборд</a>
-            <a role="menuitem" href="../tools/content-factory.html">Контент‑завод</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Стратегия</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="overview.html">Обзор раздела «Стратегия»</a>
-            <a role="menuitem" href="strategic-intent.html">Стратегический интент</a>
-            <a role="menuitem" href="geo-aeo-rollout.html">GEO/AEO: сайт и контентная система</a>
-            <a role="menuitem" href="audit-ai-visibility.html">Аудит AI‑видимости и метрики</a>
-            <a role="menuitem" href="geo-aeo-metrics-bi.html">Метрики GEO/AEO и BI</a>
-            <a role="menuitem" href="implementation-changes.html">Реализация изменений</a>
-            <a role="menuitem" href="optimization-tracking.html">Оптимизация и трекинг</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Отрасли</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../case-studies/all-industries-geo-aeo.html">Все отрасли и нейропоиск</a>
-            <a role="menuitem" href="../case-studies/marketplaces-neuro-strategy.html">Маркетплейсы</a>
-            <a role="menuitem" href="../case-studies/clinics-neuro-strategy.html">Клиники</a>
-            <a role="menuitem" href="../case-studies/service-centers-neuro-strategy.html">Сервисные центры</a>
-            <a role="menuitem" href="../case-studies/showrooms-neuro-strategy.html">Шоурумы</a>
-            <a role="menuitem" href="../case-studies/beauty-neuro-strategy.html">Салоны красоты</a>
-            <a role="menuitem" href="../case-studies/delivery-neuro-strategy.html">Доставка</a>
-            <a role="menuitem" href="../case-studies/corporations.html">Кейсы больших корпораций</a>
-            <a role="menuitem" href="../case-studies/ecommerce.html">Кейсы e‑commerce</a>
-            <a role="menuitem" href="../case-studies/saas.html">Кейсы SaaS и digital</a>
-            <a role="menuitem" href="../case-studies/local-business.html">Кейсы локального бизнеса</a>
-            <a role="menuitem" href="../case-studies/ai-discovery.html">AI‑discovery лидеры</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Общее</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../faq-promotion.html">FAQ по промо в AI и поиске</a>
-            <a role="menuitem" href="../about.html">Компания и контакты</a>
-          </div>
-        </details>
-
-        <a class="drawer-link" href="../blog/main.html">БЛОГ</a>
-      </nav>
-    </aside>
-
-    <main>
-      <section class="section">
-        <div class="container">
-          <header class="section-header">
-            <h1>Как оценивать эффективность GEO/AEO стратегии: ключевые метрики и система анализа</h1>
-            <p class="section-subtitle">
+<meta content="https://formspree.io/f/mqeworkz" name="form-endpoint"/></head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="../index.html">
+<img alt="GEO logo" class="logo-image" src="../Img/logo-aeo.png"/>
+</a>
+<button aria-expanded="false" aria-label="Открыть меню" class="burger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="drawer-backdrop" data-drawer-close="" hidden=""></div>
+<aside aria-hidden="true" aria-label="Меню" class="mobile-drawer" id="site-drawer">
+<div class="mobile-drawer__header">
+<span class="mobile-drawer__title">Меню</span>
+<button aria-label="Закрыть меню" class="mobile-drawer__close" data-drawer-close="" type="button">×</button>
+</div>
+<nav aria-label="Навигация сайта" class="drawer-nav">
+<details class="nav-dd" open="">
+<summary>Методы</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../methods/methods-guide.html" role="menuitem">Методы продвижения — обзор</a>
+<a href="../methods/geo.html" role="menuitem">GEO оптимизация</a>
+<a href="../methods/aeo.html" role="menuitem">AEO оптимизация</a>
+<a href="../methods/seo.html" role="menuitem">SEO оптимизация</a>
+<a href="../methods/aio.html" role="menuitem">AIO оптимизация</a>
+<a href="../methods/ai-smm.html" role="menuitem">AI &amp; SMM стратегии</a>
+<a href="../methods/faq-methods.html" role="menuitem">FAQ по методам</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Нейроплатформы</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../neural-platforms/platform-comparison.html" role="menuitem">Что такое нейроплатформы</a>
+<a href="../neural-platforms/chatgpt.html" role="menuitem">ChatGPT</a>
+<a href="../neural-platforms/perplexity.html" role="menuitem">Perplexity</a>
+<a href="../neural-platforms/deepseek.html" role="menuitem">DeepSeek</a>
+<a href="../neural-platforms/yandex-alice.html" role="menuitem">Яндекс Алиса</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Инструменты</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../tools/analytics.html" role="menuitem">Аналитика и аудит</a>
+<a href="../tools/geo-aeo-bi-dashboard.html" role="menuitem">GEO/AEO BI‑дашборд</a>
+<a href="../tools/content-factory.html" role="menuitem">Контент‑завод</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Стратегия</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="overview.html" role="menuitem">Обзор раздела «Стратегия»</a>
+<a href="strategic-intent.html" role="menuitem">Стратегический интент</a>
+<a href="geo-aeo-rollout.html" role="menuitem">GEO/AEO: сайт и контентная система</a>
+<a href="audit-ai-visibility.html" role="menuitem">Аудит AI‑видимости и метрики</a>
+<a href="geo-aeo-metrics-bi.html" role="menuitem">Метрики GEO/AEO и BI</a>
+<a href="implementation-changes.html" role="menuitem">Реализация изменений</a>
+<a href="optimization-tracking.html" role="menuitem">Оптимизация и трекинг</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Отрасли</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../case-studies/all-industries-geo-aeo.html" role="menuitem">Все отрасли и нейропоиск</a>
+<a href="../case-studies/marketplaces-neuro-strategy.html" role="menuitem">Маркетплейсы</a>
+<a href="../case-studies/clinics-neuro-strategy.html" role="menuitem">Клиники</a>
+<a href="../case-studies/service-centers-neuro-strategy.html" role="menuitem">Сервисные центры</a>
+<a href="../case-studies/showrooms-neuro-strategy.html" role="menuitem">Шоурумы</a>
+<a href="../case-studies/beauty-neuro-strategy.html" role="menuitem">Салоны красоты</a>
+<a href="../case-studies/delivery-neuro-strategy.html" role="menuitem">Доставка</a>
+<a href="../case-studies/corporations.html" role="menuitem">Кейсы больших корпораций</a>
+<a href="../case-studies/ecommerce.html" role="menuitem">Кейсы e‑commerce</a>
+<a href="../case-studies/saas.html" role="menuitem">Кейсы SaaS и digital</a>
+<a href="../case-studies/local-business.html" role="menuitem">Кейсы локального бизнеса</a>
+<a href="../case-studies/ai-discovery.html" role="menuitem">AI‑discovery лидеры</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Общее</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../faq-promotion.html" role="menuitem">FAQ по промо в AI и поиске</a>
+<a href="../about.html" role="menuitem">Компания и контакты</a>
+</div>
+</details>
+<a class="drawer-link" href="../blog/main.html">БЛОГ</a>
+</nav>
+</aside>
+<main>
+<section class="section">
+<div class="container">
+<header class="section-header">
+<h1>Как оценивать эффективность GEO/AEO стратегии: ключевые метрики и система анализа</h1>
+<p class="section-subtitle">
               GEO и AEO — это сдвиг от «позиция в поиске» к «есть ли бренд в ответе нейросети и как он там звучит». Ниже — не сухой глоссарий, а цепочка живых интентов: как думает пользователь и как собирает ответ LLM. В конце — сводная таблица метрик и ссылка на <a href="../tools/geo-aeo-bi-dashboard.html">интерактивный BI-дашборд</a> с демо-данными.
             </p>
-          </header>
-
-          <nav class="content-toc" aria-label="Содержание статьи">
-            <a href="#m-why-absent">Нет в ответах</a>
-            <a href="#m-which-questions">Какие вопросы</a>
-            <a href="#m-weight">Вес в ответе</a>
-            <a href="#m-chunks">Какие фрагменты</a>
-            <a href="#m-gaps">Слепые зоны</a>
-            <a href="#m-evolution">Как роль меняется</a>
-            <a href="#m-traffic">Качество трафика</a>
-            <a href="#m-contribution">Вклад страниц</a>
-            <a href="#m-lag">Задержка</a>
-            <a href="#m-kg">Узел знаний</a>
-            <a href="#m-table">Сводка</a>
-          </nav>
-
-          <article class="content-article">
-            <p>
+</header>
+<nav aria-label="Содержание статьи" class="content-toc">
+<a href="#m-why-absent">Нет в ответах</a>
+<a href="#m-which-questions">Какие вопросы</a>
+<a href="#m-weight">Вес в ответе</a>
+<a href="#m-chunks">Какие фрагменты</a>
+<a href="#m-gaps">Слепые зоны</a>
+<a href="#m-evolution">Как роль меняется</a>
+<a href="#m-traffic">Качество трафика</a>
+<a href="#m-contribution">Вклад страниц</a>
+<a href="#m-lag">Задержка</a>
+<a href="#m-kg">Узел знаний</a>
+<a href="#m-table">Сводка</a>
+</nav>
+<article class="content-article">
+<p>
               Сегодня человек часто <strong>не ищет десять синих ссылок</strong> — он задаёт вопрос ChatGPT, Gemini или Perplexity и получает готовый текст. Ключевая метрика успеха всё чаще звучит так: <strong>попали ли мы в ответ и в какой роли</strong> — фон, один из вариантов или рекомендованное решение.
             </p>
-
-            <h2 id="m-why-absent">Почему мой бренд не появляется в ответах ChatGPT и других нейросетей?</h2>
-            <p>Первый уровень — понять, существует ли бренд в генеративной среде вообще. Мы смотрим не галочку «упомянули», а смысл:</p>
-            <ul>
-              <li>появляется ли бренд в ответах LLM;</li>
-              <li>в каких формулировках его описывают;</li>
-              <li>это рекомендация, пример или случайное имя;</li>
-              <li>стабильно ли повторяется при похожих запросах.</li>
-            </ul>
-            <p><strong>Как измеряется:</strong> ручные prompt-тесты по интент-картам, регулярные семантические выборки, сравнение ответов разных моделей (ChatGPT / Gemini / Claude / Perplexity).</p>
-            <p class="content-note"><strong>Главный показатель:</strong> <em>AI Visibility Rate</em> — доля запросов, при которых бренд оказывается в ответе.</p>
-            <p class="content-note">Важно: модели не «ищут ваш сайт» построчно — они собирают ответ из вероятностных фрагментов знаний (RAG, embeddings, retrieval).</p>
-
-            <h2 id="m-which-questions">По каким вопросам нейросети вообще начинают рекомендовать бренд?</h2>
-            <p>Следующий уровень — не факт появления, а <strong>контекст, в котором бренд становится релевантным</strong>. Разбираем:</p>
-            <ul>
-              <li>какие вопросы «привязывают» бренд;</li>
-              <li>какие темы уже покрыты;</li>
-              <li>где бренд системен, а где всплывает случайно;</li>
-              <li>какие сценарии выбора уже заняты конкурентами.</li>
-            </ul>
-            <p>Типовые формулировки, которые формируют видимость: «что лучше выбрать…», «как работает…», «какие альтернативы…», «какое решение подходит для…», «сравнение вариантов…».</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>Intent Coverage Score</em> — доля вопросов из карты интентов, где бренд уже присутствует в ответах. Это карта спроса не «поискового», а <strong>семантического пространства LLM</strong>.</p>
-
-            <h2 id="m-weight">Почему в одном ответе бренд важен, а в другом его почти не слышно?</h2>
-            <p>Измеряем не «упомянули / нет», а <strong>вес внутри ответа</strong>. Бренд может быть:</p>
-            <ul>
-              <li>случайно назван;</li>
-              <li>в списке вариантов;</li>
-              <li>рекомендованным решением;</li>
-              <li>опорным источником смысла.</li>
-            </ul>
-            <p><strong>Что смотрим:</strong> позиция в списках, частота в одном ответе, роль (основной / вспомогательный / контекстный).</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>Answer Share Index</em> — условная доля «пространства ответа», которую занимает бренд. Это близко к тому, как LLM перераспределяет вес сущностей, а не копирует источники дословно.</p>
-
-            <h2 id="m-chunks">Какие страницы и куски текста реально попадают в ответы нейросетей?</h2>
-            <p>LLM редко «забирают страницу целиком». Чаще извлекают <strong>chunks</strong> — абзацы, таблицы, шаги, FAQ. Поэтому выигрывает не URL ради URL, а конкретный блок.</p>
-            <p><strong>Анализируем:</strong> какие абзацы чаще поднимаются, какие страницы становятся источниками, какие форматы стабильнее цепляются.</p>
-            <p>Лучше всего обычно работают: FAQ, how-to, сравнения «X vs Y», определения, структурированные таблицы.</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>Extraction Rate</em> — как часто контент-блоки оказываются в составе ответов. Это логика RAG: retrieval на уровне фрагментов, а не «один документ = один ответ».</p>
-
-            <h2 id="m-gaps">Где у бренда нет видимости в AI, хотя там явно есть спрос?</h2>
-            <p>Стратегический слой — <strong>белые пятна</strong>. Смотрим:</p>
-            <ul>
-              <li>темы, которые не закрыты вообще;</li>
-              <li>запросы, где есть конкуренты, но нет вас;</li>
-              <li>интенты, которые не приводят к появлению бренда.</li>
-            </ul>
-            <p>На выходе: карта AI white spaces, приоритеты для контент-производства, точки роста.</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>Gap Index</em> — доля интентов, где бренд отсутствует. Это AI-версия keyword gap, но на уровне <strong>смыслов</strong>, а не только слов.</p>
-
-            <h2 id="m-evolution">Как меняется роль бренда внутри ответов со временем?</h2>
-            <p>Важна не только точка на графике сегодня, но и <strong>траектория</strong>: бренд может эволюционировать от «один из вариантов» к рекомендации и к роли экспертного источника в категории.</p>
-            <p><strong>Отслеживаем:</strong> тональность упоминаний, устойчивость позиции, контекст использования.</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>Brand Authority Positioning Score</em> — обобщённый индекс «статуса» бренда в ответах. По духу близко к entity authority в knowledge graph.</p>
-
-            <h2 id="m-traffic">Приводят ли нейросети на сайт трафик, который хоть к чему-то обязывает?</h2>
-            <p>Если в ответе есть ссылки или пользователь идёт на сайт сам, важны не сырые визиты, а <strong>качество</strong>: глубина, конверсия, возвраты, поведение после перехода.</p>
-            <p>AI-трафик часто приходит от людей с уже сформированным намерением — ближе к решению, чем случайный клик из выдачи.</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>AI Traffic Quality Index</em> — композитный индекс качества визитов с AI-рефереров / UTM / промпт-кампаний. В отраслевых обзорах (Similarweb, Cloudflare и др.) AI-referral сегменты нередко показывают более высокую конверсию относительно классического SEO — но картина зависит от ниши и разметки трафика.</p>
-
-            <h2 id="m-contribution">Какие страницы дают максимальный вклад в AI-видимость?</h2>
-            <p>Не весь контент одинаково полезен для LLM-систем. Выделяем:</p>
-            <ul>
-              <li>страницы с высокой цитируемостью в ответах;</li>
-              <li>страницы с мульти-интентным охватом;</li>
-              <li>страницы, которые чаще выступают источником фрагментов.</li>
-            </ul>
-            <p>Итог — список <strong>AI-core</strong> страниц и понимание контент-ядра сайта.</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>AI Contribution Score</em> — вклад URL/кластера в появление бренда и фактов в ответах.</p>
-
-            <h2 id="m-lag">Почему новый материал в ChatGPT «не появляется сразу» после публикации?</h2>
-            <p>В GEO нет линейной кнопки «опубликовал → завтра в ответе». Задержка зависит от индексации, обновления embeddings, частоты пересборки retrieval-корпусов у конкретной системы.</p>
-            <p><strong>Меряем:</strong> время до появления в ответах, влияние обновлений, «лагу» между индексом и доступностью для генерации.</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>Indexation-to-AI Lag</em> — задержка от публикации/обновления до устойчивого появления в AI-ответах. Это ключевое отличие от классического SEO: <strong>индекс ≠ мгновенная доступность для генерации</strong>.</p>
-
-            <h2 id="m-kg">Когда бренд перестаёт быть «сайтом» и начинает быть узлом знаний для модели?</h2>
-            <p>Финальный уровень — бренд стабильно фигурирует в разных типах запросов, сочетается с другими сущностями, воспроизводится в ответах с разной формулировкой задачи.</p>
-            <p><strong>Смотрим:</strong> пересечения сущностей, совместные упоминания с другими брендами, устойчивость присутствия.</p>
-            <p class="content-note"><strong>Метрика:</strong> <em>Knowledge Graph Strength Score</em> — насколько плотно и разнообразно бренд встроен в «сеть смыслов», которую модель может собрать. По аналогии с Google Knowledge Graph, Wikidata и entity-based retrieval.</p>
-
-            <h2 id="m-table">Итоговая система оценки GEO/AEO</h2>
-            <p>Эффективность — не одна цифра, а <strong>набор уровней</strong>. Ниже — сводная таблица для BI и регулярных отчётов (те же серии можно увидеть на <a href="../tools/geo-aeo-bi-dashboard.html">дашборде</a>).</p>
-            <div class="content-table" role="region" aria-label="Сводная таблица метрик GEO и AEO">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Метрика</th>
-                    <th>Что отвечает на вопрос</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>AI Visibility Rate</td>
-                    <td>Видимость: как часто бренд попадает в ответы</td>
-                  </tr>
-                  <tr>
-                    <td>Intent Coverage Score</td>
-                    <td>Покрытие спроса по карте интентов</td>
-                  </tr>
-                  <tr>
-                    <td>Answer Share Index</td>
-                    <td>Доля «места» бренда внутри ответа</td>
-                  </tr>
-                  <tr>
-                    <td>Extraction Rate</td>
-                    <td>Извлекаемость контента (chunks)</td>
-                  </tr>
-                  <tr>
-                    <td>Gap Index</td>
-                    <td>Пустые зоны — где бренда нет при спросе</td>
-                  </tr>
-                  <tr>
-                    <td>Brand Authority Positioning Score</td>
-                    <td>Роль и статус бренда во времени</td>
-                  </tr>
-                  <tr>
-                    <td>AI Traffic Quality Index</td>
-                    <td>Качество трафика с AI-контекста</td>
-                  </tr>
-                  <tr>
-                    <td>AI Contribution Score</td>
-                    <td>Вклад страниц / кластеров</td>
-                  </tr>
-                  <tr>
-                    <td>Indexation-to-AI Lag</td>
-                    <td>Скорость появления после публикации</td>
-                  </tr>
-                  <tr>
-                    <td>Knowledge Graph Strength Score</td>
-                    <td>Системность присутствия как сущности</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h2 id="m-outro">Главный вывод — и что с этим делать на практике</h2>
-            <p>GEO/AEO — это не «ещё немного оптимизировать страницы». Это <strong>управление присутствием в ответах</strong>, семантическим весом бренда, извлекаемыми фрагментами и ролью внутри систем знаний LLM.</p>
-            <p>
+<h2 id="m-why-absent">Почему мой бренд не появляется в ответах ChatGPT и других нейросетей?</h2>
+<p>Первый уровень — понять, существует ли бренд в генеративной среде вообще. Мы смотрим не галочку «упомянули», а смысл:</p>
+<ul>
+<li>появляется ли бренд в ответах LLM;</li>
+<li>в каких формулировках его описывают;</li>
+<li>это рекомендация, пример или случайное имя;</li>
+<li>стабильно ли повторяется при похожих запросах.</li>
+</ul>
+<p><strong>Как измеряется:</strong> ручные prompt-тесты по интент-картам, регулярные семантические выборки, сравнение ответов разных моделей (ChatGPT / Gemini / Claude / Perplexity).</p>
+<p class="content-note"><strong>Главный показатель:</strong> <em>AI Visibility Rate</em> — доля запросов, при которых бренд оказывается в ответе.</p>
+<p class="content-note">Важно: модели не «ищут ваш сайт» построчно — они собирают ответ из вероятностных фрагментов знаний (RAG, embeddings, retrieval).</p>
+<h2 id="m-which-questions">По каким вопросам нейросети вообще начинают рекомендовать бренд?</h2>
+<p>Следующий уровень — не факт появления, а <strong>контекст, в котором бренд становится релевантным</strong>. Разбираем:</p>
+<ul>
+<li>какие вопросы «привязывают» бренд;</li>
+<li>какие темы уже покрыты;</li>
+<li>где бренд системен, а где всплывает случайно;</li>
+<li>какие сценарии выбора уже заняты конкурентами.</li>
+</ul>
+<p>Типовые формулировки, которые формируют видимость: «что лучше выбрать…», «как работает…», «какие альтернативы…», «какое решение подходит для…», «сравнение вариантов…».</p>
+<p class="content-note"><strong>Метрика:</strong> <em>Intent Coverage Score</em> — доля вопросов из карты интентов, где бренд уже присутствует в ответах. Это карта спроса не «поискового», а <strong>семантического пространства LLM</strong>.</p>
+<h2 id="m-weight">Почему в одном ответе бренд важен, а в другом его почти не слышно?</h2>
+<p>Измеряем не «упомянули / нет», а <strong>вес внутри ответа</strong>. Бренд может быть:</p>
+<ul>
+<li>случайно назван;</li>
+<li>в списке вариантов;</li>
+<li>рекомендованным решением;</li>
+<li>опорным источником смысла.</li>
+</ul>
+<p><strong>Что смотрим:</strong> позиция в списках, частота в одном ответе, роль (основной / вспомогательный / контекстный).</p>
+<p class="content-note"><strong>Метрика:</strong> <em>Answer Share Index</em> — условная доля «пространства ответа», которую занимает бренд. Это близко к тому, как LLM перераспределяет вес сущностей, а не копирует источники дословно.</p>
+<h2 id="m-chunks">Какие страницы и куски текста реально попадают в ответы нейросетей?</h2>
+<p>LLM редко «забирают страницу целиком». Чаще извлекают <strong>chunks</strong> — абзацы, таблицы, шаги, FAQ. Поэтому выигрывает не URL ради URL, а конкретный блок.</p>
+<p><strong>Анализируем:</strong> какие абзацы чаще поднимаются, какие страницы становятся источниками, какие форматы стабильнее цепляются.</p>
+<p>Лучше всего обычно работают: FAQ, how-to, сравнения «X vs Y», определения, структурированные таблицы.</p>
+<p class="content-note"><strong>Метрика:</strong> <em>Extraction Rate</em> — как часто контент-блоки оказываются в составе ответов. Это логика RAG: retrieval на уровне фрагментов, а не «один документ = один ответ».</p>
+<h2 id="m-gaps">Где у бренда нет видимости в AI, хотя там явно есть спрос?</h2>
+<p>Стратегический слой — <strong>белые пятна</strong>. Смотрим:</p>
+<ul>
+<li>темы, которые не закрыты вообще;</li>
+<li>запросы, где есть конкуренты, но нет вас;</li>
+<li>интенты, которые не приводят к появлению бренда.</li>
+</ul>
+<p>На выходе: карта AI white spaces, приоритеты для контент-производства, точки роста.</p>
+<p class="content-note"><strong>Метрика:</strong> <em>Gap Index</em> — доля интентов, где бренд отсутствует. Это AI-версия keyword gap, но на уровне <strong>смыслов</strong>, а не только слов.</p>
+<h2 id="m-evolution">Как меняется роль бренда внутри ответов со временем?</h2>
+<p>Важна не только точка на графике сегодня, но и <strong>траектория</strong>: бренд может эволюционировать от «один из вариантов» к рекомендации и к роли экспертного источника в категории.</p>
+<p><strong>Отслеживаем:</strong> тональность упоминаний, устойчивость позиции, контекст использования.</p>
+<p class="content-note"><strong>Метрика:</strong> <em>Brand Authority Positioning Score</em> — обобщённый индекс «статуса» бренда в ответах. По духу близко к entity authority в knowledge graph.</p>
+<h2 id="m-traffic">Приводят ли нейросети на сайт трафик, который хоть к чему-то обязывает?</h2>
+<p>Если в ответе есть ссылки или пользователь идёт на сайт сам, важны не сырые визиты, а <strong>качество</strong>: глубина, конверсия, возвраты, поведение после перехода.</p>
+<p>AI-трафик часто приходит от людей с уже сформированным намерением — ближе к решению, чем случайный клик из выдачи.</p>
+<p class="content-note"><strong>Метрика:</strong> <em>AI Traffic Quality Index</em> — композитный индекс качества визитов с AI-рефереров / UTM / промпт-кампаний. В отраслевых обзорах (Similarweb, Cloudflare и др.) AI-referral сегменты нередко показывают более высокую конверсию относительно классического SEO — но картина зависит от ниши и разметки трафика.</p>
+<h2 id="m-contribution">Какие страницы дают максимальный вклад в AI-видимость?</h2>
+<p>Не весь контент одинаково полезен для LLM-систем. Выделяем:</p>
+<ul>
+<li>страницы с высокой цитируемостью в ответах;</li>
+<li>страницы с мульти-интентным охватом;</li>
+<li>страницы, которые чаще выступают источником фрагментов.</li>
+</ul>
+<p>Итог — список <strong>AI-core</strong> страниц и понимание контент-ядра сайта.</p>
+<p class="content-note"><strong>Метрика:</strong> <em>AI Contribution Score</em> — вклад URL/кластера в появление бренда и фактов в ответах.</p>
+<h2 id="m-lag">Почему новый материал в ChatGPT «не появляется сразу» после публикации?</h2>
+<p>В GEO нет линейной кнопки «опубликовал → завтра в ответе». Задержка зависит от индексации, обновления embeddings, частоты пересборки retrieval-корпусов у конкретной системы.</p>
+<p><strong>Меряем:</strong> время до появления в ответах, влияние обновлений, «лагу» между индексом и доступностью для генерации.</p>
+<p class="content-note"><strong>Метрика:</strong> <em>Indexation-to-AI Lag</em> — задержка от публикации/обновления до устойчивого появления в AI-ответах. Это ключевое отличие от классического SEO: <strong>индекс ≠ мгновенная доступность для генерации</strong>.</p>
+<h2 id="m-kg">Когда бренд перестаёт быть «сайтом» и начинает быть узлом знаний для модели?</h2>
+<p>Финальный уровень — бренд стабильно фигурирует в разных типах запросов, сочетается с другими сущностями, воспроизводится в ответах с разной формулировкой задачи.</p>
+<p><strong>Смотрим:</strong> пересечения сущностей, совместные упоминания с другими брендами, устойчивость присутствия.</p>
+<p class="content-note"><strong>Метрика:</strong> <em>Knowledge Graph Strength Score</em> — насколько плотно и разнообразно бренд встроен в «сеть смыслов», которую модель может собрать. По аналогии с Google Knowledge Graph, Wikidata и entity-based retrieval.</p>
+<h2 id="m-table">Итоговая система оценки GEO/AEO</h2>
+<p>Эффективность — не одна цифра, а <strong>набор уровней</strong>. Ниже — сводная таблица для BI и регулярных отчётов (те же серии можно увидеть на <a href="../tools/geo-aeo-bi-dashboard.html">дашборде</a>).</p>
+<div aria-label="Сводная таблица метрик GEO и AEO" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Метрика</th>
+<th>Что отвечает на вопрос</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Visibility Rate</td>
+<td>Видимость: как часто бренд попадает в ответы</td>
+</tr>
+<tr>
+<td>Intent Coverage Score</td>
+<td>Покрытие спроса по карте интентов</td>
+</tr>
+<tr>
+<td>Answer Share Index</td>
+<td>Доля «места» бренда внутри ответа</td>
+</tr>
+<tr>
+<td>Extraction Rate</td>
+<td>Извлекаемость контента (chunks)</td>
+</tr>
+<tr>
+<td>Gap Index</td>
+<td>Пустые зоны — где бренда нет при спросе</td>
+</tr>
+<tr>
+<td>Brand Authority Positioning Score</td>
+<td>Роль и статус бренда во времени</td>
+</tr>
+<tr>
+<td>AI Traffic Quality Index</td>
+<td>Качество трафика с AI-контекста</td>
+</tr>
+<tr>
+<td>AI Contribution Score</td>
+<td>Вклад страниц / кластеров</td>
+</tr>
+<tr>
+<td>Indexation-to-AI Lag</td>
+<td>Скорость появления после публикации</td>
+</tr>
+<tr>
+<td>Knowledge Graph Strength Score</td>
+<td>Системность присутствия как сущности</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="m-outro">Главный вывод — и что с этим делать на практике</h2>
+<p>GEO/AEO — это не «ещё немного оптимизировать страницы». Это <strong>управление присутствием в ответах</strong>, семантическим весом бренда, извлекаемыми фрагментами и ролью внутри систем знаний LLM.</p>
+<p>
               Дальше по воронке после аудита видимости: закрепите метрики в отчёте, заведите регулярные prompt-прогоны и свяжите их с продуктовым roadmap контента —
               см. <a href="audit-ai-visibility.html">аудит AI‑видимости</a>, <a href="geo-aeo-rollout.html">внедрение сайта и контентной системы</a> и живой прототип <a href="../tools/geo-aeo-bi-dashboard.html">GEO/AEO BI‑дашборда</a>.
             </p>
-
-            <div class="content-related">
-              <h3>Связанные страницы</h3>
-              <ul>
-                <li><a href="../tools/geo-aeo-bi-dashboard.html">Интерактивный GEO/AEO BI‑дашборд</a></li>
-                <li><a href="audit-ai-visibility.html">Аудит AI‑видимости и метрики</a></li>
-                <li><a href="geo-aeo-rollout.html">GEO/AEO: сайт и контентная система</a></li>
-                <li><a href="optimization-tracking.html">Оптимизация и трекинг</a></li>
-                <li><a href="../tools/analytics.html">Аналитика и аудит (инструменты)</a></li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer"></footer>
-    <script src="../script.js"></script>
-  </body>
+<div class="content-related">
+<h3>Связанные страницы</h3>
+<ul>
+<li><a href="../tools/geo-aeo-bi-dashboard.html">Интерактивный GEO/AEO BI‑дашборд</a></li>
+<li><a href="audit-ai-visibility.html">Аудит AI‑видимости и метрики</a></li>
+<li><a href="geo-aeo-rollout.html">GEO/AEO: сайт и контентная система</a></li>
+<li><a href="optimization-tracking.html">Оптимизация и трекинг</a></li>
+<li><a href="../tools/analytics.html">Аналитика и аудит (инструменты)</a></li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"></footer>
+<script src="../script.js"></script>
+</body>
 </html>

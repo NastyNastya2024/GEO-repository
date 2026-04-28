@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Стратегия внедрения GEO/AEO-сайта и контентной системы</title>
-    <meta
-      name="description"
-      content="Путь внедрения GEO/AEO-сайта и контентной системы: живые интент-заголовки, аудит и карта знаний, типы страниц, контент-завод, техника, связность и метрики. Связка со статьёй про BI-метрики и интерактивным дашбордом."
-    />
-    <meta
-      name="keywords"
-      content="GEO внедрение, AEO сайт, контентная система, knowledge graph, интентная карта, контент-завод, schema.org"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="canonical" href="/strategy/geo-aeo-rollout.html" />
-    <script type="application/ld+json">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Стратегия внедрения GEO/AEO-сайта и контентной системы</title>
+<meta content="Путь внедрения GEO/AEO-сайта и контентной системы: живые интент-заголовки, аудит и карта знаний, типы страниц, контент-завод, техника, связность и метрики. Связка со статьёй про BI-метрики и интерактивным дашбордом." name="description"/>
+<meta content="GEO внедрение, AEO сайт, контентная система, knowledge graph, интентная карта, контент-завод, schema.org" name="keywords"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;family=Jura:wght@300..700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="/strategy/geo-aeo-rollout.html" rel="canonical"/>
+<script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -27,324 +21,289 @@
         "about": ["GEO", "AEO", "content system", "knowledge graph", "AI extraction"]
       }
     </script>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="../index.html" class="logo">
-          <img src="../Img/logo-aeo.png" alt="GEO logo" class="logo-image" />
-        </a>
-        <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-    </header>
-
-    <div class="drawer-backdrop" data-drawer-close hidden></div>
-    <aside class="mobile-drawer" id="site-drawer" aria-label="Меню" aria-hidden="true">
-      <div class="mobile-drawer__header">
-        <span class="mobile-drawer__title">Меню</span>
-        <button class="mobile-drawer__close" type="button" data-drawer-close aria-label="Закрыть меню">×</button>
-      </div>
-      <nav class="drawer-nav" aria-label="Навигация сайта">
-        <details class="nav-dd" open>
-          <summary>Методы</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../methods/methods-guide.html">Методы продвижения — обзор</a>
-            <a role="menuitem" href="../methods/geo.html">GEO оптимизация</a>
-            <a role="menuitem" href="../methods/aeo.html">AEO оптимизация</a>
-            <a role="menuitem" href="../methods/seo.html">SEO оптимизация</a>
-            <a role="menuitem" href="../methods/aio.html">AIO оптимизация</a>
-            <a role="menuitem" href="../methods/ai-smm.html">AI &amp; SMM стратегии</a>
-            <a role="menuitem" href="../methods/faq-methods.html">FAQ по методам</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Нейроплатформы</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../neural-platforms/platform-comparison.html">Что такое нейроплатформы</a>
-            <a role="menuitem" href="../neural-platforms/chatgpt.html">ChatGPT</a>
-            <a role="menuitem" href="../neural-platforms/perplexity.html">Perplexity</a>
-            <a role="menuitem" href="../neural-platforms/deepseek.html">DeepSeek</a>
-            <a role="menuitem" href="../neural-platforms/yandex-alice.html">Яндекс Алиса</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Инструменты</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../tools/analytics.html">Аналитика и аудит</a>
-            <a role="menuitem" href="../tools/geo-aeo-bi-dashboard.html">GEO/AEO BI‑дашборд</a>
-            <a role="menuitem" href="../tools/content-factory.html">Контент‑завод</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Стратегия</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="overview.html">Обзор раздела «Стратегия»</a>
-            <a role="menuitem" href="strategic-intent.html">Стратегический интент</a>
-            <a role="menuitem" href="geo-aeo-rollout.html">GEO/AEO: сайт и контентная система</a>
-            <a role="menuitem" href="audit-ai-visibility.html">Аудит AI‑видимости и метрики</a>
-            <a role="menuitem" href="geo-aeo-metrics-bi.html">Метрики GEO/AEO и BI</a>
-            <a role="menuitem" href="implementation-changes.html">Реализация изменений</a>
-            <a role="menuitem" href="optimization-tracking.html">Оптимизация и трекинг</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Отрасли</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../case-studies/all-industries-geo-aeo.html">Все отрасли и нейропоиск</a>
-            <a role="menuitem" href="../case-studies/marketplaces-neuro-strategy.html">Маркетплейсы</a>
-            <a role="menuitem" href="../case-studies/clinics-neuro-strategy.html">Клиники</a>
-            <a role="menuitem" href="../case-studies/service-centers-neuro-strategy.html">Сервисные центры</a>
-            <a role="menuitem" href="../case-studies/showrooms-neuro-strategy.html">Шоурумы</a>
-            <a role="menuitem" href="../case-studies/beauty-neuro-strategy.html">Салоны красоты</a>
-            <a role="menuitem" href="../case-studies/delivery-neuro-strategy.html">Доставка</a>
-            <a role="menuitem" href="../case-studies/corporations.html">Кейсы больших корпораций</a>
-            <a role="menuitem" href="../case-studies/ecommerce.html">Кейсы e‑commerce</a>
-            <a role="menuitem" href="../case-studies/saas.html">Кейсы SaaS и digital</a>
-            <a role="menuitem" href="../case-studies/local-business.html">Кейсы локального бизнеса</a>
-            <a role="menuitem" href="../case-studies/ai-discovery.html">AI‑discovery лидеры</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Общее</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../faq-promotion.html">FAQ по промо в AI и поиске</a>
-            <a role="menuitem" href="../about.html">Компания и контакты</a>
-          </div>
-        </details>
-
-        <a class="drawer-link" href="../blog/main.html">БЛОГ</a>
-      </nav>
-    </aside>
-
-    <main>
-      <section class="section">
-        <div class="container">
-          <header class="section-header">
-            <h1>Стратегия внедрения GEO/AEO-сайта и контентной системы</h1>
-            <p class="section-subtitle">
+<meta content="https://formspree.io/f/mqeworkz" name="form-endpoint"/></head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="../index.html">
+<img alt="GEO logo" class="logo-image" src="../Img/logo-aeo.png"/>
+</a>
+<button aria-expanded="false" aria-label="Открыть меню" class="burger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="drawer-backdrop" data-drawer-close="" hidden=""></div>
+<aside aria-hidden="true" aria-label="Меню" class="mobile-drawer" id="site-drawer">
+<div class="mobile-drawer__header">
+<span class="mobile-drawer__title">Меню</span>
+<button aria-label="Закрыть меню" class="mobile-drawer__close" data-drawer-close="" type="button">×</button>
+</div>
+<nav aria-label="Навигация сайта" class="drawer-nav">
+<details class="nav-dd" open="">
+<summary>Методы</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../methods/methods-guide.html" role="menuitem">Методы продвижения — обзор</a>
+<a href="../methods/geo.html" role="menuitem">GEO оптимизация</a>
+<a href="../methods/aeo.html" role="menuitem">AEO оптимизация</a>
+<a href="../methods/seo.html" role="menuitem">SEO оптимизация</a>
+<a href="../methods/aio.html" role="menuitem">AIO оптимизация</a>
+<a href="../methods/ai-smm.html" role="menuitem">AI &amp; SMM стратегии</a>
+<a href="../methods/faq-methods.html" role="menuitem">FAQ по методам</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Нейроплатформы</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../neural-platforms/platform-comparison.html" role="menuitem">Что такое нейроплатформы</a>
+<a href="../neural-platforms/chatgpt.html" role="menuitem">ChatGPT</a>
+<a href="../neural-platforms/perplexity.html" role="menuitem">Perplexity</a>
+<a href="../neural-platforms/deepseek.html" role="menuitem">DeepSeek</a>
+<a href="../neural-platforms/yandex-alice.html" role="menuitem">Яндекс Алиса</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Инструменты</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../tools/analytics.html" role="menuitem">Аналитика и аудит</a>
+<a href="../tools/geo-aeo-bi-dashboard.html" role="menuitem">GEO/AEO BI‑дашборд</a>
+<a href="../tools/content-factory.html" role="menuitem">Контент‑завод</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Стратегия</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="overview.html" role="menuitem">Обзор раздела «Стратегия»</a>
+<a href="strategic-intent.html" role="menuitem">Стратегический интент</a>
+<a href="geo-aeo-rollout.html" role="menuitem">GEO/AEO: сайт и контентная система</a>
+<a href="audit-ai-visibility.html" role="menuitem">Аудит AI‑видимости и метрики</a>
+<a href="geo-aeo-metrics-bi.html" role="menuitem">Метрики GEO/AEO и BI</a>
+<a href="implementation-changes.html" role="menuitem">Реализация изменений</a>
+<a href="optimization-tracking.html" role="menuitem">Оптимизация и трекинг</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Отрасли</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../case-studies/all-industries-geo-aeo.html" role="menuitem">Все отрасли и нейропоиск</a>
+<a href="../case-studies/marketplaces-neuro-strategy.html" role="menuitem">Маркетплейсы</a>
+<a href="../case-studies/clinics-neuro-strategy.html" role="menuitem">Клиники</a>
+<a href="../case-studies/service-centers-neuro-strategy.html" role="menuitem">Сервисные центры</a>
+<a href="../case-studies/showrooms-neuro-strategy.html" role="menuitem">Шоурумы</a>
+<a href="../case-studies/beauty-neuro-strategy.html" role="menuitem">Салоны красоты</a>
+<a href="../case-studies/delivery-neuro-strategy.html" role="menuitem">Доставка</a>
+<a href="../case-studies/corporations.html" role="menuitem">Кейсы больших корпораций</a>
+<a href="../case-studies/ecommerce.html" role="menuitem">Кейсы e‑commerce</a>
+<a href="../case-studies/saas.html" role="menuitem">Кейсы SaaS и digital</a>
+<a href="../case-studies/local-business.html" role="menuitem">Кейсы локального бизнеса</a>
+<a href="../case-studies/ai-discovery.html" role="menuitem">AI‑discovery лидеры</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Общее</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../faq-promotion.html" role="menuitem">FAQ по промо в AI и поиске</a>
+<a href="../about.html" role="menuitem">Компания и контакты</a>
+</div>
+</details>
+<a class="drawer-link" href="../blog/main.html">БЛОГ</a>
+</nav>
+</aside>
+<main>
+<section class="section">
+<div class="container">
+<header class="section-header">
+<h1>Стратегия внедрения GEO/AEO-сайта и контентной системы</h1>
+<p class="section-subtitle">
               Ниже — тот же план внедрения, но языком живых интентов: как будто это не оглавление методички, а цепочка вопросов, которые задают маркетолог, продакт и нейросеть. Дальше — карта знаний, страницы, «завод» блоков, техника и метрики; подробная система метрик и демо-дашборд — в отдельных материалах.
             </p>
-          </header>
-
-          <nav class="content-toc" aria-label="Содержание статьи">
-            <a href="#geoaeo-q1">Не «ещё один SEO-сайт»</a>
-            <a href="#geoaeo-q2">Что снять до контента</a>
-            <a href="#geoaeo-q3">Как выглядит страница под ответ</a>
-            <a href="#geoaeo-q4">Откуда берутся блоки</a>
-            <a href="#geoaeo-q5">Что мешает в коде</a>
-            <a href="#geoaeo-q6">Как писать под GEO</a>
-            <a href="#geoaeo-q7">Как не спорить с самим собой</a>
-            <a href="#geoaeo-q8">Что смотреть после запуска</a>
-            <a href="#geoaeo-q9">Сайт или фабрика знаний</a>
-          </nav>
-
-          <article class="content-article">
-            <h2 id="geoaeo-q1">Мы всё ещё заказываем «сайт под SEO»? Почему в 2026 главная ставка — не позиции, а выдвигаемые ответы</h2>
-            <p>Если честно: позиции в выдаче не исчезли, но всё чаще пользователь <strong>не доходит до клика по десяти ссылкам</strong> — он получает готовый ответ в чате или в AI-обёртке поиска. Поэтому мы проектируем не «страницы ради краулера», а <strong>систему извлекаемых ответов</strong> для нейросетей и поиска нового поколения.</p>
-            <p>Каждый элемент системы должен удовлетворять трём простым проверкам:</p>
-            <ul>
-              <li>его можно вытащить как самостоятельный фрагмент ответа;</li>
-              <li>он читается без «прочитайте предыдущие три абзаца»;</li>
-              <li>его структура однозначна и для человека, и для машины.</li>
-            </ul>
-
-            <h2 id="geoaeo-q2">Контента ещё нет: с чего реально начать — аудит AI, карта вопросов и граф тем без самообмана?</h2>
-            <p>Пока не написана ни строчка, вы всё равно можете <strong>сжечь бюджет на красивый текст</strong>, если не зафиксировали: что модель уже «знает» о бренде, какие вопросы вы недополучили и как темы связаны между собой. Этап 1 — про честную картину, а не про ТЗ на копирайт.</p>
-
-            <h3 id="geoaeo-q21">Бренд мелькает в ChatGPT или его нет вообще — что снять на нулевом аудите?</h3>
-            <p><strong>Аудит текущей AI-видимости</strong> — фиксируем:</p>
-            <ul>
-              <li>какие запросы уже приводят бренд в LLM/поиск;</li>
-              <li>в каких контекстах бренд упоминается;</li>
-              <li>какие конкуренты доминируют в ответах;</li>
-              <li>какие темы вообще не закрыты.</li>
-            </ul>
-            <p class="content-note"><strong>Результат этапа:</strong> карта текущей AI-видимости.</p>
-
-            <h3 id="geoaeo-q22">Зачем нам карта вопросов вместо «семантики на две тысячи строк»?</h3>
-            <p>Классическое ядро полезно для рекламы и SEO, но для ответных систем важнее <strong>как люди формулируют задачу</strong>. Поэтому вместо списка «ключей» собираем <strong>интентную карту</strong> — набор реальных смысловых запросов:</p>
-            <ul>
-              <li><strong>Explain</strong> — что это;</li>
-              <li><strong>How-to</strong> — как сделать;</li>
-              <li><strong>Compare</strong> — сравнение решений;</li>
-              <li><strong>Decision</strong> — что выбрать;</li>
-              <li><strong>Commercial</strong> — решения и услуги.</li>
-            </ul>
-            <p class="content-note"><strong>Результат:</strong> интентная карта, которая заменяет SEO-структуру.</p>
-
-            <h3 id="geoaeo-q23">Как не оставить темы «островами», если сайт должен тянуть внутренние ссылки и смысл?</h3>
-            <p>Проектируем <strong>knowledge graph</strong> в человеческом смысле слова — не обязательно в базе triple-store, а как осознанную сеть страниц. Определяем:</p>
-            <ul>
-              <li>ключевые узлы (основные темы);</li>
-              <li>вторичные узлы (подтемы);</li>
-              <li>связи между ними.</li>
-            </ul>
-            <p><strong>Важно:</strong> каждая тема должна иметь минимум 2–3 связки; исключается изолированный контент.</p>
-            <p class="content-note"><strong>Результат:</strong> архитектура сайта как граф знаний.</p>
-
-            <h2 id="geoaeo-q3">Как должна выглядеть страница, если её читают не «скроллом», а «вырезкой абзацев» в ответе модели?</h2>
-            <p>Страница — это не лонгрид ради объёма, а <strong>контейнер для фрагментов</strong>, которые retrieval может поднять отдельно. Поэтому сверху — ответ, ниже — доказательства и форматы, которые легко пересказать.</p>
-
-            <h3 id="geoaeo-q31">Что человек (и модель) должны увидеть в первые секунды — без прокрутки к сути?</h3>
-            <p>Единый принцип верстки смысла:</p>
-            <ul>
-              <li>короткий прямой ответ в начале;</li>
-              <li>блоки объяснения (атомарные);</li>
-              <li>структурированные списки / шаги / таблицы;</li>
-              <li>FAQ внутри страницы.</li>
-            </ul>
-
-            <h3 id="geoaeo-q32">Зачем дробить текст на микро-блоки, которые живут сами по себе?</h3>
-            <p>Каждый блок — мини-договор с читателем и с моделью. Он обязан:</p>
-            <ul>
-              <li>решать один конкретный микро-вопрос;</li>
-              <li>быть автономным (понятен отдельно);</li>
-              <li>быть логически завершённым;</li>
-              <li>не зависеть от соседних разделов.</li>
-            </ul>
-
-            <h3 id="geoaeo-q33">Какие четыре типа URL почти всегда нужны, чтобы закрыть спрос «от объяснения до покупки»?</h3>
-            <ul>
-              <li><strong>Answer Pages</strong> — прямые ответы;</li>
-              <li><strong>How-to Pages</strong> — инструкции;</li>
-              <li><strong>Comparison Pages</strong> — сравнения;</li>
-              <li><strong>Product/Service Pages</strong> — коммерческие сущности.</li>
-            </ul>
-
-            <h2 id="geoaeo-q4">Где взять поток маленьких ответов без бесконечных лонгридов «ради охвата»?</h2>
-            <p>«Контент-завод» звучит индустриально, но по смыслу это <strong>редакторская дисциплина</strong>: один интент — один выпускаемый блок, понятный срок и ясный формат. Иначе команда утонет в черновиках, а сайт так и останется красивой витриной без извлекаемых смыслов.</p>
-
-            <h3 id="geoaeo-q41">Почему единица производства — блок ответа, а не «статья как файл»?</h3>
-            <p>Контент создаётся не как статьи, а как <strong>поток атомарных ответных блоков</strong>.</p>
-            <p>Каждый блок: один интент, один смысл, один результат.</p>
-
-            <h3 id="geoaeo-q42">Какие форматы система умеет выпускать стабильно, а не «как получится у автора»?</h3>
-            <ul>
-              <li>объясняющие блоки (definition-first);</li>
-              <li>инструкции (step-based);</li>
-              <li>сравнения (table-driven);</li>
-              <li>FAQ-ответы (query-driven).</li>
-            </ul>
-
-            <h3 id="geoaeo-q43">Куда нести блоки, если «всё на сайте» уже не работает как единственный канал?</h3>
-            <ul>
-              <li><strong>Сайт</strong> — основная база знаний;</li>
-              <li><strong>Соцсети</strong> — дистрибуция объяснений;</li>
-              <li><strong>Внешние платформы</strong> — усиление AI-видимости.</li>
-            </ul>
-
-            <h2 id="geoaeo-q5">Что именно в коде и вёрстке мешает нейросетям и краулерам «добраться до смысла»?</h2>
-            <p>Идеальный текст бессилен, если он <strong>прячется за гидратацией, табами и пустым div</strong>. Технический слой — это часть GEO/AEO: доставить текст так, чтобы его можно было стабильно прочитать и проиндексировать.</p>
-
-            <h3 id="geoaeo-q51">SSR, SSG или «толстый клиент»: что ближе к «текст в HTML сразу»?</h3>
-            <ul>
-              <li>SSR / статическая генерация;</li>
-              <li>минимизация client-side JS;</li>
-              <li>доступность контента без интерактивных зависимостей.</li>
-            </ul>
-
-            <h3 id="geoaeo-q52">Schema.org ради галочки или нормальная иерархия заголовков — что реально кормит модель?</h3>
-            <p>Обязательно внедряются типы вроде <strong>Article</strong>, <strong>FAQPage</strong>, <strong>HowTo</strong>, <strong>Product</strong> — но ключевое: <strong>не разметка сама по себе, а структура HTML</strong>, из которой смысл читается без «магии» скриптов.</p>
-
-            <h3 id="geoaeo-q53">Как понять, что рендер «чистый»: DOM, скрытые блоки и ленивая подгрузка текста?</h3>
-            <ul>
-              <li>быстрый доступ к тексту;</li>
-              <li>отсутствие скрытых блоков;</li>
-              <li>отсутствие критического lazy-load для основного текста;</li>
-              <li>чистая DOM-структура.</li>
-            </ul>
-
-            <h2 id="geoaeo-q6">Как звучит текст, который модель хочет пересказать, а не «обойти стороной»?</h2>
-            <p>GEO — это не «добавить ключевик». Это <strong>язык конкретики</strong>: меньше абстракций, больше проверяемых утверждений, которые устойчивы к сжатию и перефразированию.</p>
-
-            <h3 id="geoaeo-q61">Какие правила на один абзац спасают и редактора, и embeddings?</h3>
-            <ul>
-              <li>один смысл = один блок;</li>
-              <li>без «маркетингового шума»;</li>
-              <li>без абстрактных формулировок;</li>
-              <li>максимальная конкретика.</li>
-            </ul>
-
-            <h3 id="geoaeo-q62">Что значит «пересказываемость»: модель сожмёт текст — смысл останется?</h3>
-            <p>Контент должен:</p>
-            <ul>
-              <li>легко сокращаться без потери смысла;</li>
-              <li>сохранять структуру при перефразировании;</li>
-              <li>быть устойчивым к извлечению LLM.</li>
-            </ul>
-
-            <h3 id="geoaeo-q63">Зачем блоку автономия: его вытащили из страницы — он всё ещё ценен?</h3>
-            <p>Каждый блок можно вытащить из страницы — он останется понятным и сохранит ценность отдельно.</p>
-
-            <h2 id="geoaeo-q7">Как сделать так, чтобы страницы не спорили друг с другом одними и теми же словами?</h2>
-            <p>Связность — не «внутренний PageRank ради SEO», а <strong>единая карта смысла</strong>: от определений к углублению и обратно к опорной теме. Иначе пользователь и модель получат разные ответы с разных URL.</p>
-
-            <h3 id="geoaeo-q71">Куда каждая страница должна ссылаться, чтобы читатель не застревал в тупике?</h3>
-            <p>Каждая страница:</p>
-            <ul>
-              <li>ссылается на базовые определения;</li>
-              <li>уходит в углубления;</li>
-              <li>возвращает к основному узлу.</li>
-            </ul>
-
-            <h3 id="geoaeo-q72">Как договориться о терминах, чтобы на сайте не было пяти «разных продуктов» с одним названием?</h3>
-            <p><strong>Семантическая консистентность:</strong> единые термины, единые определения, отсутствие синонимического шума.</p>
-
-            <h2 id="geoaeo-q8">Запустили — и что смотреть в первые недели: AI, контент или поведение людей?</h2>
-            <p>Без метрик вы не управляете системой, вы <strong>надеетесь на удачу</strong>. Минимальный набор: видимость в ответах, извлекаемость блоков, поведение AI-трафика. Подробная система показателей и демо-дашборд — в материале <a href="geo-aeo-metrics-bi.html">«Метрики GEO/AEO и BI»</a> и на странице <a href="../tools/geo-aeo-bi-dashboard.html">интерактивного BI-дашборда</a>.</p>
-
-            <h3 id="geoaeo-q81">Появляемся ли мы в ответах и по каким формулировкам это проверять вручную и на расписании?</h3>
-            <ul>
-              <li>появляется ли бренд в AI-ответах;</li>
-              <li>по каким запросам;</li>
-              <li>в каком контексте.</li>
-            </ul>
-
-            <h3 id="geoaeo-q82">Какие страницы и блоки реально «кормят» ответы — а какие просто существуют?</h3>
-            <ul>
-              <li>какие блоки чаще извлекаются;</li>
-              <li>какие страницы цитируются;</li>
-              <li>какие интенты закрываются.</li>
-            </ul>
-
-            <h3 id="geoaeo-q83">Ведёт ли AI-трафик в глубину и в конверсию — или это случайные клики?</h3>
-            <ul>
-              <li>вовлечённость;</li>
-              <li>глубина взаимодействия;</li>
-              <li>конверсии из AI-трафика.</li>
-            </ul>
-
-            <h2 id="geoaeo-q9">В конце проекта: у нас новый сайт или рабочая фабрика знаний под AI?</h2>
-            <p>Если всё сделано по уму, в прод уходит не «набор страниц», а <strong>инфраструктура знаний, оптимизированная под AI-извлечение</strong> — с картой интентов, графом, потоком блоков, техникой и метриками.</p>
-            <p>Она состоит из:</p>
-            <ul>
-              <li>интентной карты;</li>
-              <li>графа знаний;</li>
-              <li>системы атомарного контента;</li>
-              <li>технически чистого сайта;</li>
-              <li>метрик AI-видимости (см. также <a href="geo-aeo-metrics-bi.html">систему метрик и BI</a>).</li>
-            </ul>
-
-            <div class="content-related">
-              <h3>Связанные страницы</h3>
-              <ul>
-                <li><a href="overview.html">Обзор раздела «Стратегия»</a></li>
-                <li><a href="strategic-intent.html">Стратегический интент</a></li>
-                <li><a href="audit-ai-visibility.html">Аудит AI‑видимости и метрики</a></li>
-                <li><a href="geo-aeo-metrics-bi.html">Метрики GEO/AEO и BI</a></li>
-                <li><a href="../tools/geo-aeo-bi-dashboard.html">Интерактивный GEO/AEO BI‑дашборд</a></li>
-                <li><a href="implementation-changes.html">Реализация изменений</a></li>
-                <li><a href="../methods/geo.html">GEO оптимизация</a></li>
-                <li><a href="../methods/aeo.html">AEO оптимизация</a></li>
-                <li><a href="../tools/content-factory.html">Контент‑завод</a></li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer"></footer>
-    <script src="../script.js"></script>
-  </body>
+</header>
+<nav aria-label="Содержание статьи" class="content-toc">
+<a href="#geoaeo-q1">Не «ещё один SEO-сайт»</a>
+<a href="#geoaeo-q2">Что снять до контента</a>
+<a href="#geoaeo-q3">Как выглядит страница под ответ</a>
+<a href="#geoaeo-q4">Откуда берутся блоки</a>
+<a href="#geoaeo-q5">Что мешает в коде</a>
+<a href="#geoaeo-q6">Как писать под GEO</a>
+<a href="#geoaeo-q7">Как не спорить с самим собой</a>
+<a href="#geoaeo-q8">Что смотреть после запуска</a>
+<a href="#geoaeo-q9">Сайт или фабрика знаний</a>
+</nav>
+<article class="content-article">
+<h2 id="geoaeo-q1">Мы всё ещё заказываем «сайт под SEO»? Почему в 2026 главная ставка — не позиции, а выдвигаемые ответы</h2>
+<p>Если честно: позиции в выдаче не исчезли, но всё чаще пользователь <strong>не доходит до клика по десяти ссылкам</strong> — он получает готовый ответ в чате или в AI-обёртке поиска. Поэтому мы проектируем не «страницы ради краулера», а <strong>систему извлекаемых ответов</strong> для нейросетей и поиска нового поколения.</p>
+<p>Каждый элемент системы должен удовлетворять трём простым проверкам:</p>
+<ul>
+<li>его можно вытащить как самостоятельный фрагмент ответа;</li>
+<li>он читается без «прочитайте предыдущие три абзаца»;</li>
+<li>его структура однозначна и для человека, и для машины.</li>
+</ul>
+<h2 id="geoaeo-q2">Контента ещё нет: с чего реально начать — аудит AI, карта вопросов и граф тем без самообмана?</h2>
+<p>Пока не написана ни строчка, вы всё равно можете <strong>сжечь бюджет на красивый текст</strong>, если не зафиксировали: что модель уже «знает» о бренде, какие вопросы вы недополучили и как темы связаны между собой. Этап 1 — про честную картину, а не про ТЗ на копирайт.</p>
+<h3 id="geoaeo-q21">Бренд мелькает в ChatGPT или его нет вообще — что снять на нулевом аудите?</h3>
+<p><strong>Аудит текущей AI-видимости</strong> — фиксируем:</p>
+<ul>
+<li>какие запросы уже приводят бренд в LLM/поиск;</li>
+<li>в каких контекстах бренд упоминается;</li>
+<li>какие конкуренты доминируют в ответах;</li>
+<li>какие темы вообще не закрыты.</li>
+</ul>
+<p class="content-note"><strong>Результат этапа:</strong> карта текущей AI-видимости.</p>
+<h3 id="geoaeo-q22">Зачем нам карта вопросов вместо «семантики на две тысячи строк»?</h3>
+<p>Классическое ядро полезно для рекламы и SEO, но для ответных систем важнее <strong>как люди формулируют задачу</strong>. Поэтому вместо списка «ключей» собираем <strong>интентную карту</strong> — набор реальных смысловых запросов:</p>
+<ul>
+<li><strong>Explain</strong> — что это;</li>
+<li><strong>How-to</strong> — как сделать;</li>
+<li><strong>Compare</strong> — сравнение решений;</li>
+<li><strong>Decision</strong> — что выбрать;</li>
+<li><strong>Commercial</strong> — решения и услуги.</li>
+</ul>
+<p class="content-note"><strong>Результат:</strong> интентная карта, которая заменяет SEO-структуру.</p>
+<h3 id="geoaeo-q23">Как не оставить темы «островами», если сайт должен тянуть внутренние ссылки и смысл?</h3>
+<p>Проектируем <strong>knowledge graph</strong> в человеческом смысле слова — не обязательно в базе triple-store, а как осознанную сеть страниц. Определяем:</p>
+<ul>
+<li>ключевые узлы (основные темы);</li>
+<li>вторичные узлы (подтемы);</li>
+<li>связи между ними.</li>
+</ul>
+<p><strong>Важно:</strong> каждая тема должна иметь минимум 2–3 связки; исключается изолированный контент.</p>
+<p class="content-note"><strong>Результат:</strong> архитектура сайта как граф знаний.</p>
+<h2 id="geoaeo-q3">Как должна выглядеть страница, если её читают не «скроллом», а «вырезкой абзацев» в ответе модели?</h2>
+<p>Страница — это не лонгрид ради объёма, а <strong>контейнер для фрагментов</strong>, которые retrieval может поднять отдельно. Поэтому сверху — ответ, ниже — доказательства и форматы, которые легко пересказать.</p>
+<h3 id="geoaeo-q31">Что человек (и модель) должны увидеть в первые секунды — без прокрутки к сути?</h3>
+<p>Единый принцип верстки смысла:</p>
+<ul>
+<li>короткий прямой ответ в начале;</li>
+<li>блоки объяснения (атомарные);</li>
+<li>структурированные списки / шаги / таблицы;</li>
+<li>FAQ внутри страницы.</li>
+</ul>
+<h3 id="geoaeo-q32">Зачем дробить текст на микро-блоки, которые живут сами по себе?</h3>
+<p>Каждый блок — мини-договор с читателем и с моделью. Он обязан:</p>
+<ul>
+<li>решать один конкретный микро-вопрос;</li>
+<li>быть автономным (понятен отдельно);</li>
+<li>быть логически завершённым;</li>
+<li>не зависеть от соседних разделов.</li>
+</ul>
+<h3 id="geoaeo-q33">Какие четыре типа URL почти всегда нужны, чтобы закрыть спрос «от объяснения до покупки»?</h3>
+<ul>
+<li><strong>Answer Pages</strong> — прямые ответы;</li>
+<li><strong>How-to Pages</strong> — инструкции;</li>
+<li><strong>Comparison Pages</strong> — сравнения;</li>
+<li><strong>Product/Service Pages</strong> — коммерческие сущности.</li>
+</ul>
+<h2 id="geoaeo-q4">Где взять поток маленьких ответов без бесконечных лонгридов «ради охвата»?</h2>
+<p>«Контент-завод» звучит индустриально, но по смыслу это <strong>редакторская дисциплина</strong>: один интент — один выпускаемый блок, понятный срок и ясный формат. Иначе команда утонет в черновиках, а сайт так и останется красивой витриной без извлекаемых смыслов.</p>
+<h3 id="geoaeo-q41">Почему единица производства — блок ответа, а не «статья как файл»?</h3>
+<p>Контент создаётся не как статьи, а как <strong>поток атомарных ответных блоков</strong>.</p>
+<p>Каждый блок: один интент, один смысл, один результат.</p>
+<h3 id="geoaeo-q42">Какие форматы система умеет выпускать стабильно, а не «как получится у автора»?</h3>
+<ul>
+<li>объясняющие блоки (definition-first);</li>
+<li>инструкции (step-based);</li>
+<li>сравнения (table-driven);</li>
+<li>FAQ-ответы (query-driven).</li>
+</ul>
+<h3 id="geoaeo-q43">Куда нести блоки, если «всё на сайте» уже не работает как единственный канал?</h3>
+<ul>
+<li><strong>Сайт</strong> — основная база знаний;</li>
+<li><strong>Соцсети</strong> — дистрибуция объяснений;</li>
+<li><strong>Внешние платформы</strong> — усиление AI-видимости.</li>
+</ul>
+<h2 id="geoaeo-q5">Что именно в коде и вёрстке мешает нейросетям и краулерам «добраться до смысла»?</h2>
+<p>Идеальный текст бессилен, если он <strong>прячется за гидратацией, табами и пустым div</strong>. Технический слой — это часть GEO/AEO: доставить текст так, чтобы его можно было стабильно прочитать и проиндексировать.</p>
+<h3 id="geoaeo-q51">SSR, SSG или «толстый клиент»: что ближе к «текст в HTML сразу»?</h3>
+<ul>
+<li>SSR / статическая генерация;</li>
+<li>минимизация client-side JS;</li>
+<li>доступность контента без интерактивных зависимостей.</li>
+</ul>
+<h3 id="geoaeo-q52">Schema.org ради галочки или нормальная иерархия заголовков — что реально кормит модель?</h3>
+<p>Обязательно внедряются типы вроде <strong>Article</strong>, <strong>FAQPage</strong>, <strong>HowTo</strong>, <strong>Product</strong> — но ключевое: <strong>не разметка сама по себе, а структура HTML</strong>, из которой смысл читается без «магии» скриптов.</p>
+<h3 id="geoaeo-q53">Как понять, что рендер «чистый»: DOM, скрытые блоки и ленивая подгрузка текста?</h3>
+<ul>
+<li>быстрый доступ к тексту;</li>
+<li>отсутствие скрытых блоков;</li>
+<li>отсутствие критического lazy-load для основного текста;</li>
+<li>чистая DOM-структура.</li>
+</ul>
+<h2 id="geoaeo-q6">Как звучит текст, который модель хочет пересказать, а не «обойти стороной»?</h2>
+<p>GEO — это не «добавить ключевик». Это <strong>язык конкретики</strong>: меньше абстракций, больше проверяемых утверждений, которые устойчивы к сжатию и перефразированию.</p>
+<h3 id="geoaeo-q61">Какие правила на один абзац спасают и редактора, и embeddings?</h3>
+<ul>
+<li>один смысл = один блок;</li>
+<li>без «маркетингового шума»;</li>
+<li>без абстрактных формулировок;</li>
+<li>максимальная конкретика.</li>
+</ul>
+<h3 id="geoaeo-q62">Что значит «пересказываемость»: модель сожмёт текст — смысл останется?</h3>
+<p>Контент должен:</p>
+<ul>
+<li>легко сокращаться без потери смысла;</li>
+<li>сохранять структуру при перефразировании;</li>
+<li>быть устойчивым к извлечению LLM.</li>
+</ul>
+<h3 id="geoaeo-q63">Зачем блоку автономия: его вытащили из страницы — он всё ещё ценен?</h3>
+<p>Каждый блок можно вытащить из страницы — он останется понятным и сохранит ценность отдельно.</p>
+<h2 id="geoaeo-q7">Как сделать так, чтобы страницы не спорили друг с другом одними и теми же словами?</h2>
+<p>Связность — не «внутренний PageRank ради SEO», а <strong>единая карта смысла</strong>: от определений к углублению и обратно к опорной теме. Иначе пользователь и модель получат разные ответы с разных URL.</p>
+<h3 id="geoaeo-q71">Куда каждая страница должна ссылаться, чтобы читатель не застревал в тупике?</h3>
+<p>Каждая страница:</p>
+<ul>
+<li>ссылается на базовые определения;</li>
+<li>уходит в углубления;</li>
+<li>возвращает к основному узлу.</li>
+</ul>
+<h3 id="geoaeo-q72">Как договориться о терминах, чтобы на сайте не было пяти «разных продуктов» с одним названием?</h3>
+<p><strong>Семантическая консистентность:</strong> единые термины, единые определения, отсутствие синонимического шума.</p>
+<h2 id="geoaeo-q8">Запустили — и что смотреть в первые недели: AI, контент или поведение людей?</h2>
+<p>Без метрик вы не управляете системой, вы <strong>надеетесь на удачу</strong>. Минимальный набор: видимость в ответах, извлекаемость блоков, поведение AI-трафика. Подробная система показателей и демо-дашборд — в материале <a href="geo-aeo-metrics-bi.html">«Метрики GEO/AEO и BI»</a> и на странице <a href="../tools/geo-aeo-bi-dashboard.html">интерактивного BI-дашборда</a>.</p>
+<h3 id="geoaeo-q81">Появляемся ли мы в ответах и по каким формулировкам это проверять вручную и на расписании?</h3>
+<ul>
+<li>появляется ли бренд в AI-ответах;</li>
+<li>по каким запросам;</li>
+<li>в каком контексте.</li>
+</ul>
+<h3 id="geoaeo-q82">Какие страницы и блоки реально «кормят» ответы — а какие просто существуют?</h3>
+<ul>
+<li>какие блоки чаще извлекаются;</li>
+<li>какие страницы цитируются;</li>
+<li>какие интенты закрываются.</li>
+</ul>
+<h3 id="geoaeo-q83">Ведёт ли AI-трафик в глубину и в конверсию — или это случайные клики?</h3>
+<ul>
+<li>вовлечённость;</li>
+<li>глубина взаимодействия;</li>
+<li>конверсии из AI-трафика.</li>
+</ul>
+<h2 id="geoaeo-q9">В конце проекта: у нас новый сайт или рабочая фабрика знаний под AI?</h2>
+<p>Если всё сделано по уму, в прод уходит не «набор страниц», а <strong>инфраструктура знаний, оптимизированная под AI-извлечение</strong> — с картой интентов, графом, потоком блоков, техникой и метриками.</p>
+<p>Она состоит из:</p>
+<ul>
+<li>интентной карты;</li>
+<li>графа знаний;</li>
+<li>системы атомарного контента;</li>
+<li>технически чистого сайта;</li>
+<li>метрик AI-видимости (см. также <a href="geo-aeo-metrics-bi.html">систему метрик и BI</a>).</li>
+</ul>
+<div class="content-related">
+<h3>Связанные страницы</h3>
+<ul>
+<li><a href="overview.html">Обзор раздела «Стратегия»</a></li>
+<li><a href="strategic-intent.html">Стратегический интент</a></li>
+<li><a href="audit-ai-visibility.html">Аудит AI‑видимости и метрики</a></li>
+<li><a href="geo-aeo-metrics-bi.html">Метрики GEO/AEO и BI</a></li>
+<li><a href="../tools/geo-aeo-bi-dashboard.html">Интерактивный GEO/AEO BI‑дашборд</a></li>
+<li><a href="implementation-changes.html">Реализация изменений</a></li>
+<li><a href="../methods/geo.html">GEO оптимизация</a></li>
+<li><a href="../methods/aeo.html">AEO оптимизация</a></li>
+<li><a href="../tools/content-factory.html">Контент‑завод</a></li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"></footer>
+<script src="../script.js"></script>
+</body>
 </html>

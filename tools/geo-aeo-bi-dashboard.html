@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GEO/AEO BI‑дашборд — демо метрик AI‑видимости</title>
-    <meta
-      name="description"
-      content="Интерактивный демо-дашборд: AI Visibility, Intent Coverage, Gap Index, системные KPI. Chart.js, статические данные для прототипа BI под GEO и AEO."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="canonical" href="/tools/geo-aeo-bi-dashboard.html" />
-    <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GEO/AEO BI‑дашборд — демо метрик AI‑видимости</title>
+<meta content="Интерактивный демо-дашборд: AI Visibility, Intent Coverage, Gap Index, системные KPI. Chart.js, статические данные для прототипа BI под GEO и AEO." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;family=Jura:wght@300..700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="/tools/geo-aeo-bi-dashboard.html" rel="canonical"/>
+<style>
       .geo-bi {
         max-width: 1120px;
         margin: 0 auto;
@@ -99,190 +96,180 @@
         color: rgba(203, 213, 225, 0.9);
       }
     </style>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="../index.html" class="logo">
-          <img src="../Img/logo-aeo.png" alt="GEO logo" class="logo-image" />
-        </a>
-        <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-    </header>
-
-    <div class="drawer-backdrop" data-drawer-close hidden></div>
-    <aside class="mobile-drawer" id="site-drawer" aria-label="Меню" aria-hidden="true">
-      <div class="mobile-drawer__header">
-        <span class="mobile-drawer__title">Меню</span>
-        <button class="mobile-drawer__close" type="button" data-drawer-close aria-label="Закрыть меню">×</button>
-      </div>
-      <nav class="drawer-nav" aria-label="Навигация сайта">
-        <details class="nav-dd" open>
-          <summary>Методы</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../methods/methods-guide.html">Методы продвижения — обзор</a>
-            <a role="menuitem" href="../methods/geo.html">GEO оптимизация</a>
-            <a role="menuitem" href="../methods/aeo.html">AEO оптимизация</a>
-            <a role="menuitem" href="../methods/seo.html">SEO оптимизация</a>
-            <a role="menuitem" href="../methods/aio.html">AIO оптимизация</a>
-            <a role="menuitem" href="../methods/ai-smm.html">AI &amp; SMM стратегии</a>
-            <a role="menuitem" href="../methods/faq-methods.html">FAQ по методам</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Нейроплатформы</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../neural-platforms/platform-comparison.html">Что такое нейроплатформы</a>
-            <a role="menuitem" href="../neural-platforms/chatgpt.html">ChatGPT</a>
-            <a role="menuitem" href="../neural-platforms/perplexity.html">Perplexity</a>
-            <a role="menuitem" href="../neural-platforms/deepseek.html">DeepSeek</a>
-            <a role="menuitem" href="../neural-platforms/yandex-alice.html">Яндекс Алиса</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Инструменты</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../tools/analytics.html">Аналитика и аудит</a>
-            <a role="menuitem" href="../tools/geo-aeo-bi-dashboard.html">GEO/AEO BI‑дашборд</a>
-            <a role="menuitem" href="../tools/content-factory.html">Контент‑завод</a>
-            <a role="menuitem" href="../tools/it-audit.html">Аудит текущего IT‑решения</a>
-            <a role="menuitem" href="../tools/promotion-strategy.html">Стратегия продвижения</a>
-            <a role="menuitem" href="../tools/full-promotion.html">Полное продвижение</a>
-            <a role="menuitem" href="../tools/support-service.html">Поддерживающий сервис</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Стратегия</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../strategy/overview.html">Обзор раздела «Стратегия»</a>
-            <a role="menuitem" href="../strategy/strategic-intent.html">Стратегический интент</a>
-            <a role="menuitem" href="../strategy/geo-aeo-rollout.html">GEO/AEO: сайт и контентная система</a>
-            <a role="menuitem" href="../strategy/audit-ai-visibility.html">Аудит AI‑видимости и метрики</a>
-            <a role="menuitem" href="../strategy/geo-aeo-metrics-bi.html">Метрики GEO/AEO и BI</a>
-            <a role="menuitem" href="../strategy/implementation-changes.html">Реализация изменений</a>
-            <a role="menuitem" href="../strategy/optimization-tracking.html">Оптимизация и трекинг</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Отрасли</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../case-studies/all-industries-geo-aeo.html">Все отрасли и нейропоиск</a>
-            <a role="menuitem" href="../case-studies/marketplaces-neuro-strategy.html">Маркетплейсы</a>
-            <a role="menuitem" href="../case-studies/clinics-neuro-strategy.html">Клиники</a>
-            <a role="menuitem" href="../case-studies/service-centers-neuro-strategy.html">Сервисные центры</a>
-            <a role="menuitem" href="../case-studies/showrooms-neuro-strategy.html">Шоурумы</a>
-            <a role="menuitem" href="../case-studies/beauty-neuro-strategy.html">Салоны красоты</a>
-            <a role="menuitem" href="../case-studies/delivery-neuro-strategy.html">Доставка</a>
-            <a role="menuitem" href="../case-studies/corporations.html">Кейсы больших корпораций</a>
-            <a role="menuitem" href="../case-studies/ecommerce.html">Кейсы e‑commerce</a>
-            <a role="menuitem" href="../case-studies/saas.html">Кейсы SaaS и digital</a>
-            <a role="menuitem" href="../case-studies/local-business.html">Кейсы локального бизнеса</a>
-            <a role="menuitem" href="../case-studies/ai-discovery.html">AI‑discovery лидеры</a>
-          </div>
-        </details>
-        <details class="nav-dd" open>
-          <summary>Общее</summary>
-          <div class="nav-dd-panel" role="menu">
-            <a role="menuitem" href="../faq-promotion.html">FAQ по промо в AI и поиске</a>
-            <a role="menuitem" href="../about.html">Компания и контакты</a>
-          </div>
-        </details>
-
-        <a class="drawer-link" href="../blog/main.html">БЛОГ</a>
-      </nav>
-    </aside>
-
-    <main>
-      <section class="section">
-        <div class="container geo-bi">
-          <header class="section-header">
-            <h1>GEO/AEO BI‑дашборд</h1>
-            <p class="section-subtitle">
+<meta content="https://formspree.io/f/mqeworkz" name="form-endpoint"/></head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="../index.html">
+<img alt="GEO logo" class="logo-image" src="../Img/logo-aeo.png"/>
+</a>
+<button aria-expanded="false" aria-label="Открыть меню" class="burger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="drawer-backdrop" data-drawer-close="" hidden=""></div>
+<aside aria-hidden="true" aria-label="Меню" class="mobile-drawer" id="site-drawer">
+<div class="mobile-drawer__header">
+<span class="mobile-drawer__title">Меню</span>
+<button aria-label="Закрыть меню" class="mobile-drawer__close" data-drawer-close="" type="button">×</button>
+</div>
+<nav aria-label="Навигация сайта" class="drawer-nav">
+<details class="nav-dd" open="">
+<summary>Методы</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../methods/methods-guide.html" role="menuitem">Методы продвижения — обзор</a>
+<a href="../methods/geo.html" role="menuitem">GEO оптимизация</a>
+<a href="../methods/aeo.html" role="menuitem">AEO оптимизация</a>
+<a href="../methods/seo.html" role="menuitem">SEO оптимизация</a>
+<a href="../methods/aio.html" role="menuitem">AIO оптимизация</a>
+<a href="../methods/ai-smm.html" role="menuitem">AI &amp; SMM стратегии</a>
+<a href="../methods/faq-methods.html" role="menuitem">FAQ по методам</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Нейроплатформы</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../neural-platforms/platform-comparison.html" role="menuitem">Что такое нейроплатформы</a>
+<a href="../neural-platforms/chatgpt.html" role="menuitem">ChatGPT</a>
+<a href="../neural-platforms/perplexity.html" role="menuitem">Perplexity</a>
+<a href="../neural-platforms/deepseek.html" role="menuitem">DeepSeek</a>
+<a href="../neural-platforms/yandex-alice.html" role="menuitem">Яндекс Алиса</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Инструменты</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../tools/analytics.html" role="menuitem">Аналитика и аудит</a>
+<a href="../tools/geo-aeo-bi-dashboard.html" role="menuitem">GEO/AEO BI‑дашборд</a>
+<a href="../tools/content-factory.html" role="menuitem">Контент‑завод</a>
+<a href="../tools/it-audit.html" role="menuitem">Аудит текущего IT‑решения</a>
+<a href="../tools/promotion-strategy.html" role="menuitem">Стратегия продвижения</a>
+<a href="../tools/full-promotion.html" role="menuitem">Полное продвижение</a>
+<a href="../tools/support-service.html" role="menuitem">Поддерживающий сервис</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Стратегия</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../strategy/overview.html" role="menuitem">Обзор раздела «Стратегия»</a>
+<a href="../strategy/strategic-intent.html" role="menuitem">Стратегический интент</a>
+<a href="../strategy/geo-aeo-rollout.html" role="menuitem">GEO/AEO: сайт и контентная система</a>
+<a href="../strategy/audit-ai-visibility.html" role="menuitem">Аудит AI‑видимости и метрики</a>
+<a href="../strategy/geo-aeo-metrics-bi.html" role="menuitem">Метрики GEO/AEO и BI</a>
+<a href="../strategy/implementation-changes.html" role="menuitem">Реализация изменений</a>
+<a href="../strategy/optimization-tracking.html" role="menuitem">Оптимизация и трекинг</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Отрасли</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../case-studies/all-industries-geo-aeo.html" role="menuitem">Все отрасли и нейропоиск</a>
+<a href="../case-studies/marketplaces-neuro-strategy.html" role="menuitem">Маркетплейсы</a>
+<a href="../case-studies/clinics-neuro-strategy.html" role="menuitem">Клиники</a>
+<a href="../case-studies/service-centers-neuro-strategy.html" role="menuitem">Сервисные центры</a>
+<a href="../case-studies/showrooms-neuro-strategy.html" role="menuitem">Шоурумы</a>
+<a href="../case-studies/beauty-neuro-strategy.html" role="menuitem">Салоны красоты</a>
+<a href="../case-studies/delivery-neuro-strategy.html" role="menuitem">Доставка</a>
+<a href="../case-studies/corporations.html" role="menuitem">Кейсы больших корпораций</a>
+<a href="../case-studies/ecommerce.html" role="menuitem">Кейсы e‑commerce</a>
+<a href="../case-studies/saas.html" role="menuitem">Кейсы SaaS и digital</a>
+<a href="../case-studies/local-business.html" role="menuitem">Кейсы локального бизнеса</a>
+<a href="../case-studies/ai-discovery.html" role="menuitem">AI‑discovery лидеры</a>
+</div>
+</details>
+<details class="nav-dd" open="">
+<summary>Общее</summary>
+<div class="nav-dd-panel" role="menu">
+<a href="../faq-promotion.html" role="menuitem">FAQ по промо в AI и поиске</a>
+<a href="../about.html" role="menuitem">Компания и контакты</a>
+</div>
+</details>
+<a class="drawer-link" href="../blog/main.html">БЛОГ</a>
+</nav>
+</aside>
+<main>
+<section class="section">
+<div class="container geo-bi">
+<header class="section-header">
+<h1>GEO/AEO BI‑дашборд</h1>
+<p class="section-subtitle">
               Прототип панели метрик: демо-данные на Chart.js. Логика показателей и расшифровки — в статье
               <a href="../strategy/geo-aeo-metrics-bi.html">«Метрики GEO/AEO и BI»</a>.
             </p>
-          </header>
-
-          <p class="geo-bi__lead">
+</header>
+<p class="geo-bi__lead">
             Карточки и графики ниже иллюстрируют типичный состав отчёта: видимость во времени, распределение интентов, доля «дыр» в покрытии и блок системного здоровья. В продукте сюда добавляют слой моделей (ChatGPT / Gemini / Perplexity), heatmap интентов и overlay конкурентов.
           </p>
-
-          <div class="geo-bi__grid-kpi" aria-label="Ключевые KPI">
-            <div class="geo-bi__kpi">
-              <div class="geo-bi__kpi-label">AI Visibility Rate</div>
-              <div class="geo-bi__kpi-value">44%</div>
-              <div class="geo-bi__kpi-hint">доля промптов с упоминанием бренда</div>
-            </div>
-            <div class="geo-bi__kpi">
-              <div class="geo-bi__kpi-label">Intent Coverage</div>
-              <div class="geo-bi__kpi-value">68%</div>
-              <div class="geo-bi__kpi-hint">закрытые интенты по карте</div>
-            </div>
-            <div class="geo-bi__kpi">
-              <div class="geo-bi__kpi-label">Answer Share Index</div>
-              <div class="geo-bi__kpi-value">0,31</div>
-              <div class="geo-bi__kpi-hint">условный вес в ответе</div>
-            </div>
-            <div class="geo-bi__kpi">
-              <div class="geo-bi__kpi-label">Gap Index</div>
-              <div class="geo-bi__kpi-value">22%</div>
-              <div class="geo-bi__kpi-hint">интенты без бренда</div>
-            </div>
-          </div>
-
-          <div class="geo-bi__charts geo-bi__charts--2">
-            <div class="geo-bi__card">
-              <h3>AI Visibility Dynamics</h3>
-              <div class="geo-bi__chart-wrap">
-                <canvas id="geoBiChartVisibility" aria-label="Линейный график AI Visibility"></canvas>
-              </div>
-            </div>
-            <div class="geo-bi__card">
-              <h3>Intent Distribution</h3>
-              <div class="geo-bi__chart-wrap">
-                <canvas id="geoBiChartIntent" aria-label="Гистограмма распределения интентов"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <div class="geo-bi__charts geo-bi__charts--2">
-            <div class="geo-bi__card">
-              <h3>Content Gap Index</h3>
-              <div class="geo-bi__chart-wrap">
-                <canvas id="geoBiChartGap" aria-label="Круговая диаграмма gap"></canvas>
-              </div>
-            </div>
-            <div class="geo-bi__card geo-bi__health">
-              <h3>System Health Metrics</h3>
-              <ul>
-                <li><strong>Extraction Rate:</strong> 72% — фрагменты контента, попадающие в ответы</li>
-                <li><strong>Brand Authority Positioning:</strong> Strong — устойчивая роль в категории</li>
-                <li><strong>AI Contribution Score:</strong> High — ядро страниц тянет видимость</li>
-                <li><strong>Indexation-to-AI Lag:</strong> 3,2 дня — медиана до появления в LLM</li>
-                <li><strong>Knowledge Graph Strength:</strong> Growing — сущность набирает связи</li>
-              </ul>
-            </div>
-          </div>
-
-          <p class="geo-bi__footnote">
+<div aria-label="Ключевые KPI" class="geo-bi__grid-kpi">
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">AI Visibility Rate</div>
+<div class="geo-bi__kpi-value">44%</div>
+<div class="geo-bi__kpi-hint">доля промптов с упоминанием бренда</div>
+</div>
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">Intent Coverage</div>
+<div class="geo-bi__kpi-value">68%</div>
+<div class="geo-bi__kpi-hint">закрытые интенты по карте</div>
+</div>
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">Answer Share Index</div>
+<div class="geo-bi__kpi-value">0,31</div>
+<div class="geo-bi__kpi-hint">условный вес в ответе</div>
+</div>
+<div class="geo-bi__kpi">
+<div class="geo-bi__kpi-label">Gap Index</div>
+<div class="geo-bi__kpi-value">22%</div>
+<div class="geo-bi__kpi-hint">интенты без бренда</div>
+</div>
+</div>
+<div class="geo-bi__charts geo-bi__charts--2">
+<div class="geo-bi__card">
+<h3>AI Visibility Dynamics</h3>
+<div class="geo-bi__chart-wrap">
+<canvas aria-label="Линейный график AI Visibility" id="geoBiChartVisibility"></canvas>
+</div>
+</div>
+<div class="geo-bi__card">
+<h3>Intent Distribution</h3>
+<div class="geo-bi__chart-wrap">
+<canvas aria-label="Гистограмма распределения интентов" id="geoBiChartIntent"></canvas>
+</div>
+</div>
+</div>
+<div class="geo-bi__charts geo-bi__charts--2">
+<div class="geo-bi__card">
+<h3>Content Gap Index</h3>
+<div class="geo-bi__chart-wrap">
+<canvas aria-label="Круговая диаграмма gap" id="geoBiChartGap"></canvas>
+</div>
+</div>
+<div class="geo-bi__card geo-bi__health">
+<h3>System Health Metrics</h3>
+<ul>
+<li><strong>Extraction Rate:</strong> 72% — фрагменты контента, попадающие в ответы</li>
+<li><strong>Brand Authority Positioning:</strong> Strong — устойчивая роль в категории</li>
+<li><strong>AI Contribution Score:</strong> High — ядро страниц тянет видимость</li>
+<li><strong>Indexation-to-AI Lag:</strong> 3,2 дня — медиана до появления в LLM</li>
+<li><strong>Knowledge Graph Strength:</strong> Growing — сущность набирает связи</li>
+</ul>
+</div>
+</div>
+<p class="geo-bi__footnote">
             Данные вымышлены для демонстрации UI. Следующий шаг продукта: LLM tracking layer (раздельно по моделям), intent heatmap и competitor overlay (share of AI voice).
           </p>
-
-          <div class="content-related">
-            <h3>Связанные материалы</h3>
-            <ul>
-              <li><a href="../strategy/geo-aeo-metrics-bi.html">Статья: метрики GEO/AEO и BI</a></li>
-              <li><a href="../strategy/audit-ai-visibility.html">Аудит AI‑видимости</a></li>
-              <li><a href="analytics.html">Аналитика и аудит</a></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer"></footer>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <script>
+<div class="content-related">
+<h3>Связанные материалы</h3>
+<ul>
+<li><a href="../strategy/geo-aeo-metrics-bi.html">Статья: метрики GEO/AEO и BI</a></li>
+<li><a href="../strategy/audit-ai-visibility.html">Аудит AI‑видимости</a></li>
+<li><a href="analytics.html">Аналитика и аудит</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
       (function () {
         const grid = "rgba(255,255,255,0.06)";
         const tick = "rgba(148, 163, 184, 0.95)";
@@ -373,6 +360,6 @@
         });
       })();
     </script>
-    <script src="../script.js"></script>
-  </body>
+<script src="../script.js"></script>
+</body>
 </html>

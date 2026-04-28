@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const LANG = isEnglish() ? "en" : "ru";
+  const DEFAULT_FORM_ENDPOINT = "https://formspree.io/f/mqeworkz";
 
   // Absolute base for internal links (GitHub Pages project vs custom domain)
   const basePath = (() => {
@@ -177,6 +178,35 @@ document.addEventListener("DOMContentLoaded", () => {
       const repo = parts[0];
       if (parts[1] === "en") return u.toString();
       u.pathname = "/" + [repo, "en", ...parts.slice(1)].join("/");
+      return u.toString();
+    } catch {
+      return null;
+    }
+  };
+
+  const toLangUrl = href => {
+    try {
+      if (LANG === "en") return toEnglishUrl(href);
+      const u = new URL(href, window.location.href);
+      if (u.origin !== window.location.origin) return null;
+      const parts = String(u.pathname || "/").split("/").filter(Boolean);
+      const isGithub = String(window.location.hostname || "").endsWith("github.io");
+      if (!isGithub) {
+        if (parts[0] !== "en") return u.toString();
+        u.pathname = "/" + parts.slice(1).join("/");
+        return u.toString();
+      }
+      if (!parts.length) return null;
+      // /<repo>/en/... -> /<repo>/...
+      if (parts[1] === "en") {
+        u.pathname = "/" + [parts[0], ...parts.slice(2)].join("/");
+        return u.toString();
+      }
+      // /en/<repo>/... -> /<repo>/...
+      if (parts[0] === "en" && parts.length >= 2) {
+        u.pathname = "/" + [parts[1], ...parts.slice(2)].join("/");
+        return u.toString();
+      }
       return u.toString();
     } catch {
       return null;
@@ -1388,28 +1418,190 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const wrap = document.createElement("div");
     wrap.className = "contact-form-wrap";
+    const quickTags =
+      LANG === "en"
+        ? [
+            {
+              id: "tech",
+              label: "#learn-technology",
+              title: "About the technology",
+              answer: "GEO/AEO is about making your content easy to retrieve and quote by AI systems.",
+              href: "methods/geo.html"
+            },
+            {
+              id: "promo",
+              label: "#ai-promotion",
+              title: "Promotion in neural networks",
+              answer: "We build a system: intent → pages → trust signals → distribution → measurement.",
+              href: "strategy/strategic-intent.html"
+            },
+            {
+              id: "aeo",
+              label: "#what-is-aeo",
+              title: "What is AEO",
+              answer: "Answer Engine Optimization: structured pages that provide direct answers and are easy to cite.",
+              href: "methods/aeo.html"
+            },
+            {
+              id: "services",
+              label: "#services",
+              title: "Services",
+              answer: "Audit, strategy, content production, implementation and support for AI visibility.",
+              href: "tools/full-promotion.html"
+            },
+            {
+              id: "contacts",
+              label: "#contacts",
+              title: "Contacts",
+              answer: "Phone and quick request form. We respond as soon as possible.",
+              href: "about.html#kompaniya-kontakty"
+            },
+            {
+              id: "request",
+              label: "#leave-a-request",
+              title: "Leave a request",
+              answer: "Leave your phone/email and a short comment — we’ll contact you.",
+              href: "#form"
+            },
+            {
+              id: "company",
+              label: "#company",
+              title: "About the company",
+              answer: "Who we are, how we work and what you get from cooperation.",
+              href: "about.html"
+            }
+          ]
+        : [
+            {
+              id: "tech",
+              label: "#узнать-о-технологии",
+              title: "Узнать о технологии",
+              answer: "GEO/AEO — это про цитируемость и извлекаемость: чтобы AI‑системы выбирали и цитировали ваш сайт.",
+              href: "methods/geo.html"
+            },
+            {
+              id: "promo",
+              label: "#продвижение-в-нейросетях",
+              title: "Продвижение в нейросетях",
+              answer: "Строим систему: интенты → страницы → доверие → дистрибуция → измерение результата.",
+              href: "strategy/strategic-intent.html"
+            },
+            {
+              id: "aeo",
+              label: "#что-такое-aeo",
+              title: "Что такое AEO",
+              answer: "Answer Engine Optimization: страницы‑ответы с коротким ответом, структурой и FAQ для систем ответа.",
+              href: "methods/aeo.html"
+            },
+            {
+              id: "services",
+              label: "#услуги",
+              title: "Услуги",
+              answer: "Аудит, стратегия, контент, внедрение и сопровождение — полный цикл AI‑видимости.",
+              href: "tools/full-promotion.html"
+            },
+            {
+              id: "contacts",
+              label: "#контакты",
+              title: "Контакты",
+              answer: "Телефон и быстрая заявка. Ответим в ближайшее время.",
+              href: "about.html#kompaniya-kontakty"
+            },
+            {
+              id: "request",
+              label: "#оставить-заявку",
+              title: "Оставить заявку",
+              answer: "Оставьте телефон/почту и короткий комментарий — мы свяжемся.",
+              href: "#form"
+            },
+            {
+              id: "company",
+              label: "#о-компании",
+              title: "О компании",
+              answer: "Кто мы, как работаем и что вы получаете от сотрудничества.",
+              href: "about.html"
+            }
+          ];
+
+    const tagsHtml = quickTags
+      .map(
+        (t, idx) =>
+          `<button type="button" class="qtag ${idx === 0 ? "is-active" : ""}" data-qtag="${t.id}">${t.label}</button>`
+      )
+      .join("");
+
     wrap.innerHTML = `
       <div class="form-overlay" data-contact-close></div>
-      <div id="contact-form-container" class="contact-form-container" role="dialog" aria-modal="true" aria-label="${tr("contactFormAria")}">
+      <div id="contact-form-container" class="contact-form-container contact-form-container--quick" role="dialog" aria-modal="true" aria-label="${tr("contactFormAria")}">
         <button type="button" class="contact-form-close" data-contact-close aria-label="${LANG === "en" ? "Close" : "Закрыть"}">×</button>
-        <div id="contact-form-content" class="contact-form-content">
-          <div id="contact-form-head" class="contact-form-head">
-            <h3 class="pre">${tr("formTitle")}</h3>
-            <p class="pre">${tr("formIntro")}</p>
-            <h3 class="post">${tr("thanks")}</h3>
-            <p class="post">${tr("thanksText")}</p>
+        <div class="contact-quick">
+          <div class="contact-quick__head">
+            <h3 class="contact-quick__title">${tr("formTitle")}</h3>
+            <p class="contact-quick__subtitle">${tr("formIntro")}</p>
           </div>
-          <form id="contact-form" novalidate>
-            <input class="input name" type="text" name="user_name" placeholder="${tr("yourName")}" required />
-            <input class="input email" type="email" name="user_email" placeholder="${tr("yourEmail")}" required />
-            <textarea class="input message" name="message" placeholder="${tr("yourMessage")}" required></textarea>
-            <button class="btn input submit" type="submit">${tr("send")}</button>
-          </form>
+          <div class="contact-quick__tags" aria-label="Навигация">
+            ${tagsHtml}
+          </div>
+          <div class="contact-quick__body">
+            <div class="contact-quick__card" id="contact-quick-card">
+              <div class="contact-quick__card-title"></div>
+              <div class="contact-quick__card-text"></div>
+              <a class="contact-quick__link btn btn-header btn-header--white" href="#" id="contact-quick-link">${LANG === "en" ? "Open article" : "Открыть статью"}</a>
+            </div>
+
+            <form id="contact-form" class="contact-quick__form" method="post" novalidate hidden>
+              <input class="input phone" type="tel" name="user_phone" placeholder="${LANG === "en" ? "Phone" : "Телефон"}" required />
+              <input class="input email" type="email" name="user_email" placeholder="${tr("yourEmail")}" required />
+              <textarea class="input message" name="message" placeholder="${tr("yourMessage")}" required></textarea>
+              <button class="btn input submit" type="submit">${tr("send")}</button>
+              <p class="contact-quick__hint">
+                ${
+                  LANG === "en"
+                    ? "To enable automatic emails on GitHub Pages, set a Formspree endpoint via <meta name=\"form-endpoint\" content=\"https://formspree.io/f/xxxxxxx\">."
+                    : "Чтобы заявки автоматически приходили на почту на GitHub Pages, задайте Formspree endpoint через <meta name=\"form-endpoint\" content=\"https://formspree.io/f/xxxxxxx\">."
+                }
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     `;
     document.body.appendChild(wrap);
     bindContactCloseHandlers(wrap);
+
+    // Wire up quick tags behavior
+    const tagButtons = Array.from(wrap.querySelectorAll("[data-qtag]"));
+    const card = wrap.querySelector("#contact-quick-card");
+    const cardTitle = wrap.querySelector(".contact-quick__card-title");
+    const cardText = wrap.querySelector(".contact-quick__card-text");
+    const link = wrap.querySelector("#contact-quick-link");
+    const form = wrap.querySelector("#contact-form");
+    const endpointFromMeta = document.querySelector('meta[name="form-endpoint"]')?.getAttribute("content") || "";
+    const resolvedEndpoint = endpointFromMeta || DEFAULT_FORM_ENDPOINT;
+    if (form instanceof HTMLFormElement && resolvedEndpoint) {
+      form.setAttribute("action", resolvedEndpoint);
+    }
+
+    const setActive = id => {
+      tagButtons.forEach(b => b.classList.toggle("is-active", b.getAttribute("data-qtag") === id));
+      const t = quickTags.find(x => x.id === id) || quickTags[0];
+      if (cardTitle) cardTitle.textContent = t.title;
+      if (cardText) cardText.textContent = t.answer;
+      const isForm = t.href === "#form";
+      if (form instanceof HTMLFormElement) form.hidden = !isForm;
+      if (card instanceof Element) card.hidden = isForm;
+      if (link instanceof HTMLAnchorElement) {
+        const target = isForm ? "#" : t.href;
+        const next = toLangUrl(target) || (isForm ? "#" : new URL(target, window.location.href).toString());
+        link.href = next;
+        link.style.display = isForm ? "none" : "inline-flex";
+      }
+    };
+
+    tagButtons.forEach(btn => {
+      btn.addEventListener("click", () => setActive(btn.getAttribute("data-qtag") || ""));
+    });
+    setActive(quickTags[0].id);
   };
 
   const isValidEmail = email => {
@@ -1519,8 +1711,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const name = form.querySelector('input[name="user_name"]');
     const email = form.querySelector('input[name="user_email"]');
+    const phone = form.querySelector('input[name="user_phone"]');
     const message = form.querySelector('textarea[name="message"]');
-    const fields = [name, email, message].filter(Boolean);
+    const fields = [name, email, phone, message].filter(Boolean);
 
     fields.forEach(el => el.classList.remove("form-error"));
 
@@ -1531,17 +1724,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hasError) return;
 
-    // UI-only "submitted" state (no backend in this repo)
-    document.body.classList.add("form-submitted");
-    const head = document.querySelector("#contact-form-head");
-    if (head) head.classList.add("form-submitted");
+    const endpoint =
+      form.getAttribute("action") ||
+      document.querySelector('meta[name="form-endpoint"]')?.getAttribute("content") ||
+      DEFAULT_FORM_ENDPOINT ||
+      "";
 
-    window.setTimeout(() => {
-      form.reset();
-      closeContactOverlay();
-      document.body.classList.remove("form-submitted");
-      if (head) head.classList.remove("form-submitted");
-    }, 1600);
+    const payload = {
+      name: name ? String(name.value || "").trim() : "",
+      email: email ? String(email.value || "").trim() : "",
+      phone: phone ? String(phone.value || "").trim() : "",
+      message: message ? String(message.value || "").trim() : "",
+      page: window.location.href
+    };
+
+    const setSubmittedUi = () => {
+      document.body.classList.add("form-submitted");
+      const head = document.querySelector("#contact-form-head");
+      if (head) head.classList.add("form-submitted");
+      window.setTimeout(() => {
+        form.reset();
+        closeContactOverlay();
+        document.body.classList.remove("form-submitted");
+        if (head) head.classList.remove("form-submitted");
+      }, 1400);
+    };
+
+    const fallbackMailto = () => {
+      const subject = encodeURIComponent("Заявка с сайта");
+      const body = encodeURIComponent(
+        `Имя: ${payload.name}\nEmail: ${payload.email}\nТелефон: ${payload.phone}\n\nСообщение:\n${payload.message}\n\nСтраница:\n${payload.page}\n`
+      );
+      window.location.href = `mailto:anastkomarova@yandex.ru?subject=${subject}&body=${body}`;
+      setSubmittedUi();
+    };
+
+    if (!endpoint || !/^https?:\/\//i.test(endpoint)) {
+      fallbackMailto();
+      return;
+    }
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(r => {
+        if (!r.ok) throw new Error("bad response");
+        setSubmittedUi();
+      })
+      .catch(() => fallbackMailto());
   });
 
   if (modalClose) {

@@ -1,932 +1,899 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Что такое нейроплатформы в 2026 — определение, RAG, рынок LLM и сравнение платформ</title>
-    <meta
-      name="description"
-      content="Нейроплатформа: LLM, интерфейс и retrieval (RAG). Глобальная динамика AI-рынка, сводная таблица ключевых моделей, обучение vs поиск и практическое сравнение ChatGPT, Perplexity, DeepSeek, Claude, Gemini и Яндекс Алисы для GEO/AEO."
-    />
-    <meta
-      name="keywords"
-      content="нейроплатформа, LLM, RAG, retrieval, ChatGPT, Perplexity, DeepSeek, Claude, Google Gemini, Яндекс Алиса, сравнение платформ, GEO, AEO, AI-платформы, Stanford AI Index, foundation models"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jura:wght@300..700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="canonical" href="/neural-platforms/platform-comparison.html" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="../index.html" class="logo">
-          <img src="../Img/logo-aeo.png" alt="GEO logo" class="logo-image" />
-        </a>
-        <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-    </header>
-
-    <main>
-      <section class="section">
-        <div class="container">
-          <div class="section-header">
-            <h1>Что такое нейроплатформы</h1>
-            <p class="section-subtitle">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Что такое нейроплатформы в 2026 — определение, RAG, рынок LLM и сравнение платформ</title>
+<meta content="Нейроплатформа: LLM, интерфейс и retrieval (RAG). Глобальная динамика AI-рынка, сводная таблица ключевых моделей, обучение vs поиск и практическое сравнение ChatGPT, Perplexity, DeepSeek, Claude, Gemini и Яндекс Алисы для GEO/AEO." name="description"/>
+<meta content="нейроплатформа, LLM, RAG, retrieval, ChatGPT, Perplexity, DeepSeek, Claude, Google Gemini, Яндекс Алиса, сравнение платформ, GEO, AEO, AI-платформы, Stanford AI Index, foundation models" name="keywords"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&amp;family=Jura:wght@300..700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="/neural-platforms/platform-comparison.html" rel="canonical"/>
+<meta content="https://formspree.io/f/mqeworkz" name="form-endpoint"/></head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="../index.html">
+<img alt="GEO logo" class="logo-image" src="../Img/logo-aeo.png"/>
+</a>
+<button aria-expanded="false" aria-label="Открыть меню" class="burger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container">
+<div class="section-header">
+<h1>Что такое нейроплатформы</h1>
+<p class="section-subtitle">
               Определение, RAG и роль внешних данных; обзор глобального рынка AI-платформ и ключевых LLM; затем — практическое сравнение
               продуктов раздела (ChatGPT, Perplexity, DeepSeek, Claude, Google Gemini, Яндекс Алиса) для GEO, AEO и SEO.
             </p>
-          </div>
-
-          <article class="content-article">
-            <h2 id="neyroplatforma-opredelenie">Что такое нейроплатформа?</h2>
-            <p>
-              <strong>Нейроплатформа</strong> — это программная система на базе большой языковой модели, которая умеет вести диалог с пользователем, понимать запросы и генерировать ответы в разных форматах (текст, код, изображения и т.д.). По сути, это не просто модель, а связка из самой нейросети, интерфейса взаимодействия и слоя работы с внешними данными и сервисами.
+</div>
+<article class="content-article">
+<h2 id="neyroplatforma-opredelenie">Что такое нейроплатформа?</h2>
+<p>
+<strong>Нейроплатформа</strong> — это программная система на базе большой языковой модели, которая умеет вести диалог с пользователем, понимать запросы и генерировать ответы в разных форматах (текст, код, изображения и т.д.). По сути, это не просто модель, а связка из самой нейросети, интерфейса взаимодействия и слоя работы с внешними данными и сервисами.
             </p>
-            <p>
+<p>
               Примером такой системы является <a href="chatgpt.html">ChatGPT</a>, где языковая модель объединена с инструментами поиска, анализом файлов и дополнительными функциями.
             </p>
-            <p>
+<p>
               Ключевой механизм современных нейроплатформ — <strong>RAG (Retrieval-Augmented Generation)</strong>. Это подход, при котором система сначала находит релевантную информацию во внешних источниках (например, в интернете или базе документов), а затем использует её как контекст для генерации ответа. Таким образом, модель не отвечает только на основе заранее обученных знаний, а «подтягивает» актуальные данные в реальном времени.
             </p>
-            <p>
+<p>
               В итоге нейроплатформа — это <strong>комбинация генерации и поиска</strong>, где RAG обеспечивает актуальность и точность ответов за счёт подключения внешних данных к процессу работы модели.
             </p>
-
-            <h2 id="globalnaya-dinamika-ai-platform">Какова глобальная динамика рынка нейроплатформ (AI platforms)?</h2>
-            <p class="content-note">
+<h2 id="globalnaya-dinamika-ai-platform">Какова глобальная динамика рынка нейроплатформ (AI platforms)?</h2>
+<p class="content-note">
               Блок ниже обобщает отраслевую аналитику и публичные оценки рынка. Цифры по странам, стартапам и прогнозам — <strong>ориентиры из внешних обзоров и агрегаторов</strong>, сведённые в компактные таблицы; они не являются единой официальной статистикой всех юрисдикций и могут расходиться по методологии.
             </p>
-
-            <h3 id="chto-schitat-neyroplatformoy">1. Что считать «нейроплатформой»?</h3>
-            <p>В индустриальной аналитике под этим обычно понимают:</p>
-            <ul>
-              <li><strong>LLM-платформы</strong> — чат-ИИ и ассистенты с пользовательским интерфейсом;</li>
-              <li><strong>foundation models</strong> — текст, код, мультимодальные модели как база продуктов;</li>
-              <li><strong>AI-cloud платформы</strong> — API и вычисления (inference) для сторонних приложений;</li>
-              <li><strong>вертикальные AI-системы</strong> — поиск, кодинг, дизайн, аналитика и другие узкие сценарии.</li>
-            </ul>
-
-            <h3 id="otraslevye-istochniki-rynka">Какие отраслевые источники данных обычно используют для оценки рынка?</h3>
-            <ul>
-              <li><a href="https://aiindex.stanford.edu/" rel="noopener noreferrer">Stanford AI Index Report</a> (агрегированные тренды и инвестиции в ИИ);</li>
-              <li><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights" rel="noopener noreferrer">McKinsey — обзоры и отчёты по ИИ</a>;</li>
-              <li><a href="https://www.cbinsights.com/" rel="noopener noreferrer">CB Insights</a> / PitchBook — венчур, стартапы и сделки в сегменте AI;</li>
-              <li><a href="https://oecd.ai/" rel="noopener noreferrer">OECD AI Policy Observatory</a> — политика и показатели по странам ОЭСР;</li>
-              <li><a href="https://epoch.ai/" rel="noopener noreferrer">Epoch AI</a> — модели, вычисления и динамика исследований.</li>
-            </ul>
-
-            <h3 id="skolko-ai-platform">2. Сколько AI-платформ существует сейчас (2024–2026)?</h3>
-            <div class="content-table" role="region" aria-label="Глобальные оценки числа AI-компаний и платформ">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Срез</th>
-                    <th>Оценка (ориентир)</th>
-                    <th>Комментарий</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Всего AI-стартапов</td>
-                    <td><strong>70&nbsp;000+</strong> (CB Insights, 2024)</td>
-                    <td>Широкое определение «AI company» в венчурных базах.</td>
-                  </tr>
-                  <tr>
-                    <td>Из них с генеративным ИИ</td>
-                    <td><strong>8&nbsp;000–12&nbsp;000</strong></td>
-                    <td>Оценочный коридор по отраслевым сводкам.</td>
-                  </tr>
-                  <tr>
-                    <td>Платформы уровня LLM / foundation</td>
-                    <td><strong>200–400</strong></td>
-                    <td>Крупные модели и облака вокруг них.</td>
-                  </tr>
-                  <tr>
-                    <td>Публично известные крупные LLM</td>
-                    <td><strong>150+</strong> (Epoch AI)</td>
-                    <td>Счёт моделей, а не пользовательских продуктов.</td>
-                  </tr>
-                  <tr>
-                    <td>User-facing AI-продукты (чаты, SaaS, API)</td>
-                    <td><strong>1&nbsp;500–3&nbsp;000</strong></td>
-                    <td>Если суммировать чат-интерфейсы, вертикальные SaaS и API-платформы — порядок величины.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 id="raspredelenie-po-stranam">3. Как распределены AI-платформы по странам и регионам?</h3>
-            <div class="content-table" role="region" aria-label="Регионы и оценки AI-платформ">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Регион</th>
-                    <th>Доля / инвестиции (ориентир)</th>
-                    <th>Оценка платформ и продуктов</th>
-                    <th>Ключевые игроки</th>
-                    <th>Заметка</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>США</strong></td>
-                    <td>~<strong>40–45&nbsp;%</strong> AI-компаний мира; <strong>60&nbsp;%+</strong> инвестиций в сегменте (агрегированные обзоры)</td>
-                    <td><strong>3&nbsp;000–4&nbsp;000</strong> AI-продуктов и платформ (оценка порядка)</td>
-                    <td>OpenAI, Google DeepMind, Anthropic, Meta</td>
-                    <td>Абсолютный лидер по чат-платформам и облачному inference.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Китай</strong></td>
-                    <td>~<strong>15–20&nbsp;%</strong> глобального AI-рынка; сильная господдержка</td>
-                    <td><strong>1&nbsp;500–2&nbsp;500</strong></td>
-                    <td>Baidu, Alibaba, Tencent</td>
-                    <td>Акцент на локальные экосистемы (WeChat, Alibaba Cloud).</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Европа (ЕС + UK)</strong></td>
-                    <td>~<strong>20&nbsp;%</strong> AI-стартапов; меньше «мега-платформ»</td>
-                    <td><strong>1&nbsp;500–2&nbsp;000</strong></td>
-                    <td>Mistral AI, Aleph Alpha</td>
-                    <td>Больше нишевых B2B и compliance-ориентированных решений.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Россия / СНГ</strong></td>
-                    <td>Региональный рынок</td>
-                    <td><strong>200–400</strong> AI-продуктов</td>
-                    <td>Яндекс, Сбер</td>
-                    <td>Сильная связка с локальным поиском и госсектором.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Индия</strong></td>
-                    <td>Быстрый рост B2B и аутсорса</td>
-                    <td><strong>500–1&nbsp;000</strong> AI-стартапов</td>
-                    <td>—</td>
-                    <td>Фокус: B2B, автоматизация, доступный inference.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Остальной мир</strong> (ОАЭ, Израиль, Канада, Сингапур и др.)</td>
-                    <td>Точечные хабы</td>
-                    <td><strong>1&nbsp;000–1&nbsp;500</strong></td>
-                    <td>Израиль — security; Канада — research; ОАЭ — госинициативы</td>
-                    <td>Кластеры вокруг капитала, талантов и регуляторики.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 id="dinamika-rosta-rynka">4. Какова динамика роста рынка AI?</h3>
-            <div class="content-table" role="region" aria-label="Динамика числа AI-компаний">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Год</th>
-                    <th>Оценка числа AI-компаний (глобально)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2015</td>
-                    <td>~<strong>10&nbsp;000</strong></td>
-                  </tr>
-                  <tr>
-                    <td>2020</td>
-                    <td>~<strong>40&nbsp;000</strong></td>
-                  </tr>
-                  <tr>
-                    <td>2024</td>
-                    <td><strong>70&nbsp;000+</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="content-table" role="region" aria-label="Рост генеративного ИИ и числа моделей">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Показатель</th>
-                    <th>Оценка</th>
-                    <th>Источник / комментарий</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Рост генеративного AI (2022 → 2024)</td>
-                    <td><strong>+300–500&nbsp;%</strong></td>
-                    <td>McKinsey (обзорные оценки внедрения genAI)</td>
-                  </tr>
-                  <tr>
-                    <td>Крупные LLM (условный счёт)</td>
-                    <td>2020: <strong>&lt;20</strong> → 2023: <strong>~100</strong> → 2025: <strong>150–200+</strong></td>
-                    <td>Epoch AI и отраслевые сводки (методология счёта «крупной модели» различается)</td>
-                  </tr>
-                  <tr>
-                    <td>Венчурные инвестиции в AI</td>
-                    <td>2023: <strong>~$67B</strong>; 2024: <strong>~$100B+</strong></td>
-                    <td>Stanford AI Index и вторичные пересказы</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 id="prognoz-2030">5. Чего ждать от рынка AI-платформ в 2025–2030 годах?</h3>
-            <div class="content-table" role="region" aria-label="Прогноз рынка AI-платформ до 2030">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Категория</th>
-                    <th>2030 (ориентир)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>AI-стартапы (компании)</td>
-                    <td><strong>100&nbsp;000+</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Активные user-facing AI-продукты</td>
-                    <td><strong>5&nbsp;000–10&nbsp;000</strong></td>
-                  </tr>
-                  <tr>
-                    <td>LLM / foundation models (публичный контур)</td>
-                    <td><strong>300–500</strong> моделей</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 id="konsolidatsiya-trafika">6. Почему говорят о консолидации трафика нейроплатформ?</h3>
-            <p>
+<h3 id="chto-schitat-neyroplatformoy">1. Что считать «нейроплатформой»?</h3>
+<p>В индустриальной аналитике под этим обычно понимают:</p>
+<ul>
+<li><strong>LLM-платформы</strong> — чат-ИИ и ассистенты с пользовательским интерфейсом;</li>
+<li><strong>foundation models</strong> — текст, код, мультимодальные модели как база продуктов;</li>
+<li><strong>AI-cloud платформы</strong> — API и вычисления (inference) для сторонних приложений;</li>
+<li><strong>вертикальные AI-системы</strong> — поиск, кодинг, дизайн, аналитика и другие узкие сценарии.</li>
+</ul>
+<h3 id="otraslevye-istochniki-rynka">Какие отраслевые источники данных обычно используют для оценки рынка?</h3>
+<ul>
+<li><a href="https://aiindex.stanford.edu/" rel="noopener noreferrer">Stanford AI Index Report</a> (агрегированные тренды и инвестиции в ИИ);</li>
+<li><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights" rel="noopener noreferrer">McKinsey — обзоры и отчёты по ИИ</a>;</li>
+<li><a href="https://www.cbinsights.com/" rel="noopener noreferrer">CB Insights</a> / PitchBook — венчур, стартапы и сделки в сегменте AI;</li>
+<li><a href="https://oecd.ai/" rel="noopener noreferrer">OECD AI Policy Observatory</a> — политика и показатели по странам ОЭСР;</li>
+<li><a href="https://epoch.ai/" rel="noopener noreferrer">Epoch AI</a> — модели, вычисления и динамика исследований.</li>
+</ul>
+<h3 id="skolko-ai-platform">2. Сколько AI-платформ существует сейчас (2024–2026)?</h3>
+<div aria-label="Глобальные оценки числа AI-компаний и платформ" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Срез</th>
+<th>Оценка (ориентир)</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Всего AI-стартапов</td>
+<td><strong>70 000+</strong> (CB Insights, 2024)</td>
+<td>Широкое определение «AI company» в венчурных базах.</td>
+</tr>
+<tr>
+<td>Из них с генеративным ИИ</td>
+<td><strong>8 000–12 000</strong></td>
+<td>Оценочный коридор по отраслевым сводкам.</td>
+</tr>
+<tr>
+<td>Платформы уровня LLM / foundation</td>
+<td><strong>200–400</strong></td>
+<td>Крупные модели и облака вокруг них.</td>
+</tr>
+<tr>
+<td>Публично известные крупные LLM</td>
+<td><strong>150+</strong> (Epoch AI)</td>
+<td>Счёт моделей, а не пользовательских продуктов.</td>
+</tr>
+<tr>
+<td>User-facing AI-продукты (чаты, SaaS, API)</td>
+<td><strong>1 500–3 000</strong></td>
+<td>Если суммировать чат-интерфейсы, вертикальные SaaS и API-платформы — порядок величины.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="raspredelenie-po-stranam">3. Как распределены AI-платформы по странам и регионам?</h3>
+<div aria-label="Регионы и оценки AI-платформ" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Регион</th>
+<th>Доля / инвестиции (ориентир)</th>
+<th>Оценка платформ и продуктов</th>
+<th>Ключевые игроки</th>
+<th>Заметка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>США</strong></td>
+<td>~<strong>40–45 %</strong> AI-компаний мира; <strong>60 %+</strong> инвестиций в сегменте (агрегированные обзоры)</td>
+<td><strong>3 000–4 000</strong> AI-продуктов и платформ (оценка порядка)</td>
+<td>OpenAI, Google DeepMind, Anthropic, Meta</td>
+<td>Абсолютный лидер по чат-платформам и облачному inference.</td>
+</tr>
+<tr>
+<td><strong>Китай</strong></td>
+<td>~<strong>15–20 %</strong> глобального AI-рынка; сильная господдержка</td>
+<td><strong>1 500–2 500</strong></td>
+<td>Baidu, Alibaba, Tencent</td>
+<td>Акцент на локальные экосистемы (WeChat, Alibaba Cloud).</td>
+</tr>
+<tr>
+<td><strong>Европа (ЕС + UK)</strong></td>
+<td>~<strong>20 %</strong> AI-стартапов; меньше «мега-платформ»</td>
+<td><strong>1 500–2 000</strong></td>
+<td>Mistral AI, Aleph Alpha</td>
+<td>Больше нишевых B2B и compliance-ориентированных решений.</td>
+</tr>
+<tr>
+<td><strong>Россия / СНГ</strong></td>
+<td>Региональный рынок</td>
+<td><strong>200–400</strong> AI-продуктов</td>
+<td>Яндекс, Сбер</td>
+<td>Сильная связка с локальным поиском и госсектором.</td>
+</tr>
+<tr>
+<td><strong>Индия</strong></td>
+<td>Быстрый рост B2B и аутсорса</td>
+<td><strong>500–1 000</strong> AI-стартапов</td>
+<td>—</td>
+<td>Фокус: B2B, автоматизация, доступный inference.</td>
+</tr>
+<tr>
+<td><strong>Остальной мир</strong> (ОАЭ, Израиль, Канада, Сингапур и др.)</td>
+<td>Точечные хабы</td>
+<td><strong>1 000–1 500</strong></td>
+<td>Израиль — security; Канада — research; ОАЭ — госинициативы</td>
+<td>Кластеры вокруг капитала, талантов и регуляторики.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="dinamika-rosta-rynka">4. Какова динамика роста рынка AI?</h3>
+<div aria-label="Динамика числа AI-компаний" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Год</th>
+<th>Оценка числа AI-компаний (глобально)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2015</td>
+<td>~<strong>10 000</strong></td>
+</tr>
+<tr>
+<td>2020</td>
+<td>~<strong>40 000</strong></td>
+</tr>
+<tr>
+<td>2024</td>
+<td><strong>70 000+</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div aria-label="Рост генеративного ИИ и числа моделей" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Оценка</th>
+<th>Источник / комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Рост генеративного AI (2022 → 2024)</td>
+<td><strong>+300–500 %</strong></td>
+<td>McKinsey (обзорные оценки внедрения genAI)</td>
+</tr>
+<tr>
+<td>Крупные LLM (условный счёт)</td>
+<td>2020: <strong>&lt;20</strong> → 2023: <strong>~100</strong> → 2025: <strong>150–200+</strong></td>
+<td>Epoch AI и отраслевые сводки (методология счёта «крупной модели» различается)</td>
+</tr>
+<tr>
+<td>Венчурные инвестиции в AI</td>
+<td>2023: <strong>~$67B</strong>; 2024: <strong>~$100B+</strong></td>
+<td>Stanford AI Index и вторичные пересказы</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="prognoz-2030">5. Чего ждать от рынка AI-платформ в 2025–2030 годах?</h3>
+<div aria-label="Прогноз рынка AI-платформ до 2030" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Категория</th>
+<th>2030 (ориентир)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI-стартапы (компании)</td>
+<td><strong>100 000+</strong></td>
+</tr>
+<tr>
+<td>Активные user-facing AI-продукты</td>
+<td><strong>5 000–10 000</strong></td>
+</tr>
+<tr>
+<td>LLM / foundation models (публичный контур)</td>
+<td><strong>300–500</strong> моделей</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="konsolidatsiya-trafika">6. Почему говорят о консолидации трафика нейроплатформ?</h3>
+<p>
               Несмотря на рост числа продуктов, <strong>рынок не будет равномерным</strong>: ожидается, что львиная доля пользовательского трафика сосредоточится у ограниченного числа крупных поверхностей, а длинный хвост останется за тысячами нишевых решений.
             </p>
-            <div class="content-table" role="region" aria-label="Концентрация трафика AI-платформ">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Тезис</th>
-                    <th>Оценка</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Доля трафика у топ-платформ</td>
-                    <td>~<strong>80&nbsp;%</strong> → <strong>10–20</strong> крупнейших игроков</td>
-                  </tr>
-                  <tr>
-                    <td>Основные точки концентрации</td>
-                    <td>чат-интерфейсы; AI search; AI copilots в продуктах (почта, IDE, офис)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h2 id="svodnaya-tablitsa-llm">Какие LLM чаще всего попадают в сводки Tier-1 и Tier-2?</h2>
-            <p class="content-note">
+<div aria-label="Концентрация трафика AI-платформ" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Тезис</th>
+<th>Оценка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доля трафика у топ-платформ</td>
+<td>~<strong>80 %</strong> → <strong>10–20</strong> крупнейших игроков</td>
+</tr>
+<tr>
+<td>Основные точки концентрации</td>
+<td>чат-интерфейсы; AI search; AI copilots в продуктах (почта, IDE, офис)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="svodnaya-tablitsa-llm">Какие LLM чаще всего попадают в сводки Tier-1 и Tier-2?</h2>
+<p class="content-note">
               Таблица ниже — <strong>обзорная справка по известным моделям и продуктам</strong>: часть параметров и пользовательских метрик не раскрываются операторами; значения с тильдой и диапазоны — ориентиры из публичных заявлений и отраслевых оценок, не аудиторский отчёт единой методики.
             </p>
-            <div class="content-table" role="region" aria-label="Сводная таблица ключевых LLM">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Модель</th>
-                    <th>Страна</th>
-                    <th>Компания</th>
-                    <th>Релиз</th>
-                    <th>Параметры / контекст</th>
-                    <th>Пользователи</th>
-                    <th>Динамика</th>
-                    <th>Таргет</th>
-                    <th>Источники обучения (упрощённо)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>GPT-4o</td>
-                    <td>США</td>
-                    <td>OpenAI</td>
-                    <td>2024</td>
-                    <td>Размер не раскрыт; мультимодальность; контекст <strong>128k+</strong> (по заявлениям продукта)</td>
-                    <td>ChatGPT: <strong>~180M+ MAU</strong> (ориентиры прессы/рынка)</td>
-                    <td><strong>+30–50&nbsp;%/год</strong> (оценка)</td>
-                    <td>Универсальный ассистент</td>
-                    <td>Web crawl + лицензии + пользовательские данные (по политике OpenAI)</td>
-                  </tr>
-                  <tr>
-                    <td>Claude 3 Opus</td>
-                    <td>США</td>
-                    <td>Anthropic</td>
-                    <td>2024</td>
-                    <td>Размер не раскрыт; контекст <strong>200k+</strong></td>
-                    <td><strong>~20–30M</strong> (оценка MAU consumer)</td>
-                    <td>Быстрый рост</td>
-                    <td>Reasoning / enterprise</td>
-                    <td>Курируемый web + лицензированные корпора</td>
-                  </tr>
-                  <tr>
-                    <td>Gemini 1.5 Pro</td>
-                    <td>США</td>
-                    <td>Google</td>
-                    <td>2024</td>
-                    <td>Длинный контекст (заявления до <strong>1M</strong> токенов в продуктовых материалах)</td>
-                    <td><strong>&gt;1B</strong> через продукты Google (формулировки экосистемы; не только чат)</td>
-                    <td>Масштабный охват</td>
-                    <td>Поиск / экосистема</td>
-                    <td>Индекс Google + YouTube + web</td>
-                  </tr>
-                  <tr>
-                    <td>LLaMA 3</td>
-                    <td>США</td>
-                    <td>Meta</td>
-                    <td>2024</td>
-                    <td>Варианты <strong>8B / 70B</strong></td>
-                    <td>Косвенно (через разработчиков и партнёров)</td>
-                    <td>Экспоненциальный интерес в open ecosystem</td>
-                    <td>Open ecosystem</td>
-                    <td>Web + открытые датасеты</td>
-                  </tr>
-                  <tr>
-                    <td>Mistral Large</td>
-                    <td>Франция</td>
-                    <td>Mistral AI</td>
-                    <td>2024</td>
-                    <td>Размер не раскрыт публично полностью</td>
-                    <td><strong>~10M+</strong> API usage (оценка)</td>
-                    <td>Быстрый рост</td>
-                    <td>Enterprise EU</td>
-                    <td>Курируемый web</td>
-                  </tr>
-                  <tr>
-                    <td>Falcon 180B</td>
-                    <td>ОАЭ</td>
-                    <td>Technology Innovation Institute</td>
-                    <td>2023</td>
-                    <td><strong>180B</strong></td>
-                    <td>Использование через research / dev</td>
-                    <td>Стабильный open research</td>
-                    <td>Исследования</td>
-                    <td>RefinedWeb и открытые корпора</td>
-                  </tr>
-                  <tr>
-                    <td>Qwen 2</td>
-                    <td>Китай</td>
-                    <td>Alibaba</td>
-                    <td>2024</td>
-                    <td>До <strong>72B+</strong></td>
-                    <td><strong>100M+</strong> через экосистему Alibaba (ориентир)</td>
-                    <td>Рост</td>
-                    <td>E-commerce / cloud</td>
-                    <td>Экосистема Alibaba</td>
-                  </tr>
-                  <tr>
-                    <td>ERNIE Bot 4.0</td>
-                    <td>Китай</td>
-                    <td>Baidu</td>
-                    <td>2023</td>
-                    <td>Размер не раскрыт публично полностью</td>
-                    <td><strong>200M+</strong> users (публичные формулировки Baidu)</td>
-                    <td>Быстрый рост</td>
-                    <td>Поиск</td>
-                    <td>Индекс Baidu Search</td>
-                  </tr>
-                  <tr>
-                    <td>Grok-1</td>
-                    <td>США</td>
-                    <td>xAI</td>
-                    <td>2023</td>
-                    <td>MoE, публичные оценки порядка <strong>~314B</strong></td>
-                    <td>Аудитория X (Twitter)</td>
-                    <td>Рост</td>
-                    <td>Соцсети</td>
-                    <td>Данные X (Twitter)</td>
-                  </tr>
-                  <tr>
-                    <td>Command R</td>
-                    <td>Канада</td>
-                    <td>Cohere</td>
-                    <td>2024</td>
-                    <td>Enterprise LLM</td>
-                    <td>B2B</td>
-                    <td>Умеренный рост</td>
-                    <td>Retrieval / RAG</td>
-                    <td>Курируемые корпора</td>
-                  </tr>
-                  <tr>
-                    <td>DBRX</td>
-                    <td>США</td>
-                    <td>Databricks</td>
-                    <td>2024</td>
-                    <td>MoE <strong>~132B</strong></td>
-                    <td>Enterprise</td>
-                    <td>Рост</td>
-                    <td>Data platforms</td>
-                    <td>Корпоративные датасеты</td>
-                  </tr>
-                  <tr>
-                    <td>Jurassic-2</td>
-                    <td>Израиль</td>
-                    <td>AI21 Labs</td>
-                    <td>2022</td>
-                    <td>Публичные оценки порядка <strong>~178B</strong></td>
-                    <td>API users</td>
-                    <td>Стабильный</td>
-                    <td>NLP tasks</td>
-                    <td>Web + книги</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 id="open-source-llm">Какие open-source модели наиболее известны?</h3>
-            <div class="content-table" role="region" aria-label="Open-source LLM кратко">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Модель</th>
-                    <th>Страна / контекст</th>
-                    <th>Особенность</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>BLOOM</td>
-                    <td>Международная коллаборация</td>
-                    <td><strong>176B</strong> open model</td>
-                  </tr>
-                  <tr>
-                    <td>GPT-NeoX</td>
-                    <td>США</td>
-                    <td>Open GPT-аналог</td>
-                  </tr>
-                  <tr>
-                    <td>MPT-30B</td>
-                    <td>США</td>
-                    <td>Коммерчески совместимая open-лицензия</td>
-                  </tr>
-                  <tr>
-                    <td>StableLM</td>
-                    <td>UK</td>
-                    <td>Лёгкие варианты под edge и продукты</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 id="tehnicheskie-parametry-obobshchenie">Какие технические параметры у современных LLM обычно сравнивают?</h3>
-            <div class="content-table" role="region" aria-label="Технические параметры LLM">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Параметр</th>
-                    <th>Типичный диапазон</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Размер моделей</td>
-                    <td><strong>7B → 1T+</strong> (в т.ч. MoE)</td>
-                  </tr>
-                  <tr>
-                    <td>Контекст</td>
-                    <td><strong>4k → 1M</strong> токенов (в зависимости от продукта)</td>
-                  </tr>
-                  <tr>
-                    <td>Архитектура</td>
-                    <td>Transformer / MoE</td>
-                  </tr>
-                  <tr>
-                    <td>Мультимодальность</td>
-                    <td>Текст / код / изображение / видео</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 id="mau-platform-realnost">Сколько пользователей у крупных платформ по оценкам MAU?</h3>
-            <div class="content-table" role="region" aria-label="MAU крупных платформ ориентиры">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Платформа / продукт</th>
-                    <th>MAU или аналог (ориентир)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>ChatGPT</td>
-                    <td><strong>~180–200M</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Gemini (экосистема)</td>
-                    <td><strong>1B+</strong> (по публичным формулировкам Google про слой Gemini)</td>
-                  </tr>
-                  <tr>
-                    <td>Baidu ERNIE</td>
-                    <td><strong>200M+</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Claude</td>
-                    <td><strong>~20–30M</strong> (оценка)</td>
-                  </tr>
-                  <tr>
-                    <td>Open-source стек</td>
-                    <td>Не сводится к одному «MAU»</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="content-note">
-              <strong>Важно:</strong> LLM ≠ продукт — пользователи считаются на уровне интерфейсов (чат, поиск, встройка в ОС и офис). Сравнивайте метрики только после проверки определения (WAU vs MAU, «доступ к функции» vs «активный чат»).
+<div aria-label="Сводная таблица ключевых LLM" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Модель</th>
+<th>Страна</th>
+<th>Компания</th>
+<th>Релиз</th>
+<th>Параметры / контекст</th>
+<th>Пользователи</th>
+<th>Динамика</th>
+<th>Таргет</th>
+<th>Источники обучения (упрощённо)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4o</td>
+<td>США</td>
+<td>OpenAI</td>
+<td>2024</td>
+<td>Размер не раскрыт; мультимодальность; контекст <strong>128k+</strong> (по заявлениям продукта)</td>
+<td>ChatGPT: <strong>~180M+ MAU</strong> (ориентиры прессы/рынка)</td>
+<td><strong>+30–50 %/год</strong> (оценка)</td>
+<td>Универсальный ассистент</td>
+<td>Web crawl + лицензии + пользовательские данные (по политике OpenAI)</td>
+</tr>
+<tr>
+<td>Claude 3 Opus</td>
+<td>США</td>
+<td>Anthropic</td>
+<td>2024</td>
+<td>Размер не раскрыт; контекст <strong>200k+</strong></td>
+<td><strong>~20–30M</strong> (оценка MAU consumer)</td>
+<td>Быстрый рост</td>
+<td>Reasoning / enterprise</td>
+<td>Курируемый web + лицензированные корпора</td>
+</tr>
+<tr>
+<td>Gemini 1.5 Pro</td>
+<td>США</td>
+<td>Google</td>
+<td>2024</td>
+<td>Длинный контекст (заявления до <strong>1M</strong> токенов в продуктовых материалах)</td>
+<td><strong>&gt;1B</strong> через продукты Google (формулировки экосистемы; не только чат)</td>
+<td>Масштабный охват</td>
+<td>Поиск / экосистема</td>
+<td>Индекс Google + YouTube + web</td>
+</tr>
+<tr>
+<td>LLaMA 3</td>
+<td>США</td>
+<td>Meta</td>
+<td>2024</td>
+<td>Варианты <strong>8B / 70B</strong></td>
+<td>Косвенно (через разработчиков и партнёров)</td>
+<td>Экспоненциальный интерес в open ecosystem</td>
+<td>Open ecosystem</td>
+<td>Web + открытые датасеты</td>
+</tr>
+<tr>
+<td>Mistral Large</td>
+<td>Франция</td>
+<td>Mistral AI</td>
+<td>2024</td>
+<td>Размер не раскрыт публично полностью</td>
+<td><strong>~10M+</strong> API usage (оценка)</td>
+<td>Быстрый рост</td>
+<td>Enterprise EU</td>
+<td>Курируемый web</td>
+</tr>
+<tr>
+<td>Falcon 180B</td>
+<td>ОАЭ</td>
+<td>Technology Innovation Institute</td>
+<td>2023</td>
+<td><strong>180B</strong></td>
+<td>Использование через research / dev</td>
+<td>Стабильный open research</td>
+<td>Исследования</td>
+<td>RefinedWeb и открытые корпора</td>
+</tr>
+<tr>
+<td>Qwen 2</td>
+<td>Китай</td>
+<td>Alibaba</td>
+<td>2024</td>
+<td>До <strong>72B+</strong></td>
+<td><strong>100M+</strong> через экосистему Alibaba (ориентир)</td>
+<td>Рост</td>
+<td>E-commerce / cloud</td>
+<td>Экосистема Alibaba</td>
+</tr>
+<tr>
+<td>ERNIE Bot 4.0</td>
+<td>Китай</td>
+<td>Baidu</td>
+<td>2023</td>
+<td>Размер не раскрыт публично полностью</td>
+<td><strong>200M+</strong> users (публичные формулировки Baidu)</td>
+<td>Быстрый рост</td>
+<td>Поиск</td>
+<td>Индекс Baidu Search</td>
+</tr>
+<tr>
+<td>Grok-1</td>
+<td>США</td>
+<td>xAI</td>
+<td>2023</td>
+<td>MoE, публичные оценки порядка <strong>~314B</strong></td>
+<td>Аудитория X (Twitter)</td>
+<td>Рост</td>
+<td>Соцсети</td>
+<td>Данные X (Twitter)</td>
+</tr>
+<tr>
+<td>Command R</td>
+<td>Канада</td>
+<td>Cohere</td>
+<td>2024</td>
+<td>Enterprise LLM</td>
+<td>B2B</td>
+<td>Умеренный рост</td>
+<td>Retrieval / RAG</td>
+<td>Курируемые корпора</td>
+</tr>
+<tr>
+<td>DBRX</td>
+<td>США</td>
+<td>Databricks</td>
+<td>2024</td>
+<td>MoE <strong>~132B</strong></td>
+<td>Enterprise</td>
+<td>Рост</td>
+<td>Data platforms</td>
+<td>Корпоративные датасеты</td>
+</tr>
+<tr>
+<td>Jurassic-2</td>
+<td>Израиль</td>
+<td>AI21 Labs</td>
+<td>2022</td>
+<td>Публичные оценки порядка <strong>~178B</strong></td>
+<td>API users</td>
+<td>Стабильный</td>
+<td>NLP tasks</td>
+<td>Web + книги</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="open-source-llm">Какие open-source модели наиболее известны?</h3>
+<div aria-label="Open-source LLM кратко" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Модель</th>
+<th>Страна / контекст</th>
+<th>Особенность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLOOM</td>
+<td>Международная коллаборация</td>
+<td><strong>176B</strong> open model</td>
+</tr>
+<tr>
+<td>GPT-NeoX</td>
+<td>США</td>
+<td>Open GPT-аналог</td>
+</tr>
+<tr>
+<td>MPT-30B</td>
+<td>США</td>
+<td>Коммерчески совместимая open-лицензия</td>
+</tr>
+<tr>
+<td>StableLM</td>
+<td>UK</td>
+<td>Лёгкие варианты под edge и продукты</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="tehnicheskie-parametry-obobshchenie">Какие технические параметры у современных LLM обычно сравнивают?</h3>
+<div aria-label="Технические параметры LLM" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Типичный диапазон</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Размер моделей</td>
+<td><strong>7B → 1T+</strong> (в т.ч. MoE)</td>
+</tr>
+<tr>
+<td>Контекст</td>
+<td><strong>4k → 1M</strong> токенов (в зависимости от продукта)</td>
+</tr>
+<tr>
+<td>Архитектура</td>
+<td>Transformer / MoE</td>
+</tr>
+<tr>
+<td>Мультимодальность</td>
+<td>Текст / код / изображение / видео</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="mau-platform-realnost">Сколько пользователей у крупных платформ по оценкам MAU?</h3>
+<div aria-label="MAU крупных платформ ориентиры" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Платформа / продукт</th>
+<th>MAU или аналог (ориентир)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChatGPT</td>
+<td><strong>~180–200M</strong></td>
+</tr>
+<tr>
+<td>Gemini (экосистема)</td>
+<td><strong>1B+</strong> (по публичным формулировкам Google про слой Gemini)</td>
+</tr>
+<tr>
+<td>Baidu ERNIE</td>
+<td><strong>200M+</strong></td>
+</tr>
+<tr>
+<td>Claude</td>
+<td><strong>~20–30M</strong> (оценка)</td>
+</tr>
+<tr>
+<td>Open-source стек</td>
+<td>Не сводится к одному «MAU»</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="content-note">
+<strong>Важно:</strong> LLM ≠ продукт — пользователи считаются на уровне интерфейсов (чат, поиск, встройка в ОС и офис). Сравнивайте метрики только после проверки определения (WAU vs MAU, «доступ к функции» vs «активный чат»).
             </p>
-
-            <h3 id="segmenty-modeley">На какие сегменты и сценарии ориентированы разные модели?</h3>
-            <div class="content-table" role="region" aria-label="Сегменты и примеры моделей">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Сегмент</th>
-                    <th>Примеры</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Общие ассистенты</td>
-                    <td>GPT, Claude, Gemini</td>
-                  </tr>
-                  <tr>
-                    <td>Поиск</td>
-                    <td>Gemini, ERNIE</td>
-                  </tr>
-                  <tr>
-                    <td>Enterprise</td>
-                    <td>Cohere, Mistral</td>
-                  </tr>
-                  <tr>
-                    <td>Open-source</td>
-                    <td>LLaMA, Falcon</td>
-                  </tr>
-                  <tr>
-                    <td>Соцсети</td>
-                    <td>Grok</td>
-                  </tr>
-                  <tr>
-                    <td>Кодинг</td>
-                    <td>Code Llama, DeepSeek</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h2 id="obuchenie-poisk-retrieval">На каких «поисковиках» обучаются LLM — и в чём здесь типичная ошибка?</h2>
-            <p>
+<h3 id="segmenty-modeley">На какие сегменты и сценарии ориентированы разные модели?</h3>
+<div aria-label="Сегменты и примеры моделей" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Сегмент</th>
+<th>Примеры</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Общие ассистенты</td>
+<td>GPT, Claude, Gemini</td>
+</tr>
+<tr>
+<td>Поиск</td>
+<td>Gemini, ERNIE</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>Cohere, Mistral</td>
+</tr>
+<tr>
+<td>Open-source</td>
+<td>LLaMA, Falcon</td>
+</tr>
+<tr>
+<td>Соцсети</td>
+<td>Grok</td>
+</tr>
+<tr>
+<td>Кодинг</td>
+<td>Code Llama, DeepSeek</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="obuchenie-poisk-retrieval">На каких «поисковиках» обучаются LLM — и в чём здесь типичная ошибка?</h2>
+<p>
               Это критически важный момент, который часто искажается: <strong>LLM не «обучаются на поисковике»</strong> в прямом смысле как на кнопке «Google». На практике используется связка <strong>предобучения на корпорах</strong>, <strong>дообучения</strong> и <strong>retrieval</strong> (поиск/индекс) уже в продукте.
             </p>
-            <h3>Откуда берутся данные при обучении и в продакшене?</h3>
-            <div class="content-table" role="region" aria-label="Источники данных для LLM">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Тип</th>
-                    <th>Примеры</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Web crawl</td>
-                    <td>Common Crawl, C4, RefinedWeb и др.</td>
-                  </tr>
-                  <tr>
-                    <td>Корпоративные / закрытые индексы</td>
-                    <td>Google — собственный индекс; Baidu — поисковый индекс Baidu; Meta — внутренние данные и политики доступа</td>
-                  </tr>
-                  <tr>
-                    <td>Лицензированные данные</td>
-                    <td>Новости (AP, Axel Springer и др.), книги, научные базы</td>
-                  </tr>
-                  <tr>
-                    <td>User-generated</td>
-                    <td>Reddit, Stack Overflow, GitHub (в разных моделях и годах — по-разному и с разной политикой)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p>
+<h3>Откуда берутся данные при обучении и в продакшене?</h3>
+<div aria-label="Источники данных для LLM" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Примеры</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web crawl</td>
+<td>Common Crawl, C4, RefinedWeb и др.</td>
+</tr>
+<tr>
+<td>Корпоративные / закрытые индексы</td>
+<td>Google — собственный индекс; Baidu — поисковый индекс Baidu; Meta — внутренние данные и политики доступа</td>
+</tr>
+<tr>
+<td>Лицензированные данные</td>
+<td>Новости (AP, Axel Springer и др.), книги, научные базы</td>
+</tr>
+<tr>
+<td>User-generated</td>
+<td>Reddit, Stack Overflow, GitHub (в разных моделях и годах — по-разному и с разной политикой)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
               Архитектурно удобно представлять так: <strong>LLM = pretraining (web и др.) + fine-tuning + retrieval (поисковый индекс / корпоративная база)</strong>. Для практики GEO/AEO важно разделять два слоя влияния:
             </p>
-            <ul>
-              <li><strong>Обучение модели</strong> — влияет на «понимание» языка, задач и типичных формулировок;</li>
-              <li><strong>Retrieval</strong> — влияет на то, <strong>какие документы попадают в контекст</strong> ответа пользователю.</li>
-            </ul>
-            <p>
+<ul>
+<li><strong>Обучение модели</strong> — влияет на «понимание» языка, задач и типичных формулировок;</li>
+<li><strong>Retrieval</strong> — влияет на то, <strong>какие документы попадают в контекст</strong> ответа пользователю.</li>
+</ul>
+<p>
               Именно <strong>retrieval</strong> ближе к «новой SEO»: без индексируемых, структурированных и доверенных страниц сложнее попасть в подмножество источников, из которых платформа собирает ответ.
             </p>
-            <div class="content-table" role="region" aria-label="Примеры retrieval в продуктах">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Продукт (пример)</th>
-                    <th>Типичный retrieval-слой</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>ChatGPT</td>
-                    <td>Bing / web и продуктовые коннекторы (зависит от режима и региона)</td>
-                  </tr>
-                  <tr>
-                    <td>Perplexity</td>
-                    <td>Web index + явные цитаты (citations)</td>
-                  </tr>
-                  <tr>
-                    <td>Google Gemini</td>
-                    <td>Связка с <strong>Google Search</strong> и экосистемой Google</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h2 id="svodka-platformy">Какие платформы разобраны в разделе и зачем они бренду?</h2>
-            <p>
+<div aria-label="Примеры retrieval в продуктах" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Продукт (пример)</th>
+<th>Типичный retrieval-слой</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChatGPT</td>
+<td>Bing / web и продуктовые коннекторы (зависит от режима и региона)</td>
+</tr>
+<tr>
+<td>Perplexity</td>
+<td>Web index + явные цитаты (citations)</td>
+</tr>
+<tr>
+<td>Google Gemini</td>
+<td>Связка с <strong>Google Search</strong> и экосистемой Google</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="svodka-platformy">Какие платформы разобраны в разделе и зачем они бренду?</h2>
+<p>
               Ниже — те <strong>user-facing нейроплатформы</strong>, по которым в этом разделе есть отдельные гайды: кто оператор, для кого продукт в первую очередь, ориентиры по аудитории и кратко о России. Подробные цифры, методология и источники — на страницах каждой платформы.
             </p>
-            <p class="content-note"><strong>Источники:</strong> публичные описания продуктов операторов и отраслевые обзоры; обобщение <strong>GEO Hub</strong> для навигации по разделу. Не сводная официальная статистика рынка.</p>
-            <div class="content-table" role="region" aria-label="Сводка по нейроплатформам: оператор, аудитория, РФ">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Платформа</th>
-                    <th>Оператор</th>
-                    <th>Аудитория и география (ориентир)</th>
-                    <th>Доходы ЦА (ориентир)</th>
-                    <th>Зачем бренду</th>
-                    <th>В РФ (ориентир)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a href="chatgpt.html">ChatGPT</a></td>
-                    <td>OpenAI (США)</td>
-                    <td>Глобально; RU — крупные города, IT/digital, англоязычные профессии</td>
-                    <td>От массового бесплатного до подписок Plus/Pro и B2B</td>
-                    <td>Задаёт планку формата ответов; бренд в обзорах и страницах‑ответах чаще попадает в пересказы</td>
-                    <td>Высокая узнаваемость в профессиональных нишах; доступность сервиса зависит от подключения и правил OpenAI</td>
-                  </tr>
-                  <tr>
-                    <td><a href="perplexity.html">Perplexity</a></td>
-                    <td>Perplexity AI (США)</td>
-                    <td>США/Европа сильнее; RU — исследователи и digital с EN‑запросами</td>
-                    <td>Средний+ и команды с подпиской Pro</td>
-                    <td>Часто показывает <strong>ссылки</strong> — прямой трафик и доказательность</td>
-                    <td>Ниже массовости локального поиска; полезен для B2B и tech‑ЦА</td>
-                  </tr>
-                  <tr>
-                    <td><a href="deepseek.html">DeepSeek</a></td>
-                    <td>DeepSeek (КНР)</td>
-                    <td>Глобально, сильна tech‑аудитория; в RU — разработчики и ценочувствительные команды</td>
-                    <td>От студентов до API‑бюджетов стартапов</td>
-                    <td>Сравнения и «как сделать»; без фактов на сайте бренд выпадает из перечней</td>
-                    <td>Волны интереса в IT‑медиа; точных MAU по РФ в открытом доступе обычно нет</td>
-                  </tr>
-                  <tr>
-                    <td><a href="claude.html">Claude</a></td>
-                    <td>Anthropic (США)</td>
-                    <td>Глобально, EN; RU — корпоративные и IT‑ниши</td>
-                    <td>Подписки и корпоративные контракты</td>
-                    <td>Влияет на черновики отчётов и сравнение поставщиков в B2B</td>
-                    <td>Не массовый consumer‑канал; важен для части B2B‑лидов</td>
-                  </tr>
-                  <tr>
-                    <td><a href="google-gemini.html">Google Gemini</a></td>
-                    <td>Google / Alphabet (США)</td>
-                    <td>Сильна там, где Android, Workspace и Google Поиск; в РФ — ограниченная экосистема</td>
-                    <td>Массовый free + бизнес‑тарифы</td>
-                    <td>Связка с поиском и Android; важно для глобальных брендов</td>
-                    <td>Для чисто локального РФ часто вторичен vs Яндекс; для экспорта — значимее</td>
-                  </tr>
-                  <tr>
-                    <td><a href="yandex-alice.html">Яндекс Алиса</a></td>
-                    <td>Яндекс</td>
-                    <td><strong>Россия</strong> и страны присутствия Яндекса; голос + мобильный поиск</td>
-                    <td>Очень широкий спектр доходов</td>
-                    <td>Голосовые «где/сколько/рядом» → карты, звонки, сайт</td>
-                    <td>Одна из самых массовых AI‑поверхностей для РФ; критична для локального бизнеса</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>Как соотносятся масштабы и метрики платформ в одной таблице (модель)?</h3>
-            <p>
+<p class="content-note"><strong>Источники:</strong> публичные описания продуктов операторов и отраслевые обзоры; обобщение <strong>GEO Hub</strong> для навигации по разделу. Не сводная официальная статистика рынка.</p>
+<div aria-label="Сводка по нейроплатформам: оператор, аудитория, РФ" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Платформа</th>
+<th>Оператор</th>
+<th>Аудитория и география (ориентир)</th>
+<th>Доходы ЦА (ориентир)</th>
+<th>Зачем бренду</th>
+<th>В РФ (ориентир)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="chatgpt.html">ChatGPT</a></td>
+<td>OpenAI (США)</td>
+<td>Глобально; RU — крупные города, IT/digital, англоязычные профессии</td>
+<td>От массового бесплатного до подписок Plus/Pro и B2B</td>
+<td>Задаёт планку формата ответов; бренд в обзорах и страницах‑ответах чаще попадает в пересказы</td>
+<td>Высокая узнаваемость в профессиональных нишах; доступность сервиса зависит от подключения и правил OpenAI</td>
+</tr>
+<tr>
+<td><a href="perplexity.html">Perplexity</a></td>
+<td>Perplexity AI (США)</td>
+<td>США/Европа сильнее; RU — исследователи и digital с EN‑запросами</td>
+<td>Средний+ и команды с подпиской Pro</td>
+<td>Часто показывает <strong>ссылки</strong> — прямой трафик и доказательность</td>
+<td>Ниже массовости локального поиска; полезен для B2B и tech‑ЦА</td>
+</tr>
+<tr>
+<td><a href="deepseek.html">DeepSeek</a></td>
+<td>DeepSeek (КНР)</td>
+<td>Глобально, сильна tech‑аудитория; в RU — разработчики и ценочувствительные команды</td>
+<td>От студентов до API‑бюджетов стартапов</td>
+<td>Сравнения и «как сделать»; без фактов на сайте бренд выпадает из перечней</td>
+<td>Волны интереса в IT‑медиа; точных MAU по РФ в открытом доступе обычно нет</td>
+</tr>
+<tr>
+<td><a href="claude.html">Claude</a></td>
+<td>Anthropic (США)</td>
+<td>Глобально, EN; RU — корпоративные и IT‑ниши</td>
+<td>Подписки и корпоративные контракты</td>
+<td>Влияет на черновики отчётов и сравнение поставщиков в B2B</td>
+<td>Не массовый consumer‑канал; важен для части B2B‑лидов</td>
+</tr>
+<tr>
+<td><a href="google-gemini.html">Google Gemini</a></td>
+<td>Google / Alphabet (США)</td>
+<td>Сильна там, где Android, Workspace и Google Поиск; в РФ — ограниченная экосистема</td>
+<td>Массовый free + бизнес‑тарифы</td>
+<td>Связка с поиском и Android; важно для глобальных брендов</td>
+<td>Для чисто локального РФ часто вторичен vs Яндекс; для экспорта — значимее</td>
+</tr>
+<tr>
+<td><a href="yandex-alice.html">Яндекс Алиса</a></td>
+<td>Яндекс</td>
+<td><strong>Россия</strong> и страны присутствия Яндекса; голос + мобильный поиск</td>
+<td>Очень широкий спектр доходов</td>
+<td>Голосовые «где/сколько/рядом» → карты, звонки, сайт</td>
+<td>Одна из самых массовых AI‑поверхностей для РФ; критична для локального бизнеса</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Как соотносятся масштабы и метрики платформ в одной таблице (модель)?</h3>
+<p>
               Коридоры совпадают с блоками «Аудитория» на страницах каждой сети; здесь они сведены в одну сетку для сопоставления. Метрики <strong>не приведены к единому определению MAU</strong> (WAU у ChatGPT, «касались Gemini» у Google, только РФ у Алисы) — сравнивайте порядок величин, а не точные доли рынка.
             </p>
-            <div class="content-sources" role="region" aria-labelledby="comparison-metrics-sources-title">
-              <h3 class="content-sources__title" id="comparison-metrics-sources-title">Откуда взяты цифры в таблице сравнения метрик ниже?</h3>
-              <ul class="content-sources__list">
-                <li>
+<div aria-labelledby="comparison-metrics-sources-title" class="content-sources" role="region">
+<h3 class="content-sources__title" id="comparison-metrics-sources-title">Откуда взяты цифры в таблице сравнения метрик ниже?</h3>
+<ul class="content-sources__list">
+<li>
                   Числа <strong>перенесены со страниц каждой платформы</strong> в этом разделе; там же пояснены база метрики (WAU vs MAU, «касались Gemini», только РФ у Алисы и т.д.).
                 </li>
-                <li>
+<li>
                   Операторы <strong>не публикуют</strong> единую сопоставимую матрицу по всем конкурентам — сводная таблица это <strong>модель GEO Hub</strong> для сравнения порядка величин, а не консолидированная отчётность рынка.
                 </li>
-                <li>
+<li>
                   Развёрнутый разбор «чем подкреплена каждая колонка» — блок <a href="#platform-sources-detailed">«Где смотреть первоисточники цифр по каждой платформе?»</a> ниже на этой странице.
                 </li>
-              </ul>
-            </div>
-            <div class="content-table" role="region" aria-label="Сравнение платформ — метрики аудитории">
-              <table style="min-width: 960px">
-                <thead>
-                  <tr>
-                    <th>Показатель</th>
-                    <th><a href="chatgpt.html">ChatGPT</a></th>
-                    <th><a href="perplexity.html">Perplexity</a></th>
-                    <th><a href="deepseek.html">DeepSeek</a></th>
-                    <th><a href="claude.html">Claude</a></th>
-                    <th><a href="google-gemini.html">Gemini</a></th>
-                    <th><a href="yandex-alice.html">Алиса</a></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Охват (модель)</td>
-                    <td>WAU <strong>240–320 млн</strong>, глобально</td>
-                    <td>MAU <strong>15–35 млн</strong></td>
-                    <td>MAU веб‑чата <strong>40–120 млн</strong></td>
-                    <td>MAU <strong>12–28 млн</strong></td>
-                    <td>MAU «касались Gemini» <strong>380–520 млн</strong></td>
-                    <td>MAU экосистемы в РФ <strong>45–75 млн</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Платёжный / монетизируемый слой</td>
-                    <td><strong>8–15 %</strong> MAU (Plus/Pro/команды, оценка)</td>
-                    <td>Pro / Enterprise <strong>3–8 %</strong> MAU</td>
-                    <td>— (ядро free + API)</td>
-                    <td>Подписки / seats <strong>18–32 %</strong> MAU</td>
-                    <td>Платные AI / Workspace <strong>4–9 %</strong> MAU</td>
-                    <td>— (массовый free в модели)</td>
-                  </tr>
-                  <tr>
-                    <td>Поведенческий ориентир (модель)</td>
-                    <td>Ежедневно <strong>35–45 %</strong> польз.; моб. <strong>55–65 %</strong> сессий</td>
-                    <td>DAU/MAU <strong>22–35 %</strong>; сессии с кликом по источнику <strong>35–55 %</strong></td>
-                    <td>IT/код/учёба <strong>45–65 %</strong> запросов; моб. <strong>50–65 %</strong></td>
-                    <td>B2B‑сценарии <strong>55–72 %</strong> сессий; EN <strong>78–90 %</strong> запросов</td>
-                    <td>Android <strong>72–82 %</strong> моб. сессий; поисковый интент <strong>38–52 %</strong></td>
-                    <td>Голос <strong>32–48 %</strong> сессий; лок. коммерция <strong>8–18 %</strong> запросов</td>
-                  </tr>
-                  <tr>
-                    <td>РФ (модель, база различается)</td>
-                    <td><strong>14–26 %</strong> все 15+, ≥1 раз / 90 дн.</td>
-                    <td><strong>4–9 %</strong> города 500k+, ≥1 раз / 90 дн.</td>
-                    <td><strong>6–14 %</strong> все 15+, ≥1 раз / 90 дн.</td>
-                    <td><strong>2–6 %</strong> все 15+, ≥1 раз / 90 дн.</td>
-                    <td><strong>3–9 %</strong> все 15+, ≥1 раз / 90 дн.</td>
-                    <td><strong>38–58 %</strong> интернет 12+, ≥1 раз / мес (экосистема)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="content-note">
+</ul>
+</div>
+<div aria-label="Сравнение платформ — метрики аудитории" class="content-table" role="region">
+<table style="min-width: 960px">
+<thead>
+<tr>
+<th>Показатель</th>
+<th><a href="chatgpt.html">ChatGPT</a></th>
+<th><a href="perplexity.html">Perplexity</a></th>
+<th><a href="deepseek.html">DeepSeek</a></th>
+<th><a href="claude.html">Claude</a></th>
+<th><a href="google-gemini.html">Gemini</a></th>
+<th><a href="yandex-alice.html">Алиса</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Охват (модель)</td>
+<td>WAU <strong>240–320 млн</strong>, глобально</td>
+<td>MAU <strong>15–35 млн</strong></td>
+<td>MAU веб‑чата <strong>40–120 млн</strong></td>
+<td>MAU <strong>12–28 млн</strong></td>
+<td>MAU «касались Gemini» <strong>380–520 млн</strong></td>
+<td>MAU экосистемы в РФ <strong>45–75 млн</strong></td>
+</tr>
+<tr>
+<td>Платёжный / монетизируемый слой</td>
+<td><strong>8–15 %</strong> MAU (Plus/Pro/команды, оценка)</td>
+<td>Pro / Enterprise <strong>3–8 %</strong> MAU</td>
+<td>— (ядро free + API)</td>
+<td>Подписки / seats <strong>18–32 %</strong> MAU</td>
+<td>Платные AI / Workspace <strong>4–9 %</strong> MAU</td>
+<td>— (массовый free в модели)</td>
+</tr>
+<tr>
+<td>Поведенческий ориентир (модель)</td>
+<td>Ежедневно <strong>35–45 %</strong> польз.; моб. <strong>55–65 %</strong> сессий</td>
+<td>DAU/MAU <strong>22–35 %</strong>; сессии с кликом по источнику <strong>35–55 %</strong></td>
+<td>IT/код/учёба <strong>45–65 %</strong> запросов; моб. <strong>50–65 %</strong></td>
+<td>B2B‑сценарии <strong>55–72 %</strong> сессий; EN <strong>78–90 %</strong> запросов</td>
+<td>Android <strong>72–82 %</strong> моб. сессий; поисковый интент <strong>38–52 %</strong></td>
+<td>Голос <strong>32–48 %</strong> сессий; лок. коммерция <strong>8–18 %</strong> запросов</td>
+</tr>
+<tr>
+<td>РФ (модель, база различается)</td>
+<td><strong>14–26 %</strong> все 15+, ≥1 раз / 90 дн.</td>
+<td><strong>4–9 %</strong> города 500k+, ≥1 раз / 90 дн.</td>
+<td><strong>6–14 %</strong> все 15+, ≥1 раз / 90 дн.</td>
+<td><strong>2–6 %</strong> все 15+, ≥1 раз / 90 дн.</td>
+<td><strong>3–9 %</strong> все 15+, ≥1 раз / 90 дн.</td>
+<td><strong>38–58 %</strong> интернет 12+, ≥1 раз / мес (экосистема)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="content-note">
               Строка «РФ» не сопоставима «в лоб»: разные возрастные отсечки, окна 90 дней vs месяц и разные сегменты (см. страницы платформ). Это не отчётность операторов; проверяйте гипотезы <a href="../tools/analytics.html">аудитом и промпт‑мониторингом</a>.
             </p>
-
-            <div class="content-sources" role="region" aria-labelledby="platform-sources-detailed">
-              <h3 class="content-sources__title" id="platform-sources-detailed">Где смотреть первоисточники цифр по каждой платформе?</h3>
-              <p>
+<div aria-labelledby="platform-sources-detailed" class="content-sources" role="region">
+<h3 class="content-sources__title" id="platform-sources-detailed">Где смотреть первоисточники цифр по каждой платформе?</h3>
+<p>
                 Ниже — чем мы опираемся в тексте и таблицах выше. Где нет прямой публичной разбивки, указана <strong>модель GEO Hub</strong> (внутренние допущения для брифов, не юридический факт).
               </p>
-              <ul class="content-sources__list">
-              <li>
-                <strong>ChatGPT (OpenAI):</strong> публичный ориентир <strong>~200 млн weekly users</strong> (август 2024) — <a href="https://www.reuters.com/technology/artificial-intelligence/openai-says-chatgpts-weekly-users-have-grown-200-million-2024-08-29/" rel="noopener noreferrer">Reuters</a>, <a href="https://www.theverge.com/2024/8/29/24231685/openai-chatgpt-200-million-weekly-users" rel="noopener noreferrer">The Verge</a>. Вторичный ориентир по трафику веба — <a href="https://www.similarweb.com/website/chat.openai.com/" rel="noopener noreferrer">Similarweb — chat.openai.com</a>. Коридор <strong>240–320 млн WAU к 2026</strong> и прочие доли в таблицах — <strong>модель GEO Hub</strong>.
+<ul class="content-sources__list">
+<li>
+<strong>ChatGPT (OpenAI):</strong> публичный ориентир <strong>~200 млн weekly users</strong> (август 2024) — <a href="https://www.reuters.com/technology/artificial-intelligence/openai-says-chatgpts-weekly-users-have-grown-200-million-2024-08-29/" rel="noopener noreferrer">Reuters</a>, <a href="https://www.theverge.com/2024/8/29/24231685/openai-chatgpt-200-million-weekly-users" rel="noopener noreferrer">The Verge</a>. Вторичный ориентир по трафику веба — <a href="https://www.similarweb.com/website/chat.openai.com/" rel="noopener noreferrer">Similarweb — chat.openai.com</a>. Коридор <strong>240–320 млн WAU к 2026</strong> и прочие доли в таблицах — <strong>модель GEO Hub</strong>.
               </li>
-              <li>
-                <strong>Perplexity:</strong> открытая отчётность по MAU ограничена; ориентиры по трафику — <a href="https://www.similarweb.com/website/perplexity.ai/" rel="noopener noreferrer">Similarweb — perplexity.ai</a>, контекст долей чатботов — <a href="https://www.statista.com/statistics/1618020/ai-chatbots-traffic-share-ww/" rel="noopener noreferrer">Statista — AI chatbots traffic share</a>. MAU, DAU/MAU, Pro, клики по источникам, география и РФ в наших таблицах — <strong>модель GEO Hub</strong>.
+<li>
+<strong>Perplexity:</strong> открытая отчётность по MAU ограничена; ориентиры по трафику — <a href="https://www.similarweb.com/website/perplexity.ai/" rel="noopener noreferrer">Similarweb — perplexity.ai</a>, контекст долей чатботов — <a href="https://www.statista.com/statistics/1618020/ai-chatbots-traffic-share-ww/" rel="noopener noreferrer">Statista — AI chatbots traffic share</a>. MAU, DAU/MAU, Pro, клики по источникам, география и РФ в наших таблицах — <strong>модель GEO Hub</strong>.
               </li>
-              <li>
-                <strong>DeepSeek:</strong> публичные комментарии и СМИ о всплесках после релизов 2025; MAU веб‑чата, география, динамика — <strong>модель GEO Hub</strong>. Якорь по РФ для <strong>deepseek.com</strong> — доля desktop‑трафика из России (июль 2025) в <a href="https://www.statista.com/statistics/1556986/deepseek-global-web-traffic-share-by-country/" rel="noopener noreferrer">Statista</a> / SimilarWeb. Сравнение цен API — по публичным прайсам, пересчитывать при смене тарифов.
+<li>
+<strong>DeepSeek:</strong> публичные комментарии и СМИ о всплесках после релизов 2025; MAU веб‑чата, география, динамика — <strong>модель GEO Hub</strong>. Якорь по РФ для <strong>deepseek.com</strong> — доля desktop‑трафика из России (июль 2025) в <a href="https://www.statista.com/statistics/1556986/deepseek-global-web-traffic-share-by-country/" rel="noopener noreferrer">Statista</a> / SimilarWeb. Сравнение цен API — по публичным прайсам, пересчитывать при смене тарифов.
               </li>
-              <li>
-                <strong>Claude (Anthropic):</strong> официальный пресс‑релиз Series F (бизнес‑метрики, не потребительский MAU) — <a href="https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation" rel="noopener noreferrer">Anthropic — Series F</a>; трафик <strong>claude.ai</strong> — <a href="https://www.similarweb.com/website/claude.ai/" rel="noopener noreferrer">Similarweb — claude.ai</a>. MAU потребителей, монетизация в % MAU, география, РФ — <strong>модель GEO Hub</strong>.
+<li>
+<strong>Claude (Anthropic):</strong> официальный пресс‑релиз Series F (бизнес‑метрики, не потребительский MAU) — <a href="https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation" rel="noopener noreferrer">Anthropic — Series F</a>; трафик <strong>claude.ai</strong> — <a href="https://www.similarweb.com/website/claude.ai/" rel="noopener noreferrer">Similarweb — claude.ai</a>. MAU потребителей, монетизация в % MAU, география, РФ — <strong>модель GEO Hub</strong>.
               </li>
-              <li>
-                <strong>Google Gemini:</strong> заявление CEO о <strong>650M+ MAU у приложения Gemini</strong> (Q3 2025) — <a href="https://blog.google/inside-google/message-ceo/alphabet-earnings-q3-2025/" rel="noopener noreferrer">blog.google — Alphabet earnings Q3 2025</a>; материалы инвесторов — <a href="https://abc.xyz/investor/" rel="noopener noreferrer">abc.xyz/investor</a>. Наши коридоры «MAU касались слоя» (шире приложения), Android, интенты, РФ — <strong>модель GEO Hub</strong>.
+<li>
+<strong>Google Gemini:</strong> заявление CEO о <strong>650M+ MAU у приложения Gemini</strong> (Q3 2025) — <a href="https://blog.google/inside-google/message-ceo/alphabet-earnings-q3-2025/" rel="noopener noreferrer">blog.google — Alphabet earnings Q3 2025</a>; материалы инвесторов — <a href="https://abc.xyz/investor/" rel="noopener noreferrer">abc.xyz/investor</a>. Наши коридоры «MAU касались слоя» (шире приложения), Android, интенты, РФ — <strong>модель GEO Hub</strong>.
               </li>
-              <li>
-                <strong>Яндекс Алиса:</strong> первичные материалы для инвесторов — <a href="https://ir.yandex.com/presentations" rel="noopener noreferrer">ir.yandex.com/presentations</a>, <a href="https://ir.yandex.com/" rel="noopener noreferrer">ir.yandex.com</a>. MAU экосистемы и узкие доли там, где в открытом доступе нет прямой строки, — <strong>модель GEO Hub</strong> (сверка с актуальным отчётом компании).
+<li>
+<strong>Яндекс Алиса:</strong> первичные материалы для инвесторов — <a href="https://ir.yandex.com/presentations" rel="noopener noreferrer">ir.yandex.com/presentations</a>, <a href="https://ir.yandex.com/" rel="noopener noreferrer">ir.yandex.com</a>. MAU экосистемы и узкие доли там, где в открытом доступе нет прямой строки, — <strong>модель GEO Hub</strong> (сверка с актуальным отчётом компании).
               </li>
-            </ul>
-            </div>
-
-            <h3>Где на сайте смотреть динамику пользователей по годам?</h3>
-            <p>
+</ul>
+</div>
+<h3>Где на сайте смотреть динамику пользователей по годам?</h3>
+<p>
               На каждой странице платформы в блоке «Аудитория» добавлена таблица <strong>2022–2026</strong> с коридорами MAU/WAU и темпом к предыдущему году (там же — пояснение метрики и дисклеймер «модель»).
             </p>
-
-            <h2>Какая платформа чаще показывает источники?</h2>
-            <p>
+<h2>Какая платформа чаще показывает источники?</h2>
+<p>
               В среднем Perplexity чаще отдаёт ответ со ссылками, а у ChatGPT и DeepSeek это зависит от режима и контекста.
               Но стратегия одна: сделать документы точными, извлекаемыми и доказательными.
             </p>
-
-            <h2>Какая нейроплатформа для какого запроса — и что на сайте влияет на цитирование?</h2>
-            <p class="content-note"><strong>Источники:</strong> практика GEO/AEO и наблюдение за ответами продуктов; <strong>не API‑статистика</strong> платформ. Детализация — на страницах ChatGPT, Perplexity, DeepSeek, Claude, Gemini, Алисы.</p>
-            <div class="content-table" role="region" aria-label="Сравнение нейроплатформ">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Платформа</th>
-                    <th>Какой запрос/интент чаще закрывает</th>
-                    <th>Почему полезно для AI‑видимости</th>
-                    <th>Что усилить на сайте</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Perplexity</td>
-                    <td>“best / top / sources / explain” (поиск‑режим)</td>
-                    <td>Чаще привязывает ответ к источникам, поэтому выигрывают страницы с фактами и таблицами.</td>
-                    <td>факты, определения, таблицы, индексация</td>
-                  </tr>
-                  <tr>
-                    <td>ChatGPT</td>
-                    <td>“как сделать / что выбрать / план”</td>
-                    <td>Лучше цитирует, когда у бренда есть ясные сущности и доказательства (кейсы/цифры).</td>
-                    <td>сущности бренда, кейсы, кластеры страниц‑ответов</td>
-                  </tr>
-                  <tr>
-                    <td>DeepSeek</td>
-                    <td>вопросные запросы (“как/что/почему/сравнение”)</td>
-                    <td>Хорошо “сопоставляет” заголовки‑вопросы и структурированные ответы.</td>
-                    <td>вопросные H2, answer‑first, ограничения и доказательства</td>
-                  </tr>
-                  <tr>
-                    <td>Claude</td>
-                    <td>объяснения и сравнения (“что это / чем отличается / когда применять”)</td>
-                    <td>Охотнее использует проверяемые формулировки с условиями и ограничениями.</td>
-                    <td>определения, сравнения, проверяемые факты, ясные ограничения</td>
-                  </tr>
-                  <tr>
-                    <td>Google Gemini</td>
-                    <td>информационные запросы + “how‑to / best”</td>
-                    <td>Комбинирует доступность источника (SEO) и цитируемость (AEO‑структура).</td>
-                    <td>тех. база SEO + AEO‑структура (таблицы/шаги/FAQ), доверие и доказательства</td>
-                  </tr>
-                  <tr>
-                    <td>Яндекс Алиса</td>
-                    <td>голосовые интенты (“рядом”, “сколько”, “лучше”, “быстро”)</td>
-                    <td>Озвучивает короткие фрагменты, поэтому важны 1–2 предложения и локальные факты.</td>
-                    <td>короткие ответы, голосовые интенты, локальные факты, FAQ</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <p class="content-note">
+<h2>Какая нейроплатформа для какого запроса — и что на сайте влияет на цитирование?</h2>
+<p class="content-note"><strong>Источники:</strong> практика GEO/AEO и наблюдение за ответами продуктов; <strong>не API‑статистика</strong> платформ. Детализация — на страницах ChatGPT, Perplexity, DeepSeek, Claude, Gemini, Алисы.</p>
+<div aria-label="Сравнение нейроплатформ" class="content-table" role="region">
+<table>
+<thead>
+<tr>
+<th>Платформа</th>
+<th>Какой запрос/интент чаще закрывает</th>
+<th>Почему полезно для AI‑видимости</th>
+<th>Что усилить на сайте</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Perplexity</td>
+<td>“best / top / sources / explain” (поиск‑режим)</td>
+<td>Чаще привязывает ответ к источникам, поэтому выигрывают страницы с фактами и таблицами.</td>
+<td>факты, определения, таблицы, индексация</td>
+</tr>
+<tr>
+<td>ChatGPT</td>
+<td>“как сделать / что выбрать / план”</td>
+<td>Лучше цитирует, когда у бренда есть ясные сущности и доказательства (кейсы/цифры).</td>
+<td>сущности бренда, кейсы, кластеры страниц‑ответов</td>
+</tr>
+<tr>
+<td>DeepSeek</td>
+<td>вопросные запросы (“как/что/почему/сравнение”)</td>
+<td>Хорошо “сопоставляет” заголовки‑вопросы и структурированные ответы.</td>
+<td>вопросные H2, answer‑first, ограничения и доказательства</td>
+</tr>
+<tr>
+<td>Claude</td>
+<td>объяснения и сравнения (“что это / чем отличается / когда применять”)</td>
+<td>Охотнее использует проверяемые формулировки с условиями и ограничениями.</td>
+<td>определения, сравнения, проверяемые факты, ясные ограничения</td>
+</tr>
+<tr>
+<td>Google Gemini</td>
+<td>информационные запросы + “how‑to / best”</td>
+<td>Комбинирует доступность источника (SEO) и цитируемость (AEO‑структура).</td>
+<td>тех. база SEO + AEO‑структура (таблицы/шаги/FAQ), доверие и доказательства</td>
+</tr>
+<tr>
+<td>Яндекс Алиса</td>
+<td>голосовые интенты (“рядом”, “сколько”, “лучше”, “быстро”)</td>
+<td>Озвучивает короткие фрагменты, поэтому важны 1–2 предложения и локальные факты.</td>
+<td>короткие ответы, голосовые интенты, локальные факты, FAQ</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="content-note">
               Для AI‑видимости важнее не “какая платформа лучше”, а соответствие формата контента интенту запроса:
               вопросные H2, короткий ответ, таблица/шаги, ограничения и доказательства. Это делает документ удобным источником для retrieval и цитирования.
             </p>
-
-            <div class="content-related">
-              <h3>Где читать отдельные гайды по платформам?</h3>
-              <ul>
-                <li><a href="chatgpt.html">Продвижение в ChatGPT</a></li>
-                <li><a href="perplexity.html">Продвижение в Perplexity</a></li>
-                <li><a href="deepseek.html">Продвижение в DeepSeek</a></li>
-                <li><a href="claude.html">Продвижение в Claude</a></li>
-                <li><a href="google-gemini.html">Продвижение в Google Gemini</a></li>
-                <li><a href="yandex-alice.html">Продвижение в Яндекс Алиса</a></li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-main">
-          <div class="footer-links">
-            <a href="../about.html">Компания</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>(/) © 2026</p>
-          <div class="footer-meta">
-            <a href="#" data-popup="privacy">Политика конфиденциальности</a>
-            <a href="#" data-popup="consent">Согласие на обработку данных</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <div class="modal-overlay" id="site-modal" hidden>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
-        <h3 id="modal-title"></h3>
-        <div id="modal-body"></div>
-      </div>
-    </div>
-
-    <script src="../script.js"></script>
-  </body>
+<div class="content-related">
+<h3>Где читать отдельные гайды по платформам?</h3>
+<ul>
+<li><a href="chatgpt.html">Продвижение в ChatGPT</a></li>
+<li><a href="perplexity.html">Продвижение в Perplexity</a></li>
+<li><a href="deepseek.html">Продвижение в DeepSeek</a></li>
+<li><a href="claude.html">Продвижение в Claude</a></li>
+<li><a href="google-gemini.html">Продвижение в Google Gemini</a></li>
+<li><a href="yandex-alice.html">Продвижение в Яндекс Алиса</a></li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-inner">
+<div class="footer-main">
+<div class="footer-links">
+<a href="../about.html">Компания</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>(/) © 2026</p>
+<div class="footer-meta">
+<a data-popup="privacy" href="#">Политика конфиденциальности</a>
+<a data-popup="consent" href="#">Согласие на обработку данных</a>
+</div>
+</div>
+</div>
+</footer>
+<div class="modal-overlay" hidden="" id="site-modal">
+<div aria-labelledby="modal-title" aria-modal="true" class="modal-dialog" role="dialog">
+<button aria-label="Закрыть" class="modal-close" type="button">×</button>
+<h3 id="modal-title"></h3>
+<div id="modal-body"></div>
+</div>
+</div>
+<script src="../script.js"></script>
+</body>
 </html>
