@@ -1420,9 +1420,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ? "Опишите задачу — предложим план и сроки. Можно оставить контакты и комментарий."
           : "Describe your task — we’ll suggest a plan and timeline. You can leave contacts and a note.",
         form: true,
-        links: [
-          { label: isRu ? "Что вы получите" : "What you get", href: "tools/full-promotion.html" }
-        ]
+        links: []
       },
       methods: {
         title: isRu ? "Методы" : "Methods",
@@ -1464,6 +1462,13 @@ document.addEventListener("DOMContentLoaded", () => {
       wrap.className = "chatModal__msg chatModal__msg--bot";
 
       const linksHtml = (linkItems || [])
+        .filter(l => {
+          const label = String(l?.label || "").trim().toLowerCase();
+          if (!label) return false;
+          // Safety: never show legacy "What you get" button
+          if (label === "what you get" || label === "что вы получите") return false;
+          return true;
+        })
         .map(l => {
           const href = toLangUrl(l.href) || new URL(l.href, window.location.href).toString();
           return `<a class="chatModal__link" href="${href}">${l.label}</a>`;
@@ -1873,13 +1878,6 @@ document.addEventListener("DOMContentLoaded", () => {
                       <input class="input email" type="email" name="user_email" placeholder="${tr("yourEmail")}" required />
                       <textarea class="input message" name="message" placeholder="${tr("yourMessage")}" required></textarea>
                       <button class="btn input submit" type="submit">${tr("send")}</button>
-                      <p class="contact-quick__hint">
-                        ${
-                          LANG === "en"
-                            ? "Messages are sent via Formspree."
-                            : "Заявка отправляется через Formspree."
-                        }
-                      </p>
                     </form>
                   </div>
                 </div>
