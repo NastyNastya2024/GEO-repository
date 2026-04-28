@@ -1959,6 +1959,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Ensure every article card link has an arrow CTA
+  const ensureArticleCardArrows = () => {
+    const cards = Array.from(document.querySelectorAll("a.article-card"));
+    cards.forEach(card => {
+      if (card.classList.contains("article-card--no-link")) return;
+      if (card.querySelector(".article-card__cta")) return;
+
+      let bottom = card.querySelector(".article-card__bottom");
+      if (!bottom) {
+        bottom = document.createElement("div");
+        bottom.className = "article-card__bottom";
+        card.appendChild(bottom);
+      }
+
+      const cta = document.createElement("span");
+      cta.className = "article-card__cta article-card__cta--icon";
+      cta.setAttribute("aria-hidden", "true");
+      cta.innerHTML = `
+        <svg class="article-card__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
+          <path d="M5 12h12"></path>
+          <path d="M13 6l6 6-6 6"></path>
+        </svg>
+      `;
+      bottom.appendChild(cta);
+    });
+  };
+
+  ensureArticleCardArrows();
+
   // Assign depth classes for advanced parallax motion
   const depth1 = document.querySelectorAll(".hero-content, .platforms-content");
   const depth2 = document.querySelectorAll(".brand-slide.is-active, .platform-slide.is-active");
