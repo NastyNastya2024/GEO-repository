@@ -1587,9 +1587,9 @@ body.chatModal__isOpen .chatModal__overlay {
 
 .chatModal__tag {
   appearance: none;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(2, 6, 23, 0.45);
-  color: rgba(248, 250, 252, 0.92);
+  border: 1px solid rgba(17, 111, 235, 0.65);
+  background: rgba(17, 111, 235, 0.14);
+  color: rgba(232, 242, 255, 0.95);
   border-radius: 999px;
   padding: 0.55rem 0.85rem;
   font-weight: 800;
@@ -1602,6 +1602,11 @@ body.chatModal__isOpen .chatModal__overlay {
   transform: translateY(-1px);
   border-color: rgba(56, 189, 248, 0.55);
   background: rgba(56, 189, 248, 0.14);
+}
+
+.chatModal__tag.is-active {
+  border-color: rgba(56, 189, 248, 0.75);
+  background: rgba(56, 189, 248, 0.22);
 }
 
 .chatModal__tag:focus-visible {
@@ -1635,7 +1640,7 @@ body.chatModal__isOpen .chatModal__overlay {
 .chatModal__leadForm {
   display: grid;
   gap: 0.65rem;
-  margin-top: 0.85rem;
+  margin-top: 0.55rem;
 }
 
 .chatModal__field {

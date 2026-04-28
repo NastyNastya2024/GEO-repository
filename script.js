@@ -113,10 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Footer sitemap (same on all pages)
-  const scriptEl = document.querySelector('script[src$="script.js"]');
+  // Asset prefix (works with ?v= cache-busting and nested pages)
+  const scriptEl = Array.from(document.querySelectorAll("script[src]"))
+    .map(s => (s instanceof HTMLScriptElement ? s : null))
+    .filter(Boolean)
+    .reverse()
+    .find(s => String(s.getAttribute("src") || "").includes("script.js"));
   const prefix = scriptEl
-    ? (scriptEl.getAttribute("src") || "").replace(/script\.js(\?.*)?$/, "")
+    ? String(scriptEl.getAttribute("src") || "").replace(/script\.js(\?.*)?$/, "")
     : "";
 
   const isEnglish = () => {
@@ -1340,6 +1344,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="chatModal__messages" id="chatModal__messages" aria-live="polite"></div>
 
         <div class="chatModal__composer" aria-label="${LANG === "en" ? "Sections" : "Разделы"}">
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="contacts">${LANG === "en" ? "Contacts" : "Контакты"}</button>
           <button type="button" class="chatModal__tag" data-chatmodal-tag="consult">${LANG === "en" ? "Order consultation" : "Заказать консультацию"}</button>
           <button type="button" class="chatModal__tag" data-chatmodal-tag="methods">${LANG === "en" ? "Methods" : "Методы"}</button>
           <button type="button" class="chatModal__tag" data-chatmodal-tag="platforms">${LANG === "en" ? "AI platforms" : "Нейроплатформы"}</button>
@@ -1402,6 +1407,13 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const sections = {
+      contacts: {
+        title: isRu ? "Контакты" : "Contacts",
+        text: isRu
+          ? "Мы — команда, которая ведёт проект комплексного цифрового продвижения: органический поиск и структура сайта (SEO), видимость в ответах нейросетей и AI‑поиска (GEO, AEO, AIO), согласованность бренда в соцсетях и публичных каналах (AI+SMM) и связанная аналитика. Сайт — наша публичная экспертная база: гайды, чеклисты и разборы помогают ориентироваться в теме; параллельно мы оказываем консультации и услуги под ключ по этим направлениям — для компаний, которым нужна практическая помощь, а не только теория."
+          : "We’re a team delivering end-to-end digital growth: organic search and site structure (SEO), visibility in AI answers and AI search (GEO/AEO/AIO), consistent brand presence across social/public channels (AI+SMM), and analytics. This site is our public knowledge base (guides, checklists, breakdowns). In parallel, we provide consultations and turnkey services for companies that need practical help, not just theory.",
+        links: [{ label: isRu ? "О компании" : "About", href: "about.html" }]
+      },
       consult: {
         title: isRu ? "Заказать консультацию" : "Order consultation",
         text: isRu
@@ -1465,7 +1477,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <input class="chatModal__field" type="email" name="user_email" placeholder="${isRu ? "Email для связи" : "Email"}" required />
             <textarea class="chatModal__field chatModal__field--area" name="message" placeholder="${isRu ? "Коротко: что нужно сделать?" : "Briefly: what do you need?"}" required></textarea>
             <button class="chatModal__submit" type="submit">${isRu ? "Отправить" : "Send"}</button>
-            <div class="chatModal__hint">${isRu ? "Отправка через Formspree на вашу почту." : "Sent via Formspree to your email."}</div>
           </form>
         `
         : "";
@@ -1529,6 +1540,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = btn.getAttribute("data-chatmodal-tag") || "";
         const sec = sections[id];
         if (!sec) return;
+        tagButtons.forEach(b => b.classList.toggle("is-active", b === btn));
         addUserChoice(sec.title);
         addBotCard(sec);
       });
