@@ -6130,8 +6130,11 @@ body.legacy-dark .btn-ghost {
 }
 
 .faq-list details {
-  background: #000000;
-  border-color: rgba(31, 41, 55, 0.95);
+  background:
+    radial-gradient(120% 140% at 18% 18%, rgba(56, 189, 248, 0.18), transparent 58%),
+    radial-gradient(120% 140% at 82% 30%, rgba(17, 111, 235, 0.14), transparent 55%),
+    rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.4);
 }
 
 .faq-list p {
