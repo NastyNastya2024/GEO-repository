@@ -4530,9 +4530,32 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
 
 .faq-list details {
   border-radius: 0.9rem;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  background:
+    radial-gradient(120% 140% at 18% 18%, rgba(56, 189, 248, 0.22), transparent 58%),
+    radial-gradient(120% 140% at 82% 30%, rgba(17, 111, 235, 0.18), transparent 55%),
+    rgba(2, 6, 23, 0.78);
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   padding: 0.85rem 1.2rem 0.95rem;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.faq-list details:hover {
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.faq-list details[open] {
+  border-color: rgba(56, 189, 248, 0.48);
+  background:
+    radial-gradient(120% 140% at 18% 18%, rgba(56, 189, 248, 0.26), transparent 58%),
+    radial-gradient(120% 140% at 82% 30%, rgba(17, 111, 235, 0.22), transparent 55%),
+    rgba(2, 6, 23, 0.82);
 }
 
 .faq-list summary {
@@ -4555,7 +4578,7 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   right: 0.35rem;
   top: 0.2rem;
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: rgba(56, 189, 248, 0.72);
 }
 
 .faq-list details[open] summary::after {
