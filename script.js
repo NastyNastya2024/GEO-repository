@@ -1598,19 +1598,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const messages = wrap.querySelector("#contact-quick-messages");
     const formMsg = wrap.querySelector("#contact-quick-form-msg");
     const form = wrap.querySelector("#contact-form");
+    const composer = wrap.querySelector(".contact-quick__composer");
     const endpointFromMeta = document.querySelector('meta[name="form-endpoint"]')?.getAttribute("content") || "";
     const resolvedEndpoint = endpointFromMeta || DEFAULT_FORM_ENDPOINT;
     if (form instanceof HTMLFormElement && resolvedEndpoint) {
       form.setAttribute("action", resolvedEndpoint);
     }
 
+    // Ensure stream can scroll "behind" the hashtags bar by reserving space.
+    const updateComposerInset = () => {
+      const chat = wrap.querySelector(".contact-quick__chat");
+      if (!(chat instanceof HTMLElement)) return;
+      if (!(composer instanceof HTMLElement)) return;
+      const h = Math.max(64, Math.ceil(composer.getBoundingClientRect().height || 0));
+      chat.style.setProperty("--contact-quick-composer-h", `${h}px`);
+    };
+    updateComposerInset();
+    if (composer instanceof HTMLElement && "ResizeObserver" in window) {
+      const ro = new ResizeObserver(() => updateComposerInset());
+      ro.observe(composer);
+    } else {
+      window.addEventListener("resize", updateComposerInset, { passive: true });
+    }
+
     const setActive = id => {
       tagButtons.forEach(b => b.classList.toggle("is-active", b.getAttribute("data-qtag") === id));
       const t = quickTags.find(x => x.id === id) || quickTags[0];
       const isForm = t.href === "#form";
-      if (formMsg instanceof HTMLElement) formMsg.hidden = !isForm;
+      if (formMsg instanceof HTMLElement) formMsg.hidden = true;
 
-      if (!isForm && messages instanceof HTMLElement) {
+      const appendUser = text => {
+        if (!(messages instanceof HTMLElement)) return;
+        const msg = document.createElement("div");
+        msg.className = "chat-msg chat-msg--user";
+        msg.innerHTML = `<div class="chat-msg__bubble">${text}</div>`;
+        messages.appendChild(msg);
+      };
+
+      const appendBotCard = () => {
+        if (!(messages instanceof HTMLElement)) return;
         const nextHref = toLangUrl(t.href) || new URL(t.href, window.location.href).toString();
         const msg = document.createElement("div");
         msg.className = "chat-msg chat-msg--bot";
@@ -1622,6 +1648,18 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         `;
         messages.appendChild(msg);
+      };
+
+      // Add dialog-like history: user choice (right) -> bot answer (left)
+      appendUser(t.title || t.label || (LANG === "en" ? "Choose" : "Выбрать"));
+
+      if (isForm) {
+        if (formMsg instanceof HTMLElement && messages instanceof HTMLElement) {
+          formMsg.hidden = false;
+          messages.appendChild(formMsg);
+        }
+      } else {
+        appendBotCard();
       }
 
       // Keep latest message in view

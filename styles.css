@@ -1447,6 +1447,7 @@ main {
   flex-direction: column;
   height: 100%;
   gap: 0.9rem;
+  min-height: 0;
 }
 
 .contact-quick__chat-head {
@@ -1493,10 +1494,13 @@ main {
 .contact-quick__chat-stream {
   flex: 1 1 auto;
   overflow: auto;
-  padding: 0.25rem 0.1rem 0.4rem;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 0.25rem 0.1rem calc(var(--contact-quick-composer-h, 140px) + 14px);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  min-height: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.25) transparent;
 }
@@ -1507,6 +1511,23 @@ main {
   gap: 0.75rem;
 }
 
+.contact-quick__composer {
+  flex: 0 0 auto;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  background:
+    radial-gradient(120% 140% at 18% 18%, rgba(56, 189, 248, 0.10), transparent 58%),
+    rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding-inline: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
 .chat-msg {
   display: flex;
   width: 100%;
@@ -1514,6 +1535,10 @@ main {
 
 .chat-msg--bot {
   justify-content: flex-start;
+}
+
+.chat-msg--user {
+  justify-content: flex-end;
 }
 
 .chat-msg--tags {
@@ -1530,6 +1555,16 @@ main {
     radial-gradient(120% 140% at 82% 30%, rgba(17, 111, 235, 0.12), transparent 55%),
     rgba(2, 6, 23, 0.52);
   box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+}
+
+.chat-msg--user .chat-msg__bubble {
+  max-width: 88%;
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(120% 140% at 70% 10%, rgba(56, 189, 248, 0.22), transparent 60%),
+    rgba(248, 250, 252, 0.92);
+  color: rgba(2, 6, 23, 0.92);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
 }
 
 .contact-quick__tags {
@@ -3468,11 +3503,6 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
 }
 
 /* Секции без анимации пролистывания */
-.section,
-.section-alt,
-.section-accent {
-  /* оставляем только отступы и фон (заданы выше) */
-}
 
 /* Внутренние элементы секций отображаются сразу */
 .section-header,
@@ -4060,6 +4090,7 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
     overflow: hidden;
   }
   /* Show fewer thin cards on the left (like CodePen) */
@@ -4125,6 +4156,7 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
     line-height: 1.28;
     max-width: 100%;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 }
 
@@ -5276,6 +5308,7 @@ main .article-page-layout > .article-page-layout__intro.section-header h1 {
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
