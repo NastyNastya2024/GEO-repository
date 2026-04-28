@@ -1346,7 +1346,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="chatModal__messages" id="chatModal__messages" aria-live="polite"></div>
 
         <div class="chatModal__composer" aria-label="${LANG === "en" ? "Sections" : "Разделы"}">
-          <button type="button" class="chatModal__tag" data-chatmodal-tag="contacts">${LANG === "en" ? "Contacts" : "Контакты"}</button>
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="contacts">${LANG === "en" ? "About us" : "О нас"}</button>
           <button type="button" class="chatModal__tag" data-chatmodal-tag="consult">${LANG === "en" ? "Order consultation" : "Заказать консультацию"}</button>
           <button type="button" class="chatModal__tag" data-chatmodal-tag="methods">${LANG === "en" ? "Methods" : "Методы"}</button>
           <button type="button" class="chatModal__tag" data-chatmodal-tag="platforms">${LANG === "en" ? "AI platforms" : "Нейроплатформы"}</button>
@@ -1410,7 +1410,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sections = {
       contacts: {
-        title: isRu ? "Контакты" : "Contacts",
+        title: isRu ? "О нас" : "About us",
         text: isRu
           ? "Мы — команда, которая ведёт проект комплексного цифрового продвижения: органический поиск и структура сайта (SEO), видимость в ответах нейросетей и AI‑поиска (GEO, AEO, AIO), согласованность бренда в соцсетях и публичных каналах (AI+SMM) и связанная аналитика. Сайт — наша публичная экспертная база: гайды, чеклисты и разборы помогают ориентироваться в теме; параллельно мы оказываем консультации и услуги под ключ по этим направлениям — для компаний, которым нужна практическая помощь, а не только теория."
           : "We’re a team delivering end-to-end digital growth: organic search and site structure (SEO), visibility in AI answers and AI search (GEO/AEO/AIO), consistent brand presence across social/public channels (AI+SMM), and analytics. This site is our public knowledge base (guides, checklists, breakdowns). In parallel, we provide consultations and turnkey services for companies that need practical help, not just theory.",
@@ -1434,7 +1434,15 @@ document.addEventListener("DOMContentLoaded", () => {
       platforms: {
         title: isRu ? "Нейроплатформы" : "AI platforms",
         text: isRu ? "Как работать с выдачей и ответами в популярных нейроплатформах." : "How to work with visibility and answers in popular AI platforms.",
-        links: () => getNavLinksBySummary(isRu ? "Нейроплатформы" : "AI platforms")
+        links: () => [
+          { label: isRu ? "Что такое нейроплатформы" : "What are AI platforms", href: `${pageBase}neural-platforms/platform-comparison.html` },
+          { label: "ChatGPT", href: `${pageBase}neural-platforms/chatgpt.html` },
+          { label: "Perplexity", href: `${pageBase}neural-platforms/perplexity.html` },
+          { label: "DeepSeek", href: `${pageBase}neural-platforms/deepseek.html` },
+          { label: "Claude", href: `${pageBase}neural-platforms/claude.html` },
+          { label: "Google Gemini", href: `${pageBase}neural-platforms/google-gemini.html` },
+          { label: isRu ? "Яндекс Алиса" : "Yandex Alice", href: `${pageBase}neural-platforms/yandex-alice.html` }
+        ]
       },
       strategy: {
         title: isRu ? "Стратегия" : "Strategy",
