@@ -1463,7 +1463,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const linksHtml = (linkItems || [])
         .filter(l => {
-          const label = String(l?.label || "").trim().toLowerCase();
+          const label = normalizeSpace(l?.label || "").toLowerCase();
           if (!label) return false;
           // Safety: never show legacy "What you get" button
           if (label === "what you get" || label === "что вы получите") return false;
