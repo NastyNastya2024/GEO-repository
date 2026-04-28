@@ -44,7 +44,7 @@ def bump(text: str, version: str) -> str:
 
 
 def main() -> None:
-    version = datetime.now().strftime("%Y%m%d%H%M")
+    version = datetime.now().strftime("%Y%m%d%H%M%S")
     html_files = sorted(
         [p for p in ROOT.rglob("*.html") if "node_modules" not in p.parts and ".git" not in p.parts]
     )

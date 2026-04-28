@@ -1317,6 +1317,300 @@ document.addEventListener("DOMContentLoaded", () => {
   injectFaqJsonLd();
   injectArticleJsonLd();
 
+  // ===== "Неформальный чат" modal (opens on Consultation button) =====
+  const ensureInformalChatModal = () => {
+    if (document.querySelector("#chatModal__root")) return;
+
+    const root = document.createElement("div");
+    root.id = "chatModal__root";
+    root.innerHTML = `
+      <div class="chatModal__overlay" data-chatmodal-close hidden></div>
+      <div class="chatModal__dialog" role="dialog" aria-modal="true" aria-labelledby="chatModal__title" hidden>
+        <div class="chatModal__head">
+          <div class="chatModal__brand" aria-hidden="true">
+            <img class="chatModal__avatar" src="${prefix}Img/logo-aeo.png" alt="" />
+          </div>
+          <div class="chatModal__meta">
+            <div class="chatModal__title" id="chatModal__title">${LANG === "en" ? "Informal chat" : "Неформальный чат"}</div>
+            <div class="chatModal__subtitle">${LANG === "en" ? "Quick answers without forms" : "Быстрые ответы без формальностей"}</div>
+          </div>
+          <button type="button" class="chatModal__close" aria-label="${LANG === "en" ? "Close" : "Закрыть"}" data-chatmodal-close>×</button>
+        </div>
+
+        <div class="chatModal__messages" id="chatModal__messages" aria-live="polite"></div>
+
+        <div class="chatModal__composer" aria-label="${LANG === "en" ? "Sections" : "Разделы"}">
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="consult">${LANG === "en" ? "Order consultation" : "Заказать консультацию"}</button>
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="methods">${LANG === "en" ? "Methods" : "Методы"}</button>
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="platforms">${LANG === "en" ? "AI platforms" : "Нейроплатформы"}</button>
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="strategy">${LANG === "en" ? "Strategy" : "Стратегия"}</button>
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="industries">${LANG === "en" ? "Industries" : "Отрасли"}</button>
+          <button type="button" class="chatModal__tag" data-chatmodal-tag="company">${LANG === "en" ? "About" : "О компании"}</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(root);
+
+    const overlay = root.querySelector(".chatModal__overlay");
+    const dialog = root.querySelector(".chatModal__dialog");
+    const messagesEl = root.querySelector("#chatModal__messages");
+    const tagButtons = Array.from(root.querySelectorAll("[data-chatmodal-tag]"));
+    const endpointFromMeta = document.querySelector('meta[name="form-endpoint"]')?.getAttribute("content") || "";
+    const resolvedEndpoint = endpointFromMeta || DEFAULT_FORM_ENDPOINT || "";
+
+    const lockScroll = on => {
+      document.body.classList.toggle("chatModal__isOpen", Boolean(on));
+    };
+
+    const scrollToBottom = () => {
+      if (!(messagesEl instanceof HTMLElement)) return;
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    };
+
+    const addMsg = (side, text) => {
+      if (!(messagesEl instanceof HTMLElement)) return;
+      const row = document.createElement("div");
+      row.className = `chatModal__msg chatModal__msg--${side}`;
+      const bubble = document.createElement("div");
+      bubble.className = "chatModal__bubble";
+      bubble.textContent = text;
+      row.appendChild(bubble);
+      messagesEl.appendChild(row);
+      scrollToBottom();
+    };
+
+    const isRu = LANG !== "en";
+    const normalizeSpace = s => String(s || "").replace(/\s+/g, " ").trim();
+
+    const getNavLinksBySummary = summaryText => {
+      const want = normalizeSpace(summaryText).toLowerCase();
+      const out = [];
+      document.querySelectorAll("details.nav-dd").forEach(dd => {
+        const summary = dd.querySelector(":scope > summary");
+        const panel = dd.querySelector(":scope > .nav-dd-panel");
+        if (!summary || !panel) return;
+        const got = normalizeSpace(summary.textContent).toLowerCase();
+        if (!got || !want || got !== want) return;
+        panel.querySelectorAll("a[href]").forEach(a => {
+          const label = normalizeSpace(a.textContent) || a.getAttribute("href") || "";
+          const href = a.getAttribute("href") || "";
+          if (!href || href === "#") return;
+          out.push({ label, href });
+        });
+      });
+      return out;
+    };
+
+    const sections = {
+      consult: {
+        title: isRu ? "Заказать консультацию" : "Order consultation",
+        text: isRu
+          ? "Опишите задачу — предложим план и сроки. Можно оставить контакты и комментарий."
+          : "Describe your task — we’ll suggest a plan and timeline. You can leave contacts and a note.",
+        form: true,
+        links: [
+          { label: isRu ? "Что вы получите" : "What you get", href: "tools/full-promotion.html" }
+        ]
+      },
+      methods: {
+        title: isRu ? "Методы" : "Methods",
+        text: isRu
+          ? "Органическое продвижение в нейросетях и AI‑поиске не держится на одном «методе». Названия вроде SEO, AEO, GEO, AIO и AI+SMM — это не взаимоисключающие «кнопки», а удобные ярлыки для разных наборов таких факторов: так проще планировать работу, бюджет и отчётность. На практике они постоянно пересекаются: одна и та же страница может поддерживать и классический поиск, и цитируемость в нейросетях, если она технически доступна, структурирована и честно отвечает на один главный вопрос. Что именно вкладывают в каждый термин и куда перейти за деталями — в списке ниже."
+          : "Organic growth in AI search isn’t built on a single “method”. Labels like SEO, AEO, GEO, AIO, and AI+SMM aren’t mutually exclusive buttons — they’re convenient tags for different factor sets, helping plan work, budgets, and reporting. In practice they overlap: one page can support classic search and AI citations if it’s accessible, well-structured, and answers one main question. See the list below for details and links.",
+        links: () => getNavLinksBySummary(isRu ? "Методы" : "Methods")
+      },
+      platforms: {
+        title: isRu ? "Нейроплатформы" : "AI platforms",
+        text: isRu ? "Как работать с выдачей и ответами в популярных нейроплатформах." : "How to work with visibility and answers in popular AI platforms.",
+        links: () => getNavLinksBySummary(isRu ? "Нейроплатформы" : "AI platforms")
+      },
+      strategy: {
+        title: isRu ? "Стратегия" : "Strategy",
+        text: isRu
+          ? "Соберём стратегию продвижения: аудит, приоритеты, контент‑план и метрики."
+          : "We’ll build a promotion strategy: audit, priorities, content plan, and metrics.",
+        links: () => getNavLinksBySummary(isRu ? "Инструменты" : "Tools")
+      },
+      industries: {
+        title: isRu ? "Отрасли" : "Industries",
+        text: isRu ? "Примеры и рекомендации по нишам: как адаптировать GEO/SEO под отрасль." : "Examples and recommendations by niche: how to adapt GEO/SEO per industry.",
+        links: [{ label: isRu ? "Отрасли (раздел)" : "Industries (section)", href: "#industries" }]
+      },
+      company: {
+        title: isRu ? "О компании" : "About",
+        text: isRu ? "Кто мы, как работаем и что вы получаете на выходе." : "Who we are, how we work, and what you get.",
+        links: [{ label: isRu ? "О компании" : "About", href: "about.html" }]
+      }
+    };
+
+    const addUserChoice = title => addMsg("me", title);
+
+    const addBotCard = sec => {
+      if (!(messagesEl instanceof HTMLElement)) return;
+      const linkItems = typeof sec.links === "function" ? sec.links() : sec.links || [];
+      const wrap = document.createElement("div");
+      wrap.className = "chatModal__msg chatModal__msg--bot";
+
+      const linksHtml = (linkItems || [])
+        .map(l => {
+          const href = toLangUrl(l.href) || new URL(l.href, window.location.href).toString();
+          return `<a class="chatModal__link" href="${href}">${l.label}</a>`;
+        })
+        .join("");
+
+      const formHtml = sec.form
+        ? `
+          <form class="chatModal__leadForm" data-chatmodal-leadform novalidate>
+            <input class="chatModal__field" type="tel" name="user_phone" placeholder="${isRu ? "Телефон" : "Phone"}" required />
+            <input class="chatModal__field" type="email" name="user_email" placeholder="${isRu ? "Email для связи" : "Email"}" required />
+            <textarea class="chatModal__field chatModal__field--area" name="message" placeholder="${isRu ? "Коротко: что нужно сделать?" : "Briefly: what do you need?"}" required></textarea>
+            <button class="chatModal__submit" type="submit">${isRu ? "Отправить" : "Send"}</button>
+            <div class="chatModal__hint">${isRu ? "Отправка через Formspree на вашу почту." : "Sent via Formspree to your email."}</div>
+          </form>
+        `
+        : "";
+
+      wrap.innerHTML = `
+        <div class="chatModal__bubble">
+          <div class="chatModal__cardTitle">${sec.title}</div>
+          <div class="chatModal__cardText">${sec.text}</div>
+          ${formHtml}
+          ${linksHtml ? `<div class="chatModal__links">${linksHtml}</div>` : ""}
+        </div>
+      `;
+      messagesEl.appendChild(wrap);
+      scrollToBottom();
+    };
+
+    const open = () => {
+      if (!(overlay instanceof HTMLElement) || !(dialog instanceof HTMLElement)) return;
+      overlay.hidden = false;
+      dialog.hidden = false;
+      lockScroll(true);
+      requestAnimationFrame(() => {
+        dialog.classList.add("chatModal__dialog--open");
+        if (tagButtons[0] instanceof HTMLElement) tagButtons[0].focus();
+      });
+      // greet once per open
+      if (messagesEl instanceof HTMLElement) {
+        messagesEl.innerHTML = "";
+        addMsg(
+          "bot",
+          isRu
+            ? "Привет! Выберите раздел — пришлю коротко описание и ссылки на нужные страницы."
+            : "Hi! Choose a section — I’ll reply with a short description and relevant links."
+        );
+      }
+    };
+
+    const close = () => {
+      if (!(overlay instanceof HTMLElement) || !(dialog instanceof HTMLElement)) return;
+      dialog.classList.remove("chatModal__dialog--open");
+      overlay.hidden = true;
+      dialog.hidden = true;
+      lockScroll(false);
+    };
+
+    root.addEventListener("click", e => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.closest("[data-chatmodal-close]")) close();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key !== "Escape") return;
+      if (!(dialog instanceof HTMLElement)) return;
+      if (dialog.hidden) return;
+      close();
+    });
+
+    tagButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-chatmodal-tag") || "";
+        const sec = sections[id];
+        if (!sec) return;
+        addUserChoice(sec.title);
+        addBotCard(sec);
+      });
+    });
+
+    const setFormError = (el, on) => {
+      if (!(el instanceof HTMLElement)) return;
+      el.classList.toggle("chatModal__field--error", Boolean(on));
+    };
+
+    root.addEventListener("submit", e => {
+      const form = e.target;
+      if (!(form instanceof HTMLFormElement)) return;
+      if (!form.hasAttribute("data-chatmodal-leadform")) return;
+      e.preventDefault();
+
+      const phone = form.querySelector('input[name="user_phone"]');
+      const email = form.querySelector('input[name="user_email"]');
+      const message = form.querySelector('textarea[name="message"]');
+
+      setFormError(phone, false);
+      setFormError(email, false);
+      setFormError(message, false);
+
+      let hasError = false;
+      if (email && !isValidEmail(email.value)) { setFormError(email, true); hasError = true; }
+      if (message && !String(message.value || "").trim()) { setFormError(message, true); hasError = true; }
+      if (phone && !String(phone.value || "").trim()) { setFormError(phone, true); hasError = true; }
+      if (hasError) return;
+
+      const payload = {
+        email: email ? String(email.value || "").trim() : "",
+        phone: phone ? String(phone.value || "").trim() : "",
+        message: message ? String(message.value || "").trim() : "",
+        page: window.location.href
+      };
+
+      const onDone = ok => {
+        if (ok) addMsg("bot", isRu ? "Спасибо! Заявка отправлена — свяжемся с вами." : "Thanks! Sent — we’ll get back to you.");
+        else addMsg("bot", isRu ? "Не получилось отправить автоматически. Я открою письмо — отправьте вручную." : "Auto-send failed. I’ll open an email draft for you.");
+        form.reset();
+        scrollToBottom();
+      };
+
+      const fallbackMailto = () => {
+        const subject = encodeURIComponent(isRu ? "Заявка с сайта" : "Website request");
+        const body = encodeURIComponent(
+          `Email: ${payload.email}\nТелефон: ${payload.phone}\n\nСообщение:\n${payload.message}\n\nСтраница:\n${payload.page}\n`
+        );
+        window.location.href = `mailto:anastkomarova@yandex.ru?subject=${subject}&body=${body}`;
+      };
+
+      if (!resolvedEndpoint || !/^https?:\/\//i.test(resolvedEndpoint)) {
+        fallbackMailto();
+        onDone(false);
+        return;
+      }
+
+      fetch(resolvedEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(r => {
+          if (!r.ok) throw new Error("bad response");
+          onDone(true);
+        })
+        .catch(() => {
+          fallbackMailto();
+          onDone(false);
+        });
+    });
+
+    return { open, close };
+  };
+
+  let chatModalApi = null;
+  const openInformalChat = () => {
+    chatModalApi = chatModalApi || ensureInformalChatModal();
+    chatModalApi?.open?.();
+  };
+
   const openTopMenu = () => {
     if (!burger) return;
     topMenu.hidden = false;
@@ -1737,7 +2031,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openModal = key => {
     if (key === "contacts") {
-      openContactOverlay();
+      openInformalChat();
       return;
     }
     if (!modal || !modalTitle || !modalBody || !popupContent[key]) return;
