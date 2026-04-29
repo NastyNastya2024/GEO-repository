@@ -25,6 +25,44 @@ body.chatModal__isOpen {
   overflow: hidden;
 }
 
+/* Consent checkbox in forms */
+.chatModal__consent,
+.contact-quick__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: rgba(226, 232, 240, 0.78);
+  user-select: none;
+}
+
+.chatModal__consent input,
+.contact-quick__consent input {
+  margin-top: 0.2rem;
+  width: 16px;
+  height: 16px;
+  accent-color: rgba(56, 189, 248, 0.95);
+}
+
+.chatModal__consentLink,
+.contact-quick__consent-link {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: rgba(56, 189, 248, 0.95);
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.chatModal__consentLink:hover,
+.contact-quick__consent-link:hover {
+  color: #e8f2ff;
+}
+
 :root {
   /* Шкала отступов: 4px-шаг, крупные шаги 8px (в духе M3 / Apple HIG) */
   --sp-1: 0.25rem;
@@ -1478,10 +1516,11 @@ body.chatModal__isOpen .chatModal__overlay {
   height: 44px;
   border-radius: 999px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(17, 111, 235, 0.65);
   background:
-    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.28), transparent 55%),
-    rgba(2, 6, 23, 0.55);
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.38), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(17, 111, 235, 0.28), transparent 60%),
+    rgba(17, 111, 235, 0.18);
   display: grid;
   place-items: center;
   flex: 0 0 auto;
@@ -1771,10 +1810,11 @@ body.chatModal__isOpen .chatModal__overlay {
   height: 44px;
   border-radius: 999px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(17, 111, 235, 0.65);
   background:
-    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.28), transparent 55%),
-    rgba(2, 6, 23, 0.55);
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.38), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(17, 111, 235, 0.28), transparent 60%),
+    rgba(17, 111, 235, 0.18);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
   display: grid;
   place-items: center;

@@ -1462,8 +1462,23 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       industries: {
         title: isRu ? "Отрасли" : "Industries",
-        text: isRu ? "Примеры и рекомендации по нишам: как адаптировать GEO/SEO под отрасль." : "Examples and recommendations by niche: how to adapt GEO/SEO per industry.",
-        links: [{ label: isRu ? "Отрасли (раздел)" : "Industries (section)", href: "#industries" }]
+        text: isRu
+          ? "Кейсы и рекомендации по нишам: как адаптировать GEO/SEO под отрасль. Все материалы — в списке ниже."
+          : "Cases and recommendations by niche: how to adapt GEO/SEO per industry. All materials are listed below.",
+        links: () => [
+          { label: isRu ? "Все отрасли и нейропоиск" : "All industries & AI search", href: `${pageBase}case-studies/all-industries-geo-aeo.html` },
+          { label: isRu ? "Маркетплейсы" : "Marketplaces", href: `${pageBase}case-studies/marketplaces-neuro-strategy.html` },
+          { label: isRu ? "Клиники" : "Clinics", href: `${pageBase}case-studies/clinics-neuro-strategy.html` },
+          { label: isRu ? "Сервисные центры" : "Service centers", href: `${pageBase}case-studies/service-centers-neuro-strategy.html` },
+          { label: isRu ? "Шоурумы" : "Showrooms", href: `${pageBase}case-studies/showrooms-neuro-strategy.html` },
+          { label: isRu ? "Салоны красоты" : "Beauty salons", href: `${pageBase}case-studies/beauty-neuro-strategy.html` },
+          { label: isRu ? "Доставка" : "Delivery", href: `${pageBase}case-studies/delivery-neuro-strategy.html` },
+          { label: isRu ? "Корпорации" : "Corporations", href: `${pageBase}case-studies/corporations.html` },
+          { label: "E-commerce", href: `${pageBase}case-studies/ecommerce.html` },
+          { label: "SaaS & digital", href: `${pageBase}case-studies/saas.html` },
+          { label: isRu ? "Локальный бизнес" : "Local business", href: `${pageBase}case-studies/local-business.html` },
+          { label: isRu ? "AI-discovery лидеры" : "AI discovery leaders", href: `${pageBase}case-studies/ai-discovery.html` }
+        ]
       },
       company: {
         title: isRu ? "О компании" : "About",
@@ -1500,6 +1515,26 @@ document.addEventListener("DOMContentLoaded", () => {
             <input class="chatModal__field" type="tel" name="user_phone" placeholder="${isRu ? "Телефон" : "Phone"}" required />
             <input class="chatModal__field" type="email" name="user_email" placeholder="${isRu ? "Email для связи" : "Email"}" required />
             <textarea class="chatModal__field chatModal__field--area" name="message" placeholder="${isRu ? "Коротко: что нужно сделать?" : "Briefly: what do you need?"}" required></textarea>
+            <label class="chatModal__consent">
+              <input type="checkbox" name="consent" required />
+              <span>
+                ${
+                  isRu
+                    ? `Согласен(на) на <button type="button" class="chatModal__consentLink" data-popup="consent">обработку персональных данных</button>.`
+                    : `I agree to the <button type="button" class="chatModal__consentLink" data-popup="consent">personal data processing terms</button>.`
+                }
+              </span>
+            </label>
+            <label class="chatModal__consent">
+              <input type="checkbox" name="consent" required />
+              <span>
+                ${
+                  isRu
+                    ? `Согласен(на) на <button type="button" class="chatModal__consentLink" data-popup="consent">обработку персональных данных</button>.`
+                    : `I agree to the <button type="button" class="chatModal__consentLink" data-popup="consent">personal data processing terms</button>.`
+                }
+              </span>
+            </label>
             <button class="chatModal__submit" type="submit">${isRu ? "Отправить" : "Send"}</button>
           </form>
         `
@@ -1606,6 +1641,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const phone = form.querySelector('input[name="user_phone"]');
       const email = form.querySelector('input[name="user_email"]');
       const message = form.querySelector('textarea[name="message"]');
+      const consent = form.querySelector('input[name="consent"]');
 
       setFormError(phone, false);
       setFormError(email, false);
@@ -1615,6 +1651,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (email && !isValidEmail(email.value)) { setFormError(email, true); hasError = true; }
       if (message && !String(message.value || "").trim()) { setFormError(message, true); hasError = true; }
       if (phone && !String(phone.value || "").trim()) { setFormError(phone, true); hasError = true; }
+      if (consent && !(consent instanceof HTMLInputElement && consent.checked)) { setFormError(consent, true); hasError = true; }
       if (hasError) return;
 
       const payload = {
@@ -1918,6 +1955,26 @@ document.addEventListener("DOMContentLoaded", () => {
                       <input class="input phone" type="tel" name="user_phone" placeholder="${LANG === "en" ? "Phone" : "Телефон"}" required />
                       <input class="input email" type="email" name="user_email" placeholder="${tr("yourEmail")}" required />
                       <textarea class="input message" name="message" placeholder="${tr("yourMessage")}" required></textarea>
+                      <label class="contact-quick__consent">
+                        <input type="checkbox" name="consent" required />
+                        <span>
+                          ${
+                            LANG === "en"
+                              ? `I agree to the <button type="button" class="contact-quick__consent-link" data-popup="consent">personal data processing terms</button>.`
+                              : `Согласен(на) на <button type="button" class="contact-quick__consent-link" data-popup="consent">обработку персональных данных</button>.`
+                          }
+                        </span>
+                      </label>
+                      <label class="contact-quick__consent">
+                        <input type="checkbox" name="consent" required />
+                        <span>
+                          ${
+                            LANG === "en"
+                              ? `I agree to the <button type="button" class="contact-quick__consent-link" data-popup="consent">personal data processing terms</button>.`
+                              : `Согласен(на) на <button type="button" class="contact-quick__consent-link" data-popup="consent">обработку персональных данных</button>.`
+                          }
+                        </span>
+                      </label>
                       <button class="btn input submit" type="submit">${tr("send")}</button>
                     </form>
                   </div>
@@ -2129,6 +2186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = form.querySelector('input[name="user_email"]');
     const phone = form.querySelector('input[name="user_phone"]');
     const message = form.querySelector('textarea[name="message"]');
+    const consent = form.querySelector('input[name="consent"]');
     const fields = [name, email, phone, message].filter(Boolean);
 
     fields.forEach(el => el.classList.remove("form-error"));
@@ -2137,6 +2195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (name && !String(name.value || "").trim()) { name.classList.add("form-error"); hasError = true; }
     if (email && !isValidEmail(email.value)) { email.classList.add("form-error"); hasError = true; }
     if (message && !String(message.value || "").trim()) { message.classList.add("form-error"); hasError = true; }
+    if (consent && !(consent instanceof HTMLInputElement && consent.checked)) { consent.classList.add("form-error"); hasError = true; }
 
     if (hasError) return;
 
